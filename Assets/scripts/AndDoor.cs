@@ -1,29 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AndDoor : MonoBehaviour
 {
-    public bool button1 = false;
-    public bool button2 = false;
-    private Animator doorAnimator;
+    public bool isOpen = false;
+    public Vector3 openPosition;
+    public Vector3 closedPosition;
+    public float speed = 2f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        doorAnimator = GetComponent<Animator>(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (button1 && button2)
+        Vector3 targetPosition;
+        if (isOpen)
         {
-            doorAnimator.SetBool("isOpen", true);
+            targetPosition = openPosition;
         }
         else
         {
-            doorAnimator.SetBool("isOpen", false);
+            targetPosition = closedPosition;
         }
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+    }
+
+    public void OpenDoor()
+    {
+        isOpen = true;
+    }
+
+    public void ClosedDoor()
+    {
+        isOpen = false;
     }
 }

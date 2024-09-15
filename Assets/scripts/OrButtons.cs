@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AndButtons : MonoBehaviour
+public class OrButtons : MonoBehaviour
 {
     public GateDoor door;
     private bool isActivated = false;
@@ -25,26 +25,26 @@ public class AndButtons : MonoBehaviour
             {
                 isActivated = !isActivated;
                 UpdateButtonColor();
-                CheckAndGate();
+                CheckOrGate();
             }
         }
     }
 
-    void CheckAndGate()
+    void CheckOrGate()
     {
-        AndButtons[] buttons = FindObjectsOfType<AndButtons>();
-        bool allActivated = true;
+        OrButtons[] buttons = FindObjectsOfType<OrButtons>();
+        bool Activated = false;
 
-        foreach (AndButtons button in buttons)
+        foreach (OrButtons button in buttons)
         {
-            if (!button.isActivated)
+            if (button.isActivated)
             {
-                allActivated = false;
+                Activated = true;
                 break;
             }
         }
 
-        if (allActivated)
+        if (Activated)
         {
             door.OpenDoor();
         }

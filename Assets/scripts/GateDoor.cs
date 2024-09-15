@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AndDoor : MonoBehaviour
+public class GateDoor : MonoBehaviour
 {
     public bool isOpen = false;
     public Vector3 openPosition;

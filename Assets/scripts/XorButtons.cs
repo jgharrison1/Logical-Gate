@@ -32,24 +32,27 @@ public class XorButtons : MonoBehaviour
 
     void CheckXorGate()
     {
-        XorButtons[] buttons = FindObjectsOfType<XorButtons>();
-        bool allActivated = true;
+       XorButtons[] buttons = FindObjectsOfType<XorButtons>();
         bool Activated = false;
+        bool allActivated = true;
 
         foreach (XorButtons button in buttons)
         {
-            if (button.isActivated)
+            if (!button.isActivated)
+            {
+                allActivated = false;
+            }
+            else
             {
                 Activated = true;
-                break;
             }
         }
 
-        if (Activated)
+        if ((Activated == true) && (allActivated == false))
         {
             door.OpenDoor();
         }
-        if (allActivated)
+        else
         {
             door.ClosedDoor();
         }

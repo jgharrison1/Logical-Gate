@@ -15,6 +15,7 @@ public class XnorButtons : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
+        CheckXnorGate();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -33,25 +34,28 @@ public class XnorButtons : MonoBehaviour
     void CheckXnorGate()
     {
         XnorButtons[] buttons = FindObjectsOfType<XnorButtons>();
-        bool allActivated = true;
         bool Activated = false;
+        bool allActivated = true;
 
         foreach (XnorButtons button in buttons)
         {
-            if (button.isActivated)
+            if (!button.isActivated)
+            {
+                allActivated = false;
+            }
+            else
             {
                 Activated = true;
-                break;
             }
         }
 
-        if (!Activated)
+        if ((Activated != true) || (allActivated != false))
         {
             door.OpenDoor();
         }
-        if (allActivated)
+        else
         {
-            door.OpenDoor();
+            door.ClosedDoor();
         }
     }
 

@@ -265,7 +265,6 @@ GameObject:
   - component: {fileID: 37730504}
   - component: {fileID: 37730506}
   - component: {fileID: 37730502}
-  - component: {fileID: 37730507}
   m_Layer: 0
   m_Name: Button1p1
   m_TagString: Untagged
@@ -419,24 +418,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37730500}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88e932cc942c564f92d89fcb9c7cd37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 1734911608}
-  activatedColor: {r: 0, g: 1, b: 0, a: 1}
-  deactivatedColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &37730507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37730500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4710dfae72de5e24c958d169ef65028f, type: 3}
+  m_Script: {fileID: 11500000, guid: f88e932cc942c564f92d89fcb9c7cd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1734911608}
@@ -4727,7 +4711,6 @@ GameObject:
   - component: {fileID: 1044669044}
   - component: {fileID: 1044669046}
   - component: {fileID: 1044669042}
-  - component: {fileID: 1044669047}
   m_Layer: 0
   m_Name: Button1p2
   m_TagString: Untagged
@@ -4881,24 +4864,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044669040}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88e932cc942c564f92d89fcb9c7cd37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 1734911608}
-  activatedColor: {r: 0, g: 1, b: 0, a: 1}
-  deactivatedColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &1044669047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044669040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4710dfae72de5e24c958d169ef65028f, type: 3}
+  m_Script: {fileID: 11500000, guid: f88e932cc942c564f92d89fcb9c7cd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1734911608}
@@ -8375,7 +8343,7 @@ Transform:
   m_GameObject: {fileID: 2015609491}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.84, y: 4.89, z: 0}
+  m_LocalPosition: {x: 1.78, y: 14.64, z: 0}
   m_LocalScale: {x: 2, y: 2.0061526, z: 0.82994986}
   m_ConstrainProportionsScale: 1
   m_Children: []

@@ -15,6 +15,7 @@ public class NorButtons : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
+        CheckNorGate();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

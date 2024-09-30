@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AndButtons : MonoBehaviour
-{
-    public GateDoor door;
+public class NotButton2 : MonoBehaviour
+{public GateDoor door;
     private bool isActivated = false;
 
     private SpriteRenderer spriteRenderer;
@@ -15,7 +14,7 @@ public class AndButtons : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
-        CheckAndGate();
+        CheckNot2Gate();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -26,26 +25,22 @@ public class AndButtons : MonoBehaviour
             {
                 isActivated = !isActivated;
                 UpdateButtonColor();
-                CheckAndGate();
+                CheckNot2Gate();
             }
         }
     }
 
-    void CheckAndGate()
+    void CheckNot2Gate()
     {
-        AndButtons[] buttons = FindObjectsOfType<AndButtons>();
-        bool allActivated = true;
+        NotButton2 button = FindObjectOfType<NotButton2>();
+        bool Activated = false;
 
-        foreach (AndButtons button in buttons)
+        if (button.isActivated)
         {
-            if (!button.isActivated)
-            {
-                allActivated = false;
-                break;
-            }
+            Activated = true;
         }
 
-        if (allActivated)
+        if (!Activated)
         {
             door.OpenDoor();
         }

@@ -15,6 +15,7 @@ public class NandButtons : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
+        CheckNandGate();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

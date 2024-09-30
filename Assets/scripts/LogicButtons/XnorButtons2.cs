@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AndButtons : MonoBehaviour
+public class XnorButtons2 : MonoBehaviour
 {
     public GateDoor door;
     private bool isActivated = false;
@@ -15,7 +15,7 @@ public class AndButtons : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
-        CheckAndGate();
+        CheckXnor2Gate();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -26,26 +26,30 @@ public class AndButtons : MonoBehaviour
             {
                 isActivated = !isActivated;
                 UpdateButtonColor();
-                CheckAndGate();
+                CheckXnor2Gate();
             }
         }
     }
 
-    void CheckAndGate()
+    void CheckXnor2Gate()
     {
-        AndButtons[] buttons = FindObjectsOfType<AndButtons>();
+        XnorButtons2[] buttons = FindObjectsOfType<XnorButtons2>();
+        bool Activated = false;
         bool allActivated = true;
 
-        foreach (AndButtons button in buttons)
+        foreach (XnorButtons2 button in buttons)
         {
             if (!button.isActivated)
             {
                 allActivated = false;
-                break;
+            }
+            else
+            {
+                Activated = true;
             }
         }
 
-        if (allActivated)
+        if ((Activated != true) || (allActivated != false))
         {
             door.OpenDoor();
         }

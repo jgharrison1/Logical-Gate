@@ -15,6 +15,7 @@ public class OrButtons : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
+        CheckOrGate();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

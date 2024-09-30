@@ -15,6 +15,7 @@ public class XorButtons : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
+        CheckXorGate();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

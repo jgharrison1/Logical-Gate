@@ -925,9 +925,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc041395870a444c988369cb8ce63c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 2044821616}
-  activatedColor: {r: 0, g: 1, b: 0, a: 1}
-  deactivatedColor: {r: 1, g: 0, b: 0, a: 1}
+  ConnectionD: {fileID: 0}
+  ConnectionA: {fileID: 0}
+  ConnectionB: {fileID: 0}
 --- !u!1 &154796212
 GameObject:
   m_ObjectHideFlags: 0
@@ -8823,9 +8823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc041395870a444c988369cb8ce63c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 2044821616}
-  activatedColor: {r: 0, g: 1, b: 0, a: 1}
-  deactivatedColor: {r: 1, g: 0, b: 0, a: 1}
+  ConnectionD: {fileID: 0}
+  ConnectionA: {fileID: 0}
+  ConnectionB: {fileID: 0}
 --- !u!1 &1733258584
 GameObject:
   m_ObjectHideFlags: 0

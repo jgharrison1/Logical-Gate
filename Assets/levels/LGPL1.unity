@@ -1994,7 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   andLogicGate: {fileID: 1181446322}
   buttonInput1: 0
-  buttonInput2: 1
+  buttonInput2: 0
   playerTag: Player
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
   deactivatedColor: {r: 1, g: 0, b: 0, a: 1}
@@ -2094,7 +2094,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3280,7 +3280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   andLogicGate: {fileID: 1181446322}
-  buttonInput1: 1
+  buttonInput1: 0
   buttonInput2: 0
   playerTag: Player
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -3428,9 +3428,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   andLogicGate: {fileID: 1181446322}
-  openPosition: {x: 14, y: 15, z: 0}
-  closedPosition: {x: 14, y: 10, z: 0}
+  openPosition: {x: 14, y: 10, z: 0}
+  closedPosition: {x: 14, y: 15, z: 0}
   speed: 2
+  gateOutput: 0
 --- !u!212 &1171477213
 SpriteRenderer:
   m_ObjectHideFlags: 0

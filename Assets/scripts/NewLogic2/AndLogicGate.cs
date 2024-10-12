@@ -5,10 +5,15 @@ public class AndLogicGate : MonoBehaviour
     public bool input1;
     public bool input2;
     public bool output;
+    public string gateName1;
+    public string gateName2;
 
     public GameObject input1ButtonObject;
     public GameObject input2ButtonObject;
     public string playerTag = "Player";
+
+    public AndLogicGate previousGate1;
+    public AndLogicGate previousGate2;
 
     void Update()
     {
@@ -17,6 +22,16 @@ public class AndLogicGate : MonoBehaviour
 
     void ProcessAndGate()
     {
+        if(previousGate1 != null)
+        {
+            input1 = previousGate1.output;
+        }
+
+        if(previousGate2 != null)
+        {
+            input2 = previousGate2.output;
+        }
+
         output = input1 && input2;
     }
 

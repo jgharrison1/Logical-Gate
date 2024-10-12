@@ -8,6 +8,8 @@ public class ButtonInputController : MonoBehaviour
     public bool buttonInput1;
     public bool buttonInput2;
     public string playerTag = "Player";
+    public string buttonName1;
+    public string buttonName2;
 
     private SpriteRenderer spriteRenderer;
     private bool color;
@@ -22,15 +24,14 @@ public class ButtonInputController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(playerTag) && gameObject.name == "button1")
+        if (other.CompareTag(playerTag) && gameObject.name == buttonName1)
         {
-            Debug.Log("in the onTriggerEnter");
             buttonInput1 = !buttonInput1;
             andLogicGate.input1 = buttonInput1;
             color = buttonInput1;
             UpdateButtonColor();
         }
-        else if (other.CompareTag(playerTag) && gameObject.name == "button2")
+        else if (other.CompareTag(playerTag) && gameObject.name == buttonName2)
         {
             buttonInput2 = !buttonInput2;
             andLogicGate.input2 = buttonInput2;

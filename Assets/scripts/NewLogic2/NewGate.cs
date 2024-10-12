@@ -24,6 +24,8 @@ public class GateController : MonoBehaviour
                 CloseGate();
             }
         }
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
     }
 
     void OpenGate()

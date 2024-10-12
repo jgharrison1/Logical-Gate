@@ -1,26 +1,14 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class AndLogicGate : MonoBehaviour
+public class AndLogicGate : ParentGate
 {
-    public bool input1;
-    public bool input2;
-    public bool output;
-    public string gateName1;
-    public string gateName2;
-
-    public GameObject input1ButtonObject;
-    public GameObject input2ButtonObject;
-    public string playerTag = "Player";
-
-    public AndLogicGate previousGate1;
-    public AndLogicGate previousGate2;
-
-    void Update()
-    {
-        ProcessAndGate();
+    public AndLogicGate(bool input1, bool input2) : base(input1, input2)
+    {    
     }
 
-    void ProcessAndGate()
+    void Update()
     {
         if(previousGate1 != null)
         {
@@ -31,19 +19,13 @@ public class AndLogicGate : MonoBehaviour
         {
             input2 = previousGate2.output;
         }
+        
+        ProcessAndGate();
+    }
 
+    void ProcessAndGate()
+    {
         output = input1 && input2;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(playerTag) && other.gameObject == input1ButtonObject)
-        {
-            input1 = !input1;
-        }
-        else if (other.CompareTag(playerTag) && other.gameObject == input2ButtonObject)
-        {
-            input2 = !input2;
-        }
-    }
 }

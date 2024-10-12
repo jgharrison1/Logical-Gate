@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonInputController : MonoBehaviour
 {
-    public AndLogicGate andLogicGate;
+    public ParentGate ConnectedGate;
     public bool buttonInput1;
     public bool buttonInput2;
     public string playerTag = "Player";
@@ -27,14 +27,14 @@ public class ButtonInputController : MonoBehaviour
         if (other.CompareTag(playerTag) && gameObject.name == buttonName1)
         {
             buttonInput1 = !buttonInput1;
-            andLogicGate.input1 = buttonInput1;
+            ConnectedGate.input1 = buttonInput1;
             color = buttonInput1;
             UpdateButtonColor();
         }
         else if (other.CompareTag(playerTag) && gameObject.name == buttonName2)
         {
             buttonInput2 = !buttonInput2;
-            andLogicGate.input2 = buttonInput2;
+            ConnectedGate.input2 = buttonInput2;
             color = buttonInput2;
             UpdateButtonColor();
         }

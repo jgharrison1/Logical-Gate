@@ -14,8 +14,8 @@ public class ParentGate : MonoBehaviour
     public GameObject input2ButtonObject;
     public string playerTag = "Player";
 
-    public AndLogicGate previousGate1;
-    public AndLogicGate previousGate2;
+    public ParentGate previousGate1;
+    public ParentGate previousGate2;
 
     public ParentGate(bool input1, bool input2)
     {

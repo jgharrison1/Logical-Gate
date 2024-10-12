@@ -1259,11 +1259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab571812a61e24ca210f25abaf9ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedGateGate: {fileID: 1403015311}
-  openPosition: {x: 34.35, y: 14, z: 0}
-  closedPosition: {x: 34.35, y: 16.9, z: 0}
+  ConnectedGate: {fileID: 1403015311}
+  openPosition: {x: 16.22, y: 6}
+  closedPosition: {x: 16.22, y: 8.71}
   speed: 2
-  gateOutput: 0
 --- !u!1 &412401998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,8 +1920,8 @@ Transform:
   m_GameObject: {fileID: 494011825}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.47, y: -0.93, z: -0.013444745}
-  m_LocalScale: {x: 0.5472, y: 1.7076, z: 1}
+  m_LocalPosition: {x: 39.5669, y: -0.93, z: -0.013444745}
+  m_LocalScale: {x: 0.3534365, y: 1.7076, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1789887153}
@@ -3109,7 +3108,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3189,11 +3188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab571812a61e24ca210f25abaf9ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedGateGate: {fileID: 1479858837}
-  openPosition: {x: 51.3, y: 11.88, z: 0}
-  closedPosition: {x: 51.3, y: 14.1, z: 0}
-  speed: 2
-  gateOutput: 0
+  ConnectedGate: {fileID: 1479858837}
+  openPosition: {x: 16.2464, y: 9}
+  closedPosition: {x: 16.2464, y: 5.9794}
+  speed: 10
 --- !u!1 &812044223
 GameObject:
   m_ObjectHideFlags: 0
@@ -3545,11 +3543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab571812a61e24ca210f25abaf9ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedGateGate: {fileID: 452149973}
-  openPosition: {x: 17.47, y: 14.7, z: 0}
-  closedPosition: {x: 17.47, y: 17, z: 0}
+  ConnectedGate: {fileID: 452149973}
+  openPosition: {x: 16.29, y: 6}
+  closedPosition: {x: 16.29, y: 8.88}
   speed: 2
-  gateOutput: 0
 --- !u!1 &921748001
 GameObject:
   m_ObjectHideFlags: 0

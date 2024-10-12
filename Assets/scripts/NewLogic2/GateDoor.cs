@@ -2,39 +2,38 @@ using UnityEngine;
 
 public class GateController : MonoBehaviour
 {
-    public ParentGate ConnectedGateGate;
-    public Vector3 openPosition;
-    public Vector3 closedPosition;
+    public ParentGate ConnectedGate;
+    public Vector2 openPosition;
+    public Vector2 closedPosition;
     public float speed = 2f;
-    public bool gateOutput;
-    private Vector3 targetPosition;
+    private Vector2 targetPosition;
 
     void Update()
     {
-        if (ConnectedGateGate != null)
+        if (ConnectedGate != null)
         {
-            if (ConnectedGateGate.output)
+            if (ConnectedGate.output)
             {
-                gateOutput = ConnectedGateGate.output;
                 OpenGate();
             }
             else
             {
-                gateOutput = ConnectedGateGate.output;
                 CloseGate();
             }
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
     }
 
     void OpenGate()
     {
-        targetPosition = openPosition;
+        Vector2 worldOpenPosition = transform.parent.TransformPoint(openPosition);
+        targetPosition = worldOpenPosition;
     }
 
     void CloseGate()
     {
-        targetPosition = closedPosition;
+        Vector2 worldClosedPosition = transform.parent.TransformPoint(closedPosition);
+        targetPosition = worldClosedPosition;
     }
 }
+

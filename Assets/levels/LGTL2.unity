@@ -2707,11 +2707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab571812a61e24ca210f25abaf9ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedGateGate: {fileID: 1334051389}
-  openPosition: {x: 16.27, y: 4, z: 0}
-  closedPosition: {x: 16.27, y: 6.81, z: 0}
+  ConnectedGate: {fileID: 0}
+  openPosition: {x: 0, y: 0}
+  closedPosition: {x: 0, y: 0}
   speed: 2
-  gateOutput: 0
 --- !u!1 &921748001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,7 +3543,7 @@ Transform:
   m_GameObject: {fileID: 1171477211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.379203, y: 1.7349138, z: -0.017520286}
+  m_LocalPosition: {x: 4, y: 1, z: -0.017520286}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3562,11 +3561,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab571812a61e24ca210f25abaf9ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedGateGate: {fileID: 1334051389}
-  openPosition: {x: 4, y: 2, z: 0}
-  closedPosition: {x: 4, y: 1, z: 0}
+  ConnectedGate: {fileID: 1334051389}
+  openPosition: {x: 4, y: 2}
+  closedPosition: {x: 4, y: 1}
   speed: 2
-  gateOutput: 0
 --- !u!1 &1181446321
 GameObject:
   m_ObjectHideFlags: 0

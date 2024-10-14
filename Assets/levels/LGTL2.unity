@@ -694,13 +694,11 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  gateName1: 
-  gateName2: 
   input1ButtonObject: {fileID: 1751242830}
   input2ButtonObject: {fileID: 1850959883}
-  playerTag: Player
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
+  playerTag: Player
 --- !u!1 &339839697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,13 +3663,11 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  gateName1: 
-  gateName2: 
   input1ButtonObject: {fileID: 1161318227}
   input2ButtonObject: {fileID: 768050168}
-  playerTag: Player
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
+  playerTag: Player
 --- !u!1 &1190406279
 GameObject:
   m_ObjectHideFlags: 0
@@ -4008,13 +4004,11 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  gateName1: gate1
-  gateName2: gate2
   input1ButtonObject: {fileID: 0}
   input2ButtonObject: {fileID: 0}
-  playerTag: Player
   previousGate1: {fileID: 1181446325}
   previousGate2: {fileID: 304294181}
+  playerTag: Player
 --- !u!1 &1376618490
 GameObject:
   m_ObjectHideFlags: 0
@@ -5330,7 +5324,7 @@ GameObject:
   - component: {fileID: 2015609493}
   - component: {fileID: 2015609492}
   m_Layer: 0
-  m_Name: player2
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

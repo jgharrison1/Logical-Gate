@@ -882,8 +882,8 @@ Transform:
   m_GameObject: {fileID: 307854804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.24, y: 4.9898, z: -0.014595622}
-  m_LocalScale: {x: 1, y: 0.54598397, z: 1}
+  m_LocalPosition: {x: 13.21, y: 5.66, z: -0.014595622}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 520146218}
@@ -1000,7 +1000,6 @@ MonoBehaviour:
   ConnectedGate: {fileID: 1479858837}
   buttonInput1: 0
   buttonInput2: 0
-  playerTag: Player
   buttonName1: Button1t3
   buttonName2: 
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -1560,7 +1559,6 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 614303545}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
-  playerTag: Player
 --- !u!212 &452149974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1901,7 +1899,7 @@ GameObject:
   - component: {fileID: 494011826}
   - component: {fileID: 494011829}
   - component: {fileID: 494011828}
-  - component: {fileID: 494011827}
+  - component: {fileID: 494011830}
   m_Layer: 0
   m_Name: ForwardTeleport
   m_TagString: Untagged
@@ -1924,18 +1922,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1789887153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &494011827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494011825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 533bffc4c5bc4cf46ae7d2253526da4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &494011828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2033,6 +2019,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &494011830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494011825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9ac3046b286ab46bc6ceb7a9a453f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &501251593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,8 +2354,8 @@ Transform:
   m_GameObject: {fileID: 614303545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 3.8978, z: -0.014595622}
-  m_LocalScale: {x: 1, y: 0.7619735, z: 1}
+  m_LocalPosition: {x: 11.19, y: 4.33, z: -0.014595622}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 784091381}
@@ -2474,7 +2472,6 @@ MonoBehaviour:
   ConnectedGate: {fileID: 452149973}
   buttonInput1: 0
   buttonInput2: 0
-  playerTag: Player
   buttonName1: 
   buttonName2: Button2t1
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -4738,7 +4735,6 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 1850447747}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
-  playerTag: 
 --- !u!212 &1403015312
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4843,7 +4839,6 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
-  playerTag: Player
 --- !u!212 &1479858838
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5492,8 +5487,8 @@ Transform:
   m_GameObject: {fileID: 1815738743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 7.6649, z: -0.014595622}
-  m_LocalScale: {x: 1, y: 0.35623205, z: 1}
+  m_LocalPosition: {x: 11.24, y: 8.49, z: -0.014595622}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 784091381}
@@ -5513,7 +5508,6 @@ MonoBehaviour:
   ConnectedGate: {fileID: 452149973}
   buttonInput1: 0
   buttonInput2: 0
-  playerTag: Player
   buttonName1: Button1t1
   buttonName2: 
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -5546,8 +5540,8 @@ Transform:
   m_GameObject: {fileID: 1850447747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 3.7569, z: -0.014595622}
-  m_LocalScale: {x: 1, y: 0.48026583, z: 1}
+  m_LocalPosition: {x: 11.25, y: 4.25, z: -0.014595622}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1540565038}
@@ -5664,7 +5658,6 @@ MonoBehaviour:
   ConnectedGate: {fileID: 1403015311}
   buttonInput1: 0
   buttonInput2: 0
-  playerTag: Player
   buttonName1: 
   buttonName2: Button2t2
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -6378,7 +6371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jump: 5
+  jump: 12
 --- !u!50 &2015609493
 Rigidbody2D:
   serializedVersion: 4
@@ -6889,8 +6882,8 @@ Transform:
   m_GameObject: {fileID: 2101595833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 7.6808, z: -0.014595622}
-  m_LocalScale: {x: 1, y: 0.38794795, z: 1}
+  m_LocalPosition: {x: 11.25, y: 8.59, z: -0.014595622}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1540565038}
@@ -7007,7 +7000,6 @@ MonoBehaviour:
   ConnectedGate: {fileID: 1403015311}
   buttonInput1: 0
   buttonInput2: 0
-  playerTag: Player
   buttonName1: Button1t2
   buttonName2: 
   activatedColor: {r: 0, g: 1, b: 0, a: 1}

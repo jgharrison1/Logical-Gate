@@ -30,14 +30,14 @@ public class playerMovement : MonoBehaviour{
 
         //jumping
         if(Input.GetKey(KeyCode.W) && !isJumping){
-            rb.velocity = new Vector2(rb.velocity.x, speed);
+            rb.velocity = new Vector2(rb.velocity.x, jump);
             isJumping = true;
         }    
         move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
     }
     void OnCollisionEnter2D(Collision2D other){
-        if(other.gameObject.CompareTag("Ground")){
+        if(other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Platform")){
             isJumping = false;
         }
     }

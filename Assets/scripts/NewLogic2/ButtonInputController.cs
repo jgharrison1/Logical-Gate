@@ -7,9 +7,9 @@ public class ButtonInputController : MonoBehaviour
     public ParentGate ConnectedGate;
     public bool buttonInput1;
     public bool buttonInput2;
-    public string playerTag = "Player";
     public string buttonName1;
     public string buttonName2;
+    private string playerTag = "Player";
 
     private SpriteRenderer spriteRenderer;
     private bool color;

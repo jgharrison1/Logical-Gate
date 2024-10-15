@@ -7,6 +7,6 @@ public class LGPL3Loader : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Player"))
-            SceneManager.LoadSceneAsync(6);
+            SceneManager.LoadSceneAsync(5);
     }  
 } 

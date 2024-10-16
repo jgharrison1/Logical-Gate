@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonInputController : MonoBehaviour
 {
+    // public ButtonState buttonState;
     public ParentGate ConnectedGate;
     public bool buttonInput1;
     public bool buttonInput2;
@@ -21,6 +22,19 @@ public class ButtonInputController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateButtonColor();
     }
+
+    // void Update()
+    // {
+    //     if(buttonState.buttonInput1 == 1)
+    //     {
+    //         buttonInput1 = true;
+    //     }
+    //     else
+    //     {
+    //         buttonInput2 = false;
+    //     }
+    // }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

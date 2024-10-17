@@ -26,7 +26,7 @@ public class ParentGate : MonoBehaviour
         {
             input1 = !input1;
         }
-        else if (other.CompareTag(playerTag) && other.gameObject == input2ButtonObject)
+        if (other.CompareTag(playerTag) && other.gameObject == input2ButtonObject)
         {
             input2 = !input2;
         }

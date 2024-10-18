@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 224929350}
   buttonInput1: 0
-  buttonInput2: 1
+  buttonInput2: 0
   buttonName1: 
   buttonName2: b4
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 224929350}
-  buttonInput1: 1
+  buttonInput1: 0
   buttonInput2: 0
   buttonName1: b3
   buttonName2: 
@@ -2134,7 +2134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 185141588}
-  buttonInput1: 1
+  buttonInput1: 0
   buttonInput2: 0
   buttonName1: b6
   buttonName2: 
@@ -2815,7 +2815,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e007ec96bcd6a3c40a42b1bbae4205d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72187f3bdbe228247b29f2f67613a8f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2918,7 +2918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 1725546749}
-  buttonInput1: 1
+  buttonInput1: 0
   buttonInput2: 0
   buttonName1: b1
   buttonName2: 
@@ -3199,7 +3199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 1725546749}
   buttonInput1: 0
-  buttonInput2: 1
+  buttonInput2: 0
   buttonName1: 
   buttonName2: b2
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -3318,7 +3318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 78133706}
-  openPosition: {x: 35.54, y: 1.4}
+  openPosition: {x: 25.54, y: 1.4}
   closedPosition: {x: 25.54, y: -1.1183}
   speed: 2
 --- !u!61 &1384206804
@@ -3496,7 +3496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 1165820608}
   buttonInput1: 0
-  buttonInput2: 1
+  buttonInput2: 0
   buttonName1: 
   buttonName2: b5
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -3746,7 +3746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 78133706}
   buttonInput1: 0
-  buttonInput2: 1
+  buttonInput2: 0
   buttonName1: 
   buttonName2: b8
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -4117,7 +4117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789082943}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 22.74031, y: 9.67059, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4746,7 +4746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464f0334d3e8579479f8fdae908d1dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedGate: {fileID: 0}
+  ConnectedGate: {fileID: 78133706}
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
   deactivatedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!212 &1929288655
@@ -5037,7 +5037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 185141588}
   buttonInput1: 0
-  buttonInput2: 1
+  buttonInput2: 0
   buttonName1: 
   buttonName2: b7
   activatedColor: {r: 0, g: 1, b: 0, a: 1}
@@ -5534,8 +5534,8 @@ SceneRoots:
   - {fileID: 1839656571}
   - {fileID: 1829701264}
   - {fileID: 873307367}
-  - {fileID: 1724214124}
-  - {fileID: 200521418}
-  - {fileID: 169863701}
   - {fileID: 1141236588}
+  - {fileID: 200521418}
+  - {fileID: 1724214124}
+  - {fileID: 169863701}
   - {fileID: 1789082944}

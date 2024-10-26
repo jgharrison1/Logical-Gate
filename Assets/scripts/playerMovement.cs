@@ -81,21 +81,17 @@ public class playerMovement : MonoBehaviour
     {
         if (other.CompareTag("Button"))
         {
-            // Retrieve the button's index
+            // Retrieve the button's ButtonIndex component
             ButtonIndex buttonIndex = other.GetComponent<ButtonIndex>();
 
-            if (buttonIndex != null)
+            if (buttonIndex != null && buttonIndex.buttonArray != null)
             {
+                // Get the index and the associated BinaryButtonArray
                 int index = buttonIndex.index;
+                BinaryButtonArray buttonArrayManager = buttonIndex.buttonArray;
 
-                // Find the BinaryButtonArray script on the ButtonManager GameObject
-                BinaryButtonArray buttonArrayManager = FindObjectOfType<BinaryButtonArray>();
-
-                if (buttonArrayManager != null)
-                {
-                    // Toggle the binary value for this button
-                    buttonArrayManager.ToggleBinaryValue(index);
-                }
+                // Toggle the binary value for this button in the correct array using the arrayID
+                buttonArrayManager.ToggleBinaryValue(index, buttonArrayManager.arrayID);
             }
         }
     }

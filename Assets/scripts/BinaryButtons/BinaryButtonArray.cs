@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; // Ensure you are using TextMeshPro
+using TMPro;
 
 public class BinaryButtonArray : MonoBehaviour
 {
@@ -9,26 +9,32 @@ public class BinaryButtonArray : MonoBehaviour
         SignedMagnitude
     }
 
-    public BinaryRepresentation representationType; // Field to choose between signed and unsigned
-    public int arraySize = 10;                      // Size of the binary array
-    public int[] binaryArray;                       // The binary array to store on/off values
-    public GameObject[] buttonObjects;              // Array of GameObjects representing the buttons
-    public TMP_Text decimalDisplayText;             // TextMeshPro component to display the decimal value
+    public BinaryRepresentation representationType;
+    public int arraySize = 10;
+    private int[] binaryArray;
+    public GameObject[] buttonObjects;
+    public TMP_Text decimalDisplayText;
+
+    public string arrayID; // Unique identifier for each BinaryButtonArray instance
 
     private void Start()
     {
+        // Initialize the binary array for this specific instance
         binaryArray = new int[arraySize];
         SetButtonColors();
-        UpdateDecimalDisplay(); // Display the initial decimal value
+        UpdateDecimalDisplay();
     }
 
-    public void ToggleBinaryValue(int index)
+    public void ToggleBinaryValue(int index, string callerID)
     {
+        if (callerID != arrayID) return;  // Ensure only matching arrayID can toggle this instance
+        Debug.Log("Instance: " + gameObject.name + " - Toggling index: " + index);
+
         if (index >= 0 && index < binaryArray.Length)
         {
-            binaryArray[index] = 1 - binaryArray[index]; // Toggle between 0 and 1
+            binaryArray[index] = 1 - binaryArray[index];
             UpdateButtonColor(index);
-            UpdateDecimalDisplay();  // Update the decimal value after toggling
+            UpdateDecimalDisplay();
         }
     }
 
@@ -52,132 +58,42 @@ public class BinaryButtonArray : MonoBehaviour
         }
     }
 
-    // Convert the binary array to a decimal number
     private int ConvertBinaryArrayToDecimal()
     {
         int decimalValue = 0;
 
-        // Convert binary array to decimal value (magnitude only)
-        for (int i = 0; i < binaryArray.Length; i++)
+        if (representationType == BinaryRepresentation.UnsignedMagnitude)
         {
-            decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
-        }
-
-        // Check representation type to apply signed magnitude logic
-        if (representationType == BinaryRepresentation.SignedMagnitude)
-        {
-            // If the most significant bit (sign bit) is set, make the value negative
-            if (binaryArray[0] == 1) // Check if the sign bit is set
+            // In UnsignedMagnitude, include all bits, including the MSB
+            for (int i = 0; i < binaryArray.Length; i++)
             {
-                // Adjust for signed magnitude: subtract 1 from the magnitude to get the correct negative value
+                decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
+            }
+        }
+        else if (representationType == BinaryRepresentation.SignedMagnitude)
+        {
+            // In SignedMagnitude, start from the second bit (index 1) for value calculation
+            for (int i = 1; i < binaryArray.Length; i++)
+            {
+                decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
+            }
+
+            // If MSB is 1, negate the decimal value for SignedMagnitude
+            if (binaryArray[0] == 1)
+            {
                 decimalValue = -decimalValue;
-                // Ensure that we remove the influence of the sign bit
-                decimalValue += (1 << (binaryArray.Length - 1)); // Add back the value of the sign bit
             }
         }
 
         return decimalValue;
     }
 
-    // Update the UI text with the decimal value
     private void UpdateDecimalDisplay()
     {
         if (decimalDisplayText != null)
         {
             int decimalValue = ConvertBinaryArrayToDecimal();
-            decimalDisplayText.text = "Decimal Value: " + decimalValue; // You can customize the display text
+            decimalDisplayText.text = "Decimal Value: " + decimalValue;
         }
     }
 }
-
-// using UnityEngine;
-// using TMPro; // Ensure you are using TextMeshPro
-
-// public class BinaryButtonArray : MonoBehaviour
-// {
-//     public enum BinaryRepresentation
-//     {
-//         UnsignedMagnitude,
-//         SignedMagnitude
-//     }
-
-//     public BinaryRepresentation representationType; // Field to choose between signed and unsigned
-//     public int arraySize = 10;                      // Size of the binary array
-//     public int[] binaryArray;                       // The binary array to store on/off values
-//     public GameObject[] buttonObjects;              // Array of GameObjects representing the buttons
-//     public TMP_Text decimalDisplayText;             // TextMeshPro component to display the decimal value
-
-//     private void Start()
-//     {
-//         binaryArray = new int[arraySize];
-//         buttonObjects = new GameObject[arraySize]; // Ensure buttonObjects is initialized
-//         SetButtonColors();
-//         UpdateDecimalDisplay(); // Display the initial decimal value
-//     }
-
-//     public void ToggleBinaryValue(int index)
-//     {
-//         if (index >= 0 && index < binaryArray.Length)
-//         {
-//             binaryArray[index] = 1 - binaryArray[index]; // Toggle between 0 and 1
-//             UpdateButtonColor(index);
-//             UpdateDecimalDisplay();  // Update the decimal value after toggling
-//         }
-//     }
-
-//     private void UpdateButtonColor(int index)
-//     {
-//         if (index >= 0 && index < buttonObjects.Length)
-//         {
-//             Renderer buttonRenderer = buttonObjects[index].GetComponent<Renderer>();
-//             if (buttonRenderer != null)
-//             {
-//                 buttonRenderer.material.color = (binaryArray[index] == 1) ? Color.green : Color.red;
-//             }
-//         }
-//     }
-
-//     private void SetButtonColors()
-//     {
-//         for (int i = 0; i < buttonObjects.Length; i++)
-//         {
-//             UpdateButtonColor(i);
-//         }
-//     }
-
-//     // Convert the binary array to a decimal number
-//     private int ConvertBinaryArrayToDecimal()
-//     {
-//         int decimalValue = 0;
-
-//         // Convert binary array to decimal value (magnitude only)
-//         for (int i = 0; i < binaryArray.Length; i++)
-//         {
-//             decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
-//         }
-
-//         // Check representation type to apply signed magnitude logic
-//         if (representationType == BinaryRepresentation.SignedMagnitude)
-//         {
-//             // If the most significant bit (sign bit) is set, make the value negative
-//             if (binaryArray[0] == 1) // Check if the sign bit is set
-//             {
-//                 decimalValue = -decimalValue;
-//                 decimalValue += (1 << (binaryArray.Length - 1)); // Add back the value of the sign bit
-//             }
-//         }
-
-//         return decimalValue;
-//     }
-
-//     // Update the UI text with the decimal value
-//     private void UpdateDecimalDisplay()
-//     {
-//         if (decimalDisplayText != null)
-//         {
-//             int decimalValue = ConvertBinaryArrayToDecimal();
-//             decimalDisplayText.text = "Decimal Value: " + decimalValue; // You can customize the display text
-//         }
-//     }
-// }
-

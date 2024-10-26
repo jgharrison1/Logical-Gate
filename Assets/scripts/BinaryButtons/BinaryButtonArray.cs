@@ -6,7 +6,8 @@ public class BinaryButtonArray : MonoBehaviour
     public enum BinaryRepresentation
     {
         UnsignedMagnitude,
-        SignedMagnitude
+        SignedMagnitude,
+        TwosComplement
     }
 
     public BinaryRepresentation representationType;
@@ -29,7 +30,7 @@ public class BinaryButtonArray : MonoBehaviour
     {
         if (callerID != arrayID) return;  // Ensure only matching arrayID can toggle this instance
         Debug.Log("Instance: " + gameObject.name + " - Toggling index: " + index);
-
+   
         if (index >= 0 && index < binaryArray.Length)
         {
             binaryArray[index] = 1 - binaryArray[index];
@@ -82,6 +83,20 @@ public class BinaryButtonArray : MonoBehaviour
             if (binaryArray[0] == 1)
             {
                 decimalValue = -decimalValue;
+            }
+        }
+        else if (representationType == BinaryRepresentation.TwosComplement)
+        {
+            // In Two's Complement, treat MSB as negative if it's 1
+            bool isNegative = (binaryArray[0] == 1);
+            for (int i = 1; i < binaryArray.Length; i++)
+            {
+                decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
+            }
+            if (isNegative)
+            {
+                // Calculate two's complement by inverting bits and adding 1
+                decimalValue = -(1 << (binaryArray.Length - 1)) + decimalValue;
             }
         }
 

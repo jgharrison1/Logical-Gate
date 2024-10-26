@@ -16,6 +16,7 @@ public class BinaryButtonArray : MonoBehaviour
     public GameObject[] buttonObjects;
     public TMP_Text decimalDisplayText;
 
+    private uint binaryOutput; // Assuming this holds your binary output
     public string arrayID; // Unique identifier for each BinaryButtonArray instance
 
     private void Start()
@@ -28,16 +29,19 @@ public class BinaryButtonArray : MonoBehaviour
 
     public void ToggleBinaryValue(int index, string callerID)
     {
-        if (callerID != arrayID) return;  // Ensure only matching arrayID can toggle this instance
-        Debug.Log("Instance: " + gameObject.name + " - Toggling index: " + index);
-   
+        if (callerID != arrayID) return;
+
         if (index >= 0 && index < binaryArray.Length)
         {
             binaryArray[index] = 1 - binaryArray[index];
             UpdateButtonColor(index);
             UpdateDecimalDisplay();
+
+            // Update sum if BinaryArrayAdder is in the scene
+            FindObjectOfType<BinaryArrayAdder>()?.UpdateSumOutput();
         }
     }
+
 
     private void UpdateButtonColor(int index)
     {
@@ -111,4 +115,15 @@ public class BinaryButtonArray : MonoBehaviour
             decimalDisplayText.text = "Decimal Value: " + decimalValue;
         }
     }
+
+    public int GetDecimalValue()
+    {
+        return ConvertBinaryArrayToDecimal();
+    }
+
+    public int GetOutputValue()
+    {
+        return (int)binaryOutput; // Return the output value as an integer
+    }
+
 }

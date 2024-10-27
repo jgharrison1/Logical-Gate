@@ -326,6 +326,9 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 1655549072}
   previousGate1: {fileID: 185141588}
   previousGate2: {fileID: 0}
+  spriteRenderer: {fileID: 78133705}
+  spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
+  spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
 --- !u!1 &159395591
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +614,9 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 2016446411}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
+  spriteRenderer: {fileID: 185141586}
+  spriteTrue: {fileID: 21300000, guid: 9059b7faca6c8094faf851b042b50d1d, type: 3}
+  spriteFalse: {fileID: 21300000, guid: d6efe02494fff98488d792cd11075efe, type: 3}
 --- !u!1 &200521417
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +710,9 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 333542220}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
+  spriteRenderer: {fileID: 224929351}
+  spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
+  spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
 --- !u!212 &224929351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -860,6 +869,9 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 1725546749}
   previousGate2: {fileID: 224929350}
+  spriteRenderer: {fileID: 240164717}
+  spriteTrue: {fileID: 21300000, guid: 9059b7faca6c8094faf851b042b50d1d, type: 3}
+  spriteFalse: {fileID: 21300000, guid: d6efe02494fff98488d792cd11075efe, type: 3}
 --- !u!1 &308356639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,6 +2786,9 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 1504504882}
   previousGate1: {fileID: 240164719}
   previousGate2: {fileID: 0}
+  spriteRenderer: {fileID: 1165820609}
+  spriteTrue: {fileID: 21300000, guid: 92d409492199b5f4389956e09e5afeba, type: 3}
+  spriteFalse: {fileID: 21300000, guid: e95ee857462e7d2449723b7be45c39c3, type: 3}
 --- !u!212 &1165820609
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3896,6 +3911,9 @@ MonoBehaviour:
   input2ButtonObject: {fileID: 1337906032}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
+  spriteRenderer: {fileID: 1725546750}
+  spriteTrue: {fileID: 21300000, guid: 037b3bebbd2e89b4f99d0d9668548d49, type: 3}
+  spriteFalse: {fileID: 21300000, guid: a8b5a4f27dbf0b0448e656ee39c63d6f, type: 3}
 --- !u!212 &1725546750
 SpriteRenderer:
   m_ObjectHideFlags: 0

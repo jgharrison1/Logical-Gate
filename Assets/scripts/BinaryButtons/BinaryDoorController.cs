@@ -18,7 +18,6 @@ public class BinaryDoorController : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D component is missing from the GameObject.");
         }
-
         if (binaryAdder != null)
         {
             Debug.Log("BinaryAdder assigned: " + binaryAdder.name);
@@ -54,12 +53,10 @@ public class BinaryDoorController : MonoBehaviour
     void OpenDoor()
     {
         targetPosition = transform.parent != null ? transform.parent.TransformPoint(openPosition) : openPosition;
-        Debug.Log("Opening Door"); // Log when the door opens
     }
 
     void CloseDoor()
     {
         targetPosition = transform.parent != null ? transform.parent.TransformPoint(closedPosition) : closedPosition;
-        Debug.Log("Closing Door"); // Log when the door closes
     }
 }

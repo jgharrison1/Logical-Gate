@@ -8,6 +8,10 @@ public class GateController : MonoBehaviour
     public float speed = 2f;
     private Vector2 targetPosition;
 
+    private bool playerOnPlatform = false;
+    private Transform playerTransform;
+    private Vector3 playerOffset;
+
     void Update()
     {
         if (ConnectedGate != null)
@@ -20,21 +24,35 @@ public class GateController : MonoBehaviour
             {
                 CloseGate();
             }
+            Vector2 previousPosition = transform.position;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+            if (playerOnPlatform && playerTransform != null)
+            {
+                // Update player's position relative to the platform's movement
+                Vector2 platformMovement = (Vector2)transform.position - previousPosition;
+                playerTransform.position += (Vector3)platformMovement;
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.position.y > transform.position.y) //check that player is on top of the platform, not touching the side or bottom
-        { 
-            collision.transform.SetParent(transform); //sets platform as the parent object of the object colliding with it, which should be the player
+        if (collision.transform.position.y > transform.position.y) // Check that player is on top of the platform
+        {
+            playerOnPlatform = true;
+            playerTransform = collision.transform;
+            playerOffset = playerTransform.position - transform.position; // Store initial offset
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        collision.transform.SetParent(null); //when player exits platform, they are no longer moving with the platform
+        if (collision.transform == playerTransform)
+        {
+            playerOnPlatform = false;
+            playerTransform = null;
+        }
     }
     
     void OpenGate()
@@ -49,4 +67,3 @@ public class GateController : MonoBehaviour
         targetPosition = worldClosedPosition;
     }
 }
-

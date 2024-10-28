@@ -8,10 +8,12 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float move;
     private bool isJumping = false;
+    private Vector3 respawnPoint;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        respawnPoint = transform.position;
     }
 
     //update is called once per frame
@@ -55,6 +57,12 @@ public class playerMovement : MonoBehaviour
                 // Toggle the binary value for this button in the correct array using the arrayID
                 buttonArrayManager.ToggleBinaryValue(index, buttonArrayManager.arrayID);
             }
+        }
+        else if(other.CompareTag("Checkpoint")){
+            respawnPoint = transform.position;
+        }
+        else if(other.CompareTag("Lava")){
+            transform.position = respawnPoint;
         }
     }
 

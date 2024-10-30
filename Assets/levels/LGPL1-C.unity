@@ -580,13 +580,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 1758794009}
-  input2ButtonObject: {fileID: 417831616}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 115112564}
   spriteTrue: {fileID: 21300000, guid: 037b3bebbd2e89b4f99d0d9668548d49, type: 3}
   spriteFalse: {fileID: 21300000, guid: a8b5a4f27dbf0b0448e656ee39c63d6f, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &115112564
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1548,13 +1548,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 920866036}
-  input2ButtonObject: {fileID: 559705510}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 304093866}
   spriteTrue: {fileID: 21300000, guid: 037b3bebbd2e89b4f99d0d9668548d49, type: 3}
   spriteFalse: {fileID: 21300000, guid: a8b5a4f27dbf0b0448e656ee39c63d6f, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &304093866
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2999,13 +2999,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 717655922}
   previousGate2: {fileID: 2096296712}
   spriteRenderer: {fileID: 439833939}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &453928207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,13 +3140,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 140108549}
-  input2ButtonObject: {fileID: 1150402153}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 499485403}
   spriteTrue: {fileID: 21300000, guid: 037b3bebbd2e89b4f99d0d9668548d49, type: 3}
   spriteFalse: {fileID: 21300000, guid: a8b5a4f27dbf0b0448e656ee39c63d6f, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &559705510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,13 +4656,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 1222262750}
   previousGate2: {fileID: 1450798991}
   spriteRenderer: {fileID: 717655921}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &784227020
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,13 +4846,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 784227020}
-  input2ButtonObject: {fileID: 163313689}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 788790904}
   spriteTrue: {fileID: 21300000, guid: 92d409492199b5f4389956e09e5afeba, type: 3}
   spriteFalse: {fileID: 21300000, guid: 72187f3bdbe228247b29f2f67613a8f9, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &788790904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5327,13 +5327,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 788790903}
   previousGate2: {fileID: 304093865}
   spriteRenderer: {fileID: 863850749}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &863850749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6431,13 +6431,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 641178872}
-  input2ButtonObject: {fileID: 1513709113}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1015119683}
   spriteTrue: {fileID: 21300000, guid: d622ac38a608b0e458679f73a20d96af, type: 3}
   spriteFalse: {fileID: 21300000, guid: e007ec96bcd6a3c40a42b1bbae4205d5, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1015119683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6605,13 +6605,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 675742444}
-  input2ButtonObject: {fileID: 343455355}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1039718895}
   spriteTrue: {fileID: 21300000, guid: d622ac38a608b0e458679f73a20d96af, type: 3}
   spriteFalse: {fileID: 21300000, guid: e007ec96bcd6a3c40a42b1bbae4205d5, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &1045972363
 GameObject:
   m_ObjectHideFlags: 0
@@ -7309,13 +7309,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 1078127533}
-  input2ButtonObject: {fileID: 2003870784}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1222262749}
   spriteTrue: {fileID: 21300000, guid: 92d409492199b5f4389956e09e5afeba, type: 3}
   spriteFalse: {fileID: 21300000, guid: e95ee857462e7d2449723b7be45c39c3, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &1238672520
 GameObject:
   m_ObjectHideFlags: 0
@@ -7969,13 +7969,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 652871048}
-  input2ButtonObject: {fileID: 1642890107}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1450798990}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &1464086845
 GameObject:
   m_ObjectHideFlags: 0
@@ -8958,13 +8958,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 115112563}
   previousGate2: {fileID: 1015119682}
   spriteRenderer: {fileID: 1699288160}
   spriteTrue: {fileID: 21300000, guid: 92d409492199b5f4389956e09e5afeba, type: 3}
   spriteFalse: {fileID: 21300000, guid: e95ee857462e7d2449723b7be45c39c3, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1699288160
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10522,7 +10522,7 @@ Transform:
   m_GameObject: {fileID: 1877350123}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: -3.8, z: 0}
+  m_LocalPosition: {x: -12, y: 7.74, z: 0}
   m_LocalScale: {x: 2, y: 2.0061526, z: 0.82994986}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -11459,13 +11459,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 1700338819}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1993047079}
   spriteTrue: {fileID: 21300000, guid: aad4e424f7bc5ad42a490afb8acc6b78, type: 3}
   spriteFalse: {fileID: 21300000, guid: 85b626ba66fea0c43a2190ba516c124c, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1993047079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11948,13 +11948,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 1039718896}
   previousGate2: {fileID: 499485404}
   spriteRenderer: {fileID: 2096296711}
   spriteTrue: {fileID: 21300000, guid: 9059b7faca6c8094faf851b042b50d1d, type: 3}
   spriteFalse: {fileID: 21300000, guid: d6efe02494fff98488d792cd11075efe, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &2114897684
 GameObject:
   m_ObjectHideFlags: 0

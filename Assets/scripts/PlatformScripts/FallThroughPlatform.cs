@@ -43,3 +43,4 @@ public class FallThroughPlatform : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
     }
 }
+

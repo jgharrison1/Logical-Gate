@@ -17,6 +17,7 @@ public class BinaryButtonArray : MonoBehaviour
     public bool[] canToggle;
     public int[] staticValues; 
     public TMP_Text decimalDisplayText;
+    public TMP_Text representationTypeDisplayText;
 
     public Sprite sprite0; // toggleable "off" sprite
     public Sprite sprite1; // toggleable "on" sprite
@@ -34,14 +35,13 @@ public class BinaryButtonArray : MonoBehaviour
         InitializeBinaryArray();
         SetButtonColors();
         UpdateDecimalDisplay();
+        UpdateRepresentationTypeDisplay(); 
     }
 
     private void OnValidate()
     {
-        // Ensure arrays match `arraySize` length whenever `arraySize` is changed in the inspector
         if (arraySize < 0) arraySize = 0;
 
-        // Resize `buttonObjects` array
         if (buttonObjects == null || buttonObjects.Length != arraySize)
         {
             var newButtonObjects = new GameObject[arraySize];
@@ -52,7 +52,6 @@ public class BinaryButtonArray : MonoBehaviour
             buttonObjects = newButtonObjects;
         }
 
-        // Resize `canToggle` array
         if (canToggle == null || canToggle.Length != arraySize)
         {
             var newCanToggle = new bool[arraySize];
@@ -62,12 +61,11 @@ public class BinaryButtonArray : MonoBehaviour
             }
             for (int i = canToggle?.Length ?? 0; i < arraySize; i++)
             {
-                newCanToggle[i] = true; // Default to true for new entries
+                newCanToggle[i] = true; 
             }
             canToggle = newCanToggle;
         }
 
-        // Resize `staticValues` array
         if (staticValues == null || staticValues.Length != arraySize)
         {
             var newStaticValues = new int[arraySize];
@@ -186,6 +184,20 @@ public class BinaryButtonArray : MonoBehaviour
         }
     }
 
+    private void UpdateRepresentationTypeDisplay()
+    {
+        if (representationTypeDisplayText != null)
+        {
+            representationTypeDisplayText.text = "" + representationType.ToString();
+        }
+    }
+
+    public void SetRepresentationType(BinaryRepresentation newType)
+    {
+        representationType = newType;
+        UpdateRepresentationTypeDisplay(); // Update the display whenever the type changes
+    }
+
     public int GetDecimalValue()
     {
         return ConvertBinaryArrayToDecimal();
@@ -196,4 +208,3 @@ public class BinaryButtonArray : MonoBehaviour
         return (int)binaryOutput;
     }
 }
-

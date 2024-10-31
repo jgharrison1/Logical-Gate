@@ -63,7 +63,14 @@ public class playerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+
+        RepresentationTypeChanger representationChanger = other.gameObject.GetComponent<RepresentationTypeChanger>();
+        if (representationChanger != null)
+        {
+            representationChanger.CycleType();
+        }
     }
+
 
     private void HandleButtonInteraction(Collider2D buttonCollider)
     {

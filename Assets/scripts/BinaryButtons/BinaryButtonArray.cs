@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class BinaryButtonArray : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class BinaryButtonArray : MonoBehaviour
         TwosComplement
     }
 
-    public BinaryRepresentation representationType;
+    [Header("Representation Settings")]
+    public List<BinaryRepresentation> allowedRepresentations;  // List of allowed representations
+    private int currentRepresentationIndex = 0;                 // Tracks the current representation index
+
     public int arraySize = 10;
     private int[] binaryArray;
     public GameObject[] buttonObjects;
@@ -19,62 +23,29 @@ public class BinaryButtonArray : MonoBehaviour
     public TMP_Text decimalDisplayText;
     public TMP_Text representationTypeDisplayText;
 
-    public Sprite sprite0; // toggleable "off" sprite
-    public Sprite sprite1; // toggleable "on" sprite
-    public Sprite sprite2; // non-toggleable "off" sprite
-    public Sprite sprite3; // non-toggleable "on" sprite
+    public Sprite sprite0;
+    public Sprite sprite1;
+    public Sprite sprite2;
+    public Sprite sprite3;
 
     private uint binaryOutput;
     public string arrayID;
-
-    private BinaryArrayAdder binaryAdder; 
+    private BinaryArrayAdder binaryAdder;
 
     private void Start()
     {
         binaryArray = new int[arraySize];
         InitializeBinaryArray();
         SetButtonColors();
+
+        if (allowedRepresentations.Count == 0)
+        {
+            allowedRepresentations.Add(BinaryRepresentation.UnsignedMagnitude);
+        }
+
+        currentRepresentationIndex = Mathf.Clamp(currentRepresentationIndex, 0, allowedRepresentations.Count - 1);
         UpdateDecimalDisplay();
         UpdateRepresentationTypeDisplay(); 
-    }
-
-    private void OnValidate()
-    {
-        if (arraySize < 0) arraySize = 0;
-
-        if (buttonObjects == null || buttonObjects.Length != arraySize)
-        {
-            var newButtonObjects = new GameObject[arraySize];
-            for (int i = 0; i < arraySize && i < buttonObjects?.Length; i++)
-            {
-                newButtonObjects[i] = buttonObjects[i];
-            }
-            buttonObjects = newButtonObjects;
-        }
-
-        if (canToggle == null || canToggle.Length != arraySize)
-        {
-            var newCanToggle = new bool[arraySize];
-            for (int i = 0; i < arraySize && i < canToggle?.Length; i++)
-            {
-                newCanToggle[i] = canToggle[i];
-            }
-            for (int i = canToggle?.Length ?? 0; i < arraySize; i++)
-            {
-                newCanToggle[i] = true; 
-            }
-            canToggle = newCanToggle;
-        }
-
-        if (staticValues == null || staticValues.Length != arraySize)
-        {
-            var newStaticValues = new int[arraySize];
-            for (int i = 0; i < arraySize && i < staticValues?.Length; i++)
-            {
-                newStaticValues[i] = staticValues[i];
-            }
-            staticValues = newStaticValues;
-        }
     }
 
     private void InitializeBinaryArray()
@@ -92,7 +63,7 @@ public class BinaryButtonArray : MonoBehaviour
 
     public void ToggleBinaryValue(int index, string callerID)
     {
-        if (callerID != arrayID || !canToggle[index]) return; // Check if toggling is allowed for this index
+        if (callerID != arrayID || !canToggle[index]) return;
 
         if (index >= 0 && index < binaryArray.Length)
         {
@@ -112,7 +83,6 @@ public class BinaryButtonArray : MonoBehaviour
 
             if (spriteRenderer != null)
             {
-                // Choose sprite based on toggleability and binary state
                 if (canToggle[index])
                 {
                     spriteRenderer.sprite = (binaryArray[index] == 1) ? sprite1 : sprite0;
@@ -122,7 +92,6 @@ public class BinaryButtonArray : MonoBehaviour
                     spriteRenderer.sprite = (binaryArray[index] == 1) ? sprite3 : sprite2;
                 }
                 
-                // Set color based on state (green for on, red for off)
                 spriteRenderer.color = (binaryArray[index] == 1) ? Color.green : Color.red;
             }
         }
@@ -138,16 +107,22 @@ public class BinaryButtonArray : MonoBehaviour
 
     private int ConvertBinaryArrayToDecimal()
     {
-        int decimalValue = 0;
+        if (allowedRepresentations.Count == 0)
+        {
+            return 0;
+        }
 
-        if (representationType == BinaryRepresentation.UnsignedMagnitude)
+        int decimalValue = 0;
+        BinaryRepresentation activeType = allowedRepresentations[currentRepresentationIndex];
+
+        if (activeType == BinaryRepresentation.UnsignedMagnitude)
         {
             for (int i = 0; i < binaryArray.Length; i++)
             {
                 decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
             }
         }
-        else if (representationType == BinaryRepresentation.SignedMagnitude)
+        else if (activeType == BinaryRepresentation.SignedMagnitude)
         {
             for (int i = 1; i < binaryArray.Length; i++)
             {
@@ -159,7 +134,7 @@ public class BinaryButtonArray : MonoBehaviour
                 decimalValue = -decimalValue;
             }
         }
-        else if (representationType == BinaryRepresentation.TwosComplement)
+        else if (activeType == BinaryRepresentation.TwosComplement)
         {
             bool isNegative = (binaryArray[0] == 1);
             for (int i = 1; i < binaryArray.Length; i++)
@@ -186,17 +161,22 @@ public class BinaryButtonArray : MonoBehaviour
 
     private void UpdateRepresentationTypeDisplay()
     {
-        if (representationTypeDisplayText != null)
+        if (representationTypeDisplayText != null && allowedRepresentations.Count > 0)
         {
-            representationTypeDisplayText.text = "" + representationType.ToString();
+            representationTypeDisplayText.text = "" + allowedRepresentations[currentRepresentationIndex].ToString();
         }
     }
 
-    public void SetRepresentationType(BinaryRepresentation newType)
+    public void CycleRepresentationType()
     {
-        representationType = newType;
-        UpdateRepresentationTypeDisplay(); // Update the display whenever the type changes
+        if (allowedRepresentations.Count > 0)
+        {
+            currentRepresentationIndex = (currentRepresentationIndex + 1) % allowedRepresentations.Count;
+            UpdateRepresentationTypeDisplay();
+            UpdateDecimalDisplay();
+        }
     }
+
 
     public int GetDecimalValue()
     {
@@ -208,3 +188,5 @@ public class BinaryButtonArray : MonoBehaviour
         return (int)binaryOutput;
     }
 }
+
+

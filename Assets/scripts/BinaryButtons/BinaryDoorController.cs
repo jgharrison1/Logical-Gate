@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class BinaryDoorController : MonoBehaviour
 {
@@ -7,9 +8,9 @@ public class BinaryDoorController : MonoBehaviour
     public Vector2 closedPosition; 
     public float speed = 2f; 
     public int targetValue; 
+    public TMP_Text text; // Assign this in the inspector to link the TextMeshPro text object
 
     private Vector2 targetPosition; 
-
     private bool playerOnPlatform = false;
     private Transform playerTransform;
     private Vector3 previousPosition;
@@ -47,6 +48,12 @@ public class BinaryDoorController : MonoBehaviour
         Vector2 platformMovement = newPosition - (Vector2)transform.position;
         transform.position = newPosition;
 
+        // Update TMP_Text position to follow the platform
+        if (text != null)
+        {
+            text.transform.position += (Vector3)platformMovement;
+        }
+
         if (playerOnPlatform && playerTransform != null)
         {
             playerTransform.position += (Vector3)platformMovement;
@@ -83,3 +90,4 @@ public class BinaryDoorController : MonoBehaviour
         }
     }
 }
+

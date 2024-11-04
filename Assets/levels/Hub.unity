@@ -512,6 +512,7 @@ MonoBehaviour:
   openPosition: {x: 16.2559, y: 5.09}
   closedPosition: {x: 16.2559, y: 2.7764}
   speed: 6
+  text: {fileID: 0}
 --- !u!61 &255771167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -598,7 +599,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4feac8eabc6321743bd08382199eb588, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bd2ca268ec5b4595b2fc36e231e948c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3861,13 +3862,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 401130155}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1760735186}
   spriteTrue: {fileID: 21300000, guid: aad4e424f7bc5ad42a490afb8acc6b78, type: 3}
   spriteFalse: {fileID: 21300000, guid: 85b626ba66fea0c43a2190ba516c124c, type: 3}
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &1765948150
 GameObject:
   m_ObjectHideFlags: 0

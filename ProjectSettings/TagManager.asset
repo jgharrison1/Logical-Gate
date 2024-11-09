@@ -9,19 +9,20 @@ TagManager:
   - Button
   - Checkpoint
   - Lava
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
+  - Wall
   - 
   - 
   - 
   - 
-  - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -46,9 +47,15 @@ TagManager:
   - name: background
     uniqueID: 4280829813
     locked: 0
-  - name: Connection Lines
-    uniqueID: 1488850531
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1488850531
+    locked: 0
+  - name: Player
+    uniqueID: 4015715875
+    locked: 0
+  - name: Ground
+    uniqueID: 3689162271
     locked: 0

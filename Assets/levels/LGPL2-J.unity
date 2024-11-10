@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 6964144}
   - component: {fileID: 6964146}
   - component: {fileID: 6964145}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform (5)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 71605675}
   - component: {fileID: 71605674}
   - component: {fileID: 71605673}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Moving_Platform (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -919,9 +919,9 @@ GameObject:
   - component: {fileID: 154639696}
   - component: {fileID: 154639695}
   - component: {fileID: 154639697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door4
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   openPosition: {x: 27.07, y: 46.32}
   closedPosition: {x: 27.07, y: 42.19}
   speed: 2
+  text: {fileID: 0}
 --- !u!1 &176829493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,9 +1066,9 @@ GameObject:
   - component: {fileID: 176829494}
   - component: {fileID: 176829496}
   - component: {fileID: 176829495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (12)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1420,9 +1421,9 @@ GameObject:
   - component: {fileID: 188959063}
   - component: {fileID: 188959065}
   - component: {fileID: 188959064}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (5)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1711,7 +1712,7 @@ GameObject:
   - component: {fileID: 223863834}
   - component: {fileID: 223863836}
   - component: {fileID: 223863835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1878,14 +1879,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 450568547}
   previousGate2: {fileID: 1563915602}
   spriteRenderer: {fileID: 228014603}
   spriteTrue: {fileID: 21300000, guid: 9059b7faca6c8094faf851b042b50d1d, type: 3}
   spriteFalse: {fileID: 21300000, guid: d6efe02494fff98488d792cd11075efe, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &228014603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2551,14 +2551,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 1317502195}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 1552487174}
   spriteRenderer: {fileID: 283769100}
   spriteTrue: {fileID: 21300000, guid: 037b3bebbd2e89b4f99d0d9668548d49, type: 3}
   spriteFalse: {fileID: 21300000, guid: a8b5a4f27dbf0b0448e656ee39c63d6f, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &283769100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2622,7 +2621,7 @@ GameObject:
   - component: {fileID: 325451598}
   - component: {fileID: 325451600}
   - component: {fileID: 325451599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2753,9 +2752,9 @@ GameObject:
   - component: {fileID: 362676734}
   - component: {fileID: 362676733}
   - component: {fileID: 362676732}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door3
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2791,6 +2790,7 @@ MonoBehaviour:
   openPosition: {x: 59.49, y: 26.82}
   closedPosition: {x: 59.49, y: 22.2}
   speed: 2
+  text: {fileID: 0}
 --- !u!61 &362676733
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2899,7 +2899,7 @@ GameObject:
   - component: {fileID: 372748075}
   - component: {fileID: 372748077}
   - component: {fileID: 372748076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3031,7 +3031,7 @@ GameObject:
   - component: {fileID: 382623528}
   - component: {fileID: 382623527}
   - component: {fileID: 382623526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Moving_Platform (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3391,7 +3391,7 @@ GameObject:
   - component: {fileID: 426697013}
   - component: {fileID: 426697012}
   - component: {fileID: 426697011}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Moving_Platform (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3682,14 +3682,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 1810711906}
-  input2ButtonObject: {fileID: 1766085509}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 450568548}
   spriteTrue: {fileID: 21300000, guid: d622ac38a608b0e458679f73a20d96af, type: 3}
   spriteFalse: {fileID: 21300000, guid: e007ec96bcd6a3c40a42b1bbae4205d5, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &450568548
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3846,14 +3845,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 9204455}
-  input2ButtonObject: {fileID: 643772361}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 462136615}
   spriteTrue: {fileID: 21300000, guid: 00e7354ca2be1f9428d05ad79dae2318, type: 3}
   spriteFalse: {fileID: 21300000, guid: 31251b7b46e12e34e9bd180680d234bd, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &462136615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3917,7 +3915,7 @@ GameObject:
   - component: {fileID: 463242005}
   - component: {fileID: 463242007}
   - component: {fileID: 463242006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grey_Wall (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4181,7 +4179,7 @@ GameObject:
   - component: {fileID: 552991568}
   - component: {fileID: 552991570}
   - component: {fileID: 552991569}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform (4)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -4348,14 +4346,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 462136614}
   previousGate2: {fileID: 1540693839}
   spriteRenderer: {fileID: 557260856}
   spriteTrue: {fileID: 21300000, guid: 9059b7faca6c8094faf851b042b50d1d, type: 3}
   spriteFalse: {fileID: 21300000, guid: d6efe02494fff98488d792cd11075efe, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &557260856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4925,6 +4922,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &595367619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595367620}
+  m_Layer: 0
+  m_Name: Ground Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595367620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595367619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.247, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2047793716}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603529292
 GameObject:
   m_ObjectHideFlags: 0
@@ -5706,7 +5734,7 @@ GameObject:
   - component: {fileID: 710535086}
   - component: {fileID: 710535088}
   - component: {fileID: 710535087}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5925,14 +5953,44 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 567879729}
-  input2ButtonObject: {fileID: 1127489798}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 717686301}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
+--- !u!1 &794623384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794623385}
+  m_Layer: 0
+  m_Name: Wall Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &794623385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794623384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.169, y: -0.021, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2047793716}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &799038054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5944,7 +6002,7 @@ GameObject:
   - component: {fileID: 799038055}
   - component: {fileID: 799038057}
   - component: {fileID: 799038056}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (14)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -6076,7 +6134,7 @@ GameObject:
   - component: {fileID: 821802617}
   - component: {fileID: 821802616}
   - component: {fileID: 821802615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Moving_Platform (4)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -6387,14 +6445,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 922299809}
-  input2ButtonObject: {fileID: 591499116}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 913599297}
   spriteTrue: {fileID: 21300000, guid: 037b3bebbd2e89b4f99d0d9668548d49, type: 3}
   spriteFalse: {fileID: 21300000, guid: a8b5a4f27dbf0b0448e656ee39c63d6f, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &913599297
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6495,14 +6552,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 603529292}
-  input2ButtonObject: {fileID: 1622513182}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 921191471}
   spriteTrue: {fileID: 21300000, guid: d622ac38a608b0e458679f73a20d96af, type: 3}
   spriteFalse: {fileID: 21300000, guid: e007ec96bcd6a3c40a42b1bbae4205d5, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &921191471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6753,14 +6809,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 913599296}
   previousGate2: {fileID: 1903821752}
   spriteRenderer: {fileID: 926150386}
   spriteTrue: {fileID: 21300000, guid: 92d409492199b5f4389956e09e5afeba, type: 3}
   spriteFalse: {fileID: 21300000, guid: e95ee857462e7d2449723b7be45c39c3, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &926150386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7126,9 +7181,9 @@ GameObject:
   - component: {fileID: 1001713706}
   - component: {fileID: 1001713708}
   - component: {fileID: 1001713707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grey_Wall (8)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7293,14 +7348,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 557260855}
   previousGate2: {fileID: 1140570763}
   spriteRenderer: {fileID: 1019899850}
   spriteTrue: {fileID: 21300000, guid: 00e7354ca2be1f9428d05ad79dae2318, type: 3}
   spriteFalse: {fileID: 21300000, guid: 31251b7b46e12e34e9bd180680d234bd, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1019899850
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7981,7 +8035,7 @@ GameObject:
   - component: {fileID: 1051420220}
   - component: {fileID: 1051420222}
   - component: {fileID: 1051420221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grey_Wall (7)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8214,7 +8268,7 @@ GameObject:
   - component: {fileID: 1060393076}
   - component: {fileID: 1060393078}
   - component: {fileID: 1060393077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform (3)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -8855,14 +8909,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 1240367358}
   previousGate2: {fileID: 921191470}
   spriteRenderer: {fileID: 1140570764}
   spriteTrue: {fileID: 21300000, guid: 92d409492199b5f4389956e09e5afeba, type: 3}
   spriteFalse: {fileID: 21300000, guid: e95ee857462e7d2449723b7be45c39c3, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1140570764
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9076,7 +9129,7 @@ GameObject:
   - component: {fileID: 1156254510}
   - component: {fileID: 1156254512}
   - component: {fileID: 1156254511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform (2)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -9207,7 +9260,7 @@ GameObject:
   - component: {fileID: 1190771466}
   - component: {fileID: 1190771465}
   - component: {fileID: 1190771464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grey_Wall (11)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -9245,6 +9298,7 @@ MonoBehaviour:
   openPosition: {x: 1.89, y: 22.43}
   closedPosition: {x: -2.21, y: 22.43}
   speed: 2
+  text: {fileID: 0}
 --- !u!61 &1190771465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9353,7 +9407,7 @@ GameObject:
   - component: {fileID: 1191886407}
   - component: {fileID: 1191886408}
   - component: {fileID: 1191886409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -9604,14 +9658,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 1905917979}
-  input2ButtonObject: {fileID: 1028875465}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1240367359}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1240367359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9677,7 +9730,7 @@ GameObject:
   - component: {fileID: 1240865039}
   - component: {fileID: 1240865037}
   - component: {fileID: 1240865040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Moving_Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -10385,7 +10438,7 @@ GameObject:
   - component: {fileID: 1333035084}
   - component: {fileID: 1333035083}
   - component: {fileID: 1333035085}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle_Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -10533,7 +10586,7 @@ GameObject:
   - component: {fileID: 1379068234}
   - component: {fileID: 1379068236}
   - component: {fileID: 1379068235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform (1)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -10807,9 +10860,9 @@ GameObject:
   - component: {fileID: 1402077781}
   - component: {fileID: 1402077780}
   - component: {fileID: 1402077779}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door1
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10845,6 +10898,7 @@ MonoBehaviour:
   openPosition: {x: 30.42, y: 7}
   closedPosition: {x: 30.42, y: 3.34}
   speed: 2
+  text: {fileID: 0}
 --- !u!61 &1402077780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11039,9 +11093,9 @@ GameObject:
   - component: {fileID: 1424413012}
   - component: {fileID: 1424413014}
   - component: {fileID: 1424413013}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (2)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11371,7 +11425,7 @@ GameObject:
   - component: {fileID: 1512481838}
   - component: {fileID: 1512481840}
   - component: {fileID: 1512481839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle_Platform (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -11519,7 +11573,7 @@ GameObject:
   - component: {fileID: 1513122073}
   - component: {fileID: 1513122075}
   - component: {fileID: 1513122074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform (6)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -11821,14 +11875,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 942492134}
-  input2ButtonObject: {fileID: 1741886386}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1540693840}
   spriteTrue: {fileID: 21300000, guid: 92d409492199b5f4389956e09e5afeba, type: 3}
   spriteFalse: {fileID: 21300000, guid: e95ee857462e7d2449723b7be45c39c3, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1540693840
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11944,14 +11997,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 1019899849}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1552487175}
   spriteTrue: {fileID: 21300000, guid: 7d688cd94b183994cbec4b81f6a3e06d, type: 3}
   spriteFalse: {fileID: 21300000, guid: b910cb5a7b9fc214e8fc3365f924058d, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1552487175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12037,14 +12089,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 2096211651}
-  input2ButtonObject: {fileID: 1147721839}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1563915603}
   spriteTrue: {fileID: 21300000, guid: 00e7354ca2be1f9428d05ad79dae2318, type: 3}
   spriteFalse: {fileID: 21300000, guid: 31251b7b46e12e34e9bd180680d234bd, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1563915603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12162,7 +12213,7 @@ GameObject:
   - component: {fileID: 1599687587}
   - component: {fileID: 1599687589}
   - component: {fileID: 1599687588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform (7)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -12527,7 +12578,7 @@ GameObject:
   - component: {fileID: 1641639921}
   - component: {fileID: 1641639920}
   - component: {fileID: 1641639919}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -12565,6 +12616,7 @@ MonoBehaviour:
   openPosition: {x: 58.26, y: 9.61}
   closedPosition: {x: 61.72, y: 9.61}
   speed: 2
+  text: {fileID: 0}
 --- !u!61 &1641639920
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12675,7 +12727,7 @@ GameObject:
   - component: {fileID: 1721856323}
   - component: {fileID: 1721856326}
   - component: {fileID: 1721856325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle_Platform (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -13610,9 +13662,9 @@ GameObject:
   - component: {fileID: 1849100310}
   - component: {fileID: 1849100312}
   - component: {fileID: 1849100311}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (9)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13740,9 +13792,9 @@ GameObject:
   - component: {fileID: 1865486586}
   - component: {fileID: 1865486588}
   - component: {fileID: 1865486587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (4)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14062,9 +14114,9 @@ GameObject:
   - component: {fileID: 1895158494}
   - component: {fileID: 1895158496}
   - component: {fileID: 1895158495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (1)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14214,14 +14266,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 187518064}
-  input2ButtonObject: {fileID: 1268672502}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 1903821753}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &1903821753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14833,14 +14884,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 152804285}
-  input2ButtonObject: {fileID: 260716368}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 2019835529}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &2019835529
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14983,9 +15033,9 @@ GameObject:
   - component: {fileID: 2037065263}
   - component: {fileID: 2037065265}
   - component: {fileID: 2037065264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grey_Wall (10)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15150,6 +15200,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   jump: 12
+  rb: {fileID: 2047793713}
+  groundCheck: {fileID: 595367620}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  wallCheck: {fileID: 794623385}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 384
 --- !u!50 &2047793713
 Rigidbody2D:
   serializedVersion: 4
@@ -15283,10 +15342,12 @@ Transform:
   m_GameObject: {fileID: 2047793710}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7, y: 1.86, z: 0}
+  m_LocalPosition: {x: 61.52, y: 10.81, z: 0}
   m_LocalScale: {x: 2, y: 2.0061526, z: 0.82994986}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 794623385}
+  - {fileID: 595367620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063822883
@@ -15300,9 +15361,9 @@ GameObject:
   - component: {fileID: 2063822884}
   - component: {fileID: 2063822886}
   - component: {fileID: 2063822885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall (6)
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15603,14 +15664,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 1531840406}
   previousGate1: {fileID: 717686303}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 2073971448}
   spriteTrue: {fileID: 21300000, guid: 9059b7faca6c8094faf851b042b50d1d, type: 3}
   spriteFalse: {fileID: 21300000, guid: d6efe02494fff98488d792cd11075efe, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!1 &2082488981
 GameObject:
   m_ObjectHideFlags: 0
@@ -15659,14 +15719,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 0}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 228014602}
   previousGate2: {fileID: 926150385}
   spriteRenderer: {fileID: 2082488984}
   spriteTrue: {fileID: 21300000, guid: c155e45cfbafb194e9936dc9e168d885, type: 3}
   spriteFalse: {fileID: 21300000, guid: bfab4af6c61c3d5489426f74e38f9317, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &2082488984
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15902,14 +15961,13 @@ MonoBehaviour:
   input1: 0
   input2: 0
   output: 0
-  input1ButtonObject: {fileID: 252830136}
-  input2ButtonObject: {fileID: 0}
   previousGate1: {fileID: 0}
   previousGate2: {fileID: 0}
   spriteRenderer: {fileID: 2114340179}
   spriteTrue: {fileID: 21300000, guid: aad4e424f7bc5ad42a490afb8acc6b78, type: 3}
   spriteFalse: {fileID: 21300000, guid: 85b626ba66fea0c43a2190ba516c124c, type: 3}
-  targetValue: 0
+  targetValueForInput1: 0
+  targetValueForInput2: 0
 --- !u!212 &2114340179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16147,9 +16205,9 @@ GameObject:
   - component: {fileID: 2144905487}
   - component: {fileID: 2144905489}
   - component: {fileID: 2144905488}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grey_Wall
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

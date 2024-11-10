@@ -70,8 +70,6 @@ public class BinaryButtonArray : MonoBehaviour
             binaryArray[index] = 1 - binaryArray[index];
             UpdateButtonColor(index);
             UpdateDecimalDisplay();
-
-            binaryAdder?.UpdateSumOutput();
         }
     }
 

@@ -4,11 +4,14 @@ public class playerMovement : MonoBehaviour
 {
     public float speed;
     public float jump;
-    float horizontalInput;
+    private float horizontalInput;
     private Rigidbody2D rb;
     private float move;
     private bool isJumping = false;
     private Vector3 respawnPoint;
+
+    // Reference to BinaryArrayAdder for updating the sum
+    public BinaryArrayAdder binaryArrayAdder;
 
     void Start()
     {
@@ -16,7 +19,6 @@ public class playerMovement : MonoBehaviour
         respawnPoint = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Flip left to right
@@ -67,10 +69,16 @@ public class playerMovement : MonoBehaviour
         RepresentationTypeChanger representationChanger = other.gameObject.GetComponent<RepresentationTypeChanger>();
         if (representationChanger != null)
         {
+            // Cycle the representation type
             representationChanger.CycleType();
+
+            // Update the sum output in BinaryArrayAdder
+            if (binaryArrayAdder != null)
+            {
+                binaryArrayAdder.UpdateSumOutput();
+            }
         }
     }
-
 
     private void HandleButtonInteraction(Collider2D buttonCollider)
     {

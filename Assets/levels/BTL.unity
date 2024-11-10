@@ -1582,7 +1582,7 @@ Transform:
   m_GameObject: {fileID: 211761863}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.04, y: 0.36, z: 0}
+  m_LocalPosition: {x: 19.3, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6163,6 +6163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   jump: 12
+  binaryArrayAdder: {fileID: 0}
 --- !u!50 &941209281
 Rigidbody2D:
   serializedVersion: 4
@@ -6251,7 +6252,7 @@ Transform:
   m_GameObject: {fileID: 941209278}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.03, y: 8.85, z: 0}
+  m_LocalPosition: {x: -22.53, y: -3.34, z: 0}
   m_LocalScale: {x: 2, y: 2.0061526, z: 0.82994986}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7901,7 +7902,7 @@ Transform:
   m_GameObject: {fileID: 1145147612}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.04, y: 0.36, z: 0}
+  m_LocalPosition: {x: 6, y: 13.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

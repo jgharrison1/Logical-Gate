@@ -174,6 +174,7 @@ public class BinaryButtonArray : MonoBehaviour
             currentRepresentationIndex = (currentRepresentationIndex + 1) % allowedRepresentations.Count;
             UpdateRepresentationTypeDisplay();
             UpdateDecimalDisplay();
+            binaryAdder?.UpdateSumOutput();
         }
     }
 

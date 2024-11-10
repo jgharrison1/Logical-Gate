@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5189307450062427422}
   - component: {fileID: 7023276587633022799}
   - component: {fileID: 2107393651111996224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -208,6 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  iFramesDuration: 1
+  numberOfFlashes: 3
 --- !u!95 &2107393651111996224
 Animator:
   serializedVersion: 5

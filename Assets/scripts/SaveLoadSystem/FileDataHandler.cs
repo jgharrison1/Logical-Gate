@@ -64,12 +64,12 @@ public class FileDataHandler
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
 
             // serialize the C# game data object into Json
-            string dataToStore = JsonUtility.ToJson(data, true);
+            string dataToStore = JsonUtility.ToJson(data, true); //
 
             // optionally encrypt the data
             if (useEncryption) 
             {
-                dataToStore = EncryptDecrypt(dataToStore);
+                dataToStore = EncryptDecrypt(dataToStore); 
             }
 
             // write the serialized data to the file
@@ -77,7 +77,7 @@ public class FileDataHandler
             {
                 using (StreamWriter writer = new StreamWriter(stream)) 
                 {
-                    writer.Write(dataToStore);
+                    writer.Write(dataToStore); //writes data to Json file
                 }
             }
         }

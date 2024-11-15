@@ -133,7 +133,7 @@
 
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class playerMovement : MonoBehaviour, IDataPersistence
 {
     public float speed;
     public float jump;
@@ -225,4 +225,16 @@ public class playerMovement : MonoBehaviour
             buttonArrayManager.ToggleBinaryValue(index, buttonArrayManager.arrayID);
         }
     }
+
+    public void LoadData(GameData data) 
+    {
+        this.respawnPoint = data.respawnPoint;
+        gameObject.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(GameData data) 
+    {
+        
+    }
+
 }

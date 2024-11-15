@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health_Enemy : MonoBehaviour
 {
     [Header ("Health")]
     [SerializeField] private float startingHealth;
@@ -19,30 +19,33 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
-
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+            TakeDamage(1);
+    }  
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
-        if(currentHealth > 0)
-        {
-            anim.SetTrigger("hurt");
-            StartCoroutine(Invulnerability());
-        }
-        else // temp death
+        if(currentHealth <= 0)
         {
             if(!dead)
             {
-                anim.SetTrigger("hurt");
-                //anim.SetTrigger("die");
-                //GetComponent<playerMovement>().enabled = false;
                 dead = true;
+                StartCoroutine(Death());
             }
         }
     }
-    private IEnumerator Invulnerability()
+
+    private void Update() // Practice Take Damage
     {
-        Physics2D.IgnoreLayerCollision(7,8, true);
+        if(Input.GetKeyDown(KeyCode.E))
+            TakeDamage(1);
+    }
+    private IEnumerator Death()
+    {
+        anim.SetTrigger("dies");
         for (int i = 0; i < numberOfFlashes; i++)
         {
             spriteRend.color = new Color(1,0,0, 0.5f);
@@ -50,6 +53,5 @@ public class Health : MonoBehaviour
             spriteRend.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes*2));
         }
-        Physics2D.IgnoreLayerCollision(7,8, false);
     }
 }

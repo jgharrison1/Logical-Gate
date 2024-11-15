@@ -5,11 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public int deathCount;
-    public int playerHealth;
-    public Vector3 playerPosition;
-    public SerializableDictionary<string, bool> enemiesDefeated;
-    public SerializableDictionary<string, bool> buttonStatus;
+    public int deathCount; // temporary - using for development purposes
+    public int playerHealth; // initialize in playermovement script
+    public Vector3 playerPosition; // initialize in player movement script
+    public SerializableDictionary<string, bool> enemiesDefeated; // initialize in player movement script
+    public SerializableDictionary<string, bool> buttonStatus; //initialize in  button script
 
     // the values defined in this constructor will be the default values
     // the game starts with when there's no data to load

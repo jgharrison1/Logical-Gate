@@ -1,4 +1,29 @@
-
+using System;
+using UnityEditor.Tilemaps;
+using UnityEngine;
+// K
+public class playerMovement : MonoBehaviour
+{
+    public float speed;
+    public float jump;
+    private Rigidbody2D rb;
+    private Vector3 respawnPoint;
+    private Animator anim;
+    private BoxCollider2D boxCollider;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask wallLayer;
+    private float wallJumpCooldown;
+    private float horizontalInput;
+    // Wall jumping/ sliding
+    private bool isFacingRight = true;
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    private Vector2 wallJumpingPower = new Vector2(8f, 12f);
 
 
 

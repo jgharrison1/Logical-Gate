@@ -7,6 +7,6 @@ public class HubLoaderMM : MonoBehaviour
 {
     
     public void PlayGame(){
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync("NewOrLoadGame");
     } 
 }

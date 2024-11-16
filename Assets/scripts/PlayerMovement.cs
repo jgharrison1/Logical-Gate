@@ -2,7 +2,7 @@ using System;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 // K
-public class playerMovement : MonoBehaviour
+public class playerMovement : MonoBehaviour, IDataPersistence
 {
     public float speed;
     public float jump;
@@ -187,5 +187,21 @@ public class playerMovement : MonoBehaviour
 
             buttonArrayManager.ToggleBinaryValue(index, buttonArrayManager.arrayID);
         }
+    }
+
+    public void LoadData(GameData data) 
+    {
+        if(!data.firstLoad)
+        {
+            this.respawnPoint = data.respawnPoint;
+            this.transform.position = data.playerPosition;
+        }
+        data.firstLoad = false;
+    }
+
+    public void SaveData(GameData data) 
+    {
+        data.respawnPoint = this.respawnPoint;
+        data.playerPosition = this.transform.position;        
     }
 }

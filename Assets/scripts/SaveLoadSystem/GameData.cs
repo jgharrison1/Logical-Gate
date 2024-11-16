@@ -6,10 +6,10 @@ using UnityEngine;
 public class GameData
 {
     //public int deathCount; // temporary - using for development purposes
-    public int playerHealth; // initialize in playermovement script
+    public float playerHealth; // initialize in playermovement script
     public Vector3 playerPosition; // initialize in player movement script
     public Vector3 respawnPoint;
-    public float currentHealth;
+    public bool firstLoad;
     //public SerializableDictionary<string, bool> enemiesDefeated; // initialize in player movement script
     //public SerializableDictionary<string, bool> buttonStatus; //initialize in  button script
 
@@ -18,8 +18,8 @@ public class GameData
     public GameData() 
     {
         //this.deathCount = 0;
-        this.playerHealth = 3;
-        playerPosition = Vector3.zero;
+        firstLoad = true;
+        this.playerHealth = 3.0f;
         //enemiesDefeated = new SerializableDictionary<string, bool>();
         //buttonStatus = new SerializableDictionary<string, bool>();
     }

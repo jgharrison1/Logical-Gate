@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class testMovement : MonoBehaviour
 {
-    public float speed;
-    public float jump;
-    private float horizontalInput;
-    private Rigidbody2D rb;
-    private float move;
-    private bool isJumping = false;
-    private Vector3 respawnPoint;
-    private BinaryArrayAdder binaryArrayAdder;
+    public float speed;//
+    public float jump;//
+    private float horizontalInput;//
+    private Rigidbody2D rb;//
+    private float move;// maybe an issue
+    private bool isJumping = false;//
+    private Vector3 respawnPoint;//
+    private BinaryArrayAdder binaryArrayAdder;//maybe an issue
     public float knockbackForce = 5f; // Knockback force for when colliding with the boss
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         respawnPoint = transform.position;
-    }
+    } // good
 
     void Update()
     {

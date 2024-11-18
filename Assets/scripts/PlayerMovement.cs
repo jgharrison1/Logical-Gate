@@ -1,7 +1,7 @@
 using System;
 using UnityEditor.Tilemaps;
 using UnityEngine;
-// K
+
 public class playerMovement : MonoBehaviour, IDataPersistence
 {
     public float speed;
@@ -24,6 +24,8 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(8f, 12f);
+    private BinaryArrayAdder binaryArrayAdder;
+    public float knockbackForce = 5f; // Knockback force for when colliding with the boss
 
     void Start()
     {
@@ -76,7 +78,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         rb.velocity = new Vector2(rb.velocity.x, jump); // Apply jump velocity
         anim.SetTrigger("jump");
     }
-  private void wallJump()
+    private void wallJump()
     {
         if(isWallSliding)
         {
@@ -168,13 +170,41 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             //isJumping = false;
         }*/
 
+        if (other.gameObject.CompareTag("WormBoss"))
+        {
+            HandleBossCollision(other.gameObject);
+        }
+
+        // Handle representation change if applicable
         RepresentationTypeChanger representationChanger = other.gameObject.GetComponent<RepresentationTypeChanger>();
         if (representationChanger != null)
         {
             representationChanger.CycleType();
+
+            if (binaryArrayAdder != null)
+            {
+                binaryArrayAdder.UpdateSumOutput();
+            }
         }
+
+        // Change the segment's binary value when the player hits a segment
+        WormSegment wormSegment = other.gameObject.GetComponent<WormSegment>();
+        if (wormSegment != null)
+        {
+            wormSegment.ToggleBinaryValue();
+        }
+
     }
 
+    private void HandleBossCollision(GameObject boss)
+    {
+        WormBoss wormBoss = boss.GetComponent<WormBoss>();
+
+        if (wormBoss != null)
+        {
+
+        }
+    }
 
     private void HandleButtonInteraction(Collider2D buttonCollider)
     {

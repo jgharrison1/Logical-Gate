@@ -567,8 +567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &92612886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -720,8 +718,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &107697219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,13 +1240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d85354539f0355419eae3e583edb79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wormBoss: {fileID: 196154718}
-  openPositionOffset: {x: 1.5, y: 0, z: 0}
-  moveSpeed: 3
-  openPosition: {x: 0, y: 0, z: 0}
-  closedPosition: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  shouldMove: 0
+  wormBoss: {fileID: 0}
+  openPositionOffset: {x: 0, y: 0, z: 0}
+  moveSpeed: 2
 --- !u!61 &187499676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1380,61 +1372,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693da2aa90274774890c495fa7735019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1424798064}
-  - {fileID: 1742291746}
-  - {fileID: 1857047718}
-  - {fileID: 250539880}
-  - {fileID: 1007705548}
-  - {fileID: 100631553}
-  - {fileID: 2083213024}
-  - {fileID: 1284369432}
-  - {fileID: 720341649}
-  - {fileID: 92612884}
-  - {fileID: 1771881796}
-  - {fileID: 324698061}
-  - {fileID: 892554966}
-  - {fileID: 1561738344}
-  - {fileID: 639341809}
-  - {fileID: 1758056664}
-  - {fileID: 745051301}
-  - {fileID: 1311160863}
-  - {fileID: 1987513708}
-  - {fileID: 1598252235}
-  - {fileID: 1538732902}
-  - {fileID: 1219365100}
-  - {fileID: 794877863}
-  - {fileID: 408130662}
-  - {fileID: 404834914}
-  - {fileID: 1050131822}
-  - {fileID: 1174383675}
-  - {fileID: 1368426150}
-  - {fileID: 2111322892}
-  - {fileID: 2076183155}
-  - {fileID: 933526503}
-  - {fileID: 513166916}
-  - {fileID: 1599813810}
-  - {fileID: 1704273856}
-  - {fileID: 653393243}
-  - {fileID: 691263907}
-  - {fileID: 1484681907}
-  - {fileID: 545155588}
-  - {fileID: 1795255215}
-  - {fileID: 1891992768}
-  - {fileID: 821422157}
-  speed: 10
-  currentWaypointIndex: 0
-  segmentPrefab: {fileID: 1914130587}
+  waypoints: []
+  speed: 5
+  segmentPrefab: {fileID: 0}
   segmentCount: 5
-  segmentSpacing: 2
+  segmentSpacing: 0.5
   rotationSpeed: 10
-  segments: []
-  rb2d: {fileID: 0}
   maxHealth: 100
-  currentHealth: 0
-  healthText: {fileID: 40148584}
-  waitTimeAtWaypoint: 5
-  isWaiting: 0
+  healthText: {fileID: 0}
+  waitTimeAtWaypoint: 2
 --- !u!212 &196154719
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1747,8 +1693,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &263308585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,8 +2022,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &324698063
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2392,8 +2334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &404834916
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2493,8 +2433,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &408130664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2826,8 +2764,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &513166918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2925,10 +2861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb35c04847564be47a2d7a3bcbe52a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldStop: 1
-  platformNumberText: {fileID: 328014108}
-  hasDamaged: 0
-  platformNumber: 0
+  shouldStop: 0
+  platformNumberText: {fileID: 0}
 --- !u!212 &545155590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3161,8 +3095,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &639341811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3262,8 +3194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &653393245
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3493,8 +3423,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &691263909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3594,8 +3522,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &720341651
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3695,8 +3621,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &745051303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3796,8 +3720,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &794877865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3897,8 +3819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &821422159
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4261,8 +4181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &892554968
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4362,8 +4280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &933526505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4777,8 +4693,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &1026205641
 GameObject:
   m_ObjectHideFlags: 0
@@ -5159,10 +5073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb35c04847564be47a2d7a3bcbe52a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldStop: 1
-  platformNumberText: {fileID: 1835572343}
-  hasDamaged: 0
-  platformNumber: 0
+  shouldStop: 0
+  platformNumberText: {fileID: 0}
 --- !u!212 &1050131824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5738,8 +5650,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1174383677
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5839,8 +5749,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1219365102
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6197,8 +6105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &1311160862
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,8 +6152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1311160865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6614,8 +6518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1368426152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6767,8 +6669,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &1448130736
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,8 +6748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1484681909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7211,10 +7109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb35c04847564be47a2d7a3bcbe52a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldStop: 1
-  platformNumberText: {fileID: 1083050240}
-  hasDamaged: 0
-  platformNumber: 0
+  shouldStop: 0
+  platformNumberText: {fileID: 0}
 --- !u!212 &1538732904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7410,13 +7306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d85354539f0355419eae3e583edb79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wormBoss: {fileID: 196154718}
-  openPositionOffset: {x: -1.5, y: 0, z: 0}
-  moveSpeed: 3
-  openPosition: {x: 0, y: 0, z: 0}
-  closedPosition: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  shouldMove: 0
+  wormBoss: {fileID: 0}
+  openPositionOffset: {x: 0, y: 0, z: 0}
+  moveSpeed: 2
 --- !u!1 &1561738343
 GameObject:
   m_ObjectHideFlags: 0
@@ -7464,8 +7356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1561738346
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7565,8 +7455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1598252237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7666,8 +7554,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1599813812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7892,8 +7778,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1704273858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7958,8 +7842,8 @@ GameObject:
   - component: {fileID: 1714131183}
   - component: {fileID: 1714131182}
   - component: {fileID: 1714131181}
-  - component: {fileID: 1714131180}
   - component: {fileID: 1714131179}
+  - component: {fileID: 1714131184}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -7995,27 +7879,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 1714131182}
---- !u!114 &1714131180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714131177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3fdafb4a2611d04fb50fd7e99d1dd1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  jump: 12
-  horizontalInput: 0
-  rb: {fileID: 0}
-  move: 0
-  isJumping: 0
-  respawnPoint: {x: 0, y: 0, z: 0}
-  binaryArrayAdder: {fileID: 0}
-  knockbackForce: 5
 --- !u!50 &1714131181
 Rigidbody2D:
   serializedVersion: 4
@@ -8140,6 +8003,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1714131184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714131177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537cacaeb75b5f040871f7d4bc027229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  jump: 0
+  knockbackForce: 5
 --- !u!1 &1742291745
 GameObject:
   m_ObjectHideFlags: 0
@@ -8239,8 +8117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &1758056663
 GameObject:
   m_ObjectHideFlags: 0
@@ -8288,8 +8164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1758056666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8387,10 +8261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb35c04847564be47a2d7a3bcbe52a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldStop: 1
-  platformNumberText: {fileID: 4433868}
-  hasDamaged: 0
-  platformNumber: 0
+  shouldStop: 0
+  platformNumberText: {fileID: 0}
 --- !u!212 &1771881798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8490,8 +8362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1795255217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8920,8 +8790,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &1891992767
 GameObject:
   m_ObjectHideFlags: 0
@@ -8969,8 +8837,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1891992770
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9056,12 +8922,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 5
   rotationSpeed: 10
-  target: {fileID: 0}
   binaryValue: 0
   segmentSprites:
-  - {fileID: 21300000, guid: ee459790de8672945abedc218244f59a, type: 3}
-  - {fileID: 21300000, guid: 3e006508fb4ffad4fa1578159baa5f58, type: 3}
-  spriteRenderer: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &1914130589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9477,8 +9341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &1987513710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9696,8 +9558,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &2076183157
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9849,8 +9709,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!1 &2111322891
 GameObject:
   m_ObjectHideFlags: 0
@@ -9898,8 +9756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStop: 0
   platformNumberText: {fileID: 0}
-  hasDamaged: 0
-  platformNumber: 0
 --- !u!212 &2111322894
 SpriteRenderer:
   m_ObjectHideFlags: 0

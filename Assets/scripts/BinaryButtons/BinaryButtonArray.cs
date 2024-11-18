@@ -13,7 +13,7 @@ public class BinaryButtonArray : MonoBehaviour
 
     [Header("Representation Settings")]
     public List<BinaryRepresentation> allowedRepresentations;  // List of allowed representations
-    private int currentRepresentationIndex = 0;                 // Tracks the current representation index
+    private int currentRepresentationIndex = 0;                // Tracks the current representation index
 
     public int arraySize = 10;
     private int[] binaryArray;
@@ -70,8 +70,12 @@ public class BinaryButtonArray : MonoBehaviour
             binaryArray[index] = 1 - binaryArray[index];
             UpdateButtonColor(index);
             UpdateDecimalDisplay();
+
+            // Notify the BinaryArrayAdder to update the sum
+            binaryAdder?.UpdateSumOutput();
         }
     }
+
 
     private void UpdateButtonColor(int index)
     {

@@ -36,7 +36,6 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("hurt");
                 dead = true;
                 FindObjectOfType<playerMovement>().Respawn();
-                dead = true;
             }
         }
     }

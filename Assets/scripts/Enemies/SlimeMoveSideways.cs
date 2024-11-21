@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class SlimeMovement : MonoBehaviour
 {
     [SerializeField] private float movementDistance;
     [SerializeField] private float speed;

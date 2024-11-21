@@ -34,12 +34,18 @@ public class Health : MonoBehaviour
             if(!dead)
             {
                 anim.SetTrigger("hurt");
-                //anim.SetTrigger("die");
-                //GetComponent<playerMovement>().enabled = false;
+                dead = true;
+                FindObjectOfType<playerMovement>().Respawn();
                 dead = true;
             }
         }
     }
+    public void RestoreHealth()
+    {
+        currentHealth = startingHealth;
+        dead = false;
+    }
+
     private IEnumerator Invulnerability()
     {
         Physics2D.IgnoreLayerCollision(7,8, true);

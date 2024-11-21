@@ -218,6 +218,17 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             buttonArrayManager.ToggleBinaryValue(index, buttonArrayManager.arrayID);
         }
     }
+    public void Respawn()
+    {
+        transform.position = respawnPoint;
+
+        Health health = GetComponent<Health>();
+        if (health != null)
+        {
+            health.RestoreHealth();
+        }
+    }
+
 
     public void LoadData(GameData data) 
     {

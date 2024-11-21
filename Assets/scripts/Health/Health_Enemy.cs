@@ -3,12 +3,11 @@ using UnityEngine;
 
 public class Health_Enemy : MonoBehaviour
 {
-    [Header ("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth {get; private set;}
     private Animator anim;
     private bool dead;
-    [Header ("iFrames")]
+    [SerializeField] private float damage;
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
@@ -21,8 +20,20 @@ public class Health_Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
-            TakeDamage(1);
+       if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collision Normal: " + other.contacts[0].normal);
+            if (other.contacts[0].normal.y < 0)
+            {
+                Debug.Log("Player landed on enemy from above!");
+                TakeDamage(1);
+            }
+            else
+            {
+                Debug.Log("Player hit from the side or below.");
+                other.gameObject.GetComponent<Health>().TakeDamage(damage);
+            }
+        }
     }  
     public void TakeDamage(float _damage)
     {
@@ -38,11 +49,6 @@ public class Health_Enemy : MonoBehaviour
         }
     }
 
-    private void Update() // Practice Take Damage
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-            TakeDamage(1);
-    }
     private IEnumerator Death()
     {
         anim.SetTrigger("dies");
@@ -53,5 +59,6 @@ public class Health_Enemy : MonoBehaviour
             spriteRend.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes*2));
         }
+        gameObject.SetActive(false);
     }
 }

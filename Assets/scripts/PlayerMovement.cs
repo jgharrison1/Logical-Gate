@@ -155,8 +155,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     {
         if (other.CompareTag("Checkpoint"))
             respawnPoint = transform.position;
-        else if (other.CompareTag("Lava"))
-            transform.position = respawnPoint;
     }
 
     private void OnCollisionEnter2D(Collision2D other)

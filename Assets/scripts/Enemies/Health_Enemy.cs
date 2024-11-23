@@ -34,7 +34,24 @@ public class Health_Enemy : MonoBehaviour
                 other.gameObject.GetComponent<Health>().TakeDamage(damage);
             }
         }
+        if (other.gameObject.CompareTag("Button"))
+        {
+            HandleButtonInteraction(other.collider);
+        }
     }  
+
+    private void HandleButtonInteraction(Collider2D buttonCollider)
+    {
+        ButtonIndex buttonIndex = buttonCollider.GetComponent<ButtonIndex>();
+
+        if (buttonIndex != null && buttonIndex.buttonArray != null)
+        {
+            int index = buttonIndex.index;
+            BinaryButtonArray buttonArrayManager = buttonIndex.buttonArray;
+
+            buttonArrayManager.ToggleBinaryValue(index, buttonArrayManager.arrayID);
+        }
+    }
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);

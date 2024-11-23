@@ -11,6 +11,7 @@ public class ButtonInputController : MonoBehaviour
     public string buttonName1;
     public string buttonName2;
     private string playerTag = "Player";
+    private string enemyTag = "Enemy";
 
     private SpriteRenderer spriteRenderer;
     private bool color;
@@ -46,6 +47,20 @@ public class ButtonInputController : MonoBehaviour
             UpdateButtonColor();
         }
         else if (other.CompareTag(playerTag) && gameObject.name == buttonName2)
+        {
+            buttonInput2 = !buttonInput2;
+            ConnectedGate.input2 = buttonInput2;
+            color = buttonInput2;
+            UpdateButtonColor();
+        }
+        if (other.CompareTag(enemyTag) && gameObject.name == buttonName1)
+        {
+            buttonInput1 = !buttonInput1;
+            ConnectedGate.input1 = buttonInput1;
+            color = buttonInput1;
+            UpdateButtonColor();
+        }
+        else if (other.CompareTag(enemyTag) && gameObject.name == buttonName2)
         {
             buttonInput2 = !buttonInput2;
             ConnectedGate.input2 = buttonInput2;

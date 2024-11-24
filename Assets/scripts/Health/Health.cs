@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDataPersistence
 {
     [Header ("Health")]
     [SerializeField] private float startingHealth;
@@ -56,5 +56,15 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes*2));
         }
         Physics2D.IgnoreLayerCollision(7,8, false);
+    }
+
+    public void LoadData(GameData data) 
+    {
+        this.currentHealth = data.playerHealth;
+    }
+
+    public void SaveData(GameData data) 
+    {
+        data.playerHealth = this.currentHealth;
     }
 }

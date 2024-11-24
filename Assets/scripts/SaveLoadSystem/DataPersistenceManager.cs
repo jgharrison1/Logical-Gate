@@ -101,7 +101,9 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData(gameData);
         }
-
+        //save the name of the current scene as a string to pass to the datahandler
+        Scene scene = SceneManager.GetActiveScene();
+        gameData.currentScene = scene.name; //save the string name of the scene we are saving from.
         // save that data to a file using the data handler
         dataHandler.Save(gameData);
     }

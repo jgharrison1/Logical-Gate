@@ -17,13 +17,13 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     // Wall jumping/ sliding
     private bool isFacingRight = true;
     private bool isWallSliding;
-    private float wallSlidingSpeed = 2f;
+    private float wallSlidingSpeed = 1.5f;
     private bool isWallJumping;
     private float wallJumpingDirection;
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
-    private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(8f, 12f);
+    private float wallJumpingDuration = 0.3f;
+    private Vector2 wallJumpingPower = new Vector2(4f, 6f);
     private BinaryArrayAdder binaryArrayAdder;
     public float knockbackForce = 5f; // Knockback force for when colliding with the boss
 

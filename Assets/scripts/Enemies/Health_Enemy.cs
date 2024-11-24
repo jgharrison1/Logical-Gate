@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Health_Enemy : MonoBehaviour
+public class Health_Enemy : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private float startingHealth;
     public float currentHealth {get; private set;}
@@ -10,7 +10,14 @@ public class Health_Enemy : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
+    [SerializeField] private string ID;
     private SpriteRenderer spriteRend;
+
+    [ContextMenu("Generate guid for ID")]
+    private void generateGuid() 
+    {
+        ID = System.Guid.NewGuid().ToString();
+    }
 
     private void Awake()
     {
@@ -77,5 +84,22 @@ public class Health_Enemy : MonoBehaviour
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes*2));
         }
         gameObject.SetActive(false);
+    }
+
+    public void LoadData(GameData data) 
+    {
+        data.enemiesDefeated.TryGetValue(ID, out dead);
+        if (dead)
+        {
+            this.gameObject.SetActive(false); //Should deactivate enemy if dead = true
+        }
+    }
+
+    public void SaveData(GameData data) 
+    {
+        if (data.enemiesDefeated.ContainsKey(ID)) {
+            data.enemiesDefeated.Remove(ID);
+        }
+        data.enemiesDefeated.Add(ID, dead);
     }
 }

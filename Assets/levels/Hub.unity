@@ -1010,8 +1010,8 @@ GameObject:
   m_Component:
   - component: {fileID: 990226490}
   - component: {fileID: 990226489}
-  - component: {fileID: 990226488}
   - component: {fileID: 990226491}
+  - component: {fileID: 990226492}
   m_Layer: 0
   m_Name: teleport
   m_TagString: Untagged
@@ -1019,18 +1019,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &990226488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990226487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c16dbf1b787d246a33798cba814f1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &990226489
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1143,6 +1131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &990226492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990226487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47de1c604a2f5e34a992f6e79d099249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1400924827
 GameObject:
   m_ObjectHideFlags: 0

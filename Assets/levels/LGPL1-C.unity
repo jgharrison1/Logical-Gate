@@ -3849,8 +3849,8 @@ GameObject:
   m_Component:
   - component: {fileID: 635508940}
   - component: {fileID: 635508943}
-  - component: {fileID: 635508942}
   - component: {fileID: 635508941}
+  - component: {fileID: 635508944}
   m_Layer: 0
   m_Name: forwardTeleport
   m_TagString: Untagged
@@ -3918,18 +3918,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &635508942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635508939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38b971e7abc40d646a6b4350c800a977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &635508943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3982,6 +3970,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &635508944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635508939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47de1c604a2f5e34a992f6e79d099249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &641178872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4885,7 +4885,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 676807395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c16dbf1b787d246a33798cba814f1c, type: 3}
+  m_Script: {fileID: 11500000, guid: eb728881e464cde4c96a058dd9485cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &713958104

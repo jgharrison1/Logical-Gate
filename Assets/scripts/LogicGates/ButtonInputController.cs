@@ -25,7 +25,7 @@ public class ButtonInputController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
+    {    
         if (other.CompareTag(playerTag) && gameObject.name == buttonName1)
         {
             buttonInput1 = !buttonInput1;

@@ -39,16 +39,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        
-        // Horizontal movement
-        // if (horizontalInput > 0)
-        // {
-        //     gameObject.transform.localScale = new Vector3(3, 3, 1);
-        // }
-        // if (horizontalInput < 0)
-        // {
-        //     gameObject.transform.localScale = new Vector3(-3, 3, 1);
-        // }
 
         // Jumping
         if(isGrounded() && Input.GetKeyDown(KeyCode.W))
@@ -163,10 +153,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         {
             HandleButtonInteraction(other.collider);
         }
-        /*if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Button"))
-        {
-            //isJumping = false;
-        }*/
 
         if (other.gameObject.CompareTag("WormBoss"))
         {

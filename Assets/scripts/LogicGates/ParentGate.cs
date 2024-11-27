@@ -54,17 +54,14 @@ public class ParentGate : MonoBehaviour
     {
         if (affectInput1)
         {
-            // Compare binarySum to the target value for input1
             input1 = binarySum == targetValueForInput1;
         }
         else
         {
-            // Compare binarySum to the target value for input2
             input2 = binarySum == targetValueForInput2;
         }
 
-        // Update the output state if needed
-        output = input1 || input2; // Example logic for output based on inputs
-        UpdateSprite(); // Update the sprite to reflect the new output state
+        output = input1 || input2; 
+        UpdateSprite(); 
     }
 }

@@ -27,7 +27,7 @@ public class Health_Enemy : MonoBehaviour, IDataPersistence
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-       if (other.gameObject.CompareTag("Player"))
+       if (other.gameObject.CompareTag("Player") && !dead)
         {
             Debug.Log("Collision Normal: " + other.contacts[0].normal);
             if (other.contacts[0].normal.y < 0)

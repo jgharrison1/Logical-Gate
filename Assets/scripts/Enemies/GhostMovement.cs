@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed;
+    public float speed = 5f;
     private Vector3 direction;
+    private float stuckTimer = 0f;
+    private float stuckThreshold = 1f;
+    private int collisionCount = 0;
 
     void Start()
     {
@@ -13,21 +16,39 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
+        if (Mathf.Abs(direction.x) > 0.1f || Mathf.Abs(direction.y) > 0.1f)
+        {
+            stuckTimer = 0f;
+        }
+        else
+        {
+            stuckTimer += Time.deltaTime;
+        }
+        if (stuckTimer > stuckThreshold)
+        {
+            direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
+            stuckTimer = 0f;
+        }
         FaceDirection();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform")|| collision.gameObject.CompareTag("Button"))
+        if (collision.contacts[0].normal.x != 0)
         {
-            if (collision.contacts[0].normal.x != 0)
-            {
-                direction.x = -direction.x;
-            }
-            if (collision.contacts[0].normal.y != 0)
-            {
-                direction.y = -direction.y;
-            }
+            direction.x = -direction.x; 
+            collisionCount++;
+        }
+        if (collision.contacts[0].normal.y != 0)
+        {
+            direction.y = -direction.y;
+            collisionCount++;
+        }
+
+        if (collisionCount > 10)
+        {
+            direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
+            collisionCount = 0;
         }
     }
 

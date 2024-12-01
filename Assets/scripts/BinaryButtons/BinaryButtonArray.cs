@@ -71,7 +71,7 @@ public class BinaryButtonArray : MonoBehaviour
             UpdateButtonColor(index);
             UpdateDecimalDisplay();
 
-            // Notify the BinaryArrayAdder to update the sum
+            // Notify the BinaryArrayAdder to update sum
             binaryAdder?.UpdateSumOutput();
         }
     }

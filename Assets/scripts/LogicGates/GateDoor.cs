@@ -8,7 +8,7 @@ public class GateDoor : MonoBehaviour
     public Vector2 openPosition;
     public Vector2 closedPosition;
     public float speed = 2f;
-    public TMP_Text text; // Assign this in the inspector to link the TextMeshPro text object
+    public TMP_Text text;
 
     private Vector2 targetPosition;
     private bool playerOnPlatform = false;
@@ -35,12 +35,10 @@ public class GateDoor : MonoBehaviour
                 CloseGate();
             }
 
-            // Calculate platform movement
             Vector2 newPosition = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
             Vector2 platformMovement = newPosition - (Vector2)transform.position;
             transform.position = newPosition;
 
-            // Update TMP_Text position to follow the platform
             if (text != null)
             {
                 text.transform.position += (Vector3)platformMovement;

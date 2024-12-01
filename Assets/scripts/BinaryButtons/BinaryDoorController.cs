@@ -10,16 +10,16 @@ public class BinaryDoorController : MonoBehaviour
     }
 
     [Header("Comparison Settings")]
-    public ComparisonSource comparisonSource; // Enum to select comparison source
-    public BinaryArrayAdder binaryAdder; // Reference to BinaryArrayAdder
-    public BinaryButtonArray binaryButtonArray; // Reference to BinaryButtonArray
-    public int targetValue; // The value to compare against
+    public ComparisonSource comparisonSource; 
+    public BinaryArrayAdder binaryAdder;
+    public BinaryButtonArray binaryButtonArray;
+    public int targetValue;
 
     [Header("Door Settings")]
     public Vector2 openPosition;
     public Vector2 closedPosition;
     public float speed = 2f;
-    public TMP_Text text; // Optional text object to display
+    public TMP_Text text;
 
     private Vector2 targetPosition;
     private bool playerOnPlatform = false;
@@ -80,7 +80,7 @@ public class BinaryDoorController : MonoBehaviour
         }
 
         Debug.LogWarning("Invalid comparison source or missing reference.");
-        return -1; // Return an invalid value to prevent matches
+        return -1;
     }
 
     void OpenDoor()
@@ -96,7 +96,7 @@ public class BinaryDoorController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.position.y > transform.position.y) // Check that player is on top of the platform
+        if (collision.transform.position.y > transform.position.y)
         {
             playerOnPlatform = true;
             playerTransform = collision.transform;

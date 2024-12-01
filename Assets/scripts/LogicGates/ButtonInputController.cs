@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ButtonInputController : MonoBehaviour
 {
-    // public ButtonState buttonState;
     public ParentGate ConnectedGate;
     public bool buttonInput1;
     public bool buttonInput2;

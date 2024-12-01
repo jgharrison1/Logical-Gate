@@ -10,7 +10,7 @@ public class ElevatorButtonController : MonoBehaviour
     public Color activatedColor = Color.green;
     public Color deactivatedColor = Color.red;
 
-    public Vector3 buttonOffset;  // Offset from the elevator's position
+    public Vector3 buttonOffset;
 
     private void Start()
     {
@@ -20,7 +20,6 @@ public class ElevatorButtonController : MonoBehaviour
 
     private void Update()
     {
-        // Update the button's position based on the elevator's position and the offset
         if (elevatorController != null)
         {
             transform.position = elevatorController.transform.position + buttonOffset;

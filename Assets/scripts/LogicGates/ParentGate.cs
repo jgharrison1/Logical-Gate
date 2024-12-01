@@ -12,13 +12,9 @@ public class ParentGate : MonoBehaviour
     public ParentGate previousGate1;
     public ParentGate previousGate2;
     private string playerTag = "Player";
-
-    // Fields for sprite representation
-    public SpriteRenderer spriteRenderer;  // Attach the SpriteRenderer component here
-    public Sprite spriteTrue;              // Attach the sprite for output = true here
-    public Sprite spriteFalse;             // Attach the sprite for output = false here
-    
-    // Separate target values for input1 and input2
+    public SpriteRenderer spriteRenderer;
+    public Sprite spriteTrue;
+    public Sprite spriteFalse;
     public int targetValueForInput1;
     public int targetValueForInput2;
 
@@ -40,7 +36,6 @@ public class ParentGate : MonoBehaviour
         }
     }
 
-    // Method to update the sprite based on output value
     protected void UpdateSprite()
     {
         if (spriteRenderer != null)
@@ -49,7 +44,6 @@ public class ParentGate : MonoBehaviour
         }
     }
 
-    // Method to check the binary sum and update inputs based on specific target values
     public void CheckBinarySum(int binarySum, bool affectInput1)
     {
         if (affectInput1)

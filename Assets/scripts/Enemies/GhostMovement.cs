@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 lastPosition;
     private float stuckTimer = 0f;
     private float stuckThreshold = 0.5f;
+    private BinaryArrayAdder binaryArrayAdder;
 
     void Start()
     {
@@ -42,6 +43,17 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         SetRandomDirection();
+        // Handle representation change if applicable
+        RepresentationTypeChanger representationChanger = collision.gameObject.GetComponent<RepresentationTypeChanger>();
+        if (representationChanger != null)
+        {
+            representationChanger.CycleType();
+
+            if (binaryArrayAdder != null)
+            {
+                binaryArrayAdder.UpdateSumOutput();
+            }
+        }
     }
 
     void SetRandomDirection()

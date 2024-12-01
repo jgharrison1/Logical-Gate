@@ -8,6 +8,7 @@ public class SlimeMovement : MonoBehaviour
     private float leftEdge;
     private float rightEdge;
     private Health_Enemy healthEnemy;
+    private BinaryArrayAdder binaryArrayAdder;
 
     private void Awake()
     {
@@ -54,5 +55,18 @@ public class SlimeMovement : MonoBehaviour
                 break;
             }
         }
+
+        RepresentationTypeChanger representationChanger = other.gameObject.GetComponent<RepresentationTypeChanger>();
+        if (representationChanger != null)
+        {
+            representationChanger.CycleType();
+
+            if (binaryArrayAdder != null)
+            {
+                binaryArrayAdder.UpdateSumOutput();
+            }
+        }
     }
+
+    
 }

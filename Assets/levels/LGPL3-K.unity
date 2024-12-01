@@ -173,6 +173,7 @@ MonoBehaviour:
   closedPosition: {x: -10.4288, y: 10}
   speed: 3
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!61 &589195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1690,6 +1691,7 @@ MonoBehaviour:
   closedPosition: {x: 0.3128, y: 10}
   speed: 3
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!1001 &170264933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3468,6 +3470,10 @@ PrefabInstance:
       propertyPath: ID
       value: a38b8ee2-d8d5-4089-8b76-35dce8885eeb
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5198,6 +5204,7 @@ MonoBehaviour:
   closedPosition: {x: -4.83, y: 10}
   speed: 3
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!61 &657931362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7649,6 +7656,7 @@ MonoBehaviour:
   closedPosition: {x: 16.9607, y: 15.985}
   speed: 2
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!1001 &903630139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8023,6 +8031,10 @@ PrefabInstance:
       propertyPath: ID
       value: 18391821-55df-46bd-811e-a3e9686f901a
       objectReference: {fileID: 0}
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost (1)
@@ -8594,6 +8606,7 @@ MonoBehaviour:
   closedPosition: {x: 8.928599, y: -6.29}
   speed: 2
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!61 &1039749395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9652,6 +9665,10 @@ PrefabInstance:
       propertyPath: ID
       value: 147dc2c4-feea-4b13-b48f-b227bacacce1
       objectReference: {fileID: 0}
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost
@@ -10258,6 +10275,7 @@ MonoBehaviour:
   closedPosition: {x: 25.63, y: 20.85}
   speed: 2
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!1 &1389267057
 GameObject:
   m_ObjectHideFlags: 0
@@ -10972,6 +10990,10 @@ PrefabInstance:
       propertyPath: ID
       value: 4890933e-36c6-4aab-b768-bff2fc164aa1
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11122,6 +11144,10 @@ PrefabInstance:
       propertyPath: ID
       value: 093cc8d5-a7cc-465e-b921-3876ab32085e
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13824,6 +13850,7 @@ MonoBehaviour:
   closedPosition: {x: -11.04, y: 16.11}
   speed: 3
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!1001 &1884730027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15717,6 +15744,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4747603516862109534, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
+      propertyPath: walkSFX
+      value: 
+      objectReference: {fileID: 1550433125147189612}
     - target: {fileID: 7997488498157758651, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_Name
       value: player
@@ -15724,19 +15755,123 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7997488498157758651, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1550433125147189612}
   m_SourcePrefab: {fileID: 100100000, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
 --- !u!114 &1550433125147189610 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7023276587633022799, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
   m_PrefabInstance: {fileID: 1550433125147189609}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1550433125147189611}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9543de4d853404ac09ebe73c579408e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1550433125147189611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7997488498157758651, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
+  m_PrefabInstance: {fileID: 1550433125147189609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1550433125147189612
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550433125147189611}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fe6037e3733fe4d25aa072980da98f5e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &7292633285546161781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15749,6 +15884,10 @@ PrefabInstance:
       propertyPath: ID
       value: b7af97f9-fbca-4f0e-ba14-4ea5eb37bac7
       objectReference: {fileID: 0}
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost

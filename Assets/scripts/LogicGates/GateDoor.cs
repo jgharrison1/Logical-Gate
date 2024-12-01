@@ -1,7 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class GateController : MonoBehaviour
+public class GateDoor : MonoBehaviour
 {
     public ParentGate ConnectedGate;
     public Vector2 openPosition;
@@ -13,6 +14,8 @@ public class GateController : MonoBehaviour
     private bool playerOnPlatform = false;
     private Transform playerTransform;
     private Vector3 previousPosition;
+    //private bool hasRun = false;
+    [SerializeField] private AudioClip doorOpenSFX;
 
     void Start()
     {
@@ -27,7 +30,7 @@ public class GateController : MonoBehaviour
             {
                 OpenGate();
             }
-            else
+            else if (!ConnectedGate.output)
             {
                 CloseGate();
             }
@@ -73,10 +76,18 @@ public class GateController : MonoBehaviour
     void OpenGate()
     {
         targetPosition = transform.parent != null ? transform.parent.TransformPoint(openPosition) : openPosition;
+        openDoorSoundFX();
+        //hasRun = true;
     }
 
     void CloseGate()
     {
         targetPosition = transform.parent != null ? transform.parent.TransformPoint(closedPosition) : closedPosition;
+        //hasRun = false;
+    }
+    void openDoorSoundFX()
+    {
+        //if(!hasRun && doorOpenSFX!=null)
+            //SoundFXManager.instance.playSoundFXClip(doorOpenSFX, transform, 1f);
     }
 }

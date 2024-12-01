@@ -17,6 +17,7 @@ public class ButtonInputController : MonoBehaviour
     private bool color;
     public Color activatedColor = Color.green;
     public Color deactivatedColor = Color.red;
+    [SerializeField] private AudioClip buttonHitSFX;
 
     void Start()
     {
@@ -54,6 +55,8 @@ public class ButtonInputController : MonoBehaviour
             color = buttonInput2;
             UpdateButtonColor();
         }
+        if(buttonHitSFX!=null)
+            SoundFXManager.instance.playSoundFXClip(buttonHitSFX, transform, 1f);
     }
 
     private void UpdateButtonColor()

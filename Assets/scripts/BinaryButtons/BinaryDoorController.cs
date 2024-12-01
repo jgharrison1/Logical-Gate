@@ -118,6 +118,7 @@ public class BinaryDoorController : MonoBehaviour
     private bool playerOnPlatform = false;
     private Transform playerTransform;
     private Vector3 previousPosition;
+    [SerializeField] private AudioClip doorOpenSFX;
 
     void Start()
     {
@@ -178,6 +179,7 @@ public class BinaryDoorController : MonoBehaviour
     void OpenDoor()
     {
         targetPosition = transform.parent != null ? transform.parent.TransformPoint(openPosition) : openPosition;
+        openDoorSoundFX();
     }
 
     void CloseDoor()
@@ -201,5 +203,11 @@ public class BinaryDoorController : MonoBehaviour
             playerOnPlatform = false;
             playerTransform = null;
         }
+    }
+
+    void openDoorSoundFX()
+    {
+        //if(!hasRun && doorOpenSFX!=null)
+            //SoundFXManager.instance.playSoundFXClip(doorOpenSFX, transform, 1f);
     }
 }

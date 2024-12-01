@@ -12,6 +12,7 @@ public class Health_Enemy : MonoBehaviour, IDataPersistence
     [SerializeField] private int numberOfFlashes;
     [SerializeField] private string ID;
     private SpriteRenderer spriteRend;
+    [SerializeField] private AudioClip damageSFX;
 
     [ContextMenu("Generate guid for ID")]
     private void generateGuid() 
@@ -71,6 +72,7 @@ public class Health_Enemy : MonoBehaviour, IDataPersistence
                 StartCoroutine(Death());
             }
         }
+        SoundFXManager.instance.playSoundFXClip(damageSFX, transform, 1f);
     }
 
     private IEnumerator Death()

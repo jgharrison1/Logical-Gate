@@ -12,6 +12,9 @@ public class Health : MonoBehaviour, IDataPersistence
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
+    //soundFX
+    [SerializeField] private AudioClip damageSFX;
+    [SerializeField] private AudioClip deathSFX;
 
     private void Awake()
     {
@@ -28,6 +31,7 @@ public class Health : MonoBehaviour, IDataPersistence
         {
             anim.SetTrigger("hurt");
             StartCoroutine(Invulnerability());
+            SoundFXManager.instance.playSoundFXClip(damageSFX, transform, 1f);
         }
         else // temp death
         {
@@ -36,6 +40,8 @@ public class Health : MonoBehaviour, IDataPersistence
                 anim.SetTrigger("hurt");
                 dead = true;
                 FindObjectOfType<playerMovement>().Respawn();
+                //Play sound effect playerHurt
+                SoundFXManager.instance.playSoundFXClip(deathSFX, transform, 1f);
             }
         }
     }

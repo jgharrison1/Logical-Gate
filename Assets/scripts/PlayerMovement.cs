@@ -14,7 +14,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     [SerializeField] private LayerMask wallLayer;
     private float wallJumpCooldown;
     private float horizontalInput;
-    // Wall jumping/ sliding
     private bool isFacingRight = true;
     private bool isWallSliding;
     private float wallSlidingSpeed = 1.5f;
@@ -26,6 +25,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private Vector2 wallJumpingPower = new Vector2(2.2f, 12f);
     private BinaryArrayAdder binaryArrayAdder;
     public float knockbackForce = 5f; // Knockback force for when colliding with the boss
+    [SerializeField] private AudioSource walkSFX;
 
     void Start()
     {
@@ -33,6 +33,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         respawnPoint = transform.position;
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        walkSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,6 +54,16 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         // animations
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", isGrounded());
+        //play walk sound if grounded and walking
+        if(rb.velocity.x!=0 && isGrounded())
+        {
+            if(!walkSFX.isPlaying)
+                walkSFX.Play();
+        }
+        else
+        {
+            walkSFX.Stop();
+        }
     }
 
     private void FixedUpdate()

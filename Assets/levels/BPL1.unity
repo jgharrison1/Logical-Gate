@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700524852}
     m_Modifications:
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost (1)
@@ -3072,6 +3076,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3441,6 +3449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3588,6 +3600,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700524852}
     m_Modifications:
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost
@@ -4097,6 +4113,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4875,6 +4895,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5146,6 +5170,7 @@ MonoBehaviour:
   closedPosition: {x: 41.5199, y: -7.928065}
   speed: 2
   text: {fileID: 596337849}
+  doorOpenSFX: {fileID: 0}
 --- !u!1 &875034854
 GameObject:
   m_ObjectHideFlags: 0
@@ -5896,6 +5921,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4747603516862109534, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
+      propertyPath: walkSFX
+      value: 
+      objectReference: {fileID: 927295108}
     - target: {fileID: 7997488498157758651, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_Name
       value: player
@@ -5903,14 +5932,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7997488498157758651, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 927295108}
   m_SourcePrefab: {fileID: 100100000, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
 --- !u!114 &927295105 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7023276587633022799, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
   m_PrefabInstance: {fileID: 927295104}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 927295107}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9543de4d853404ac09ebe73c579408e3, type: 3}
@@ -5921,6 +5953,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
   m_PrefabInstance: {fileID: 927295104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &927295107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7997488498157758651, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
+  m_PrefabInstance: {fileID: 927295104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &927295108
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927295107}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fe6037e3733fe4d25aa072980da98f5e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &932359743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4035417567050884820, guid: 4ba5dcc4eb67aeb4498b8dfcd579c8d6, type: 3}
@@ -6410,6 +6543,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8582,6 +8719,7 @@ MonoBehaviour:
   closedPosition: {x: 0, y: -1.46993}
   speed: 2
   text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!61 &1241972754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9608,6 +9746,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700524852}
     m_Modifications:
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost (2)
@@ -10804,6 +10946,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700524852}
     m_Modifications:
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost (1)
@@ -12053,6 +12199,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700524852}
     m_Modifications:
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost
@@ -14031,6 +14181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871995933005216410, guid: 7c0b437364fca43e58fd5065911e4bfe, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14560,6 +14714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700524852}
     m_Modifications:
+    - target: {fileID: 84463989339536398, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 45c58dc9b857a43e58e2150b21e4837b, type: 3}
     - target: {fileID: 3207350078624435028, guid: 0eb4da59cfe4a4728887daff6122a103, type: 3}
       propertyPath: m_Name
       value: ghost

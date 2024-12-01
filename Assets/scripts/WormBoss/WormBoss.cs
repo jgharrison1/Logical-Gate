@@ -16,6 +16,8 @@ public class WormBoss : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
     public TextMeshProUGUI healthText;
+    [SerializeField] private AudioSource bossMovingSFX;
+    [SerializeField] private AudioClip bossDamageSFX;
 
     public float waitTimeAtWaypoint = 2f;
     private bool isWaiting = false;
@@ -23,6 +25,7 @@ public class WormBoss : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        bossMovingSFX = GetComponent<AudioSource>();
         segments = new WormSegment[segmentCount];
         Vector3 spawnPosition = transform.position;
         GameObject previousSegment = null;
@@ -74,6 +77,15 @@ public class WormBoss : MonoBehaviour
             {
                 MoveToNextWaypoint();
             }
+        }
+        if(!isWaiting)
+        {
+            if(!bossMovingSFX.isPlaying)
+                bossMovingSFX.Play();
+        }
+        else
+        {
+            bossMovingSFX.Stop();
         }
         MoveSegments();
     }
@@ -168,6 +180,7 @@ public class WormBoss : MonoBehaviour
         {
             StartCoroutine(DestroyWithDelay());
         }
+        SoundFXManager.instance.playSoundFXClip(bossDamageSFX, transform, 1f);
     }
 
     private IEnumerator DestroyWithDelay()

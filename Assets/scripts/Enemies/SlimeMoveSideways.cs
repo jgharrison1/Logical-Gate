@@ -43,4 +43,16 @@ public class SlimeMovement : MonoBehaviour
                 movingLeft = true;
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        foreach (ContactPoint2D contact in other.contacts)
+        {
+            if (Mathf.Abs(contact.normal.x) > Mathf.Abs(contact.normal.y))
+            {
+                movingLeft = !movingLeft;
+                break;
+            }
+        }
+    }
 }

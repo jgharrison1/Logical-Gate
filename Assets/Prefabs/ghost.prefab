@@ -195,6 +195,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  raycastDistance: 1
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &84463989339536398
 MonoBehaviour:
   m_ObjectHideFlags: 0

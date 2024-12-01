@@ -3,53 +3,50 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 5f;
-    private Vector3 direction;
+    private Vector2 direction;
+    private Rigidbody2D rb;
+    private Vector2 lastPosition;
     private float stuckTimer = 0f;
-    private float stuckThreshold = 1f;
-    private int collisionCount = 0;
+    private float stuckThreshold = 0.5f;
 
     void Start()
     {
-        direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
+        rb = GetComponent<Rigidbody2D>();
+        SetRandomDirection();
+        lastPosition = transform.position;
     }
 
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
-        if (Mathf.Abs(direction.x) > 0.1f || Mathf.Abs(direction.y) > 0.1f)
-        {
-            stuckTimer = 0f;
-        }
-        else
+        rb.velocity = direction * speed;
+
+        if (Vector2.Distance(lastPosition, transform.position) < 0.1f)
         {
             stuckTimer += Time.deltaTime;
         }
-        if (stuckTimer > stuckThreshold)
+        else
         {
-            direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
             stuckTimer = 0f;
         }
+        if (stuckTimer > stuckThreshold)
+        {
+            SetRandomDirection();
+            stuckTimer = 0f;
+        }
+
+        lastPosition = transform.position;
+
         FaceDirection();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contacts[0].normal.x != 0)
-        {
-            direction.x = -direction.x; 
-            collisionCount++;
-        }
-        if (collision.contacts[0].normal.y != 0)
-        {
-            direction.y = -direction.y;
-            collisionCount++;
-        }
+        SetRandomDirection();
+    }
 
-        if (collisionCount > 10)
-        {
-            direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
-            collisionCount = 0;
-        }
+    void SetRandomDirection()
+    {
+        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
     void FaceDirection()
@@ -58,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-        else
+        else if (direction.x < 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }

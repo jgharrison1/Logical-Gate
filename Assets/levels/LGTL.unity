@@ -6991,9 +6991,29 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1599434072}
+    - target: {fileID: 1628346944583940603, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6705
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119654511390127133, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_Name
+      value: _SaveQuit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843431734875509414, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -893
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008034304211846511, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7046544559240307753, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645529898471066613, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_Name
+      value: Pause Menu
       objectReference: {fileID: 0}
     - target: {fileID: 8355021512588542200, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_Pivot.x
@@ -7074,6 +7094,18 @@ PrefabInstance:
     - target: {fileID: 8355021512588542200, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499594502333622327, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_Text
+      value: Save & Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838696076626545956, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: _soundButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838696076626545956, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: _soundButtons.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

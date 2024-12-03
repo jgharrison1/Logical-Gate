@@ -26,6 +26,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private BinaryArrayAdder binaryArrayAdder;
     public float knockbackForce = 5f; // Knockback force for when colliding with the boss
     [SerializeField] private AudioSource walkSFX;
+    [SerializeField] private GameObject startSpawn;
 
     void Start()
     {
@@ -230,17 +231,20 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data) 
     {
-        if(!data.firstLoad)
+        if(data.scenesVisited.TryGetValue(data.currentScene, out Vector3 prevPosition)) //if scene has been visited, update player position to position saved
         {
+            this.transform.position = prevPosition;
             this.respawnPoint = data.respawnPoint;
-            this.transform.position = data.playerPosition;
         }
-        data.firstLoad = false;
+        //if scene has not been visited, keep player's default position
     }
 
     public void SaveData(GameData data) 
     {
         data.respawnPoint = this.respawnPoint;
-        data.playerPosition = this.transform.position;        
+        if (data.scenesVisited.ContainsKey(data.currentScene)) {
+            data.scenesVisited.Remove(data.currentScene);
+        }
+        data.scenesVisited.Add(data.currentScene, this.transform.position);
     }
 }

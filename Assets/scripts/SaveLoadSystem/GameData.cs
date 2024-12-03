@@ -7,9 +7,8 @@ public class GameData
 {
     //public int deathCount; // temporary - using for development purposes
     public float playerHealth; // initialize in playermovement script
-    public Vector3 playerPosition; // initialize in player movement script
+    //public Vector3 playerPosition; // initialize in player movement script
     public Vector3 respawnPoint;
-    public bool firstLoad;
     public SerializableDictionary<string, bool> enemiesDefeated; // initialize in player movement script
     public SerializableDictionary<string, bool> buttonStatus; //initialize in  button script
     //Add a way to keep track of the scene, which scene your in and all of the associated variables
@@ -21,7 +20,6 @@ public class GameData
     public GameData() 
     {
         //this.deathCount = 0;
-        firstLoad = true;
         this.playerHealth = 3.0f;
         enemiesDefeated = new SerializableDictionary<string, bool>();
         buttonStatus = new SerializableDictionary<string, bool>();

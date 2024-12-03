@@ -46,6 +46,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        //this.gameData = dataHandler.Load();
         LoadGame();
     }
 
@@ -63,8 +64,11 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log(Application.persistentDataPath);
         // load any saved data from a file using the data handler
         Scene scene = SceneManager.GetActiveScene();
-        if(!scene.name.Equals("mainMenu"))
-            this.gameData = dataHandler.Load();
+        this.gameData = dataHandler.Load();
+
+        if(scene.name.Equals("mainMenu")) {
+            return; 
+        }
 
         // start a new game if the data is null and we're configured to initialize data for debugging purposes
         if (this.gameData == null && initializeDataIfNull) 
@@ -78,6 +82,8 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
             return;
         }
+        else
+            gameData.currentScene = scene.name; //gamedata not null, update current scene
 
         // push the loaded data to all other scripts that need it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 

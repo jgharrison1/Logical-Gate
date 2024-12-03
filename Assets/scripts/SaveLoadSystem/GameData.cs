@@ -13,7 +13,7 @@ public class GameData
     public SerializableDictionary<string, bool> enemiesDefeated; // initialize in player movement script
     public SerializableDictionary<string, bool> buttonStatus; //initialize in  button script
     //Add a way to keep track of the scene, which scene your in and all of the associated variables
-    //public SerializableDictionary<string, Vector3> sceneVisited
+    public SerializableDictionary<string, Vector3> scenesVisited;
     public string currentScene;
 
     // the values defined in this constructor will be the default values
@@ -25,5 +25,6 @@ public class GameData
         this.playerHealth = 3.0f;
         enemiesDefeated = new SerializableDictionary<string, bool>();
         buttonStatus = new SerializableDictionary<string, bool>();
+        scenesVisited = new SerializableDictionary<string, Vector3>();
     }
 }

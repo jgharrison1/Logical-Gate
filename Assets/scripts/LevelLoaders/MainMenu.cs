@@ -21,8 +21,6 @@ public class MainMenu : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data) 
     {
-        //load the name of the last scene player visited to use for the continue button function
-        sceneName = data.currentScene;
     }
     //No data should be saved from the main menu script but we still need the function call here
     public void SaveData(GameData data) 
@@ -44,6 +42,7 @@ public class MainMenu : MonoBehaviour, IDataPersistence
         DisableMenuButtons();
         // load the next scene - which will in turn load the game because of 
         // OnSceneLoaded() in the DataPersistenceManager
+        sceneName = DataPersistenceManager.instance.getSceneName();
         SceneManager.LoadSceneAsync(sceneName);
         //since continue button is disabled when data==null, we shouldn't have to worry about this function being called without a saved scene name
     }

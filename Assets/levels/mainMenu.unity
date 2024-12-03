@@ -1047,7 +1047,6 @@ Transform:
   m_Children:
   - {fileID: 2070279174}
   - {fileID: 2045910915}
-  - {fileID: 2143676454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &386364084
@@ -1145,7 +1144,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2143676453}
+      - m_Target: {fileID: 1799914842}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3478,6 +3477,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4445668266844435830, guid: 3c2f94e13134f4874964b08d4a6a700b, type: 3}
+      propertyPath: initializeDataIfNull
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7538339617453391113, guid: 3c2f94e13134f4874964b08d4a6a700b, type: 3}
       propertyPath: m_Name
       value: DataPersistenceManager
@@ -3661,7 +3664,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2143676453}
+      - m_Target: {fileID: 1799914842}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4385,12 +4388,12 @@ GameObject:
   - component: {fileID: 1799914845}
   - component: {fileID: 1799914844}
   m_Layer: 5
-  m_Name: Main Menu
+  m_Name: NewOrLoadGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1799914843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4469,7 +4472,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1799914847
 Canvas:
   m_ObjectHideFlags: 0
@@ -5247,6 +5250,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2143676454}
   - {fileID: 1016677448}
   - {fileID: 1919839963}
   - {fileID: 746802233}
@@ -5492,7 +5496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2143676454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5500,20 +5504,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143676453}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 365854731}
   - {fileID: 1799914843}
-  m_Father: {fileID: 386364083}
+  m_Father: {fileID: 2070279174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 963.2947, y: 538.1532}
+  m_SizeDelta: {x: 1926.5887, y: 1076.3065}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143676455
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -154,8 +154,11 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Checkpoint"))
+        if (other.CompareTag("Checkpoint")) {
+            Debug.Log("Checkpoint activated");
             respawnPoint = transform.position;
+            DataPersistenceManager.instance.SaveGame();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -53,6 +53,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame() 
     {
         this.gameData = new GameData();
+        dataHandler.Save(gameData);
         Scene scene = SceneManager.GetActiveScene();
         if(!scene.name.Equals("mainMenu"))
             gameData.currentScene = scene.name;

@@ -2,9 +2,9 @@ Logical Gate is an educational game in a 2d platformer style covering logic gate
 
 Instructions
 
-Currently, to access the game, the user will need to download the entire from the project from GitHub and 
-connect it to Unity. From there, the user can maximize the game view and hit play. It will start with the 
-title screen which is the start of the game. 
+Once published, the user can access the game on the Unity Play website with the following link:
+https://play.unity.com/en
+and search for Logical Gate. The game will start at the title screen.
 
 The game utilizes standard keyboard controls, moving the character with the 'w','a','s', and 'd' keys. The 
 'a' and 'd' will move left or right respectively; the 'w' key is the key to jump; the 's' key can be used 

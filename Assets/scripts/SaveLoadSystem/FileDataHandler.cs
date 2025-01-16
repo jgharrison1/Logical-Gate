@@ -9,7 +9,7 @@ public class FileDataHandler
     private string dataDirPath = "";
     private string dataFileName = "";
     private bool useEncryption = false;
-    private readonly string encryptionCodeWord = "XORLogicalGate";
+    private readonly string encryptionCodeWord = "Giblets";
 
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption) 
     {

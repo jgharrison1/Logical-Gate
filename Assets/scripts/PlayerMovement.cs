@@ -52,9 +52,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         if(!isWallJumping)
             Flip();
 
-        // animations
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", isGrounded());
         //play walk sound if grounded and walking
         if(rb.velocity.x!=0 && isGrounded())
         {
@@ -73,6 +70,9 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         {   // while walljumping, player cannot move horizontally until wallJumpDuration becomes 0
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y); //move horizontally
         }
+         // animations
+        anim.SetBool("run", horizontalInput != 0);
+        anim.SetBool("grounded", isGrounded());
     }
 
     private void Jump()

@@ -267,19 +267,21 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void TryGrabBlock()
     {
-        // Detect blocks in range (use the blockLayer to filter)
         Collider2D detectedCollider = Physics2D.OverlapCircle(transform.position, grabDistance, blockLayer);
 
         if (detectedCollider != null)
         {
-            // Get the block object
             GameObject block = detectedCollider.gameObject;
 
-            // Grab the block and place it above the player
+            if (heldBlock != null)
+            {
+                secondaryMemoryInstance.RemoveBlockFromSlot(heldBlock);  // Remove the block from the slot
+            }
+
             heldBlock = block;
-            block.transform.SetParent(transform); // Make the block a child of the player
-            block.transform.position = transform.position + Vector3.up; // Place above the player
-            block.SetActive(true); // Make sure the block is active
+            block.transform.SetParent(transform);  // Make the block a child of the player
+            block.transform.position = transform.position + Vector3.up;  // Position the block above the player
+            block.SetActive(true);  // Make sure the block is active
             Debug.Log("Grabbed block: " + block.name);
         }
         else
@@ -290,113 +292,56 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void TryPlaceBlock()
     {
-        if (heldBlock == null)
+        if (heldBlock != null)
         {
-            Debug.LogError("No block is currently being held!");
-            return;
-        }
+            GameObject detectedSlot = highlightedSlot;
 
-        // Detect if the player is near a valid object
-        Collider2D detectedCollider = Physics2D.OverlapCircle(transform.position, grabDistance, slotLayer);
+            secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
+            heldBlock.transform.position = detectedSlot.transform.position;  // Align the block with the slot
+            heldBlock = null;  // Release the reference to the held block
 
-        if (detectedCollider == null)
-        {
-            Debug.Log("No valid object detected.");
-            return;
-        }
-
-        GameObject detectedObject = detectedCollider.gameObject;
-
-        // Check if the detected object is a valid slot by comparing tag or layer
-        if (detectedObject.CompareTag("Slot") || detectedObject.layer == LayerMask.NameToLayer("slotLayer"))
-        {
-            Debug.Log("Valid slot detected. Attempting to place block...");
-
-            // Check if the slot is already occupied by another block
-            GameObject existingBlock = secondaryMemoryInstance.GetBlockInSlot(detectedObject);
-
-            if (existingBlock != null)
-            {
-                // Remove the existing block from the slot before placing the new block
-                secondaryMemoryInstance.RemoveBlockFromSlot(detectedObject);
-                Debug.Log("Removed existing block from slot.");
-            }
-
-            // Place the new block in the slot
-            if (secondaryMemoryInstance.TryAddBlockToSlot(detectedObject, heldBlock))
-            {
-                Debug.Log("Block successfully placed in the slot.");
-                heldBlock = null; // Release the block after placement
-            }
-            else
-            {
-                Debug.Log("Slot placement failed.");
-            }
-        }
-        else
-        {
-            Debug.Log("Detected object is not a valid slot.");
+            Debug.Log($"Block placed in slot {detectedSlot.name}");
         }
     }
 
     private void HighlightSlot()
     {
-        // Only proceed if the player is holding a block
         if (heldBlock == null)
         {
             RemoveHighlight();
             return;
         }
 
-        // Determine the direction to check for slots
         Vector2 direction = isFacingRight ? Vector2.right : Vector2.left;
 
-        // Cast a ray or overlap circle to detect slots in front of the player
         RaycastHit2D detectedSlot = Physics2D.Raycast(transform.position, direction, grabDistance, slotLayer);
 
         if (detectedSlot.collider != null)
         {
             GameObject detectedSlotObject = detectedSlot.collider.gameObject;
 
-            // Highlight the detected slot if it's not already highlighted
             if (highlightedSlot != detectedSlotObject)
             {
-                RemoveHighlight(); // Remove any existing highlight
+                RemoveHighlight();  // Remove any previous highlight
                 highlightedSlot = detectedSlotObject;
 
-                // Instantiate or move the highlight border to the detected slot's position
                 highlightedBorder = Instantiate(highlightBorderPrefab, detectedSlotObject.transform.position, Quaternion.identity);
                 highlightedBorder.transform.SetParent(detectedSlotObject.transform); // Attach it to the slot
-
-                // Optionally change the color of the highlight when the player can place a block
-                if (CanPlaceBlockInSlot(detectedSlotObject))
-                {
-                    highlightedBorder.GetComponent<SpriteRenderer>().color = Color.green; // Valid slot for placement (green)
-                }
-                else
-                {
-                    highlightedBorder.GetComponent<SpriteRenderer>().color = Color.red; // Invalid slot (red)
-                }
+                highlightedBorder.GetComponent<SpriteRenderer>().color = Color.green;
             }
         }
         else
         {
-            // No valid slot detected; remove the highlight
             RemoveHighlight();
         }
     }
 
+
+
     private bool CanPlaceBlockInSlot(GameObject slot)
     {
-        // Check if the slot is valid and not already occupied
         GameObject existingBlock = secondaryMemoryInstance.GetBlockInSlot(slot);
-        if (existingBlock == null) // No block already in the slot
-        {
-            return true;
-        }
-
-        // Slot is occupied, cannot place the block
-        return false;
+        return existingBlock == null;  // If no block is in the slot, we can place a new one
     }
 
     private void RemoveHighlight()
@@ -409,7 +354,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         }
     }
 
-    // For debug visualization of grab distance (in scene view)
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

@@ -10,7 +10,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Animator animator;
     public GameObject dialogueBox;
-    public float textWaitTime = 0.01f;
+    private GameObject CM;
+    public float textWaitTime = 0.05f;
 
     private Queue<string> sentences;
 
@@ -18,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        CM = GameObject.Find("CutsceneManager");
     }
 
     public void StartDialogue(Dialogue dialogue) {
@@ -55,15 +57,24 @@ public class DialogueManager : MonoBehaviour
         //ToCharArray() converts string to char array, then append letters to dialogueText
         foreach (char letter in sentence.ToCharArray()) {
             dialogueText.text += letter;
+            if(letter == '.')
+                yield return new WaitForSeconds(2.0f);
+            else if (letter == ',')
+                yield return new WaitForSeconds(0.5f);
             //yield return null; // this waits for 1 frame after appending letter
-            yield return new WaitForSeconds(textWaitTime);
+            else
+                yield return new WaitForSeconds(textWaitTime);
         }
     }
 
     public void EndDialogue() {
-        Debug.Log("End of Conversation");
-        animator.SetBool("IsOpen", false);
-        dialogueBox.SetActive(false);
+        dialogueText.text = "";
+        if(!CM.GetComponent<CutsceneManager>().sceneActive){
+            Debug.Log("End of Conversation");
+            animator.SetBool("IsOpen", false);
+            //dialogueBox.SetActive(false);
+        }
+        FindObjectOfType<CutsceneManager>().NextAction();
     }
 
 }

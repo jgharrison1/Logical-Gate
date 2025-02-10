@@ -9,4 +9,11 @@ public class CutsceneTrigger : MonoBehaviour
     public void triggerCutscene() {
         FindObjectOfType<CutsceneManager>().StartCutscene(eventList);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        gameObject.SetActive(false);
+        triggerCutscene();
+    }
+
 }

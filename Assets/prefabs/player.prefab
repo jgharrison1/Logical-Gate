@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4747603516862109534}
   - component: {fileID: 5189307450062427422}
   - component: {fileID: 7023276587633022799}
-  - component: {fileID: 2107393651111996224}
   - component: {fileID: 3632708303224564788}
+  - component: {fileID: 1905585497023967044}
   m_Layer: 7
   m_Name: player
   m_TagString: Player
@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.67, y: 1.48, z: 1}
-  m_LocalScale: {x: 2.9907997, y: 3, z: 1.2411067}
+  m_LocalScale: {x: 0.9999995, y: 1.0030758, z: 0.4149747}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,9 +80,9 @@ SpriteRenderer:
   m_SortingLayerID: -279251421
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75c7cd547114d40cc9dfde52deebedfe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ebc399a3c57944d1b76ef6e62c74886, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -123,18 +123,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004118964, y: -0.029330954}
+  m_Offset: {x: 0.004118979, y: -0.014941335}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.38}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21476206, y: 0.32346472}
+  m_Size: {x: 0.6, y: 0.97122073}
   m_EdgeRadius: 0
 --- !u!50 &2326560982281732821
 Rigidbody2D:
@@ -185,6 +185,7 @@ MonoBehaviour:
     m_Bits: 64
   knockbackForce: 5
   walkSFX: {fileID: 3632708303224564788}
+  startSpawn: {fileID: 0}
 --- !u!114 &5189307450062427422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,27 +216,6 @@ MonoBehaviour:
   numberOfFlashes: 3
   damageSFX: {fileID: 8300000, guid: 08ce06a5802534a1e93927dde689ce6c, type: 3}
   deathSFX: {fileID: 8300000, guid: 3599dd1ee016a46768de170e544b2732, type: 3}
---- !u!95 &2107393651111996224
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7997488498157758651}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7837d19db49c24c469c707a28b2e5f74, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &3632708303224564788
 AudioSource:
   m_ObjectHideFlags: 0
@@ -245,7 +225,7 @@ AudioSource:
   m_GameObject: {fileID: 7997488498157758651}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4936762694182314441, guid: 0882712a5410b49a5a3ea0b3dabad7b9, type: 2}
   m_audioClip: {fileID: 8300000, guid: fe6037e3733fe4d25aa072980da98f5e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -332,3 +312,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1905585497023967044
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997488498157758651}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 109a917f8a7de4c3eaa3fccaa4f68954, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

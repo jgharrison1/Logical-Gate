@@ -1,4 +1,5 @@
 
+
 using System;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -43,6 +44,19 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject highlightBorderPrefab; // Prefab for the border
 
 
+    public Transform holdPosition; // Position above player's head to hold blocks
+    private GameObject heldBlock = null; // The block currently being held
+    [SerializeField] private float grabDistance = 2f; // Distance to detect blocks
+    [SerializeField] private LayerMask blockLayer; // Layer for blocks
+    [SerializeField] private LayerMask slotLayer; // Layer for blocks
+
+    private secondaryMemory secondaryMemoryInstance;
+
+    private GameObject highlightedSlot; // Currently highlighted slot
+    private GameObject highlightedBorder; // Border for the highlight
+    [SerializeField] private GameObject highlightBorderPrefab; // Prefab for the border
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,6 +64,13 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         walkSFX = GetComponent<AudioSource>();
+
+        secondaryMemoryInstance = FindObjectOfType<secondaryMemory>();
+
+        if (secondaryMemoryInstance == null)
+        {
+            Debug.LogError("No secondaryMemory instance found in the scene!");
+        }
 
         secondaryMemoryInstance = FindObjectOfType<secondaryMemory>();
 
@@ -87,6 +108,10 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         {
             walkSFX.Stop();
         }
+
+        HandleMovement();
+        HandleBlockInteraction();
+        HighlightSlot();
 
         HandleMovement();
         HandleBlockInteraction();
@@ -250,6 +275,124 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             buttonArrayManager.ToggleBinaryValue(index, buttonArrayManager.arrayID);
         }
     }
+
+
+    private void HandleMovement()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+    }
+
+    private void HandleBlockInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (heldBlock == null)
+            {
+                TryGrabBlock();
+            }
+            else
+            {
+                TryPlaceBlock();
+            }
+        }
+    }
+
+    private void TryGrabBlock()
+    {
+        Collider2D detectedCollider = Physics2D.OverlapCircle(transform.position, grabDistance, blockLayer);
+
+        if (detectedCollider != null)
+        {
+            GameObject block = detectedCollider.gameObject;
+
+            if (heldBlock != null)
+            {
+                secondaryMemoryInstance.RemoveBlockFromSlot(heldBlock);  // Remove the block from the slot
+            }
+
+            heldBlock = block;
+            block.transform.SetParent(transform);  // Make the block a child of the player
+            block.transform.position = transform.position + Vector3.up;  // Position the block above the player
+            block.SetActive(true);  // Make sure the block is active
+            Debug.Log("Grabbed block: " + block.name);
+        }
+        else
+        {
+            Debug.Log("No block detected to grab.");
+        }
+    }
+
+    private void TryPlaceBlock()
+    {
+        if (heldBlock != null)
+        {
+            GameObject detectedSlot = highlightedSlot;
+
+            secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
+            heldBlock.transform.position = detectedSlot.transform.position;  // Align the block with the slot
+            heldBlock = null;  // Release the reference to the held block
+
+            Debug.Log($"Block placed in slot {detectedSlot.name}");
+        }
+    }
+
+    private void HighlightSlot()
+    {
+        if (heldBlock == null)
+        {
+            RemoveHighlight();
+            return;
+        }
+
+        Vector2 direction = isFacingRight ? Vector2.right : Vector2.left;
+
+        RaycastHit2D detectedSlot = Physics2D.Raycast(transform.position, direction, grabDistance, slotLayer);
+
+        if (detectedSlot.collider != null)
+        {
+            GameObject detectedSlotObject = detectedSlot.collider.gameObject;
+
+            if (highlightedSlot != detectedSlotObject)
+            {
+                RemoveHighlight();  // Remove any previous highlight
+                highlightedSlot = detectedSlotObject;
+
+                highlightedBorder = Instantiate(highlightBorderPrefab, detectedSlotObject.transform.position, Quaternion.identity);
+                highlightedBorder.transform.SetParent(detectedSlotObject.transform); // Attach it to the slot
+                highlightedBorder.GetComponent<SpriteRenderer>().color = Color.green;
+            }
+        }
+        else
+        {
+            RemoveHighlight();
+        }
+    }
+
+
+
+    private bool CanPlaceBlockInSlot(GameObject slot)
+    {
+        GameObject existingBlock = secondaryMemoryInstance.GetBlockInSlot(slot);
+        return existingBlock == null;  // If no block is in the slot, we can place a new one
+    }
+
+    private void RemoveHighlight()
+    {
+        if (highlightedBorder != null)
+        {
+            Destroy(highlightedBorder); // Destroy the highlight border object
+            highlightedBorder = null;
+            highlightedSlot = null;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, grabDistance);
+    }
+
 
 
     private void HandleMovement()

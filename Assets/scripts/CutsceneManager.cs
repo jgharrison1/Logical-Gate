@@ -159,6 +159,7 @@ public class CutsceneManager : MonoBehaviour
     public void tableEvent(CutsceneEvent action) {
         //note that for a table event to work, truth table MUST be the first object in the objects list of the event.
         //1=and,2=or,3=xor,4=nand,5=nor,6=xnor,7=not,8=buffer
+        /*
         switch(action.tableEventNumber) {
             case 1:
                 Debug.Log("table event 1 successful.");
@@ -189,6 +190,8 @@ public class CutsceneManager : MonoBehaviour
                 Debug.Log("Invalid input for table event.");
                 break;
         }
+        */
+        action.objects[0].GetComponent<TruthTable>().nextGate();
         holUp(action.waitTime);
     }
 

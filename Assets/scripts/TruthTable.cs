@@ -17,10 +17,15 @@ public class TruthTable : MonoBehaviour
     public TextMeshPro O2;
     public TextMeshPro O3;
     public TextMeshPro O4;
+    private int cycleNum = 0;
+    public List<GameObject> gates;
+    public GameObject gateTransform;
+    private Vector3 previous;
 
     // Start is called before the first frame update
     void Start()
     {
+        /*
         I1_1.text = "";
         I1_2.text = "";
         I1_3.text = "";
@@ -33,7 +38,54 @@ public class TruthTable : MonoBehaviour
         O2.text = "";
         O3.text = "";
         O4.text = "";
+        */
+        AndGate();
+        previous = gates[0].transform.position;
         
+    }
+
+    public void nextGate() {
+        gates[cycleNum%8].transform.position = previous;
+        cycleNum++;
+        previous = gates[cycleNum%8].transform.position;
+        switch(cycleNum % 8) {
+            case 0:
+                AndGate();
+                gates[0].transform.position = gateTransform.transform.position;
+                break;
+            case 1:
+                OrGate();
+                gates[1].transform.position = gateTransform.transform.position;
+                break;
+            case 2:
+                XorGate();
+                gates[2].transform.position = gateTransform.transform.position;
+                break;
+            case 3:
+                NandGate();
+                gates[3].transform.position = gateTransform.transform.position;
+                break;
+            case 4:
+                NorGate();
+                gates[4].transform.position = gateTransform.transform.position;
+                break;
+            case 5:
+                XnorGate();
+                gates[5].transform.position = gateTransform.transform.position;
+                break;
+            case 6:
+                NotGate();
+                gates[6].transform.position = gateTransform.transform.position;
+                break;
+            case 7:
+                BufferGate();
+                gates[7].transform.position = gateTransform.transform.position;
+                break;
+            default:
+                Debug.Log("cycleNum is not in range. - TruthTable");
+                cycleNum = 0;
+                break;
+        }
     }
 
     public void AndGate() {

@@ -14,7 +14,7 @@ public class CutsceneEvent
     public bool isWaitEvent = false; // To Wait between events
     public float smoothTime = 0f; //Controls speed during move object event. 0f smoothTime will make the move event instantaneous(I think, will confirm later).
     public float resize = 0f; //amount that camera will be resized, which is added to the orthographicSize variable in increments of 0.1f
-    public int tableEventNumber = 0; //1=and,2=or,3=xor,4=nand,5=nor,6=xnor,7=not,8=buffer
+    //public int tableEventNumber = 0; //1=and,2=or,3=xor,4=nand,5=nor,6=xnor,7=not,8=buffer
     public Vector3 endPosition;
     public List<GameObject> objects;
     public Dialogue dialogue;

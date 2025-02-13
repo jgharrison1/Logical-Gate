@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3711807897900140035}
   - component: {fileID: 3242995332963378775}
-  - component: {fileID: 6709515782006162020}
   - component: {fileID: 3044553312088564708}
   - component: {fileID: 8871995933005216410}
   - component: {fileID: 4096264975884119064}
@@ -32,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -25.1, y: -6.82, z: -0.05141356}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1488850531
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 843fa6f5e3a384d31941e331e370da23, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70d0c9882176d41b581d781075cbba41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,27 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6709515782006162020
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228070864643741104}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 47f20999739ea41febefdb83777b4f3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3044553312088564708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDistance: 3
-  speed: 3
+  speed: 2.5
 --- !u!114 &8871995933005216410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +118,7 @@ MonoBehaviour:
   damage: 1
   iFramesDuration: 1
   numberOfFlashes: 3
-  ID: 
+  ID: 093cc8d5-a7cc-465e-b921-3876ab32085e
   damageSFX: {fileID: 8300000, guid: 0ca74329e85bf4d4398059ec16c7bf6b, type: 3}
 --- !u!50 &4096264975884119064
 Rigidbody2D:
@@ -165,7 +143,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -201,16 +179,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0076809824, y: -0.027080566}
+  m_Offset: {x: -0.032637358, y: -0.009161472}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 2, y: 0.5}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21056241, y: 0.25126538}
+  m_Size: {x: 1.9397769, y: 0.46629715}
   m_EdgeRadius: 0

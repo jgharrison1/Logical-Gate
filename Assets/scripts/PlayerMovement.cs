@@ -135,7 +135,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         return raycastHit.collider != null;
     }
 
-        private void wallSlide() 
+    private void wallSlide() 
     {
         //if player is touching wall (isWallSliding = true), not touching ground, and is moving horizontally(pushing into wall)
         if (onWall() && !isGrounded() && horizontalInput != 0f)
@@ -150,7 +150,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         }
     }
 
-     private void Flip()
+    private void Flip()
     {
         if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
         {

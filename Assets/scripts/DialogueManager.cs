@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public GameObject dialogueBox;
     private GameObject CM;
-    public float textWaitTime = 0.05f;
+    public float textWaitTime = 0.25f;
 
     private Queue<string> sentences;
 
@@ -54,9 +54,12 @@ public class DialogueManager : MonoBehaviour
         //the purpose of this async function is to append dialogue letter by letter instead of all at once,
         //which is more asthetically pleasing to read.
         dialogueText.text = "";
-        //ToCharArray() converts string to char array, then append letters to dialogueText
+        //string token = "";
+
+        //ToCharArray() converts string to char array, then appends letters to dialogueText
         foreach (char letter in sentence.ToCharArray()) {
             dialogueText.text += letter;
+            //token += letter;
             if(letter == '.')
                 yield return new WaitForSeconds(2.0f);
             else if (letter == ',')
@@ -74,7 +77,10 @@ public class DialogueManager : MonoBehaviour
             animator.SetBool("IsOpen", false);
             //dialogueBox.SetActive(false);
         }
-        FindObjectOfType<CutsceneManager>().NextAction();
+        else {
+            dialogueText.text = "...";
+            FindObjectOfType<CutsceneManager>().NextAction();
+        }
     }
 
 }

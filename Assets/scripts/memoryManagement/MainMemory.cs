@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MainMemory : MonoBehaviour
+public class mainMemory : MonoBehaviour
 {
     public Transform[] slots;
     private GameObject[] blocks;

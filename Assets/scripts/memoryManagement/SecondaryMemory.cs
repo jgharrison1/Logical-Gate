@@ -1,29 +1,80 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondaryMemory : MonoBehaviour
+public class secondaryMemory : MonoBehaviour
 {
-    public Transform[] slots; // Array of slot positions
-    private GameObject[] blocks; // Blocks currently in the slots
+    [Header("Slots")]
+    public List<GameObject> slots = new List<GameObject>(); // Expose slots in Inspector
+    private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
 
-    private void Start()
+    public void RegisterSlot(GameObject slot)
     {
-        blocks = new GameObject[slots.Length];
+        if (slot != null && !slots.Contains(slot))
+        {
+            slots.Add(slot);
+            Debug.Log($"Slot {slot.name} registered.");
+        }
     }
 
-    public bool TryPlaceBlock(GameObject block, Transform player)
+    public void UnregisterSlot(GameObject slot)
     {
-        // Find the first empty slot
-        for (int i = 0; i < slots.Length; i++)
+        if (slot != null && slots.Remove(slot))
         {
-            if (blocks[i] == null)
-            {
-                // Place the block in the slot
-                blocks[i] = block;
-                block.transform.position = slots[i].position;
-                return true;
-            }
+            Debug.Log($"Slot {slot.name} unregistered.");
+        }
+    }
+
+    public GameObject GetBlockInSlot(GameObject slot)
+    {
+        if (slotToBlockMap.ContainsKey(slot))
+        {
+            return slotToBlockMap[slot];
+        }
+        return null;  // If the slot is empty, return null
+    }
+
+
+    public GameObject RemoveBlockFromSlot(GameObject slot)
+    {
+        if (!IsValidSlot(slot) || !slotToBlockMap.ContainsKey(slot))
+        {
+            return null;  // Return null if slot is invalid or empty
         }
 
-        return false; // No empty slot found
+        GameObject block = slotToBlockMap[slot];
+
+        slotToBlockMap.Remove(slot);
+
+        block.transform.SetParent(null);  
+        block.SetActive(false);  
+
+        Debug.Log($"Block {block.name} removed from slot {slot.name}. Slot is now free.");
+        return block;  // Return the block so it can be reused
+    }
+
+    public bool TryAddBlockToSlot(GameObject slot, GameObject block)
+    {
+        if (slot == null || block == null || !IsValidSlot(slot))
+        {
+            return false;
+        }
+
+        slotToBlockMap[slot] = block;
+        block.transform.SetParent(slot.transform);  // Attach the block to the slot
+        block.transform.localPosition = Vector3.zero;  // Align the block with the slot's position
+
+        Debug.Log($"Block {block.name} added to slot {slot.name}");
+        return true;  // Successful placement
+    }
+
+    public bool IsSlotOccupied(GameObject slot, GameObject block)
+    {
+        // Returns true if the slot is occupied by another block, but not the same block
+        return slotToBlockMap.ContainsKey(slot) && slotToBlockMap[slot] != block;
+    }
+
+    private bool IsValidSlot(GameObject slot)
+    {
+        return slot != null && slots.Contains(slot);
     }
 }

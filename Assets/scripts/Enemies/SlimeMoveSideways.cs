@@ -27,7 +27,7 @@ public class SlimeMovement : MonoBehaviour
             if(transform.position.x > leftEdge)
             {
                 transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
-                gameObject.transform.localScale = new Vector3(3, 3, 1);
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
             }
             else
                 movingLeft = false;
@@ -37,7 +37,7 @@ public class SlimeMovement : MonoBehaviour
             if(transform.position.x < rightEdge)
             {
                 transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
-                gameObject.transform.localScale = new Vector3(-3, 3, 1);
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
 
             }
             else

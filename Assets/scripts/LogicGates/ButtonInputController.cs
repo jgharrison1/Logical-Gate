@@ -81,6 +81,27 @@ public class ButtonInputController : MonoBehaviour, IDataPersistence
         }
     }
 
+    public void changeButton()
+    {
+        //this function can be used by other scripts that may want to change a button's value without a collision.
+        if (gameObject.name == buttonName1)
+        {
+            buttonInput1 = !buttonInput1;
+            ConnectedGate.input1 = buttonInput1;
+            color = buttonInput1;
+            UpdateButtonColor();
+        }
+        else if (gameObject.name == buttonName2)
+        {
+            buttonInput2 = !buttonInput2;
+            ConnectedGate.input2 = buttonInput2;
+            color = buttonInput2;
+            UpdateButtonColor();
+        }
+        if(buttonHitSFX!=null)
+            SoundFXManager.instance.playSoundFXClip(buttonHitSFX, transform, 1f);
+    }
+
     public void LoadData(GameData data) 
     {
         if(!String.IsNullOrEmpty(buttonName1)){

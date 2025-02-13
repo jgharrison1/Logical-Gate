@@ -16,6 +16,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private float wallJumpCooldown;
     private float horizontalInput;
     private bool isFacingRight = true;
+    public bool stopMoving = false; // for use in other scripts that want to halt movement.
     private bool isWallSliding;
     private float wallSlidingSpeed = 1.5f;
     private bool isWallJumping;
@@ -67,6 +68,9 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         if(isGrounded() && Input.GetKeyDown(KeyCode.W))
             Jump();
         
+        //animations
+        anim.SetBool("run", horizontalInput != 0);
+        anim.SetBool("grounded", isGrounded());
         wallSlide();
         wallJump();
 
@@ -91,9 +95,10 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void FixedUpdate()
     {
-        if(!isWallJumping)
+        if(stopMoving) rb.velocity = new Vector2(0,0);
+        else if(!isWallJumping)
         {   // while walljumping, player cannot move horizontally until wallJumpDuration becomes 0
-            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y); //move horizontally
+            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y); //move horizontally
         }
          // animations
         anim.SetBool("run", horizontalInput != 0);
@@ -102,9 +107,12 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jump); // Apply jump velocity
-        anim.SetTrigger("jump");
+        if(!stopMoving){
+            rb.velocity = new Vector2(rb.velocity.x, jump); // Apply jump velocity
+            anim.SetTrigger("jump");
+        }
     }
+
     private void wallJump()
     {
         if(isWallSliding)
@@ -147,13 +155,14 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
+
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
     }
 
-        private void wallSlide() 
+    private void wallSlide() 
     {
         //if player is touching wall (isWallSliding = true), not touching ground, and is moving horizontally(pushing into wall)
         if (onWall() && !isGrounded() && horizontalInput != 0f)
@@ -167,7 +176,8 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             isWallSliding = false;
         }
     }
-     private void Flip()
+
+    private void Flip()
     {
         if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
         {

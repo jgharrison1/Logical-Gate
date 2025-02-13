@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PageTable : MonoBehaviour
+public class pageTable : MonoBehaviour
 {
     public Transform[] slots; // Array of slot positions
     private GameObject[] blocks;

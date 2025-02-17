@@ -101,8 +101,8 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y); //move horizontally
         }
          // animations
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", isGrounded());
+        //anim.SetBool("run", horizontalInput != 0);
+        //anim.SetBool("grounded", isGrounded());
     }
 
     private void Jump()

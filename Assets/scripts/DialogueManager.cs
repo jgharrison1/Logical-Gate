@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public GameObject dialogueBox;
     private GameObject CM;
+    public Button continueButton;
     public float textWaitTime = 0.25f;
 
     private Queue<string> sentences;
@@ -23,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue) {
+        continueButton.interactable = true;
         dialogueBox.SetActive(true);
         animator.SetBool("IsOpen", true);
         Debug.Log("Starting Dialogue with " + dialogue.name); //Remove Later
@@ -61,9 +63,9 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             //token += letter;
             if(letter == '.')
-                yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(1.0f);
             else if (letter == ',')
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
             //yield return null; // this waits for 1 frame after appending letter
             else
                 yield return new WaitForSeconds(textWaitTime);
@@ -75,9 +77,10 @@ public class DialogueManager : MonoBehaviour
         if(!CM.GetComponent<CutsceneManager>().sceneActive){
             Debug.Log("End of Conversation");
             animator.SetBool("IsOpen", false);
-            //dialogueBox.SetActive(false);
+            //dialogueBox.SetActive(false); //removed because this makes dialogue box instantly disappear
         }
         else {
+            continueButton.interactable = false;
             dialogueText.text = "...";
             FindObjectOfType<CutsceneManager>().NextAction();
         }

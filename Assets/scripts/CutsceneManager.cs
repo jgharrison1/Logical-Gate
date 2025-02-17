@@ -212,6 +212,7 @@ public class CutsceneManager : MonoBehaviour
 
     public void EndCutscene() {
         Debug.Log("End of Cutscene");
+        MCamera.orthographicSize = 7; //reset camera size in case it wasn't done in an event.
         CameraObject.GetComponent<cameraFollow>().enabled = true; //return camera to player
         Player.GetComponent<playerMovement>().stopMoving = false; //return control to player
         sceneActive = false; //must be set before calling EndDialogue

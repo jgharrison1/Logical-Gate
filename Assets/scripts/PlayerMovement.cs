@@ -41,8 +41,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private GameObject highlightedSlot; // Currently highlighted slot
     private GameObject highlightedBorder; // Border for the highlight
     [SerializeField] private GameObject highlightBorderPrefab; // Prefab for the border
-
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

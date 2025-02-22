@@ -11,7 +11,7 @@ public class secondaryMemory : MonoBehaviour
 
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
 
-    public playerMovement playerMovementScript;  // Reference to the playerMovement script
+    private playerMovement playerMovementScript;  // Reference to the playerMovement script
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
     {

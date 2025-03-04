@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     private GameObject CM;
     public Button continueButton;
     public float textWaitTime = 0.25f;
-
+    private int spamClick = 0;
+    string sentence;
     private Queue<string> sentences;
 
     // Start is called before the first frame update
@@ -41,16 +42,27 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence() {
         //check if there are more sentences left in the queue
+        spamClick++;
         if (sentences.Count == 0) {
+            spamClick = 0;
             EndDialogue();
             return;
         }
 
-        string sentence = sentences.Dequeue();
-        Debug.Log(sentence); //Remove Later
-        StopAllCoroutines(); //stopallcoroutines will stop current dialogue if next one is triggered before it finishes.
-        StartCoroutine(TypeSentence(sentence));
+        if(spamClick == 1) {
+            sentence = sentences.Dequeue();
+            StopAllCoroutines(); //stopallcoroutines will stop current dialogue if next one is triggered before it finishes.
+            StartCoroutine(TypeSentence(sentence));
+        }
+        else if(spamClick > 1) {
+            continueButton.interactable = false;
+            StopAllCoroutines(); //stopallcoroutines will stop current dialogue if next one is triggered before it finishes.
+            dialogueText.text = sentence;
+            spamClick = 0;
+            Invoke("reactivateContinueButton", 1); // Waits 1 second before allowing user to hit continue again.
+        }
     }
+
 
     IEnumerator TypeSentence(string sentence) {
         //the purpose of this async function is to append dialogue letter by letter instead of all at once,
@@ -70,6 +82,7 @@ public class DialogueManager : MonoBehaviour
             else
                 yield return new WaitForSeconds(textWaitTime);
         }
+        spamClick = 0; //if coroutine finishes printing the whole line, resets spamclick to 0.
     }
 
     public void EndDialogue() {
@@ -86,4 +99,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void reactivateContinueButton() {
+        continueButton.interactable = true;
+    }
 }

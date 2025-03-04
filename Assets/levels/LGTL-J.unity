@@ -4148,7 +4148,7 @@ MonoBehaviour:
     isTableEvent: 0
     isButtonEvent: 0
     isWaitEvent: 0
-    smoothTime: 4
+    smoothTime: 15
     resize: 0
     endPosition: {x: 26.56, y: 15.96, z: 0}
     objects:
@@ -4438,13 +4438,13 @@ MonoBehaviour:
     isWaitEvent: 0
     smoothTime: 4
     resize: -2.2
-    endPosition: {x: 24.2, y: 12.53, z: 0}
+    endPosition: {x: 30, y: 12.53, z: 0}
     objects:
     - {fileID: 1247694751}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 2
+    waitTime: 0
   - isMoveEvent: 0
     isCameraEvent: 1
     isSetActiveEvent: 0
@@ -5073,7 +5073,6 @@ GameObject:
   - component: {fileID: 1015083096}
   - component: {fileID: 1015083099}
   - component: {fileID: 1015083098}
-  - component: {fileID: 1015083097}
   m_Layer: 5
   m_Name: TopRibbon
   m_TagString: Untagged
@@ -5101,27 +5100,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00011926452, y: 40.037804}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1015083097
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015083095}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf6a1efcd0bc0470c923d333eb5ea490, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1015083098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6214,7 +6192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317419580042070581, guid: e77d5577dd77246c98c9df388836760d, type: 3}
       propertyPath: m_Size.y
-      value: 0.6
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2317419580042070581, guid: e77d5577dd77246c98c9df388836760d, type: 3}
       propertyPath: m_Offset.x

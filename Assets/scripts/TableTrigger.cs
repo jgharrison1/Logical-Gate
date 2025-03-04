@@ -8,7 +8,7 @@ public class TableTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TruthTable = GameObject.Find("TruthTable");
+        //TruthTable = GameObject.Find("TruthTable");
     }
 
     private void OnTriggerEnter2D() {

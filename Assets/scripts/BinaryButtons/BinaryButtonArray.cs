@@ -94,7 +94,7 @@ public class BinaryButtonArray : MonoBehaviour
                     spriteRenderer.sprite = (binaryArray[index] == 1) ? sprite3 : sprite2;
                 }
                 
-                spriteRenderer.color = (binaryArray[index] == 1) ? Color.green : Color.red;
+                //spriteRenderer.color = (binaryArray[index] == 1) ? Color.green : Color.red;
             }
         }
     }

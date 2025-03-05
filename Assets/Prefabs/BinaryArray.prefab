@@ -408,6 +408,10 @@ MonoBehaviour:
   sprite2: {fileID: 21300000, guid: 44659c5ca529840b48f465066caadca6, type: 3}
   sprite3: {fileID: 21300000, guid: a7c263340e3314811b79bffbd4433d45, type: 3}
   arrayID: 1
+  spriteRendererRep: {fileID: 4704518377397968675}
+  spriteUnsigned: {fileID: 21300000, guid: a43e2fbfd0973425b88f7dd20cb54efa, type: 3}
+  spriteSigned: {fileID: 21300000, guid: b539c13aafb8b43f1954806732777e62, type: 3}
+  spriteTwos: {fileID: 21300000, guid: 4e67080b00a0447569bedb037ffc3b16, type: 3}
 --- !u!1 &3639341263751622293
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +777,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ba3aad239ba062140995427ed1996303, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b539c13aafb8b43f1954806732777e62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -22,3 +22,4 @@ public class BlockType : MonoBehaviour
         return addressValue;
     }
 }
+

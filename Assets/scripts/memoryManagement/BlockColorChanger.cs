@@ -9,21 +9,23 @@ public class BlockColorChanger : MonoBehaviour
         objectRenderer = GetComponent<Renderer>();
         SetColorToBlue(); // Set the initial color to blue when the game starts
     }
+    
+public void SetTargetValue(int actualValue, int targetValue)
+{
+    if (objectRenderer == null) return;
 
-    public void SetTargetValue(int actualValue, int targetValue)
+    if (actualValue == targetValue)
     {
-        if (objectRenderer == null) return;
-
-        // Compare the sum of actualValue and targetValue
-        if (actualValue == targetValue)
-        {
-            objectRenderer.material.color = Color.yellow; // Correct match
-        }
-        else
-        {
-            SetColorToBlue(); // Set to blue when values don't match
-        }
+        objectRenderer.material.color = Color.yellow; // Correct match
+        Debug.Log($"Block color changed to YELLOW (Match: {actualValue} == {targetValue})");
     }
+    else
+    {
+        SetColorToBlue();
+        Debug.Log($"Block color changed to BLUE (Mismatch: {actualValue} != {targetValue})");
+    }
+}
+
 
     // Helper method to set the color to blue
     private void SetColorToBlue()

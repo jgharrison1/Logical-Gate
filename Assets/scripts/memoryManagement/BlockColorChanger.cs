@@ -3,33 +3,37 @@ using UnityEngine;
 public class BlockColorChanger : MonoBehaviour
 {
     private Renderer objectRenderer;
+    private Material blockMaterial; 
 
-    private void Start()
+    private void Awake() 
     {
         objectRenderer = GetComponent<Renderer>();
-        SetColorToBlue(); // Set the initial color to blue when the game starts
-    }
-    
-public void SetTargetValue(int actualValue, int targetValue)
-{
-    if (objectRenderer == null) return;
-
-    if (actualValue == targetValue)
-    {
-        objectRenderer.material.color = Color.yellow; // Correct match
-        Debug.Log($"Block color changed to YELLOW (Match: {actualValue} == {targetValue})");
-    }
-    else
-    {
+        if (objectRenderer != null)
+        {
+            blockMaterial = objectRenderer.material;
+        }
         SetColorToBlue();
-        Debug.Log($"Block color changed to BLUE (Mismatch: {actualValue} != {targetValue})");
     }
-}
 
+    public void SetTargetValue(int actualValue, int targetValue)
+    {
+        if (blockMaterial == null) return;
 
-    // Helper method to set the color to blue
+        if (actualValue == targetValue)
+        {
+            blockMaterial.color = Color.yellow;
+        }
+        else
+        {
+            SetColorToBlue();
+        }
+    }
+
     private void SetColorToBlue()
     {
-        objectRenderer.material.color = Color.blue; // Default to blue
+        if (blockMaterial != null)
+        {
+            blockMaterial.color = Color.blue;
+        }
     }
 }

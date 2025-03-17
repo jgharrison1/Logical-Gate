@@ -5,21 +5,12 @@ public class BlockType : MonoBehaviour
     public enum Type { PageNumber, Offset, FrameNumber }
     public Type blockType;
 
-    public int addressValue;  // Store the value associated with the block (address value)
+    public int addressValue;
 
-    public void SetBlockType(Type newType)
-    {
-        blockType = newType;
-    }
+    public void SetBlockType(Type newType) {blockType = newType;}
 
-    public void SetAddress(int newAddress)
-    {
-        addressValue = newAddress;
-    }
+    public void SetAddress(int newAddress) {addressValue = newAddress;}
 
-    public int GetAddress()
-    {
-        return addressValue;
-    }
+    public int GetAddress() {return addressValue;}
 }
 

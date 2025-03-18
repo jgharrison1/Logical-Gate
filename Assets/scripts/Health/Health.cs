@@ -29,19 +29,18 @@ public class Health : MonoBehaviour, IDataPersistence
 
         if(currentHealth > 0)
         {
-            anim.SetTrigger("hurt");
             StartCoroutine(Invulnerability());
             SoundFXManager.instance.playSoundFXClip(damageSFX, transform, 1f);
         }
-        else // temp death
+        else 
         {
             if(!dead)
             {
-                anim.SetTrigger("hurt");
+                anim.SetTrigger("dies");
                 dead = true;
-                FindObjectOfType<playerMovement>().Respawn();
                 //Play sound effect playerHurt
                 SoundFXManager.instance.playSoundFXClip(deathSFX, transform, 1f);
+                StartCoroutine(Death());
             }
         }
     }
@@ -50,6 +49,14 @@ public class Health : MonoBehaviour, IDataPersistence
         currentHealth = startingHealth;
         dead = false;
     }
+
+    private IEnumerator Death()
+    {
+        SoundFXManager.instance.playSoundFXClip(deathSFX, transform, 1f);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        FindObjectOfType<playerMovement>()?.Respawn();
+    }
+
 
     private IEnumerator Invulnerability()
     {

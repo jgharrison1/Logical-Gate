@@ -379,6 +379,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         {
             health.RestoreHealth();
         }
+        anim.SetTrigger("respawns");
     }
 
     public void LoadData(GameData data) 

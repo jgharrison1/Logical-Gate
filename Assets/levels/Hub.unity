@@ -1058,7 +1058,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8323835339231702991, guid: 0b162f33875e5b34badcff8c6511fad2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0b162f33875e5b34badcff8c6511fad2, type: 3}
 --- !u!114 &441351281 stripped
 MonoBehaviour:
@@ -5181,9 +5184,25 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2698435998739105871, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.49999833
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698435998739105871, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609965374560747880, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 29
+      objectReference: {fileID: 0}
     - target: {fileID: 4609965374560747880, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -29
+      value: -14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688260923380897126, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 519
       objectReference: {fileID: 0}
     - target: {fileID: 7017416152224652708, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

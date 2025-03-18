@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class HubLoaderMM : MonoBehaviour
 {
+
     
     public void PlayGame(){
-        SceneManager.LoadSceneAsync("NewOrLoadGame");
+        SceneManager.LoadSceneAsync("Hub");
     } 
+
+    public void ContinueGame() {
+        SceneManager.LoadSceneAsync();
+    }
 }

@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     public Button continueButton;
     public float textWaitTime = 0.25f;
     private int spamClick = 0;
-    string sentence;
+    string sentence = "";
     private Queue<string> sentences;
 
     // Start is called before the first frame update
@@ -40,10 +40,18 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+
     public void DisplayNextSentence() {
         //check if there are more sentences left in the queue
         spamClick++;
-        if (sentences.Count == 0) {
+        StopAllCoroutines(); //stopallcoroutines will stop current dialogue if next one is triggered before it finishes.
+        if(sentences.Count == 0 & spamClick > 1) {
+            continueButton.interactable = false;
+            dialogueText.text = sentence;
+            spamClick = 0;
+            Invoke("reactivateContinueButton", 0.75f);
+        }
+        else if (sentences.Count == 0) {
             spamClick = 0;
             EndDialogue();
             return;
@@ -51,15 +59,14 @@ public class DialogueManager : MonoBehaviour
 
         if(spamClick == 1) {
             sentence = sentences.Dequeue();
-            StopAllCoroutines(); //stopallcoroutines will stop current dialogue if next one is triggered before it finishes.
             StartCoroutine(TypeSentence(sentence));
         }
+
         else if(spamClick > 1) {
             continueButton.interactable = false;
-            StopAllCoroutines(); //stopallcoroutines will stop current dialogue if next one is triggered before it finishes.
             dialogueText.text = sentence;
             spamClick = 0;
-            Invoke("reactivateContinueButton", 1); // Waits 1 second before allowing user to hit continue again.
+            Invoke("reactivateContinueButton", 0.75f); // Waits .75 seconds before allowing user to hit continue again.
         }
     }
 
@@ -68,22 +75,31 @@ public class DialogueManager : MonoBehaviour
         //the purpose of this async function is to append dialogue letter by letter instead of all at once,
         //which is more asthetically pleasing to read.
         dialogueText.text = "";
-        //string token = "";
+        string[] tokens = sentence.Split(" "); // split sentence into tokens using space character as delimiter.
 
-        //ToCharArray() converts string to char array, then appends letters to dialogueText
-        foreach (char letter in sentence.ToCharArray()) {
-            dialogueText.text += letter;
-            //token += letter;
-            if(letter == '.')
-                yield return new WaitForSeconds(1.0f);
-            else if (letter == ',')
-                yield return new WaitForSeconds(0.25f);
-            //yield return null; // this waits for 1 frame after appending letter
-            else
-                yield return new WaitForSeconds(textWaitTime);
+        foreach(string word in tokens) {
+            if(word == "<color=\"red\">" | word == "<color=\"yellow\">" | word == "</color>") {
+                dialogueText.text += word; //if word is a text color change, appends all at once so that player wont see the code print out. 
+            }
+            else {
+                //ToCharArray() converts string to char array, then appends letters to dialogueText
+                foreach (char letter in word.ToCharArray()) {
+                    dialogueText.text += letter;
+                    //token += letter;
+                    if(letter == '.')
+                        yield return new WaitForSeconds(0.5f);
+                    else if (letter == ',')
+                        yield return new WaitForSeconds(0.25f);
+                    //yield return null; // this waits for 1 frame after appending letter
+                    else
+                        yield return new WaitForSeconds(textWaitTime);
+                }
+                dialogueText.text += " "; // reappend the space character to each word.
+            }
         }
         spamClick = 0; //if coroutine finishes printing the whole line, resets spamclick to 0.
     }
+
 
     public void EndDialogue() {
         dialogueText.text = "";

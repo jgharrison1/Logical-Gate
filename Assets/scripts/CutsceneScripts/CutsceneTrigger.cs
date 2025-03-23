@@ -12,8 +12,12 @@ public class CutsceneTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        gameObject.SetActive(false);
-        triggerCutscene();
+        if(other.gameObject.CompareTag("Player")) {
+            gameObject.SetActive(false);
+            triggerCutscene();
+        }
+        else return;
+        
     }
 
 }

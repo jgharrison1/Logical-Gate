@@ -12,6 +12,6 @@ public class HubLoaderMM : MonoBehaviour
     } 
 
     public void ContinueGame() {
-        SceneManager.LoadSceneAsync();
+        SceneManager.LoadSceneAsync(FindObjectOfType<DataPersistenceManager>().getSceneName());
     }
 }

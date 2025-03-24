@@ -11,6 +11,7 @@ public class secondaryMemory : MonoBehaviour
 
     [Header("Target Values")]
     public List<int> targetValues = new List<int>(); 
+    
     [Header("Block Color Changers")]
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
 

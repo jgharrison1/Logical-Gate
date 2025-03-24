@@ -30,17 +30,18 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     [SerializeField] private AudioSource walkSFX;
     [SerializeField] private GameObject startSpawn;
 
-    public Transform holdPosition; // Position above player's head to hold blocks
-    private GameObject heldBlock = null; // The block currently being held
-    [SerializeField] private float grabDistance = 2f; // Distance to detect blocks
-    [SerializeField] private LayerMask blockLayer; // Layer for blocks
-    [SerializeField] private LayerMask slotLayer; // Layer for blocks
+    public Transform holdPosition; 
+    private GameObject heldBlock = null; 
+    [SerializeField] private float grabDistance = 2f; 
+    [SerializeField] private LayerMask blockLayer; 
+    [SerializeField] private LayerMask slotLayer; 
 
     private secondaryMemory secondaryMemoryInstance;
+    private mainMemory mainMemoryInstance;
 
-    private GameObject highlightedSlot; // Currently highlighted slot
-    private GameObject highlightedBorder; // Border for the highlight
-    [SerializeField] private GameObject highlightBorderPrefab; // Prefab for the border
+    private GameObject highlightedSlot; 
+    private GameObject highlightedBorder; 
+    [SerializeField] private GameObject highlightBorderPrefab;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,11 +51,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         walkSFX = GetComponent<AudioSource>();
 
         secondaryMemoryInstance = FindObjectOfType<secondaryMemory>();
-
-        if (secondaryMemoryInstance == null)
-        {
-            Debug.LogError("No secondaryMemory instance found in the scene!");
-        }
+        mainMemoryInstance = FindObjectOfType<mainMemory>();
     }
 
     // Update is called once per frame
@@ -283,13 +280,13 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
             if (heldBlock != null)
             {
-                secondaryMemoryInstance.RemoveBlockFromSlot(heldBlock);  // Remove the block from the slot
+                secondaryMemoryInstance.RemoveBlockFromSlot(heldBlock);  
             }
 
             heldBlock = block;
-            block.transform.SetParent(transform);  // Make the block a child of the player
-            block.transform.position = transform.position + Vector3.up;  // Position the block above the player
-            block.SetActive(true);  // Make sure the block is active
+            block.transform.SetParent(transform); 
+            block.transform.position = transform.position + Vector3.up;  
+            block.SetActive(true);  
             Debug.Log("Grabbed block: " + block.name);
         }
         else
@@ -305,8 +302,9 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             GameObject detectedSlot = highlightedSlot;
 
             secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
-            heldBlock.transform.position = detectedSlot.transform.position;  // Align the block with the slot
-            heldBlock = null;  // Release the reference to the held block
+            mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
+            heldBlock.transform.position = detectedSlot.transform.position;  
+            heldBlock = null;  
 
             Debug.Log($"Block placed in slot {detectedSlot.name}");
         }
@@ -330,11 +328,11 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
             if (highlightedSlot != detectedSlotObject)
             {
-                RemoveHighlight();  // Remove any previous highlight
+                RemoveHighlight();  
                 highlightedSlot = detectedSlotObject;
 
                 highlightedBorder = Instantiate(highlightBorderPrefab, detectedSlotObject.transform.position, Quaternion.identity);
-                highlightedBorder.transform.SetParent(detectedSlotObject.transform); // Attach it to the slot
+                highlightedBorder.transform.SetParent(detectedSlotObject.transform); 
                 highlightedBorder.GetComponent<SpriteRenderer>().color = Color.green;
             }
         }
@@ -344,19 +342,17 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         }
     }
 
-
-
     private bool CanPlaceBlockInSlot(GameObject slot)
     {
         GameObject existingBlock = secondaryMemoryInstance.GetBlockInSlot(slot);
-        return existingBlock == null;  // If no block is in the slot, we can place a new one
+        return existingBlock == null;  
     }
 
     private void RemoveHighlight()
     {
         if (highlightedBorder != null)
         {
-            Destroy(highlightedBorder); // Destroy the highlight border object
+            Destroy(highlightedBorder); 
             highlightedBorder = null;
             highlightedSlot = null;
         }

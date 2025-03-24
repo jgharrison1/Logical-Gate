@@ -4,7 +4,7 @@ using UnityEngine;
 public class mainMemory : MonoBehaviour
 {
     [Header("Frame Number Slots")]
-    public List<GameObject> frameSlots = new List<GameObject>();  // Changed to frame slots
+    public List<GameObject> frameSlots = new List<GameObject>();
 
     [Header("Offset Slots")]
     public List<GameObject> offsetSlots = new List<GameObject>(); 
@@ -41,7 +41,7 @@ public class mainMemory : MonoBehaviour
     {
         if (slot == null) return;
 
-        if (slotType == BlockType.Type.FrameNumber && !frameSlots.Contains(slot)) // Changed to FrameNumber
+        if (slotType == BlockType.Type.FrameNumber && !frameSlots.Contains(slot))
         {
             frameSlots.Add(slot);
         }
@@ -98,7 +98,7 @@ public class mainMemory : MonoBehaviour
         BlockType blockType = block.GetComponent<BlockType>();
         if (blockType == null) {return false;}
 
-        if ((frameSlots.Contains(slot) && blockType.blockType != BlockType.Type.FrameNumber) ||  // Changed to FrameNumber
+        if ((frameSlots.Contains(slot) && blockType.blockType != BlockType.Type.FrameNumber) ||
             (offsetSlots.Contains(slot) && blockType.blockType != BlockType.Type.Offset))
         {
             block.transform.SetParent(playerMovementScript.transform); 
@@ -135,16 +135,16 @@ public class mainMemory : MonoBehaviour
     {
         if (index < 0 || index >= targetValues.Count) return;
 
-        GameObject frameBlock = GetBlockInSlot(frameSlots[index]); // Changed to frameBlock
+        GameObject frameBlock = GetBlockInSlot(frameSlots[index]); 
         GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
 
         if (frameBlock != null && offsetBlock != null)
         {
-            BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); // Changed to frameBlockType
+            BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); 
             BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-            int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; // Changed to frameValue
+            int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; 
             int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-            int sum = frameValue + offsetValue; // Changed to frameValue
+            int sum = frameValue + offsetValue;
             bool isMatch = (sum == targetValues[index]);
 
             if (isMatchList.Count > index)
@@ -187,7 +187,7 @@ public class mainMemory : MonoBehaviour
 
         if (block == null) {return;}
 
-        List<GameObject> slotList = slotType == BlockType.Type.FrameNumber ? frameSlots : offsetSlots; // Changed to FrameNumber
+        List<GameObject> slotList = slotType == BlockType.Type.FrameNumber ? frameSlots : offsetSlots; 
 
         if (slotIndex >= slotList.Count) {return;}
 
@@ -215,17 +215,17 @@ public class mainMemory : MonoBehaviour
 
             if (blockColorChangers.Count > i)
             {
-                GameObject frameBlock = GetBlockInSlot(frameSlots[i]); // Changed to frameBlock
+                GameObject frameBlock = GetBlockInSlot(frameSlots[i]); 
                 GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
 
                 if (frameBlock != null && offsetBlock != null)
                 {
-                    BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); // Changed to frameBlockType
+                    BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); 
                     BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
 
-                    int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; // Changed to frameValue
+                    int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; 
                     int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-                    int sum = frameValue + offsetValue; // Changed to frameValue
+                    int sum = frameValue + offsetValue; 
                     blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
                 }
             }

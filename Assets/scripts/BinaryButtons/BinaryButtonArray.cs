@@ -31,6 +31,10 @@ public class BinaryButtonArray : MonoBehaviour
     private uint binaryOutput;
     public string arrayID;
     private BinaryArrayAdder binaryAdder;
+    public SpriteRenderer spriteRendererRep;
+    public Sprite spriteUnsigned;
+    public Sprite spriteSigned;
+    public Sprite spriteTwos;
 
     private void Start()
     {
@@ -94,7 +98,7 @@ public class BinaryButtonArray : MonoBehaviour
                     spriteRenderer.sprite = (binaryArray[index] == 1) ? sprite3 : sprite2;
                 }
                 
-                spriteRenderer.color = (binaryArray[index] == 1) ? Color.green : Color.red;
+                //spriteRenderer.color = (binaryArray[index] == 1) ? Color.green : Color.red;
             }
         }
     }
@@ -119,6 +123,7 @@ public class BinaryButtonArray : MonoBehaviour
 
         if (activeType == BinaryRepresentation.UnsignedMagnitude)
         {
+            spriteRendererRep.sprite = spriteUnsigned;
             for (int i = 0; i < binaryArray.Length; i++)
             {
                 decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
@@ -126,6 +131,7 @@ public class BinaryButtonArray : MonoBehaviour
         }
         else if (activeType == BinaryRepresentation.SignedMagnitude)
         {
+            spriteRendererRep.sprite = spriteSigned;
             for (int i = 1; i < binaryArray.Length; i++)
             {
                 decimalValue += binaryArray[i] * (1 << (binaryArray.Length - 1 - i));
@@ -138,6 +144,7 @@ public class BinaryButtonArray : MonoBehaviour
         }
         else if (activeType == BinaryRepresentation.TwosComplement)
         {
+            spriteRendererRep.sprite = spriteTwos;
             bool isNegative = (binaryArray[0] == 1);
             for (int i = 1; i < binaryArray.Length; i++)
             {

@@ -398,6 +398,7 @@ private void TryPlaceBlock()
         {
             health.RestoreHealth();
         }
+        anim.SetTrigger("respawns");
     }
 
     public void LoadData(GameData data) 

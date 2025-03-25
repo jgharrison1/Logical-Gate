@@ -1,27 +1,234 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class mainMemory : MonoBehaviour
 {
-    public Transform[] slots;
-    private GameObject[] blocks;
+    [Header("Frame Number Slots")]
+    public List<GameObject> frameSlots = new List<GameObject>();
+
+    [Header("Offset Slots")]
+    public List<GameObject> offsetSlots = new List<GameObject>(); 
+
+    [Header("Target Values")]
+    public List<int> targetValues = new List<int>(); 
+
+    [Header("Block Color Changers")]
+    public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
+
+    [Header("Runtime Assignment")]
+    public List<GameObject> blocksToAssign = new List<GameObject>();
+    public List<int> slotIndicesToAssign = new List<int>(); 
+    public List<BlockType.Type> slotTypesToAssign = new List<BlockType.Type>(); 
 
     private void Start()
     {
-        blocks = new GameObject[slots.Length];
+        if (blocksToAssign.Count > 0)
+        {
+            for (int i = 0; i < blocksToAssign.Count; i++)
+            {
+                if (blocksToAssign[i] != null) {AssignBlockToSlot(i);}
+            }
+            ValidateFrameOffsetPairs();
+        }
+        UpdateBlockColorsOnStart();
     }
 
-    public bool TryPlaceBlock(GameObject block, Transform player)
+    public List<bool> isMatchList = new List<bool>();
+    private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
+    private playerMovement playerMovementScript;
+
+    public void RegisterSlot(GameObject slot, BlockType.Type slotType)
     {
-        for (int i = 0; i < slots.Length; i++)
+        if (slot == null) return;
+
+        if (slotType == BlockType.Type.FrameNumber && !frameSlots.Contains(slot))
         {
-            if (blocks[i] == null)
-            {
-                blocks[i] = block;
-                block.transform.position = slots[i].position;
-                return true;
-            }
+            frameSlots.Add(slot);
+        }
+        else if (slotType == BlockType.Type.Offset && !offsetSlots.Contains(slot))
+        {
+            offsetSlots.Add(slot);
+        }
+    }
+
+    public void UnregisterSlot(GameObject slot)
+    {
+        if (slot == null) return;
+    }
+
+    public GameObject GetBlockInSlot(GameObject slot)
+    {
+        return slotToBlockMap.ContainsKey(slot) ? slotToBlockMap[slot] : null;
+    }
+
+    public GameObject RemoveBlockFromSlot(GameObject slot)
+    {
+        if (!IsValidSlot(slot) || !slotToBlockMap.ContainsKey(slot))
+        {
+            return null;
         }
 
-        return false;
+        GameObject block = slotToBlockMap[slot];
+        slotToBlockMap.Remove(slot);
+        block.transform.SetParent(null);
+        block.SetActive(false);
+
+        if (frameSlots[0] == slot || offsetSlots[0] == slot)
+        {
+            if (isMatchList.Count > 0)
+            {
+                isMatchList[0] = false;
+            }
+
+            if (blockColorChangers.Count > 0)
+            {
+                blockColorChangers[0].SetTargetValue(0, targetValues[0]);
+            }
+        }
+        return block;
+    }
+
+    public bool TryAddBlockToSlot(GameObject slot, GameObject block)
+    {
+        if (slot == null || block == null || !IsValidSlot(slot))
+        {
+            return false;
+        }
+
+        BlockType blockType = block.GetComponent<BlockType>();
+        if (blockType == null) {return false;}
+
+        if ((frameSlots.Contains(slot) && blockType.blockType != BlockType.Type.FrameNumber) ||
+            (offsetSlots.Contains(slot) && blockType.blockType != BlockType.Type.Offset))
+        {
+            block.transform.SetParent(playerMovementScript.transform); 
+            block.transform.position = playerMovementScript.holdPosition.position; 
+            block.SetActive(true);
+            return false;
+        }
+        slotToBlockMap[slot] = block;
+        block.transform.SetParent(slot.transform);
+        block.transform.localPosition = Vector3.zero;
+        ValidateFrameOffsetPairs(); 
+        return true;
+    }
+
+    public bool IsSlotOccupied(GameObject slot, GameObject block)
+    {
+        return slotToBlockMap.ContainsKey(slot) && slotToBlockMap[slot] != block;
+    }
+
+    private bool IsValidSlot(GameObject slot)
+    {
+        return slot != null && (frameSlots.Contains(slot) || offsetSlots.Contains(slot));
+    }
+
+    public void ValidateFrameOffsetPairs()
+    {
+        for (int i = 0; i < frameSlots.Count && i < offsetSlots.Count; i++)
+        {
+            ValidateFrameOffsetPair(i);
+        }
+    }
+
+    public void ValidateFrameOffsetPair(int index)
+    {
+        if (index < 0 || index >= targetValues.Count) return;
+
+        GameObject frameBlock = GetBlockInSlot(frameSlots[index]); 
+        GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
+
+        if (frameBlock != null && offsetBlock != null)
+        {
+            BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); 
+            BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+            int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; 
+            int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
+            int sum = frameValue + offsetValue;
+            bool isMatch = (sum == targetValues[index]);
+
+            if (isMatchList.Count > index)
+            {
+                isMatchList[index] = isMatch;
+            }
+
+            if (blockColorChangers.Count > index)
+            {
+                blockColorChangers[index].SetTargetValue(sum, targetValues[index]); 
+            }
+        }
+        else
+        {
+            if (isMatchList.Count > index) {isMatchList[index] = false;}
+
+            if (blockColorChangers.Count > index)
+            {
+                blockColorChangers[index].SetTargetValue(0, targetValues[index]);
+            }
+        }
+    }
+
+    public void AssignAllBlocksFromInspector()
+    {
+        for (int i = 0; i < blocksToAssign.Count; i++)
+        {
+            if (blocksToAssign[i] != null) {AssignBlockToSlot(i);}
+        }
+        ValidateFrameOffsetPairs();
+    }
+
+    private void AssignBlockToSlot(int index)
+    {
+        if (index < 0 || index >= blocksToAssign.Count) {return;}
+
+        GameObject block = blocksToAssign[index];
+        int slotIndex = slotIndicesToAssign[index];
+        BlockType.Type slotType = slotTypesToAssign[index];
+
+        if (block == null) {return;}
+
+        List<GameObject> slotList = slotType == BlockType.Type.FrameNumber ? frameSlots : offsetSlots; 
+
+        if (slotIndex >= slotList.Count) {return;}
+
+        GameObject slot = slotList[slotIndex];
+        bool success = TryAddBlockToSlot(slot, block);
+
+        if (success)
+        {
+            block.transform.SetParent(slot.transform);
+            block.transform.position = slot.transform.position;
+            block.transform.localRotation = Quaternion.identity;
+            ValidateFrameOffsetPairs();
+        }
+        else
+        {
+            Debug.LogWarning($"Failed to assign {block.name} to {slot.name}.");
+        }
+    }
+
+    private void UpdateBlockColorsOnStart()
+    {
+        for (int i = 0; i < frameSlots.Count && i < offsetSlots.Count; i++)
+        {
+            ValidateFrameOffsetPair(i); 
+
+            if (blockColorChangers.Count > i)
+            {
+                GameObject frameBlock = GetBlockInSlot(frameSlots[i]); 
+                GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
+
+                if (frameBlock != null && offsetBlock != null)
+                {
+                    BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); 
+                    BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+
+                    int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; 
+                    int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
+                    int sum = frameValue + offsetValue; 
+                    blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
+                }
+            }
+        }
     }
 }

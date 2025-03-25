@@ -38,6 +38,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private secondaryMemory secondaryMemoryInstance;
     private mainMemory mainMemoryInstance;
+    private pageTable pageTableInstance;
 
     private GameObject highlightedSlot; 
     private GameObject highlightedBorder; 
@@ -52,6 +53,8 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
         secondaryMemoryInstance = FindObjectOfType<secondaryMemory>();
         mainMemoryInstance = FindObjectOfType<mainMemory>();
+        pageTableInstance = FindObjectOfType<pageTable>();
+
     }
 
     // Update is called once per frame
@@ -295,20 +298,42 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         }
     }
 
-    private void TryPlaceBlock()
+    // private void TryPlaceBlock()
+    // {
+    //     if (heldBlock != null)
+    //     {
+    //         GameObject detectedSlot = highlightedSlot;
+
+    //         secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
+    //         mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
+
+
+    //         heldBlock.transform.position = detectedSlot.transform.position;  
+    //         heldBlock = null;  
+
+    //         Debug.Log($"Block placed in slot {detectedSlot.name}");
+    //     }
+    // }
+
+private void TryPlaceBlock()
+{
+    if (heldBlock != null)
     {
-        if (heldBlock != null)
+        GameObject detectedSlot = highlightedSlot;
+
+        // Try placing block in secondaryMemory
+        if (secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
+            mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
+            pageTableInstance.TryAddBlockToSlot(detectedSlot, heldBlock))  // New page table handling
         {
-            GameObject detectedSlot = highlightedSlot;
-
-            secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
-            mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
-            heldBlock.transform.position = detectedSlot.transform.position;  
-            heldBlock = null;  
-
+            heldBlock.transform.position = detectedSlot.transform.position;
+            heldBlock = null;
             Debug.Log($"Block placed in slot {detectedSlot.name}");
         }
     }
+}
+
+
 
     private void HighlightSlot()
     {

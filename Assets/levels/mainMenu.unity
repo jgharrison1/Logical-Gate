@@ -2288,7 +2288,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1016677451
 Canvas:
   m_ObjectHideFlags: 0
@@ -4244,8 +4244,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1016677448}
   - {fileID: 746802233}
+  - {fileID: 1016677448}
   m_Father: {fileID: 386364083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4581,5 +4581,5 @@ SceneRoots:
   - {fileID: 1178340747}
   - {fileID: 845812073}
   - {fileID: 1167254955}
-  - {fileID: 386364083}
   - {fileID: 1926995960}
+  - {fileID: 386364083}

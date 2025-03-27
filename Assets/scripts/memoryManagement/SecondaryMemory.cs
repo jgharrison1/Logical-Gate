@@ -33,7 +33,6 @@ public class secondaryMemory : MonoBehaviour
         UpdateBlockColorsOnStart();
     }
 
-    public List<bool> isMatchList = new List<bool>();
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
@@ -75,11 +74,6 @@ public class secondaryMemory : MonoBehaviour
 
         if (pageSlots[0] == slot || offsetSlots[0] == slot)
         {
-            if (isMatchList.Count > 0)
-            {
-                isMatchList[0] = false;
-            }
-
             if (blockColorChangers.Count > 0)
             {
                 blockColorChangers[0].SetTargetValue(0, targetValues[0]);
@@ -145,12 +139,6 @@ public class secondaryMemory : MonoBehaviour
             int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
             int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
             int sum = pageValue + offsetValue;
-            bool isMatch = (sum == targetValues[index]);
-
-            if (isMatchList.Count > index)
-            {
-                isMatchList[index] = isMatch;
-            }
 
             if (blockColorChangers.Count > index)
             {
@@ -159,15 +147,12 @@ public class secondaryMemory : MonoBehaviour
         }
         else
         {
-            if (isMatchList.Count > index) {isMatchList[index] = false;}
-
             if (blockColorChangers.Count > index)
             {
                 blockColorChangers[index].SetTargetValue(0, targetValues[index]);
             }
         }
     }
-
 
     public void AssignAllBlocksFromInspector()
     {
@@ -201,10 +186,6 @@ public class secondaryMemory : MonoBehaviour
             block.transform.position = slot.transform.position;
             block.transform.localRotation = Quaternion.identity;
             ValidatePageOffsetPairs();
-        }
-        else
-        {
-            Debug.LogWarning($"Failed to assign {block.name} to {slot.name}.");
         }
     }
 

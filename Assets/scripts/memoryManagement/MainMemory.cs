@@ -20,22 +20,21 @@ public class mainMemory : MonoBehaviour
     public List<int> slotIndicesToAssign = new List<int>(); 
     public List<BlockType.Type> slotTypesToAssign = new List<BlockType.Type>(); 
 
+    private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
+    private playerMovement playerMovementScript;
+
     private void Start()
     {
         if (blocksToAssign.Count > 0)
         {
             for (int i = 0; i < blocksToAssign.Count; i++)
             {
-                if (blocksToAssign[i] != null) {AssignBlockToSlot(i);}
+                if (blocksToAssign[i] != null) { AssignBlockToSlot(i); }
             }
             ValidateFrameOffsetPairs();
         }
         UpdateBlockColorsOnStart();
     }
-
-    public List<bool> isMatchList = new List<bool>();
-    private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
-    private playerMovement playerMovementScript;
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
     {
@@ -73,18 +72,11 @@ public class mainMemory : MonoBehaviour
         block.transform.SetParent(null);
         block.SetActive(false);
 
-        if (frameSlots[0] == slot || offsetSlots[0] == slot)
+        if (blockColorChangers.Count > 0)
         {
-            if (isMatchList.Count > 0)
-            {
-                isMatchList[0] = false;
-            }
-
-            if (blockColorChangers.Count > 0)
-            {
-                blockColorChangers[0].SetTargetValue(0, targetValues[0]);
-            }
+            blockColorChangers[0].SetTargetValue(0, targetValues[0]);
         }
+
         return block;
     }
 
@@ -96,20 +88,21 @@ public class mainMemory : MonoBehaviour
         }
 
         BlockType blockType = block.GetComponent<BlockType>();
-        if (blockType == null) {return false;}
+        if (blockType == null) { return false; }
 
         if ((frameSlots.Contains(slot) && blockType.blockType != BlockType.Type.FrameNumber) ||
             (offsetSlots.Contains(slot) && blockType.blockType != BlockType.Type.Offset))
         {
-            block.transform.SetParent(playerMovementScript.transform); 
-            block.transform.position = playerMovementScript.holdPosition.position; 
+            block.transform.SetParent(playerMovementScript.transform);
+            block.transform.position = playerMovementScript.holdPosition.position;
             block.SetActive(true);
             return false;
         }
+
         slotToBlockMap[slot] = block;
         block.transform.SetParent(slot.transform);
         block.transform.localPosition = Vector3.zero;
-        ValidateFrameOffsetPairs(); 
+        ValidateFrameOffsetPairs();
         return true;
     }
 
@@ -135,32 +128,24 @@ public class mainMemory : MonoBehaviour
     {
         if (index < 0 || index >= targetValues.Count) return;
 
-        GameObject frameBlock = GetBlockInSlot(frameSlots[index]); 
+        GameObject frameBlock = GetBlockInSlot(frameSlots[index]);
         GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
 
         if (frameBlock != null && offsetBlock != null)
         {
-            BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); 
+            BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
             BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-            int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; 
+            int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0;
             int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
             int sum = frameValue + offsetValue;
-            bool isMatch = (sum == targetValues[index]);
-
-            if (isMatchList.Count > index)
-            {
-                isMatchList[index] = isMatch;
-            }
 
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(sum, targetValues[index]); 
+                blockColorChangers[index].SetTargetValue(sum, targetValues[index]);
             }
         }
         else
         {
-            if (isMatchList.Count > index) {isMatchList[index] = false;}
-
             if (blockColorChangers.Count > index)
             {
                 blockColorChangers[index].SetTargetValue(0, targetValues[index]);
@@ -172,24 +157,24 @@ public class mainMemory : MonoBehaviour
     {
         for (int i = 0; i < blocksToAssign.Count; i++)
         {
-            if (blocksToAssign[i] != null) {AssignBlockToSlot(i);}
+            if (blocksToAssign[i] != null) { AssignBlockToSlot(i); }
         }
         ValidateFrameOffsetPairs();
     }
 
     private void AssignBlockToSlot(int index)
     {
-        if (index < 0 || index >= blocksToAssign.Count) {return;}
+        if (index < 0 || index >= blocksToAssign.Count) { return; }
 
         GameObject block = blocksToAssign[index];
         int slotIndex = slotIndicesToAssign[index];
         BlockType.Type slotType = slotTypesToAssign[index];
 
-        if (block == null) {return;}
+        if (block == null) { return; }
 
-        List<GameObject> slotList = slotType == BlockType.Type.FrameNumber ? frameSlots : offsetSlots; 
+        List<GameObject> slotList = slotType == BlockType.Type.FrameNumber ? frameSlots : offsetSlots;
 
-        if (slotIndex >= slotList.Count) {return;}
+        if (slotIndex >= slotList.Count) { return; }
 
         GameObject slot = slotList[slotIndex];
         bool success = TryAddBlockToSlot(slot, block);
@@ -211,21 +196,21 @@ public class mainMemory : MonoBehaviour
     {
         for (int i = 0; i < frameSlots.Count && i < offsetSlots.Count; i++)
         {
-            ValidateFrameOffsetPair(i); 
+            ValidateFrameOffsetPair(i);
 
             if (blockColorChangers.Count > i)
             {
-                GameObject frameBlock = GetBlockInSlot(frameSlots[i]); 
+                GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
                 GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
 
                 if (frameBlock != null && offsetBlock != null)
                 {
-                    BlockType frameBlockType = frameBlock.GetComponent<BlockType>(); 
+                    BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
                     BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
 
-                    int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0; 
+                    int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0;
                     int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-                    int sum = frameValue + offsetValue; 
+                    int sum = frameValue + offsetValue;
                     blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
                 }
             }

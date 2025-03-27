@@ -290,50 +290,24 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             block.transform.SetParent(transform); 
             block.transform.position = transform.position + Vector3.up;  
             block.SetActive(true);  
-            Debug.Log("Grabbed block: " + block.name);
-        }
-        else
-        {
-            Debug.Log("No block detected to grab.");
         }
     }
 
-    // private void TryPlaceBlock()
-    // {
-    //     if (heldBlock != null)
-    //     {
-    //         GameObject detectedSlot = highlightedSlot;
-
-    //         secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
-    //         mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock);
-
-
-    //         heldBlock.transform.position = detectedSlot.transform.position;  
-    //         heldBlock = null;  
-
-    //         Debug.Log($"Block placed in slot {detectedSlot.name}");
-    //     }
-    // }
-
-private void TryPlaceBlock()
-{
-    if (heldBlock != null)
+    private void TryPlaceBlock()
     {
-        GameObject detectedSlot = highlightedSlot;
-
-        // Try placing block in secondaryMemory
-        if (secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
-            mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
-            pageTableInstance.TryAddBlockToSlot(detectedSlot, heldBlock))  // New page table handling
+        if (heldBlock != null)
         {
-            heldBlock.transform.position = detectedSlot.transform.position;
-            heldBlock = null;
-            Debug.Log($"Block placed in slot {detectedSlot.name}");
+            GameObject detectedSlot = highlightedSlot;
+
+            if (secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
+                mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
+                pageTableInstance.TryAddBlockToSlot(detectedSlot, heldBlock))  
+            {
+                heldBlock.transform.position = detectedSlot.transform.position;
+                heldBlock = null;
+            }
         }
     }
-}
-
-
 
     private void HighlightSlot()
     {
@@ -344,7 +318,6 @@ private void TryPlaceBlock()
         }
 
         Vector2 direction = isFacingRight ? Vector2.right : Vector2.left;
-
         RaycastHit2D detectedSlot = Physics2D.Raycast(transform.position, direction, grabDistance, slotLayer);
 
         if (detectedSlot.collider != null)

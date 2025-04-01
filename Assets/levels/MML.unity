@@ -1211,7 +1211,7 @@ Transform:
   m_GameObject: {fileID: 528714332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.110000014, y: -4.26, z: -0.049122643}
+  m_LocalPosition: {x: -13.07, y: -4.29, z: -0.049122643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2868,7 +2868,8 @@ MonoBehaviour:
   blocksToAssign: []
   slotIndicesToAssign: 
   slotTypesToAssign: 
-  isMatchList: 
+  expectedSequence: 0000000001000000
+  sequenceCompleted: 0
 --- !u!61 &1320525205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4010,7 +4011,7 @@ Transform:
   m_GameObject: {fileID: 1678160789}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26999998, y: 0.76, z: -0.049122643}
+  m_LocalPosition: {x: -0.33, y: 0.71, z: -0.049122643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

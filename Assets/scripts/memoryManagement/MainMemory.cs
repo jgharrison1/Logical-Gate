@@ -20,6 +20,11 @@ public class mainMemory : MonoBehaviour
     public List<int> slotIndicesToAssign = new List<int>(); 
     public List<BlockType.Type> slotTypesToAssign = new List<BlockType.Type>(); 
 
+    [Header("Sequence Validation")]
+    public List<int> expectedSequence = new List<int>();  // Define in Unity Inspector
+    private List<int> currentSequence = new List<int>();
+    public bool sequenceCompleted = false; // Outputs true if correct sequence is achieved
+
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
@@ -34,6 +39,11 @@ public class mainMemory : MonoBehaviour
             ValidateFrameOffsetPairs();
         }
         UpdateBlockColorsOnStart();
+
+        foreach (var changer in blockColorChangers)
+        {
+            changer.OnColorChange += HandleBlockColorChange;
+        }
     }
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
@@ -216,4 +226,49 @@ public class mainMemory : MonoBehaviour
             }
         }
     }
+
+    private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
+    {
+        int index = blockColorChangers.IndexOf(changer);
+        if (index == -1) return;
+
+        if (isYellow)
+        {
+            // If this block is next in the expected sequence, add it
+            if (currentSequence.Count < expectedSequence.Count && expectedSequence[currentSequence.Count] == index)
+            {
+                currentSequence.Add(index);
+            }
+            else
+            {
+                ResetSequence(); // Reset if an out-of-order activation occurs
+            }
+        }
+        else
+        {
+            // If a block in the sequence is removed, reset the sequence
+            if (currentSequence.Contains(index))
+            {
+                ResetSequence();
+            }
+        }
+
+        // Check if the sequence is completed correctly
+        if (currentSequence.Count == expectedSequence.Count)
+        {
+            sequenceCompleted = true;
+            Debug.Log("Correct sequence achieved!");
+        }
+        else
+        {
+            sequenceCompleted = false; // Ensure it only becomes true when the full sequence is followed
+        }
+    }
+
+    private void ResetSequence()
+    {
+        currentSequence.Clear();
+        sequenceCompleted = false;
+    }
+
 }

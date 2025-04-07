@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable] 
 public class CutsceneEvent
 {
+    /*
     public bool isMoveEvent = false; //For when we want to move an object from one part of screen to another.
     public bool isCameraEvent = false; // Adjusting Camera is best done as it's own event rather than in the move event. Still uses endPosition.
     public bool isSetActiveEvent = false; // For when we want an object to disappear or reappear
@@ -19,4 +20,25 @@ public class CutsceneEvent
     public List<GameObject> objects;
     public Dialogue dialogue;
     public float waitTime = 0.0f;
+    */
+    public enum Events
+    {
+        DialogueEvent,
+        MoveEvent,
+        CameraEvent,
+        SetActive,
+        TableEvent,
+        ButtonEvent,
+        ArrayEvent,
+        AdderEvent,
+        MMEvent,
+        WaitEvent
+    };
+    public Events EventType = new Events();
+    public float smoothTime = 0f; //Controls speed during move object event. 0f smoothTime will make the move event instantaneous(I think, will confirm later).
+    public float resizeCamera = 0f; //Camera's Orthographic size will be resized to this value in a CameraEvent
+    public Vector3 endPosition; //Used in move event and camera event
+    public List<GameObject> objects; //list of objects for move, setactive, or button events
+    public Dialogue dialogue;
+    public float waitTime = 0.0f; //wait time may be used in more than just the wait event
 }

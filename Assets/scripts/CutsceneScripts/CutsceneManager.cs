@@ -13,7 +13,7 @@ public class CutsceneManager : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private Vector3 targetPosition;
     private float smoothSpeed = 0.25f; //same as smoothTime
-    private float resizeAmount = 0f; //
+    private float resizeValue = 0f; //
 
     // Start is called before the first frame update
     void Start()
@@ -31,18 +31,21 @@ public class CutsceneManager : MonoBehaviour
             {
                 MCamera.transform.position = Vector3.SmoothDamp(MCamera.transform.position, targetPosition, ref velocity, smoothSpeed);
             }
-            if(Mathf.Abs(resizeAmount) > 0.2f ){
-                if(resizeAmount > 0f){
+            else MCamera.transform.position = targetPosition; //once camera is within range of the position, set it equal to the position
+
+            if(Mathf.Abs(MCamera.orthographicSize - resizeValue) > 0.2f ) //move camera size value closer to resize value
+            {
+                if(resizeValue > MCamera.orthographicSize){
                     MCamera.orthographicSize += 0.1f;
-                    resizeAmount -= 0.1f;
                 }
-                else if(resizeAmount < 0f) {
+                else if(resizeValue < MCamera.orthographicSize) {
                     MCamera.orthographicSize -= 0.1f;
-                    resizeAmount += 0.1f;
                 }
             }
-            if((Vector3.Distance(MCamera.transform.position, targetPosition) < 0.2f) & (Mathf.Abs(resizeAmount) < 0.2f )) {
-                movingCamera = false; // once camera is in range of target and resizeAmount, stop moving
+            else MCamera.orthographicSize = resizeValue; //once the camera size value is close enough to the resize value, we will set them equal.
+
+            if((Vector3.Distance(MCamera.transform.position, targetPosition) < 0.2f) & (MCamera.orthographicSize == resizeValue)) {
+                movingCamera = false; // once camera is in range of target and resizeValue, stop moving
                 NextAction();
             }
         }
@@ -90,7 +93,7 @@ public class CutsceneManager : MonoBehaviour
         else if(action.isCameraEvent) {
             Debug.Log("Camera Event");
             targetPosition = action.endPosition;
-            resizeAmount = action.resize;
+            resizeValue = action.resize;
             movingCamera = true;
             //holUp(action.waitTime);
         }
@@ -138,42 +141,71 @@ public class CutsceneManager : MonoBehaviour
         switch(i){
             case 0:
             {
+                Debug.Log("Wait Event");
+                holUp(action.waitTime);
                 break;
             }
             case 1:
             {
+                Debug.Log("Dialogue Event");
+                FindObjectOfType<DialogueManager>().StartDialogue(action.dialogue); //same as dialogue trigger script
                 break;
             }
             case 2:
             {
+                Debug.Log("Camera Event");
+                targetPosition = action.endPosition;
+                resizeValue = action.resizeCamera;
+                movingCamera = true;
                 break;
             }
             case 3:
             {
+                Debug.Log("Move Event");
+                foreach(GameObject obj in action.objects) 
+                {
+                    StartCoroutine(moveEvent(obj, action.endPosition, action.smoothTime, action.waitTime));
+                }
                 break;
             }
             case 4:
             {
+                Debug.Log("Set Active Event");
+                foreach(GameObject obj in action.objects) 
+                {
+                    if(obj.activeSelf) obj.SetActive(false);
+                    else obj.SetActive(true);
+                }
+                holUp(action.waitTime);
                 break;
             }
             case 5:
             {
+                Debug.Log("Table Event");
+                tableEvent(action);
                 break;
             }
             case 6:
             {
+                Debug.Log("Button Event");
+                //buttonEvent(action);
+                action.objects[0].GetComponent<ButtonInputController>().changeButton();
+                holUp(action.waitTime);
                 break;
             }
             case 7:
             {
+                Debug.Log("Array Event");
                 break;
             }
             case 8:
             {
+                Debug.Log("Array Adder Event");
                 break;
             }
             case 9:
             {
+                Debug.Log("Memory Management Event");
                 break;
             }
             default:

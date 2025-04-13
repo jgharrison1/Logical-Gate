@@ -227,43 +227,57 @@ public class mainMemory : MonoBehaviour
         }
     }
 
-    private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
-    {
-        int index = blockColorChangers.IndexOf(changer);
-        if (index == -1) return;
+private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
+{
+    int index = blockColorChangers.IndexOf(changer);
+    if (index == -1) return;
 
-        if (isYellow)
+    if (isYellow)
+    {
+        if (!currentSequence.Contains(index))
         {
-            // If this block is next in the expected sequence, add it
-            if (currentSequence.Count < expectedSequence.Count && expectedSequence[currentSequence.Count] == index)
+            currentSequence.Add(index);
+        }
+
+        // Only validate once the full sequence is entered
+        if (currentSequence.Count == expectedSequence.Count)
+        {
+            bool correct = true;
+            for (int i = 0; i < expectedSequence.Count; i++)
             {
-                currentSequence.Add(index);
+                if (currentSequence[i] != expectedSequence[i])
+                {
+                    correct = false;
+                    break;
+                }
+            }
+
+            sequenceCompleted = correct;
+
+            if (correct)
+            {
+                Debug.Log("Correct sequence achieved!");
             }
             else
             {
-                ResetSequence(); // Reset if an out-of-order activation occurs
-            }
-        }
-        else
-        {
-            // If a block in the sequence is removed, reset the sequence
-            if (currentSequence.Contains(index))
-            {
+                Debug.Log("Incorrect sequence. Resetting.");
                 ResetSequence();
             }
         }
-
-        // Check if the sequence is completed correctly
-        if (currentSequence.Count == expectedSequence.Count)
-        {
-            sequenceCompleted = true;
-            Debug.Log("Correct sequence achieved!");
-        }
         else
         {
-            sequenceCompleted = false; // Ensure it only becomes true when the full sequence is followed
+            sequenceCompleted = false;
         }
     }
+    else
+    {
+        // Optional: remove from sequence if a block is turned off
+        if (currentSequence.Contains(index))
+        {
+            ResetSequence();
+        }
+    }
+}
 
     private void ResetSequence()
     {

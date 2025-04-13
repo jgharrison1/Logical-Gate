@@ -286,3 +286,4 @@ private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
     }
 
 }
+

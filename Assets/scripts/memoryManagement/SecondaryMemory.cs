@@ -32,7 +32,7 @@ public class secondaryMemory : MonoBehaviour
                 if (blocksToAssign[i] != null)
                 {
                     AssignBlockToSlot(i);
-                }
+                } 
             }
             ValidatePageOffsetPairs();
         }

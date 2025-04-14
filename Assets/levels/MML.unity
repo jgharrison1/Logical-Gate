@@ -8293,12 +8293,14 @@ MonoBehaviour:
   - {fileID: 1767469871}
   - {fileID: 1606009457}
   - {fileID: 341500805}
+  - {fileID: 1798521752}
   offsetSlots:
   - {fileID: 1895964382}
   - {fileID: 1587531881}
   - {fileID: 808051139}
   - {fileID: 1975732114}
   - {fileID: 1699192276}
+  - {fileID: 543176735}
   targetValues: 030000000500000007000000090000000b000000
   blockColorChangers:
   - {fileID: 1024027669}
@@ -8309,7 +8311,7 @@ MonoBehaviour:
   blocksToAssign: []
   slotIndicesToAssign: 
   slotTypesToAssign: 
-  expectedSequence: 0000000001000000
+  expectedSequence: 0000000001000000040000000300000002000000
   sequenceCompleted: 0
 --- !u!61 &1320525205
 BoxCollider2D:
@@ -10994,7 +10996,7 @@ Transform:
   m_GameObject: {fileID: 1762324518}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.73, y: -1.71, z: -0.049122643}
+  m_LocalPosition: {x: -8.73, y: -2.3, z: -0.049122643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11563,7 +11565,7 @@ Transform:
   m_GameObject: {fileID: 1842018230}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.794317, y: -1.74, z: -0.049122643}
+  m_LocalPosition: {x: -11.794317, y: -2.3, z: -0.049122643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

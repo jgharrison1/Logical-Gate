@@ -227,112 +227,59 @@ public class mainMemory : MonoBehaviour
         }
     }
 
-// private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
-// {
-//     int index = blockColorChangers.IndexOf(changer);
-//     if (index == -1) return;
-
-//     if (isYellow)
-//     {
-//         if (!currentSequence.Contains(index))
-//         {
-//             currentSequence.Add(index);
-//         }
-
-//         // Only validate once the full sequence is entered
-//         if (currentSequence.Count == expectedSequence.Count)
-//         {
-//             bool correct = true;
-//             for (int i = 0; i < expectedSequence.Count; i++)
-//             {
-//                 if (currentSequence[i] != expectedSequence[i])
-//                 {
-//                     correct = false;
-//                     break;
-//                 }
-//             }
-
-//             sequenceCompleted = correct;
-
-//             if (correct)
-//             {
-//                 Debug.Log("Correct sequence achieved!");
-//             }
-//             else
-//             {
-//                 Debug.Log("Incorrect sequence. Resetting.");
-//                 ResetSequence();
-//             }
-//         }
-//         else
-//         {
-//             sequenceCompleted = false;
-//         }
-//     }
-//     else
-//     {
-//         // Optional: remove from sequence if a block is turned off
-//         if (currentSequence.Contains(index))
-//         {
-//             ResetSequence();
-//         }
-//     }
-// }
-
-private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
-{
-    int index = blockColorChangers.IndexOf(changer);
-    if (index == -1) return;
-
-    if (isYellow)
+    private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
     {
-        if (!currentSequence.Contains(index))
-        {
-            currentSequence.Add(index);
-            Debug.Log($"Added index {index} to current sequence. Current sequence: [{string.Join(", ", currentSequence)}]");
-        }
+        int index = blockColorChangers.IndexOf(changer);
+        if (index == -1) return;
 
-        // Only validate once the full sequence is entered
-        if (currentSequence.Count == expectedSequence.Count)
+        if (isYellow)
         {
-            bool correct = true;
-            for (int i = 0; i < expectedSequence.Count; i++)
+            if (!currentSequence.Contains(index))
             {
-                if (currentSequence[i] != expectedSequence[i])
-                {
-                    correct = false;
-                    break;
-                }
+                currentSequence.Add(index);
+                Debug.Log($"Added index {index} to current sequence. Current sequence: [{string.Join(", ", currentSequence)}]");
             }
 
-            sequenceCompleted = correct;
-
-            if (correct)
+            // Only validate once the full sequence is entered
+            if (currentSequence.Count == expectedSequence.Count)
             {
-                Debug.Log(" Correct sequence achieved!");
+                bool correct = true;
+                for (int i = 0; i < expectedSequence.Count; i++)
+                {
+                    if (currentSequence[i] != expectedSequence[i])
+                    {
+                        correct = false;
+                        break;
+                    }
+                }
+
+                sequenceCompleted = correct;
+
+                if (correct)
+                {
+                    Debug.Log(" Correct sequence achieved!");
+                }
+                else
+                {
+                    Debug.Log(" Incorrect sequence. Resetting.");
+                    ResetSequence();
+                }
             }
             else
             {
-                Debug.Log(" Incorrect sequence. Resetting.");
-                ResetSequence();
+                sequenceCompleted = false;
             }
         }
         else
         {
-            sequenceCompleted = false;
+            // Optional: remove from sequence if a block is turned off
+            if (currentSequence.Contains(index))
+            {
+                Debug.Log($"Block at index {index} turned off. Resetting sequence.");
+                ResetSequence();
+            }
         }
     }
-    else
-    {
-        // Optional: remove from sequence if a block is turned off
-        if (currentSequence.Contains(index))
-        {
-            Debug.Log($"Block at index {index} turned off. Resetting sequence.");
-            ResetSequence();
-        }
-    }
-}
-
 
     private void ResetSequence()
     {

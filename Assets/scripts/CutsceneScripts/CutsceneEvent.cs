@@ -32,7 +32,8 @@ public class CutsceneEvent
         ButtonEvent,
         ArrayEvent,
         AdderEvent,
-        MMEvent
+        MMEvent,
+        TextEvent
     };
     public Events EventType = new Events();
     public float waitTime = 0.0f; //wait time may be used in more than just the wait event

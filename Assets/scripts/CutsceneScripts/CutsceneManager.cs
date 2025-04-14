@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -155,7 +156,10 @@ public class CutsceneManager : MonoBehaviour
             {
                 Debug.Log("Camera Event");
                 targetPosition = action.endPosition;
-                resizeValue = action.resizeCamera;
+                if(action.resizeCamera != 0f) {
+                    resizeValue = action.resizeCamera;
+                }
+                else resizeValue = MCamera.orthographicSize;
                 movingCamera = true;
                 break;
             }
@@ -206,6 +210,12 @@ public class CutsceneManager : MonoBehaviour
             case 9:
             {
                 Debug.Log("Memory Management Event");
+                break;
+            }
+            case 10:
+            {
+                Debug.Log("Text Event");
+                action.objects[0].GetComponent<TextMeshPro>().text = action.dialogue.sentences[0];
                 break;
             }
             default:

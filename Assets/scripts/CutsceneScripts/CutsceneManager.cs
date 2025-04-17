@@ -170,6 +170,7 @@ public class CutsceneManager : MonoBehaviour
                 {
                     StartCoroutine(moveEvent(obj, action.endPosition, action.smoothTime, action.waitTime));
                 }
+                NextAction();
                 break;
             }
             case 4:
@@ -200,6 +201,8 @@ public class CutsceneManager : MonoBehaviour
             case 7:
             {
                 Debug.Log("Array Event");
+                action.objects[0].GetComponent<BinaryButtonArray>().InitializeBinaryArray();
+                holUp(action.waitTime);
                 break;
             }
             case 8:
@@ -216,6 +219,7 @@ public class CutsceneManager : MonoBehaviour
             {
                 Debug.Log("Text Event");
                 action.objects[0].GetComponent<TextMeshPro>().text = action.dialogue.sentences[0];
+                holUp(action.waitTime);
                 break;
             }
             default:
@@ -234,7 +238,7 @@ public class CutsceneManager : MonoBehaviour
             yield return new WaitForSeconds(0.001f);
         }
         Debug.Log("Done Moving.");
-        holUp(seconds);
+        //holUp(seconds);
         yield return null;
     }
 

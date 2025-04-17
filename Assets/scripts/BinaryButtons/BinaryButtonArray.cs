@@ -19,7 +19,7 @@ public class BinaryButtonArray : MonoBehaviour
     private int[] binaryArray;
     public GameObject[] buttonObjects;
     public bool[] canToggle;
-    public int[] staticValues; 
+    public int[] staticValues;
     public TMP_Text decimalDisplayText;
     public TMP_Text representationTypeDisplayText;
 
@@ -52,7 +52,7 @@ public class BinaryButtonArray : MonoBehaviour
         UpdateRepresentationTypeDisplay(); 
     }
 
-    private void InitializeBinaryArray()
+    public void InitializeBinaryArray()
     {
         for (int i = 0; i < arraySize; i++)
         {

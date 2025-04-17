@@ -28,14 +28,16 @@ if more points are required, I will make another script with that functionality
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.position.y > transform.position.y) //check that player is on top of the platform, not touching the side or bottom
+        if(collision.transform.position.y > transform.position.y & collision.gameObject.CompareTag("Player")) //check that player is on top of the platform, not touching the side or bottom
         { 
             collision.transform.SetParent(transform); //sets platform as the parent object of the object colliding with it, which should be the player
+            collision.gameObject.GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.None; //turn off interpolation while on platform, otherwise velocity gets messed up
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         collision.transform.SetParent(null); //when player exits platform, they are no longer moving with the platform
+        collision.gameObject.GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.Interpolate; //turn rigidbody interpolation back on.
     }
 
 }

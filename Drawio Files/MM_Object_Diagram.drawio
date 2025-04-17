@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.2.5">
   <diagram id="XDU4UbdjK_8y-OHAIS_u" name="Page-1">
-    <mxGraphModel dx="1674" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1160" dy="624" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -37,20 +37,17 @@
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-9" value="slotToBlockMap = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-10" value="pageSlots = [p0p]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
           <mxGeometry y="26" width="235" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-10" value="pageSlots = [p0p]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-11" value="frameslots = [p0f]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
           <mxGeometry y="52" width="235" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-11" value="frameslots = [p0f]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-12" value="pageblocks = [p1]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
           <mxGeometry y="78" width="235" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-12" value="pageblocks = [p1]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
-          <mxGeometry y="104" width="235" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-13" value="frameBlocks = [f1]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-8" vertex="1">
-          <mxGeometry y="130" width="235" height="26" as="geometry" />
+          <mxGeometry y="104" width="235" height="26" as="geometry" />
         </mxCell>
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-15" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="SLdXMpWC4aIWYxyRFHL2-4" target="SLdXMpWC4aIWYxyRFHL2-16" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -89,22 +86,22 @@
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-21" value="offsetSlots = [m0d, m1d]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
           <mxGeometry y="52" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-22" value="slotToBlockMap = {}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-27" value="targetValues = [6, 2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
           <mxGeometry y="78" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-23" value="BlocksToAssign = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-26" value="blockColorChangers = [Light1, Light2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
           <mxGeometry y="104" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-24" value="slotIndicesToAssign = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-23" value="BlocksToAssign = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
           <mxGeometry y="130" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-25" value="slotTypesToAssign = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-22" value="slotToBlockMap = {}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
           <mxGeometry y="156" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-26" value="blockColorChangers = [Light1, Light2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-24" value="slotIndicesToAssign = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
           <mxGeometry y="182" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-27" value="targetValues = [6, 2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-25" value="slotTypesToAssign = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-19" vertex="1">
           <mxGeometry y="208" width="250" height="26" as="geometry" />
         </mxCell>
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-29" value="sm:SecondaryMemory" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
@@ -118,26 +115,23 @@
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-31" value="offsetSlots = [s0d, s1d]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
           <mxGeometry y="52" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-32" value="slotToBlockMap = {s1p : pb1, s1d : db1}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-37" value="targetValues = [5, 2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
           <mxGeometry y="78" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-33" value="BlocksToAssign = [pb1, db1]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-36" value="blockColorChangers = [Light1, Light2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
           <mxGeometry y="104" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-34" value="slotIndicesToAssign = [element 1, element 1]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-33" value="BlocksToAssign = [pb1, db1]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
           <mxGeometry y="130" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-35" value="slotTypesToAssign = [page number, offset]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-32" value="slotToBlockMap = {s1p : pb1, s1d : db1}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
           <mxGeometry y="156" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-36" value="blockColorChangers = [Light1, Light2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-34" value="slotIndicesToAssign = [element 1, element 1]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
           <mxGeometry y="182" width="250" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-37" value="targetValues = [5, 2]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-35" value="slotTypesToAssign = [page number, offset]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="SLdXMpWC4aIWYxyRFHL2-29" vertex="1">
           <mxGeometry y="208" width="250" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;startFill=0;" parent="1" source="SLdXMpWC4aIWYxyRFHL2-40" target="SLdXMpWC4aIWYxyRFHL2-8" edge="1">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-40" value="db1:BlockType" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="325" y="690" width="235" height="60" as="geometry">
@@ -146,14 +140,6 @@
         </mxCell>
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-41" value="addressValue = 3" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-40" vertex="1">
           <mxGeometry y="26" width="235" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;endArrow=none;startFill=0;" parent="1" source="SLdXMpWC4aIWYxyRFHL2-43" target="SLdXMpWC4aIWYxyRFHL2-8" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="298" y="570" />
-              <mxPoint x="384" y="570" />
-            </Array>
-          </mxGeometry>
         </mxCell>
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-43" value="fb1:BlockType" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="180" y="600" width="235" height="60" as="geometry">
@@ -179,9 +165,9 @@
         <mxCell id="SLdXMpWC4aIWYxyRFHL2-47" value="addressValue = 2" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SLdXMpWC4aIWYxyRFHL2-46" vertex="1">
           <mxGeometry y="26" width="235" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="SLdXMpWC4aIWYxyRFHL2-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.214;entryY=1.231;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;" parent="1" source="SLdXMpWC4aIWYxyRFHL2-41" target="SLdXMpWC4aIWYxyRFHL2-27" edge="1">
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" parent="1" source="SLdXMpWC4aIWYxyRFHL2-41" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="93.5" y="539.402" as="targetPoint" />
+            <mxPoint x="94" y="520" as="targetPoint" />
             <Array as="points">
               <mxPoint x="94" y="729" />
             </Array>
@@ -231,6 +217,19 @@
               <mxPoint x="810" y="541" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="IBWTg9Q2QHGnAC9N_C0A-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;endArrow=none;startFill=0;" edge="1" parent="1" source="SLdXMpWC4aIWYxyRFHL2-43" target="SLdXMpWC4aIWYxyRFHL2-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="298" y="570" />
+              <mxPoint x="384" y="570" />
+            </Array>
+            <mxPoint x="298" y="600" as="sourcePoint" />
+            <mxPoint x="384" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SLdXMpWC4aIWYxyRFHL2-9" value="slotToBlockMap = []" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="1" vertex="1">
+          <mxGeometry x="328.5" y="414" width="235" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

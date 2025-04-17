@@ -10,6 +10,10 @@ public class ButtonInputController : MonoBehaviour, IDataPersistence
     public bool buttonInput2;
     public string buttonName1;
     public string buttonName2;
+    //public List<GameObject> connectedLines;
+    public List<SpriteRenderer> lineRenderers;
+    public Sprite lineOnSprite;
+    public Sprite lineOffSprite;
     private string playerTag = "Player";
     private string enemyTag = "Enemy";
 
@@ -29,7 +33,19 @@ public class ButtonInputController : MonoBehaviour, IDataPersistence
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        UpdateButtonColor();
+
+        if (gameObject.name == buttonName1)
+        {
+            ConnectedGate.input1 = buttonInput1;
+            color = buttonInput1;
+            UpdateButtonColor();
+        }
+        else if (gameObject.name == buttonName2)
+        {
+            ConnectedGate.input2 = buttonInput2;
+            color = buttonInput2;
+            UpdateButtonColor();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -73,10 +89,16 @@ public class ButtonInputController : MonoBehaviour, IDataPersistence
             if (color)
             {
                 spriteRenderer.color = activatedColor;
+                foreach(SpriteRenderer r in lineRenderers) {
+                    r.sprite = lineOnSprite;
+                }
             }
             else
             {
                 spriteRenderer.color = deactivatedColor;
+                foreach(SpriteRenderer r in lineRenderers) {
+                    r.sprite = lineOffSprite;
+                }
             }
         }
     }

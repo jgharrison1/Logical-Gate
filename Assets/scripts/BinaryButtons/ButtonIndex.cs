@@ -9,7 +9,7 @@ public class ButtonIndex : MonoBehaviour
     {
         if (buttonArray != null)
         {
-            buttonArray.ToggleBinaryValue(index, buttonArray.arrayID); 
+            buttonArray.ToggleBinaryValue(index, buttonArray.arrayID);
         }
     }
 }

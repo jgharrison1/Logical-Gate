@@ -616,30 +616,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventList:
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 53.4, y: 10.98, z: -10}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -651,31 +640,19 @@ MonoBehaviour:
       - These types of structures may be tricky to think through, but with time and
         practice, you'll do fine!
       - and, Oh dear, what's this?
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: -3
+    resizeCamera: 0
     endPosition: {x: 62.49, y: 16.11, z: -10}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -687,31 +664,19 @@ MonoBehaviour:
         from the system.
       - All you have to do is jump on top of them!
       - But make sure they don't hit you first and corrupt your code instead!
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 3
+    resizeCamera: 0
     endPosition: {x: 53.4, y: 10.98, z: -10}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -721,67 +686,42 @@ MonoBehaviour:
         have to find a way up to it.
       - Don't forget that you can bounce off of walls to reach higher spots!
       - I'll be waiting for you in the next room, good luck!
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
       name: 
       sentences: []
-    waitTime: 0
 --- !u!1001 &158932512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1495,7 +1435,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.22
+      value: 32.56
       objectReference: {fileID: 0}
     - target: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1798,15 +1738,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventList:
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -1819,31 +1754,19 @@ MonoBehaviour:
         farther into the system.
       - Eventually, you'll run into new challenges and I'll get to teach you new
         concepts! but we'll cross that bridge when we get there.
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 80.45, y: 10.98, z: -10}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -1851,31 +1774,19 @@ MonoBehaviour:
       sentences:
       - The teleporter at the end of the room will bring you back to the hub where
         you can access the first level.
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: -3.4
+    resizeCamera: 0
     endPosition: {x: 75.81, y: 9.16, z: -10}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -1883,31 +1794,19 @@ MonoBehaviour:
       sentences:
       - One last thing, watch out for that corrupted code at the bottom of the stairs.
       - If you touch it, it will corrupt your code, so think of it like lava!
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 3.4
+    resizeCamera: 0
     endPosition: {x: 65.45, y: 17.93, z: -10}
     objects: []
     dialogue:
       name: Professor
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -1916,7 +1815,6 @@ MonoBehaviour:
       - If you want to refresh on anything you've learned so far, try the "help"
         button in the pause menu.
       - That's all for now, good luck on your journey!
-    waitTime: 0
 --- !u!1 &411384125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,9 +2134,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineOnSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
       propertyPath: ConnectedGate
       value: 
       objectReference: {fileID: 1860012572}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineOffSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: connectedLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 977772754}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 672777087}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: connectedLines.Array.data[0]
+      value: 
+      objectReference: {fileID: 977772752}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: connectedLines.Array.data[1]
+      value: 
+      objectReference: {fileID: 672777085}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2514,7 +2444,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483290286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
   m_Name: 
@@ -3044,7 +2974,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512686477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
   m_Name: 
@@ -3236,7 +3166,6 @@ GameObject:
   m_Component:
   - component: {fileID: 566069019}
   - component: {fileID: 566069020}
-  - component: {fileID: 566069021}
   m_Layer: 0
   m_Name: line (17)
   m_TagString: Untagged
@@ -3311,22 +3240,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &566069021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566069018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: 0
-  on: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
-  off: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
-  spriteRenderer: {fileID: 0}
 --- !u!1 &586972913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3471,7 +3384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 588704267}
   - component: {fileID: 588704268}
-  - component: {fileID: 588704269}
   m_Layer: 0
   m_Name: line (14)
   m_TagString: Untagged
@@ -3546,22 +3458,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &588704269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588704266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: 0
-  on: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
-  off: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
-  spriteRenderer: {fileID: 0}
 --- !u!1001 &607884240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4204,7 +4100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 672777086}
   - component: {fileID: 672777087}
-  - component: {fileID: 672777088}
   m_Layer: 0
   m_Name: line (18)
   m_TagString: Untagged
@@ -4279,22 +4174,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &672777088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672777085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: 0
-  on: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
-  off: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
-  spriteRenderer: {fileID: 0}
 --- !u!1001 &681988458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4972,7 +4851,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792302245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
   m_Name: 
@@ -5341,15 +5220,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventList:
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 3
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -5358,31 +5232,19 @@ MonoBehaviour:
       - Welcome to the world of <color="white"> Logical Gate! </color>
       - By now, I'm sure you're wondering, What is a logic gate anyways?
       - Allow me to explain.
-    waitTime: 3
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 2
+    waitTime: 0
     smoothTime: 0.2
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 15.23, y: 11.15, z: -10}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -5397,63 +5259,39 @@ MonoBehaviour:
       - 'So, logic gates are kind of like electronic switches! '
       - The gate will output a True or False signal, depending upon the unique logic
         of each gate.
+  - EventType: 4
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 1
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: -2.2
+    resizeCamera: 0
     endPosition: {x: 24.2, y: 11.45, z: -10}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 2
+    waitTime: 2
     smoothTime: 0
-    resize: -1.5
+    resizeCamera: 0
     endPosition: {x: 25.38, y: 12.91, z: -10}
     objects: []
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 2
-  - isMoveEvent: 1
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 15
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 26.45, y: 16.63, z: 0}
     objects:
     - {fileID: 2070340481}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -5465,32 +5303,20 @@ MonoBehaviour:
         2 = output."
       - As you can see, the AND gate has only 1 output that is true, or on. True
         AND True equal True.
-    waitTime: 2
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 1
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 8.67, y: 14.68, z: 0}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -5498,32 +5324,20 @@ MonoBehaviour:
       sentences:
       - An OR gate requires either input 1 OR input 2 to be True to output True.
         It can also be both!
-    waitTime: 2
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 1
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -5533,32 +5347,20 @@ MonoBehaviour:
         as an output,
       - "But it excludes the case where both inputs are True. Hence, it\u2019s full
         name is Exclusive OR."
-    waitTime: 2
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 1
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
@@ -5570,32 +5372,20 @@ MonoBehaviour:
         gate would output True, or True when an AND would output False. '
       - You can think of the 'N' at the beginning of each name as 'NOT'.
       - so NAND means 'NOT AND', NOR means 'NOT OR', XNOR means 'NOT XOR'
-    waitTime: 2
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 1
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
@@ -5604,32 +5394,20 @@ MonoBehaviour:
       sentences:
       - So, since an Or gate will output true if one or both inputs are true, a NOR
         gate will only be true when both inputs are false!
-    waitTime: 2
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 1
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
@@ -5638,32 +5416,20 @@ MonoBehaviour:
       sentences:
       - 'XOR is true when either input is true, but not for both. XNOR is true when
         both inputs are false, and when both inputs are true. '
-    waitTime: 2
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 1
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
@@ -5674,32 +5440,20 @@ MonoBehaviour:
       - "The NOT gate takes the input and \u2018negates\u2019 it, or inverts it.
         So a true input gives a false output and vice versa. "
       - Makes sense now that you know about NAND, NOR, and XNOR, right?
-    waitTime: 2
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 1
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 257621764}
@@ -5716,39 +5470,26 @@ MonoBehaviour:
         button beside the table.
       - When you're ready, enter the next room and I'll show you some of the obstacles
         you may encounter throughout the game.
-    waitTime: 2
-  - isMoveEvent: 1
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 4
-    resize: -2.2
+    resizeCamera: 0
     endPosition: {x: 30, y: 12.53, z: 0}
     objects:
     - {fileID: 1247694751}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 2
     smoothTime: 0
-    resize: -2.2
+    resizeCamera: 0
     endPosition: {x: 24.2, y: 11.45, z: -10}
     objects:
     - {fileID: 257621764}
     dialogue:
       name: Professor
       sentences: []
-    waitTime: 2
 --- !u!4 &848305230
 Transform:
   m_ObjectHideFlags: 0
@@ -6288,7 +6029,6 @@ GameObject:
   m_Component:
   - component: {fileID: 977772753}
   - component: {fileID: 977772754}
-  - component: {fileID: 977772755}
   m_Layer: 0
   m_Name: line (15)
   m_TagString: Untagged
@@ -6363,22 +6103,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &977772755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977772752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: 0
-  on: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
-  off: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
-  spriteRenderer: {fileID: 0}
 --- !u!1 &1015083095
 GameObject:
   m_ObjectHideFlags: 0
@@ -6560,6 +6284,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: ID
+      value: 69722ac7-7b09-497e-820f-569f99b710c1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
       propertyPath: buttonName1
       value: b1
       objectReference: {fileID: 0}
@@ -6568,9 +6296,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineOnSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
       propertyPath: ConnectedGate
       value: 
       objectReference: {fileID: 1860012572}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineOffSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: connectedLines.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1154925052}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 566069020}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: connectedLines.Array.data[0]
+      value: 
+      objectReference: {fileID: 1154925050}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: connectedLines.Array.data[1]
+      value: 
+      objectReference: {fileID: 566069018}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7061,7 +6821,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115354383}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
   m_Name: 
@@ -7243,7 +7003,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1154925051}
   - component: {fileID: 1154925052}
-  - component: {fileID: 1154925053}
   m_Layer: 0
   m_Name: line (12)
   m_TagString: Untagged
@@ -7318,22 +7077,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1154925053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154925050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: 0
-  on: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
-  off: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
-  spriteRenderer: {fileID: 0}
 --- !u!1 &1157749832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 997105730595680737, guid: 0b162f33875e5b34badcff8c6511fad2, type: 3}
@@ -7477,7 +7220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187955778}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
   m_Name: 
@@ -9422,30 +9165,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventList:
-  - isMoveEvent: 0
-    isCameraEvent: 1
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: -2
+    resizeCamera: 0
     endPosition: {x: 39.34, y: 10.31, z: -10}
     objects: []
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -9457,48 +9189,30 @@ MonoBehaviour:
       - For an AND Gate, we need both inputs to be true for the output signal to
         be true.
       - If we activate both buttons, like so...
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 1
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 1.5
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 2017538627}
     dialogue:
       name: 
       sentences: []
+  - EventType: 0
     waitTime: 1.5
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 1
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 2083828445}
     dialogue:
       name: 
       sentences: []
-    waitTime: 1.5
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 1
-    isTableEvent: 0
-    isButtonEvent: 0
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects: []
     dialogue:
@@ -9509,39 +9223,26 @@ MonoBehaviour:
       - Anytime you see a gate, try to interact with the buttons and get a true output
         signal to activate whatever they're connected to.
       - Try it out for yourself!
+  - EventType: 0
     waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 1
-    isWaitEvent: 0
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 2083828445}
     dialogue:
       name: 
       sentences: []
-    waitTime: 0
-  - isMoveEvent: 0
-    isCameraEvent: 0
-    isSetActiveEvent: 0
-    isDialogueEvent: 0
-    isTableEvent: 0
-    isButtonEvent: 1
-    isWaitEvent: 0
+  - EventType: 0
+    waitTime: 1
     smoothTime: 0
-    resize: 0
+    resizeCamera: 0
     endPosition: {x: 0, y: 0, z: 0}
     objects:
     - {fileID: 2017538627}
     dialogue:
       name: 
       sentences: []
-    waitTime: 1
 --- !u!4 &1589685602
 Transform:
   m_ObjectHideFlags: 0
@@ -10859,7 +10560,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933857165}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af15532a656a8423bbd1ed52dea8e344, type: 3}
   m_Name: 
@@ -11054,6 +10755,22 @@ PrefabInstance:
       propertyPath: input2
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6749473372476999779, guid: b54b25975f29112469938f51aab6c1be, type: 3}
+      propertyPath: lineOnSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f607c891835b4f578b8e5f2e3ac2732, type: 3}
+    - target: {fileID: 6749473372476999779, guid: b54b25975f29112469938f51aab6c1be, type: 3}
+      propertyPath: lineOffSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07c90748192254de78fa35aa49b975bc, type: 3}
+    - target: {fileID: 6749473372476999779, guid: b54b25975f29112469938f51aab6c1be, type: 3}
+      propertyPath: connectedLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749473372476999779, guid: b54b25975f29112469938f51aab6c1be, type: 3}
+      propertyPath: connectedLines.Array.data[0]
+      value: 
+      objectReference: {fileID: 588704268}
     m_RemovedComponents:
     - {fileID: 5592950335778163386, guid: b54b25975f29112469938f51aab6c1be, type: 3}
     m_RemovedGameObjects: []

@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         string[] tokens = sentence.Split(" "); // split sentence into tokens using space character as delimiter.
 
         foreach(string word in tokens) {
-            if(word == "<color=\"red\">" | word == "<color=\"yellow\">" | word == "</color>") {
+            if(word == "<color=\"red\">" | word == "<color=\"yellow\">" | word == "<color=\"white\">"  | word == "</color>") {
                 dialogueText.text += word; //if word is a text color change, appends all at once so that player wont see the code print out. 
             }
             else {

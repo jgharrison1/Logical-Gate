@@ -201,7 +201,10 @@ public class CutsceneManager : MonoBehaviour
             case 7:
             {
                 Debug.Log("Array Event");
-                action.objects[0].GetComponent<BinaryButtonArray>().InitializeBinaryArray();
+                foreach(GameObject obj in action.objects) 
+                {
+                    obj.GetComponent<ButtonIndex>().OnButtonPressed();
+                }
                 holUp(action.waitTime);
                 break;
             }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class secondaryMemory : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class secondaryMemory : MonoBehaviour
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
+    [Header("Target Value Display")]
+    public GameObject textPrefab3D; // A prefab with a TextMesh or TextMeshPro component
+    public Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); // Adjust for spacing to the left
+    private List<GameObject> valueLabels = new List<GameObject>();
+
+
     private void Start()
     {
         if (blocksToAssign.Count > 0)
@@ -38,6 +45,8 @@ public class secondaryMemory : MonoBehaviour
         }
 
         UpdateBlockColorsOnStart();
+
+        CreateTargetValueDisplays();
     }
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
@@ -231,4 +240,33 @@ public class secondaryMemory : MonoBehaviour
             }
         }
     }
+
+private void CreateTargetValueDisplays()
+{
+    for (int i = 0; i < pageSlots.Count && i < targetValues.Count; i++)
+    {
+        GameObject slot = pageSlots[i];
+
+        // Create a new TextMeshPro object and parent it to the slot
+        GameObject textObj = new GameObject($"TargetValueText_{i}");
+        textObj.transform.SetParent(slot.transform);
+        textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f); // Position to the left
+
+        // Add TextMeshPro and configure it
+        TextMeshPro tmp = textObj.AddComponent<TextMeshPro>();
+        tmp.text = targetValues[i].ToString();
+        tmp.fontSize = 5;
+        tmp.alignment = TextAlignmentOptions.Center;
+        tmp.color = Color.yellow;
+
+        // Ensure it's in front
+        Renderer renderer = tmp.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.sortingOrder = 10;
+        }
+    }
+}
+
+
 }

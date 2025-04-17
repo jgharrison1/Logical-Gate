@@ -1,4 +1,4 @@
-
+using System.Collections;
 using System;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -43,6 +43,8 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private GameObject highlightedSlot; 
     private GameObject highlightedBorder; 
     [SerializeField] private GameObject highlightBorderPrefab;
+    private Vector3 heldBlockOriginalScale;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -177,12 +179,14 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void Flip()
     {
-        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
+        if ((isFacingRight && horizontalInput < 0f) || (!isFacingRight && horizontalInput > 0f))
         {
-            Vector3 localScale = transform.localScale;
             isFacingRight = !isFacingRight;
-            localScale.x *= -1f;
+
+            Vector3 localScale = transform.localScale;
+            localScale.x = isFacingRight ? Mathf.Abs(localScale.x) : -Mathf.Abs(localScale.x);
             transform.localScale = localScale;
+
         }
     }
 
@@ -275,21 +279,24 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void TryGrabBlock()
     {
-        Collider2D detectedCollider = Physics2D.OverlapCircle(transform.position, grabDistance, blockLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, isFacingRight ? Vector2.right : Vector2.left, grabDistance, blockLayer);
 
-        if (detectedCollider != null)
+        if (hit.collider != null && heldBlock == null)
         {
-            GameObject block = detectedCollider.gameObject;
+            heldBlock = hit.collider.gameObject;
+            heldBlockOriginalScale = heldBlock.transform.localScale;
 
-            if (heldBlock != null)
-            {
-                secondaryMemoryInstance.RemoveBlockFromSlot(heldBlock);  
-            }
+            StartCoroutine(HoldBlockFollow(heldBlock));
+        }
+    }
 
-            heldBlock = block;
-            block.transform.SetParent(transform); 
-            block.transform.position = transform.position + Vector3.up;  
-            block.SetActive(true);  
+    private IEnumerator HoldBlockFollow(GameObject block)
+    {
+        Vector3 offset = new Vector3(0f, 1.2f, 0f); // Adjust this value if you want it higher/lower
+        while (heldBlock == block)
+        {
+            block.transform.position = transform.position + offset;
+            yield return null;
         }
     }
 
@@ -304,10 +311,14 @@ public class playerMovement : MonoBehaviour, IDataPersistence
                 pageTableInstance.TryAddBlockToSlot(detectedSlot, heldBlock))  
             {
                 heldBlock.transform.position = detectedSlot.transform.position;
+                
+                // Reset scale to original when placing the block in the slot
+                heldBlock.transform.localScale = heldBlockOriginalScale; 
                 heldBlock = null;
             }
         }
     }
+
 
     private void HighlightSlot()
     {

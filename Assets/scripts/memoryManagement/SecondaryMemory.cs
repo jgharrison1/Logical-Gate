@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class secondaryMemory : MonoBehaviour
 {
@@ -7,18 +8,27 @@ public class secondaryMemory : MonoBehaviour
     public List<GameObject> pageSlots = new List<GameObject>();
 
     [Header("Offset Slots")]
-    public List<GameObject> offsetSlots = new List<GameObject>(); 
+    public List<GameObject> offsetSlots = new List<GameObject>();
 
     [Header("Target Values")]
-    public List<int> targetValues = new List<int>(); 
-    
+    public List<int> targetValues = new List<int>();
+
     [Header("Block Color Changers")]
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
 
     [Header("Runtime Assignment")]
     public List<GameObject> blocksToAssign = new List<GameObject>();
-    public List<int> slotIndicesToAssign = new List<int>(); 
-    public List<BlockType.Type> slotTypesToAssign = new List<BlockType.Type>(); 
+    public List<int> slotIndicesToAssign = new List<int>();
+    public List<BlockType.Type> slotTypesToAssign = new List<BlockType.Type>();
+
+    private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
+    private playerMovement playerMovementScript;
+
+    [Header("Target Value Display")]
+    public GameObject textPrefab3D; // A prefab with a TextMesh or TextMeshPro component
+    public Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); // Adjust for spacing to the left
+    private List<GameObject> valueLabels = new List<GameObject>();
+
 
     private void Start()
     {
@@ -26,15 +36,18 @@ public class secondaryMemory : MonoBehaviour
         {
             for (int i = 0; i < blocksToAssign.Count; i++)
             {
-                if (blocksToAssign[i] != null) {AssignBlockToSlot(i);}
+                if (blocksToAssign[i] != null)
+                {
+                    AssignBlockToSlot(i);
+                } 
             }
             ValidatePageOffsetPairs();
         }
-        UpdateBlockColorsOnStart();
-    }
 
-    private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
-    private playerMovement playerMovementScript;
+        UpdateBlockColorsOnStart();
+
+        CreateTargetValueDisplays();
+    }
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
     {
@@ -79,31 +92,35 @@ public class secondaryMemory : MonoBehaviour
                 blockColorChangers[0].SetTargetValue(0, targetValues[0]);
             }
         }
+
         return block;
     }
 
     public bool TryAddBlockToSlot(GameObject slot, GameObject block)
     {
-        if (slot == null || block == null || !IsValidSlot(slot))
-        {
-            return false;
-        }
+        if (slot == null || block == null || !IsValidSlot(slot)) return false;
 
         BlockType blockType = block.GetComponent<BlockType>();
-        if (blockType == null) {return false;}
+        if (blockType == null) return false;
 
         if ((pageSlots.Contains(slot) && blockType.blockType != BlockType.Type.PageNumber) ||
             (offsetSlots.Contains(slot) && blockType.blockType != BlockType.Type.Offset))
         {
-            block.transform.SetParent(playerMovementScript.transform); 
-            block.transform.position = playerMovementScript.holdPosition.position; 
+            if (playerMovementScript != null)
+            {
+                block.transform.SetParent(playerMovementScript.transform);
+                block.transform.position = playerMovementScript.holdPosition.position;
+            }
+
             block.SetActive(true);
             return false;
         }
+
         slotToBlockMap[slot] = block;
         block.transform.SetParent(slot.transform);
         block.transform.localPosition = Vector3.zero;
-        ValidatePageOffsetPairs(); 
+
+        ValidatePageOffsetPairs();
         return true;
     }
 
@@ -136,13 +153,14 @@ public class secondaryMemory : MonoBehaviour
         {
             BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
             BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+
             int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
             int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
             int sum = pageValue + offsetValue;
 
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(sum, targetValues[index]); 
+                blockColorChangers[index].SetTargetValue(sum, targetValues[index]);
             }
         }
         else
@@ -158,24 +176,32 @@ public class secondaryMemory : MonoBehaviour
     {
         for (int i = 0; i < blocksToAssign.Count; i++)
         {
-            if (blocksToAssign[i] != null) {AssignBlockToSlot(i);}
+            if (blocksToAssign[i] != null)
+            {
+                AssignBlockToSlot(i);
+            }
         }
+
         ValidatePageOffsetPairs();
     }
 
     private void AssignBlockToSlot(int index)
     {
-        if (index < 0 || index >= blocksToAssign.Count) {return;}
+        if (index < 0 || index >= blocksToAssign.Count) return;
 
         GameObject block = blocksToAssign[index];
         int slotIndex = slotIndicesToAssign[index];
         BlockType.Type slotType = slotTypesToAssign[index];
 
-        if (block == null) {return;}
+        if (block == null) return;
 
         List<GameObject> slotList = slotType == BlockType.Type.PageNumber ? pageSlots : offsetSlots;
 
-        if (slotIndex >= slotList.Count) {return;}
+        if (slotIndex >= slotList.Count)
+        {
+            Debug.LogWarning($"[secondaryMemory] Slot index {slotIndex} exceeds the available number of {slotType} slots ({slotList.Count}). Block '{block.name}' was not assigned.");
+            return;
+        }
 
         GameObject slot = slotList[slotIndex];
         bool success = TryAddBlockToSlot(slot, block);
@@ -193,7 +219,7 @@ public class secondaryMemory : MonoBehaviour
     {
         for (int i = 0; i < pageSlots.Count && i < offsetSlots.Count; i++)
         {
-            ValidatePageOffsetPair(i); 
+            ValidatePageOffsetPair(i);
 
             if (blockColorChangers.Count > i)
             {
@@ -208,9 +234,39 @@ public class secondaryMemory : MonoBehaviour
                     int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
                     int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
                     int sum = pageValue + offsetValue;
+
                     blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
                 }
             }
         }
     }
+
+private void CreateTargetValueDisplays()
+{
+    for (int i = 0; i < pageSlots.Count && i < targetValues.Count; i++)
+    {
+        GameObject slot = pageSlots[i];
+
+        // Create a new TextMeshPro object and parent it to the slot
+        GameObject textObj = new GameObject($"TargetValueText_{i}");
+        textObj.transform.SetParent(slot.transform);
+        textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f); // Position to the left
+
+        // Add TextMeshPro and configure it
+        TextMeshPro tmp = textObj.AddComponent<TextMeshPro>();
+        tmp.text = targetValues[i].ToString();
+        tmp.fontSize = 5;
+        tmp.alignment = TextAlignmentOptions.Center;
+        tmp.color = Color.yellow;
+
+        // Ensure it's in front
+        Renderer renderer = tmp.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.sortingOrder = 10;
+        }
+    }
+}
+
+
 }

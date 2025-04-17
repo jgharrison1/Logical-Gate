@@ -20,6 +20,11 @@ public class mainMemory : MonoBehaviour
     public List<int> slotIndicesToAssign = new List<int>(); 
     public List<BlockType.Type> slotTypesToAssign = new List<BlockType.Type>(); 
 
+    [Header("Sequence Validation")]
+    public List<int> expectedSequence = new List<int>();  // Define in Unity Inspector
+    private List<int> currentSequence = new List<int>();
+    public bool sequenceCompleted = false; // Outputs true if correct sequence is achieved
+
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
@@ -34,6 +39,11 @@ public class mainMemory : MonoBehaviour
             ValidateFrameOffsetPairs();
         }
         UpdateBlockColorsOnStart();
+
+        foreach (var changer in blockColorChangers)
+        {
+            changer.OnColorChange += HandleBlockColorChange;
+        }
     }
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
@@ -216,4 +226,66 @@ public class mainMemory : MonoBehaviour
             }
         }
     }
+
+    private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
+    {
+        int index = blockColorChangers.IndexOf(changer);
+        if (index == -1) return;
+
+        if (isYellow)
+        {
+            if (!currentSequence.Contains(index))
+            {
+                currentSequence.Add(index);
+                Debug.Log($"Added index {index} to current sequence. Current sequence: [{string.Join(", ", currentSequence)}]");
+            }
+
+            // Only validate once the full sequence is entered
+            if (currentSequence.Count == expectedSequence.Count)
+            {
+                bool correct = true;
+                for (int i = 0; i < expectedSequence.Count; i++)
+                {
+                    if (currentSequence[i] != expectedSequence[i])
+                    {
+                        correct = false;
+                        break;
+                    }
+                }
+
+                sequenceCompleted = correct;
+
+                if (correct)
+                {
+                    Debug.Log(" Correct sequence achieved!");
+                }
+                else
+                {
+                    Debug.Log(" Incorrect sequence. Resetting.");
+                    ResetSequence();
+                }
+            }
+            else
+            {
+                sequenceCompleted = false;
+            }
+        }
+        else
+        {
+            // Optional: remove from sequence if a block is turned off
+            if (currentSequence.Contains(index))
+            {
+                Debug.Log($"Block at index {index} turned off. Resetting sequence.");
+                ResetSequence();
+            }
+        }
+    }
+
+    private void ResetSequence()
+    {
+        currentSequence.Clear();
+        sequenceCompleted = false;
+    }
+
 }
+

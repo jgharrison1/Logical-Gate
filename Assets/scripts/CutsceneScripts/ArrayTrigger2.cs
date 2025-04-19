@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrayTrigger : MonoBehaviour
+public class ArrayTrigger2 : MonoBehaviour
 {
     public List<CutsceneEvent> eventList = new List<CutsceneEvent>();
     public BinaryButtonArray array;

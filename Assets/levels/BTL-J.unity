@@ -4073,7 +4073,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1813576323}
+  - {fileID: 2115746896}
   m_Father: {fileID: 176659569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &415903468
@@ -4117,7 +4117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4642,7 +4642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.52, y: -0.89}
+  m_AnchoredPosition: {x: 11.58, y: -2.64}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &441057477
@@ -4728,7 +4728,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 6.2522144, y: 0, z: 11.376419, w: 4.2994566}
+  m_margin: {x: 6.2522144, y: 0, z: 10.820742, w: 4.2994566}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -6823,7 +6823,7 @@ Transform:
   m_GameObject: {fileID: 710669045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.87, y: 8.8, z: -10}
+  m_LocalPosition: {x: -26.73, y: 5.69, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12212,7 +12212,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56087b737e5e4478ac1681850d91220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventList: []
+  eventList:
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - You've made it, nice work as always!
+      - I'd say you're ready to get back out there and beat those viruses!
+      - Before you go though, i've one last thing to tell you about.
+  - EventType: 2
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 4
+    endPosition: {x: -35.73, y: 9.51, z: -10}
+    objects: []
+    dialogue:
+      name: 
+      sentences: []
+  - EventType: 0
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: 
+      sentences: []
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - "Due to the chaos the worm has caused in the system, some binary bits may
+        be corrupted and unchangeable like the staticky one you see here, but it\u2019s
+        value is still counted in the number. "
+      - 'Some arrays may not have all of the representation types available as well,
+        so you''ll have to make due with what you have. '
+  - EventType: 2
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 7
+    endPosition: {x: -26.73, y: 5.69, z: -10}
+    objects: []
+    dialogue:
+      name: 
+      sentences: []
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - That's all for now. Once you solve these last 2 binary problems, a teleporter
+        will be available to carry you out of here, Then the real challenge begins!
 --- !u!1 &1265000262
 GameObject:
   m_ObjectHideFlags: 0
@@ -18409,7 +18473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.67, y: -0.92}
+  m_AnchoredPosition: {x: 11.73, y: -1.48}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1760302880
@@ -18495,7 +18559,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 6.2522144, y: 0, z: 11.376419, w: 4.2994566}
+  m_margin: {x: 6.2522144, y: 0, z: 10.645264, w: 4.2994566}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -18866,83 +18930,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1813576322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1813576323}
-  - component: {fileID: 1813576324}
-  m_Layer: 0
-  m_Name: Checkpoint1 (5)
-  m_TagString: Checkpoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1813576323
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813576322}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.43, y: -0.14, z: 0}
-  m_LocalScale: {x: 2.66625, y: 3.9324658, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 415903467}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1813576324
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813576322}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1815517377
 GameObject:
   m_ObjectHideFlags: 0
@@ -21806,11 +21793,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.15
+      value: -23.15
       objectReference: {fileID: 0}
     - target: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.73
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21882,6 +21869,109 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
   m_PrefabInstance: {fileID: 2108940828}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2115746895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115746896}
+  - component: {fileID: 2115746898}
+  - component: {fileID: 2115746897}
+  m_Layer: 0
+  m_Name: cutsceneFarewell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115746896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115746895}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.12, y: 0, z: 0}
+  m_LocalScale: {x: 3.2313776, y: 3.3486772, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 415903467}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115746897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115746895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56087b737e5e4478ac1681850d91220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventList:
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - 'Good luck out there friend, and don''t forget, if you need to revisit anything
+        you learned, you can find all this information in the ''Review Concepts''
+        section of the pause menu. '
+--- !u!61 &2115746898
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115746895}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

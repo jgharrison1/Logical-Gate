@@ -59,6 +59,7 @@ public class GateDoor : MonoBehaviour
         {
             playerOnPlatform = true;
             playerTransform = collision.transform;
+            collision.gameObject.GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.None; //turn off interpolation while on platform, otherwise velocity gets messed up
         }
     }
 
@@ -68,6 +69,7 @@ public class GateDoor : MonoBehaviour
         {
             playerOnPlatform = false;
             playerTransform = null;
+            collision.gameObject.GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.Interpolate; //turn rigidbody interpolation back on.
         }
     }
 

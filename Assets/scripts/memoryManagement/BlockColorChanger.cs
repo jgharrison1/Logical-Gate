@@ -6,7 +6,7 @@ public class BlockColorChanger : MonoBehaviour
     private Renderer objectRenderer;
     private Material blockMaterial;
 
-    public event Action<BlockColorChanger, bool> OnColorChange; // Event to notify mainMemory
+    public event Action<BlockColorChanger, bool> OnColorChange; 
 
     private void Awake()
     {
@@ -35,4 +35,18 @@ public class BlockColorChanger : MonoBehaviour
             blockMaterial.color = Color.blue;
         }
     }
+
+    public void TurnOn()
+    {
+        if (blockMaterial != null)
+        {
+            blockMaterial.color = Color.yellow; 
+        }
+    }
+
+    public void TurnOff()
+    {
+        SetColorToBlue();
+    }
 }
+

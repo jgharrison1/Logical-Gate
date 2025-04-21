@@ -283,22 +283,22 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
         if (hit.collider != null && heldBlock == null)
         {
-            heldBlock = hit.collider.gameObject;
+            GameObject potentialBlock = hit.collider.gameObject;
+
+            BlockType blockType = potentialBlock.GetComponent<BlockType>();
+            if (blockType != null && !blockType.isGrabbable)
+            {
+                Debug.Log("This block cannot be grabbed.");
+                return;
+            }
+
+            heldBlock = potentialBlock;
             heldBlockOriginalScale = heldBlock.transform.localScale;
 
             StartCoroutine(HoldBlockFollow(heldBlock));
         }
     }
 
-    private IEnumerator HoldBlockFollow(GameObject block)
-    {
-        Vector3 offset = new Vector3(0f, 1.2f, 0f); // Adjust this value if you want it higher/lower
-        while (heldBlock == block)
-        {
-            block.transform.position = transform.position + offset;
-            yield return null;
-        }
-    }
 
     private void TryPlaceBlock()
     {
@@ -308,17 +308,31 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
             if (secondaryMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
                 mainMemoryInstance.TryAddBlockToSlot(detectedSlot, heldBlock) ||
-                pageTableInstance.TryAddBlockToSlot(detectedSlot, heldBlock))  
+                pageTableInstance.TryAddBlockToSlot(detectedSlot, heldBlock))
             {
                 heldBlock.transform.position = detectedSlot.transform.position;
-                
-                // Reset scale to original when placing the block in the slot
-                heldBlock.transform.localScale = heldBlockOriginalScale; 
+                heldBlock.transform.localScale = heldBlockOriginalScale;
+
+                BlockType blockType = heldBlock.GetComponent<BlockType>();
+                if (blockType != null)
+                {
+                    blockType.ShowAddressText();
+                }
+
                 heldBlock = null;
             }
         }
     }
 
+    private IEnumerator HoldBlockFollow(GameObject block)
+    {
+        Vector3 offset = new Vector3(0f, 1.2f, 0f);
+        while (heldBlock == block)
+        {
+            block.transform.position = transform.position + offset;
+            yield return null;
+        }
+    }
 
     private void HighlightSlot()
     {

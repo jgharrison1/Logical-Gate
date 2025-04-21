@@ -247,19 +247,16 @@ private void CreateTargetValueDisplays()
     {
         GameObject slot = pageSlots[i];
 
-        // Create a new TextMeshPro object and parent it to the slot
         GameObject textObj = new GameObject($"TargetValueText_{i}");
         textObj.transform.SetParent(slot.transform);
-        textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f); // Position to the left
+        textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f);
 
-        // Add TextMeshPro and configure it
         TextMeshPro tmp = textObj.AddComponent<TextMeshPro>();
         tmp.text = targetValues[i].ToString();
         tmp.fontSize = 5;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.color = Color.yellow;
 
-        // Ensure it's in front
         Renderer renderer = tmp.GetComponent<Renderer>();
         if (renderer != null)
         {

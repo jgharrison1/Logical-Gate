@@ -18,8 +18,10 @@ public class ParentGate : MonoBehaviour
     public Sprite lineOnSprite;
     public Sprite lineOffSprite;
     public List<SpriteRenderer> connectedLines;
+    public List<SpriteRenderer> binaryLines;
     public int targetValueForInput1;
     public int targetValueForInput2;
+    private bool binary = false;
 
     public ParentGate(bool input1, bool input2)
     {
@@ -45,10 +47,24 @@ public class ParentGate : MonoBehaviour
         {
             spriteRenderer.sprite = output ? spriteTrue : spriteFalse;
         }
-        foreach(SpriteRenderer r in connectedLines) //change sprites for connected lines
+        
+        if(binary)
         {
-            r.sprite = output ? lineOnSprite : lineOffSprite;
+            foreach(SpriteRenderer r in binaryLines) //change sprites for connected lines
+            {
+                r.sprite = output ? lineOnSprite : lineOffSprite;
+            }
+            binary = false;
         }
+        else
+        {
+            foreach(SpriteRenderer r in connectedLines) //change sprites for connected lines
+            {
+                r.sprite = output ? lineOnSprite : lineOffSprite;
+            }
+        }
+        
+        
     }
 
     public void CheckBinarySum(int binarySum, bool affectInput1)
@@ -62,7 +78,8 @@ public class ParentGate : MonoBehaviour
             input2 = binarySum == targetValueForInput2;
         }
 
-        output = input1 || input2; 
+        output = input1 || input2;
+        binary=true;
         UpdateSprite(); 
     }
 }

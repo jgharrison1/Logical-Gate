@@ -9,8 +9,8 @@ public class mainMemory : MonoBehaviour
     [Header("Offset Slots")]
     public List<GameObject> offsetSlots = new List<GameObject>(); 
 
-    [Header("Target Values")]
-    public List<int> targetValues = new List<int>(); 
+    [Header("Target Values (Binary String)")]
+    public List<string> targetValuesBinary = new List<string>(); // Use binary strings for target values
 
     [Header("Block Color Changers")]
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
@@ -84,7 +84,7 @@ public class mainMemory : MonoBehaviour
 
         if (blockColorChangers.Count > 0)
         {
-            blockColorChangers[0].SetTargetValue(0, targetValues[0]);
+            blockColorChangers[0].SetTargetValue(0, GetTargetValueBinary(0)); // Set target value based on binary string
         }
 
         return block;
@@ -136,7 +136,7 @@ public class mainMemory : MonoBehaviour
 
     public void ValidateFrameOffsetPair(int index)
     {
-        if (index < 0 || index >= targetValues.Count) return;
+        if (index < 0 || index >= targetValuesBinary.Count) return;
 
         GameObject frameBlock = GetBlockInSlot(frameSlots[index]);
         GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
@@ -145,20 +145,21 @@ public class mainMemory : MonoBehaviour
         {
             BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
             BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-            int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0;
-            int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-            int sum = frameValue + offsetValue;
+            string frameBinary = frameBlockType != null ? frameBlockType.binaryAddressValue : "0";
+            string offsetBinary = offsetBlockType != null ? offsetBlockType.binaryAddressValue : "0";
+            string combinedBinary = frameBinary + offsetBinary;
 
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(sum, targetValues[index]);
+                bool isMatch = combinedBinary == targetValuesBinary[index]; // Compare with binary string target
+                blockColorChangers[index].SetTargetValue(isMatch ? 1 : 0, 1); // Update color based on match
             }
         }
         else
         {
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(0, targetValues[index]);
+                blockColorChangers[index].SetTargetValue(0, GetTargetValueBinary(index)); // Default to 0 if no blocks
             }
         }
     }
@@ -202,29 +203,61 @@ public class mainMemory : MonoBehaviour
         }
     }
 
-    private void UpdateBlockColorsOnStart()
+private void UpdateBlockColorsOnStart()
+{
+    for (int i = 0; i < blockColorChangers.Count; i++)
     {
-        for (int i = 0; i < frameSlots.Count && i < offsetSlots.Count; i++)
+        string frameBinary = "0";
+        string offsetBinary = "0";
+
+        if (i < frameSlots.Count)
         {
-            ValidateFrameOffsetPair(i);
-
-            if (blockColorChangers.Count > i)
+            GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
+            if (frameBlock != null)
             {
-                GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
-                GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
-
-                if (frameBlock != null && offsetBlock != null)
-                {
-                    BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
-                    BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-
-                    int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0;
-                    int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-                    int sum = frameValue + offsetValue;
-                    blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
-                }
+                BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
+                frameBinary = frameBlockType != null ? frameBlockType.binaryAddressValue : "0";
             }
         }
+
+        if (i < offsetSlots.Count)
+        {
+            GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
+            if (offsetBlock != null)
+            {
+                BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+                offsetBinary = offsetBlockType != null ? offsetBlockType.binaryAddressValue : "0";
+            }
+        }
+
+        string combinedBinary = frameBinary + offsetBinary;
+        bool isMatch = (i < targetValuesBinary.Count) && (combinedBinary == targetValuesBinary[i]);
+        blockColorChangers[i].SetTargetValue(isMatch ? 1 : 0, 1);
+    }
+}
+
+
+    // Converts the binary string of target value at index to an integer.
+    public int GetTargetValueBinary(int index)
+    {
+        if (index >= 0 && index < targetValuesBinary.Count)
+        {
+            string binaryValue = targetValuesBinary[index];
+            int targetValue = 0;
+            if (!string.IsNullOrEmpty(binaryValue))
+            {
+                try
+                {
+                    targetValue = System.Convert.ToInt32(binaryValue, 2);
+                }
+                catch (System.FormatException)
+                {
+                    Debug.LogError($"Invalid binary format: {binaryValue} at index {index}");
+                }
+            }
+            return targetValue;
+        }
+        return 0;
     }
 
     private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
@@ -288,4 +321,3 @@ public class mainMemory : MonoBehaviour
     }
 
 }
-

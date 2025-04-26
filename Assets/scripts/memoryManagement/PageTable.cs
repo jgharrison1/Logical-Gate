@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class pageTable : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class pageTable : MonoBehaviour
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
 
     [Header("Target Values")]
-    public List<int> targetValues = new List<int>();
+    public List<string> targetValues = new List<string>(); // Now storing binary strings
 
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
@@ -149,43 +150,59 @@ public class pageTable : MonoBehaviour
         return slotToBlockMap.ContainsKey(slot) ? slotToBlockMap[slot] : null;
     }
 
-    private void ValidatePageFramePairs()
+private void ValidatePageFramePairs()
+{
+    for (int i = 0; i < pageSlots.Count && i < frameSlots.Count && i < targetValues.Count; i++)
     {
-        for (int i = 0; i < pageSlots.Count && i < frameSlots.Count && i < targetValues.Count; i++)
+        GameObject pageBlock = GetBlockInSlot(pageSlots[i]);
+        GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
+
+        int pageValue = (pageBlock != null && pageBlock.GetComponent<BlockType>() != null)
+            ? pageBlock.GetComponent<BlockType>().addressValue
+            : 0;
+
+        int frameValue = (frameBlock != null && frameBlock.GetComponent<BlockType>() != null)
+            ? frameBlock.GetComponent<BlockType>().addressValue
+            : 0;
+
+        int sum = pageValue + frameValue;
+
+        // Ensure targetValues[i] is treated as an integer
+        int targetValueAsInt = 0;
+
+        if (targetValues[i] is string binaryString)
         {
-            GameObject pageBlock = GetBlockInSlot(pageSlots[i]);
-            GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
+            // Convert binary string to integer
+            targetValueAsInt = Convert.ToInt32(binaryString, 2);
+        }
 
-            int pageValue = (pageBlock != null && pageBlock.GetComponent<BlockType>() != null)
-                ? pageBlock.GetComponent<BlockType>().addressValue
-                : 0;
+        // Now set the color changers based on the sum and the target value
+        if (blockColorChangers.Count > i)
+        {
+            blockColorChangers[i].SetTargetValue(sum, targetValueAsInt);  // Second argument must be an integer
+        }
 
-            int frameValue = (frameBlock != null && frameBlock.GetComponent<BlockType>() != null)
-                ? frameBlock.GetComponent<BlockType>().addressValue
-                : 0;
-
-            int sum = pageValue + frameValue;
-
-            if (blockColorChangers.Count > i)
+        // Ensure that the lights are turned on for the blocks that match the conditions
+        if (pageBlock != null && pageBlocks.Contains(pageBlock))
+        {
+            int blockIndex = pageBlocks.IndexOf(pageBlock);
+            if (blockIndex < blockColorChangers.Count)
             {
-                blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
-            }
-
-            if (pageBlock != null && pageBlocks.Contains(pageBlock))
-            {
-                int blockIndex = pageBlocks.IndexOf(pageBlock);
-                if (blockIndex < blockColorChangers.Count)
-                {
-                    blockColorChangers[blockIndex].TurnOn();
-                }
+                blockColorChangers[blockIndex].TurnOn();
             }
         }
     }
-
-    private void UpdateBlockColorsOnStart()
-    {
-        ValidatePageFramePairs();
-    }
 }
 
+private void UpdateBlockColorsOnStart()
+{
+    // Ensure all block lights are turned off initially
+    foreach (var changer in blockColorChangers)
+    {
+        changer.TurnOff(); // Add this line to turn off all lights initially
+    }
 
+    // Now call ValidatePageFramePairs to set them according to the values
+    ValidatePageFramePairs();
+}
+}

@@ -24,9 +24,8 @@ public class secondaryMemory : MonoBehaviour
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
-    [Header("Target Value Display")]
-    public GameObject textPrefab3D; // A prefab with a TextMesh or TextMeshPro component
-    public Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); // Adjust for spacing to the left
+    private GameObject textPrefab3D; // A prefab with a TextMesh or TextMeshPro component
+    private Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); // Adjust for spacing to the left
     private List<GameObject> valueLabels = new List<GameObject>();
 
     private void Start()

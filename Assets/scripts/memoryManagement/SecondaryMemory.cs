@@ -142,35 +142,70 @@ public class secondaryMemory : MonoBehaviour
         }
     }
 
-    public void ValidatePageOffsetPair(int index)
+    // public void ValidatePageOffsetPair(int index)
+    // {
+    //     if (index < 0 || index >= targetValues.Count) return;
+
+    //     GameObject pageBlock = GetBlockInSlot(pageSlots[index]);
+    //     GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
+
+    //     if (pageBlock != null && offsetBlock != null)
+    //     {
+    //         BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
+    //         BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+
+    //         int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
+    //         int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
+    //         int sum = pageValue + offsetValue;
+
+    //         if (blockColorChangers.Count > index)
+    //         {
+    //             blockColorChangers[index].SetTargetValue(sum, targetValues[index]);
+    //         }
+    //     }
+    //     else
+    //     {
+    //         if (blockColorChangers.Count > index)
+    //         {
+    //             blockColorChangers[index].SetTargetValue(0, targetValues[index]);
+    //         }
+    //     }
+    // }
+
+public void ValidatePageOffsetPair(int index)
+{
+    if (index < 0 || index >= targetValues.Count) return;
+
+    GameObject pageBlock = GetBlockInSlot(pageSlots[index]);
+    GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
+
+    if (pageBlock != null && offsetBlock != null)
     {
-        if (index < 0 || index >= targetValues.Count) return;
+        BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
+        BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
 
-        GameObject pageBlock = GetBlockInSlot(pageSlots[index]);
-        GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
+        int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
+        int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
 
-        if (pageBlock != null && offsetBlock != null)
+        int offsetBitSize = offsetBlockType != null ? offsetBlockType.bitSize : 0;
+
+        // Concatenate the page and offset values
+        int concatenatedValue = (pageValue << offsetBitSize) | offsetValue;
+
+        if (blockColorChangers.Count > index)
         {
-            BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
-            BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-
-            int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
-            int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-            int sum = pageValue + offsetValue;
-
-            if (blockColorChangers.Count > index)
-            {
-                blockColorChangers[index].SetTargetValue(sum, targetValues[index]);
-            }
-        }
-        else
-        {
-            if (blockColorChangers.Count > index)
-            {
-                blockColorChangers[index].SetTargetValue(0, targetValues[index]);
-            }
+            blockColorChangers[index].SetTargetValue(concatenatedValue, targetValues[index]);
         }
     }
+    else
+    {
+        if (blockColorChangers.Count > index)
+        {
+            blockColorChangers[index].SetTargetValue(0, targetValues[index]);
+        }
+    }
+}
+
 
     public void AssignAllBlocksFromInspector()
     {
@@ -215,31 +250,60 @@ public class secondaryMemory : MonoBehaviour
         }
     }
 
-    private void UpdateBlockColorsOnStart()
+    // private void UpdateBlockColorsOnStart()
+    // {
+    //     for (int i = 0; i < pageSlots.Count && i < offsetSlots.Count; i++)
+    //     {
+    //         ValidatePageOffsetPair(i);
+
+    //         if (blockColorChangers.Count > i)
+    //         {
+    //             GameObject pageBlock = GetBlockInSlot(pageSlots[i]);
+    //             GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
+
+    //             if (pageBlock != null && offsetBlock != null)
+    //             {
+    //                 BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
+    //                 BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+
+    //                 int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
+    //                 int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
+    //                 int sum = pageValue + offsetValue;
+
+    //                 blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
+    //             }
+    //         }
+    //     }
+    // }
+
+private void UpdateBlockColorsOnStart()
+{
+    for (int i = 0; i < pageSlots.Count && i < offsetSlots.Count; i++)
     {
-        for (int i = 0; i < pageSlots.Count && i < offsetSlots.Count; i++)
+        ValidatePageOffsetPair(i);
+
+        if (blockColorChangers.Count > i)
         {
-            ValidatePageOffsetPair(i);
+            GameObject pageBlock = GetBlockInSlot(pageSlots[i]);
+            GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
 
-            if (blockColorChangers.Count > i)
+            if (pageBlock != null && offsetBlock != null)
             {
-                GameObject pageBlock = GetBlockInSlot(pageSlots[i]);
-                GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
+                BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
+                BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
 
-                if (pageBlock != null && offsetBlock != null)
-                {
-                    BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
-                    BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+                int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
+                int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
+                int offsetBitSize = offsetBlockType != null ? offsetBlockType.bitSize : 0;
 
-                    int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
-                    int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-                    int sum = pageValue + offsetValue;
+                int concatenatedValue = (pageValue << offsetBitSize) | offsetValue;
 
-                    blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
-                }
+                blockColorChangers[i].SetTargetValue(concatenatedValue, targetValues[i]);
             }
         }
     }
+}
+
 
 private void CreateTargetValueDisplays()
 {
@@ -261,6 +325,25 @@ private void CreateTargetValueDisplays()
         if (renderer != null)
         {
             renderer.sortingOrder = 10;
+        }
+    }
+}
+
+private void OnValidate()
+{
+    for (int i = 0; i < targetValues.Count; i++)
+    {
+        string valueStr = targetValues[i].ToString();
+        if (int.TryParse(valueStr, out int parsedDecimal))
+        {
+            try
+            {
+                targetValues[i] = System.Convert.ToInt32(valueStr, 2);
+            }
+            catch
+            {
+                Debug.LogWarning($"Invalid binary number entered in targetValues at index {i}");
+            }
         }
     }
 }

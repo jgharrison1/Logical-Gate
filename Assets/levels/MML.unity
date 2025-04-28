@@ -3649,14 +3649,14 @@ MonoBehaviour:
   - {fileID: 1366161637}
   - {fileID: 1755762145}
   targetValues:
-  - 01
-  - 10
-  - 11
-  - 00
-  - 01
-  - 10
-  - 11
-  - 00
+  - 00000
+  - 00101
+  - 10101
+  - 01111
+  - 10000
+  - 10101
+  - 11010
+  - 11111
 --- !u!61 &494085874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9044,7 +9044,7 @@ MonoBehaviour:
   - {fileID: 1483992937}
   slotIndicesToAssign: 00000000010000000200000003000000
   slotTypesToAssign: 01000000010000000100000001000000
-  expectedSequence: 00000000010000000200000003000000
+  expectedSequence: 01000000000000000300000002000000
   sequenceCompleted: 0
 --- !u!61 &1320525205
 BoxCollider2D:

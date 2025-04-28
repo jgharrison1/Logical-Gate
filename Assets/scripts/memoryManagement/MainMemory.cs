@@ -134,35 +134,55 @@ public class mainMemory : MonoBehaviour
         }
     }
 
-    public void ValidateFrameOffsetPair(int index)
+public void ValidateFrameOffsetPair(int index)
+{
+    if (index < 0 || index >= targetValuesBinary.Count) return;
+
+    GameObject frameBlock = GetBlockInSlot(frameSlots[index]);
+    GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
+
+    if (frameBlock == null || offsetBlock == null)
     {
-        if (index < 0 || index >= targetValuesBinary.Count) return;
-
-        GameObject frameBlock = GetBlockInSlot(frameSlots[index]);
-        GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
-
-        if (frameBlock != null && offsetBlock != null)
+        if (blockColorChangers.Count > index)
         {
-            BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
-            BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-            string frameBinary = frameBlockType != null ? frameBlockType.binaryAddressValue : "0";
-            string offsetBinary = offsetBlockType != null ? offsetBlockType.binaryAddressValue : "0";
-            string combinedBinary = frameBinary + offsetBinary;
-
-            if (blockColorChangers.Count > index)
-            {
-                bool isMatch = combinedBinary == targetValuesBinary[index]; // Compare with binary string target
-                blockColorChangers[index].SetTargetValue(isMatch ? 1 : 0, 1); // Update color based on match
-            }
+            blockColorChangers[index].SetTargetValue(0, 1); // ✅ FORCE OFF
         }
-        else
-        {
-            if (blockColorChangers.Count > index)
-            {
-                blockColorChangers[index].SetTargetValue(0, GetTargetValueBinary(index)); // Default to 0 if no blocks
-            }
-        }
+        return;
     }
+
+    BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
+    BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+
+    if (frameBlockType == null || offsetBlockType == null)
+    {
+        if (blockColorChangers.Count > index)
+        {
+            blockColorChangers[index].SetTargetValue(0, 1); // ✅ FORCE OFF
+        }
+        return;
+    }
+
+    string frameBinary = frameBlockType.binaryAddressValue;
+    string offsetBinary = offsetBlockType.binaryAddressValue;
+
+    if (string.IsNullOrEmpty(frameBinary) || string.IsNullOrEmpty(offsetBinary))
+    {
+        if (blockColorChangers.Count > index)
+        {
+            blockColorChangers[index].SetTargetValue(0, 1); // ✅ FORCE OFF
+        }
+        return;
+    }
+
+    string combinedBinary = frameBinary + offsetBinary;
+
+    if (blockColorChangers.Count > index)
+    {
+        bool isMatch = combinedBinary == targetValuesBinary[index];
+        blockColorChangers[index].SetTargetValue(isMatch ? 1 : 0, 1);
+    }
+}
+
 
     public void AssignAllBlocksFromInspector()
     {

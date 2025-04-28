@@ -254,7 +254,7 @@ public class secondaryMemory : MonoBehaviour
         ValidatePageOffsetPairs();
     }
 
-    private void AssignBlockToSlot(int index)
+    public void AssignBlockToSlot(int index)
     {
         if (index < 0 || index >= blocksToAssign.Count) return;
 

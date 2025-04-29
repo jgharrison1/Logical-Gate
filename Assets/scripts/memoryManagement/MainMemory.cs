@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class mainMemory : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class mainMemory : MonoBehaviour
     [Header("Offset Slots")]
     public List<GameObject> offsetSlots = new List<GameObject>(); 
 
-    [Header("Target Values")]
-    public List<int> targetValues = new List<int>(); 
+    [Header("Target Values (Binary String)")]
+    public List<string> targetValuesBinary = new List<string>(); 
 
     [Header("Block Color Changers")]
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
@@ -21,15 +22,20 @@ public class mainMemory : MonoBehaviour
     public List<BlockType.Type> slotTypesToAssign = new List<BlockType.Type>(); 
 
     [Header("Sequence Validation")]
-    public List<int> expectedSequence = new List<int>();  // Define in Unity Inspector
-    private List<int> currentSequence = new List<int>();
-    public bool sequenceCompleted = false; // Outputs true if correct sequence is achieved
+    public List<int> expectedSequence = new List<int>(); 
+    private List<int> currentSequence = new List<int>();    
+    public bool sequenceCompleted = false; 
 
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
+    [Header("Block Placement Tracking")]
+    private List<bool> blockPlacementStatus = new List<bool>();
+
     private void Start()
     {
+        blockPlacementStatus = new List<bool>(new bool[blocksToAssign.Count]);
+
         if (blocksToAssign.Count > 0)
         {
             for (int i = 0; i < blocksToAssign.Count; i++)
@@ -44,6 +50,7 @@ public class mainMemory : MonoBehaviour
         {
             changer.OnColorChange += HandleBlockColorChange;
         }
+
     }
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
@@ -84,7 +91,7 @@ public class mainMemory : MonoBehaviour
 
         if (blockColorChangers.Count > 0)
         {
-            blockColorChangers[0].SetTargetValue(0, targetValues[0]);
+            blockColorChangers[0].SetTargetValue(0, GetTargetValueBinary(0)); 
         }
 
         return block;
@@ -93,12 +100,11 @@ public class mainMemory : MonoBehaviour
     public bool TryAddBlockToSlot(GameObject slot, GameObject block)
     {
         if (slot == null || block == null || !IsValidSlot(slot))
-        {
             return false;
-        }
 
         BlockType blockType = block.GetComponent<BlockType>();
-        if (blockType == null) { return false; }
+        if (blockType == null)
+            return false;
 
         if ((frameSlots.Contains(slot) && blockType.blockType != BlockType.Type.FrameNumber) ||
             (offsetSlots.Contains(slot) && blockType.blockType != BlockType.Type.Offset))
@@ -112,7 +118,31 @@ public class mainMemory : MonoBehaviour
         slotToBlockMap[slot] = block;
         block.transform.SetParent(slot.transform);
         block.transform.localPosition = Vector3.zero;
+
         ValidateFrameOffsetPairs();
+
+        if (frameSlots.Contains(slot))
+        {
+            int index = frameSlots.IndexOf(slot);
+            if (index != -1 && index < frameSlots.Count && index < offsetSlots.Count && index < targetValuesBinary.Count)
+            {
+                GameObject frameBlock = GetBlockInSlot(frameSlots[index]);
+                GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
+
+                if (frameBlock != null && offsetBlock != null)
+                {
+                    string frameBinary = frameBlock.GetComponent<BlockType>()?.binaryAddressValue ?? "";
+                    string offsetBinary = offsetBlock.GetComponent<BlockType>()?.binaryAddressValue ?? "";
+                    string combined = frameBinary + offsetBinary;
+
+                    if (combined == targetValuesBinary[index])
+                    {
+                        HandleBlockColorChange(blockColorChangers[index], true);
+                    }
+                }
+            }
+        }
+        
         return true;
     }
 
@@ -136,30 +166,50 @@ public class mainMemory : MonoBehaviour
 
     public void ValidateFrameOffsetPair(int index)
     {
-        if (index < 0 || index >= targetValues.Count) return;
+        if (index < 0 || index >= targetValuesBinary.Count) return;
 
         GameObject frameBlock = GetBlockInSlot(frameSlots[index]);
         GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
 
-        if (frameBlock != null && offsetBlock != null)
+        if (frameBlock == null || offsetBlock == null)
         {
-            BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
-            BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-            int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0;
-            int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-            int sum = frameValue + offsetValue;
-
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(sum, targetValues[index]);
+                blockColorChangers[index].SetTargetValue(0, 1); 
             }
+            return;
         }
-        else
+
+        BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
+        BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+
+        if (frameBlockType == null || offsetBlockType == null)
         {
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(0, targetValues[index]);
+                blockColorChangers[index].SetTargetValue(0, 1); 
             }
+            return;
+        }
+
+        string frameBinary = frameBlockType.binaryAddressValue;
+        string offsetBinary = offsetBlockType.binaryAddressValue;
+
+        if (string.IsNullOrEmpty(frameBinary) || string.IsNullOrEmpty(offsetBinary))
+        {
+            if (blockColorChangers.Count > index)
+            {
+                blockColorChangers[index].SetTargetValue(0, 1); 
+            }
+            return;
+        }
+
+        string combinedBinary = frameBinary + offsetBinary;
+
+        if (blockColorChangers.Count > index)
+        {
+            bool isMatch = combinedBinary == targetValuesBinary[index];
+            blockColorChangers[index].SetTargetValue(isMatch ? 1 : 0, 1);
         }
     }
 
@@ -204,82 +254,113 @@ public class mainMemory : MonoBehaviour
 
     private void UpdateBlockColorsOnStart()
     {
-        for (int i = 0; i < frameSlots.Count && i < offsetSlots.Count; i++)
+        for (int i = 0; i < blockColorChangers.Count; i++)
         {
-            ValidateFrameOffsetPair(i);
+            string frameBinary = "0";
+            string offsetBinary = "0";
 
-            if (blockColorChangers.Count > i)
+            if (i < frameSlots.Count)
             {
                 GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
-                GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
-
-                if (frameBlock != null && offsetBlock != null)
+                if (frameBlock != null)
                 {
                     BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
-                    BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
-
-                    int frameValue = frameBlockType != null ? frameBlockType.addressValue : 0;
-                    int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-                    int sum = frameValue + offsetValue;
-                    blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
+                    frameBinary = frameBlockType != null ? frameBlockType.binaryAddressValue : "0";
                 }
             }
+
+            if (i < offsetSlots.Count)
+            {
+                GameObject offsetBlock = GetBlockInSlot(offsetSlots[i]);
+                if (offsetBlock != null)
+                {
+                    BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+                    offsetBinary = offsetBlockType != null ? offsetBlockType.binaryAddressValue : "0";
+                }
+            }
+
+            string combinedBinary = frameBinary + offsetBinary;
+            bool isMatch = (i < targetValuesBinary.Count) && (combinedBinary == targetValuesBinary[i]);
+            blockColorChangers[i].SetTargetValue(isMatch ? 1 : 0, 1);
         }
     }
 
-    private void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
+    public int GetTargetValueBinary(int index)
+    {
+        if (index >= 0 && index < targetValuesBinary.Count)
+        {
+            string binaryValue = targetValuesBinary[index];
+            int targetValue = 0;
+            if (!string.IsNullOrEmpty(binaryValue))
+            {
+                try
+                {
+                    targetValue = System.Convert.ToInt32(binaryValue, 2);
+                }
+                catch (System.FormatException)
+                {
+                    Debug.LogError($"Invalid binary format: {binaryValue} at index {index}");
+                }
+            }
+            return targetValue;
+        }
+        return 0;
+    }
+
+    public void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
     {
         int index = blockColorChangers.IndexOf(changer);
         if (index == -1) return;
 
         if (isYellow)
         {
-            if (!currentSequence.Contains(index))
+            if (!blockPlacementStatus[index])
             {
-                currentSequence.Add(index);
-                Debug.Log($"Added index {index} to current sequence. Current sequence: [{string.Join(", ", currentSequence)}]");
-            }
-
-            // Only validate once the full sequence is entered
-            if (currentSequence.Count == expectedSequence.Count)
-            {
-                bool correct = true;
-                for (int i = 0; i < expectedSequence.Count; i++)
-                {
-                    if (currentSequence[i] != expectedSequence[i])
-                    {
-                        correct = false;
-                        break;
-                    }
-                }
-
-                sequenceCompleted = correct;
-
-                if (correct)
-                {
-                    Debug.Log(" Correct sequence achieved!");
-                }
-                else
-                {
-                    Debug.Log(" Incorrect sequence. Resetting.");
-                    ResetSequence();
-                }
+                blockPlacementStatus[index] = true;
             }
             else
             {
-                sequenceCompleted = false;
+                currentSequence.Add(index);
+                Debug.Log($"Added index {index} to current sequence. Sequence: [{string.Join(", ", currentSequence)}]");
+
+                if (currentSequence.Count == expectedSequence.Count)
+                {
+                    bool correct = true;
+                    for (int i = 0; i < expectedSequence.Count; i++)
+                    {
+                        if (currentSequence[i] != expectedSequence[i])
+                        {
+                            correct = false;
+                            break;
+                        }
+                    }
+
+                    sequenceCompleted = correct;
+
+                    if (correct)
+                    {
+                        Debug.Log("Correct sequence achieved!");
+                    }
+                    else
+                    {
+                        Debug.Log("Incorrect sequence. Resetting.");
+                        ResetSequence();
+                    }
+                }
+                else
+                {
+                    sequenceCompleted = false;
+                }
             }
         }
         else
         {
-            // Optional: remove from sequence if a block is turned off
-            if (currentSequence.Contains(index))
-            {
-                Debug.Log($"Block at index {index} turned off. Resetting sequence.");
-                ResetSequence();
-            }
+            Debug.Log($"Block removed or deactivated at index {index}. Resetting sequence.");
+            ResetSequence();
         }
     }
+
+
 
     private void ResetSequence()
     {
@@ -288,4 +369,3 @@ public class mainMemory : MonoBehaviour
     }
 
 }
-

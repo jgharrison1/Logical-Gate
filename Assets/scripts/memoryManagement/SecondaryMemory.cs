@@ -10,8 +10,8 @@ public class secondaryMemory : MonoBehaviour
     [Header("Offset Slots")]
     public List<GameObject> offsetSlots = new List<GameObject>();
 
-    [Header("Target Values")]
-    public List<int> targetValues = new List<int>();
+    [Header("Target Values (Binary String)")]
+    public List<string> targetValuesBinary = new List<string>(); 
 
     [Header("Block Color Changers")]
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
@@ -24,11 +24,9 @@ public class secondaryMemory : MonoBehaviour
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
-    [Header("Target Value Display")]
-    public GameObject textPrefab3D; // A prefab with a TextMesh or TextMeshPro component
-    public Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); // Adjust for spacing to the left
+    private GameObject textPrefab3D; 
+    private Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); 
     private List<GameObject> valueLabels = new List<GameObject>();
-
 
     private void Start()
     {
@@ -39,13 +37,12 @@ public class secondaryMemory : MonoBehaviour
                 if (blocksToAssign[i] != null)
                 {
                     AssignBlockToSlot(i);
-                } 
+                }
             }
             ValidatePageOffsetPairs();
+            UpdateBlockColorsOnStart();
+
         }
-
-        UpdateBlockColorsOnStart();
-
         CreateTargetValueDisplays();
     }
 
@@ -89,7 +86,7 @@ public class secondaryMemory : MonoBehaviour
         {
             if (blockColorChangers.Count > 0)
             {
-                blockColorChangers[0].SetTargetValue(0, targetValues[0]);
+                blockColorChangers[0].SetTargetValue(0, GetTargetValue(0)); 
             }
         }
 
@@ -103,9 +100,20 @@ public class secondaryMemory : MonoBehaviour
         BlockType blockType = block.GetComponent<BlockType>();
         if (blockType == null) return false;
 
-        if ((pageSlots.Contains(slot) && blockType.blockType != BlockType.Type.PageNumber) ||
-            (offsetSlots.Contains(slot) && blockType.blockType != BlockType.Type.Offset))
+        bool isCorrectSlot = (pageSlots.Contains(slot) && blockType.blockType == BlockType.Type.PageNumber) ||
+                            (offsetSlots.Contains(slot) && blockType.blockType == BlockType.Type.Offset);
+
+        if (!isCorrectSlot)
         {
+            if (blockColorChangers.Count > 0)
+            {
+                int blockIndex = pageSlots.IndexOf(slot);
+                if (blockIndex != -1)
+                {
+                    blockColorChangers[blockIndex].TurnOff();
+                }
+            }
+
             if (playerMovementScript != null)
             {
                 block.transform.SetParent(playerMovementScript.transform);
@@ -144,7 +152,7 @@ public class secondaryMemory : MonoBehaviour
 
     public void ValidatePageOffsetPair(int index)
     {
-        if (index < 0 || index >= targetValues.Count) return;
+        if (index < 0 || index >= targetValuesBinary.Count) return;
 
         GameObject pageBlock = GetBlockInSlot(pageSlots[index]);
         GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
@@ -154,20 +162,76 @@ public class secondaryMemory : MonoBehaviour
             BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
             BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
 
-            int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
-            int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-            int sum = pageValue + offsetValue;
+            string pageBinaryValue = pageBlockType != null ? pageBlockType.binaryAddressValue : "0";
+            string offsetBinaryValue = offsetBlockType != null ? offsetBlockType.binaryAddressValue : "0";
+
+            string combinedBinary = pageBinaryValue + offsetBinaryValue;
+            string targetBinaryValue = targetValuesBinary[index];
 
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(sum, targetValues[index]);
+                bool isMatch = combinedBinary == targetBinaryValue;
+                if (!isMatch)
+                {
+                    blockColorChangers[index].TurnOff(); 
+                }
+                else
+                {
+                    blockColorChangers[index].TurnOn(); 
+                }
             }
         }
         else
         {
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].SetTargetValue(0, targetValues[index]);
+                blockColorChangers[index].TurnOff();
+            }
+        }
+    }
+
+    public int GetTargetValue(int index)
+    {
+        if (index >= 0 && index < targetValuesBinary.Count)
+        {
+            string binaryValue = targetValuesBinary[index];
+            int targetValue = 0;
+            if (!string.IsNullOrEmpty(binaryValue))
+            {
+                try
+                {
+                    targetValue = System.Convert.ToInt32(binaryValue, 2);
+                }
+                catch (System.FormatException)
+                {
+                    Debug.LogError($"Invalid binary format: {binaryValue} at index {index}");
+                }
+            }
+            return targetValue;
+        }
+        return 0; 
+    }
+
+    private void CreateTargetValueDisplays()
+    {
+        for (int i = 0; i < pageSlots.Count && i < targetValuesBinary.Count; i++)
+        {
+            GameObject slot = pageSlots[i];
+
+            GameObject textObj = new GameObject($"TargetValueText_{i}");
+            textObj.transform.SetParent(slot.transform);
+            textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f);
+
+            TextMeshPro tmp = textObj.AddComponent<TextMeshPro>();
+            tmp.text = targetValuesBinary[i]; 
+            tmp.fontSize = 5;
+            tmp.alignment = TextAlignmentOptions.Center;
+            tmp.color = Color.yellow;
+
+            Renderer renderer = tmp.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.sortingOrder = 10;
             }
         }
     }
@@ -185,7 +249,7 @@ public class secondaryMemory : MonoBehaviour
         ValidatePageOffsetPairs();
     }
 
-    private void AssignBlockToSlot(int index)
+    public void AssignBlockToSlot(int index)
     {
         if (index < 0 || index >= blocksToAssign.Count) return;
 
@@ -213,6 +277,24 @@ public class secondaryMemory : MonoBehaviour
             block.transform.localRotation = Quaternion.identity;
             ValidatePageOffsetPairs();
         }
+
+        if (blockColorChangers.Count > index)
+        {
+            GameObject pageBlock = GetBlockInSlot(pageSlots[index]);
+            GameObject offsetBlock = GetBlockInSlot(offsetSlots[index]);
+
+            if (pageBlock != null && offsetBlock != null)
+            {
+                BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
+                BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
+
+                int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
+                int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
+                int sum = pageValue + offsetValue;
+
+                blockColorChangers[index].SetTargetValue(sum, GetTargetValue(index));
+            }
+        }
     }
 
     private void UpdateBlockColorsOnStart()
@@ -231,42 +313,21 @@ public class secondaryMemory : MonoBehaviour
                     BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
                     BlockType offsetBlockType = offsetBlock.GetComponent<BlockType>();
 
-                    int pageValue = pageBlockType != null ? pageBlockType.addressValue : 0;
-                    int offsetValue = offsetBlockType != null ? offsetBlockType.addressValue : 0;
-                    int sum = pageValue + offsetValue;
+                    string pageBinary = pageBlockType != null ? pageBlockType.binaryAddressValue : "0";
+                    string offsetBinary = offsetBlockType != null ? offsetBlockType.binaryAddressValue : "0";
 
-                    blockColorChangers[i].SetTargetValue(sum, targetValues[i]);
+                    string combinedBinary = pageBinary + offsetBinary;
+                    string targetBinary = targetValuesBinary[i];
+
+                    bool isMatch = combinedBinary == targetBinary;
+                    blockColorChangers[i].SetTargetValue(isMatch ? 1 : 0, 1); 
+                }
+                else
+                {
+                    blockColorChangers[i].TurnOff(); 
                 }
             }
         }
     }
-
-private void CreateTargetValueDisplays()
-{
-    for (int i = 0; i < pageSlots.Count && i < targetValues.Count; i++)
-    {
-        GameObject slot = pageSlots[i];
-
-        // Create a new TextMeshPro object and parent it to the slot
-        GameObject textObj = new GameObject($"TargetValueText_{i}");
-        textObj.transform.SetParent(slot.transform);
-        textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f); // Position to the left
-
-        // Add TextMeshPro and configure it
-        TextMeshPro tmp = textObj.AddComponent<TextMeshPro>();
-        tmp.text = targetValues[i].ToString();
-        tmp.fontSize = 5;
-        tmp.alignment = TextAlignmentOptions.Center;
-        tmp.color = Color.yellow;
-
-        // Ensure it's in front
-        Renderer renderer = tmp.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.sortingOrder = 10;
-        }
-    }
-}
-
 
 }

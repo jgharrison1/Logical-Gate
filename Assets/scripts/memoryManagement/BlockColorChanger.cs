@@ -6,7 +6,9 @@ public class BlockColorChanger : MonoBehaviour
     private Renderer objectRenderer;
     private Material blockMaterial;
 
-    public event Action<BlockColorChanger, bool> OnColorChange; // Event to notify mainMemory
+    public event Action<BlockColorChanger, bool> OnColorChange;
+
+    private Color currentColor = Color.blue;
 
     private void Awake()
     {
@@ -18,14 +20,23 @@ public class BlockColorChanger : MonoBehaviour
         SetColorToBlue();
     }
 
-    public void SetTargetValue(int actualValue, int targetValue)
+    public void SetTargetValue(int actualValue, int targetValue, bool forceUpdate = false)
     {
         if (blockMaterial == null) return;
 
         bool isYellow = actualValue == targetValue;
-        blockMaterial.color = isYellow ? Color.yellow : Color.blue;
+        Color newColor = isYellow ? Color.yellow : Color.blue;
+        Color currentColor = blockMaterial.color;
 
-        OnColorChange?.Invoke(this, isYellow);
+        if (blockMaterial.color != newColor)
+        {
+            blockMaterial.color = newColor;
+        }
+
+        if (forceUpdate || blockMaterial.color != currentColor)
+        {
+            OnColorChange?.Invoke(this, isYellow);
+        }
     }
 
     private void SetColorToBlue()
@@ -33,6 +44,21 @@ public class BlockColorChanger : MonoBehaviour
         if (blockMaterial != null)
         {
             blockMaterial.color = Color.blue;
+            currentColor = Color.blue;
         }
+    }
+
+    public void TurnOn()
+    {
+        if (blockMaterial != null)
+        {
+            blockMaterial.color = Color.yellow;
+            currentColor = Color.yellow;
+        }
+    }
+
+    public void TurnOff()
+    {
+        SetColorToBlue();
     }
 }

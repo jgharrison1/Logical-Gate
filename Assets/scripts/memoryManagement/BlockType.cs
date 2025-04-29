@@ -1,3 +1,4 @@
+using System; 
 using UnityEngine;
 using TMPro;
 
@@ -6,31 +7,62 @@ public class BlockType : MonoBehaviour
     public enum Type { PageNumber, Offset, FrameNumber }
     public Type blockType;
 
-    public int addressValue; // Address value as an integer
+    [Header("Address Settings")]
+    public string binaryAddressValue = "0"; 
 
-    private TMP_Text textMesh; // Reference to the text component
+    [HideInInspector]
+    public int addressValue;
+
+    [Header("Bit Size Settings")]
+    public int bitSize = 4; 
+
+    [Header("Interaction Settings")]
+    public bool isGrabbable = true;
+
+    private TMP_Text textMesh;
+    private Transform textTransform;
 
     private void Start()
     {
-        // Create a new TextMeshPro object and set it up
+        ConvertBinaryToInt(); 
+        CreateTextObject();
+        UpdateAddressDisplay();
+    }
+
+    private void CreateTextObject()
+    {
         GameObject textObj = new GameObject("AddressText");
         textObj.transform.SetParent(transform);
-        textObj.transform.localPosition = new Vector3(1.2f, 0, 0); // Adjust position to the right of the block
+        textObj.transform.localPosition = new Vector3(1.2f, 0, 0);
 
-        // Add TMP_Text component to the GameObject
         textMesh = textObj.AddComponent<TextMeshPro>();
         textMesh.fontSize = 5;
         textMesh.alignment = TextAlignmentOptions.Center;
-        textMesh.color = Color.green; // Set the text color to green
+        textMesh.color = Color.green;
 
-        // Set the sorting layer to ensure it's in front
-        var renderer = textMesh.GetComponent<Renderer>();
+        Renderer renderer = textMesh.GetComponent<Renderer>();
         if (renderer != null)
-        {
-            renderer.sortingOrder = 10; // Set the sorting layer to be higher to appear in the foreground
-        }
+            renderer.sortingOrder = 10;
 
-        UpdateAddressDisplay();
+        textTransform = textObj.transform;
+    }
+
+    public void ConvertBinaryToInt()
+    {
+        if (!string.IsNullOrEmpty(binaryAddressValue))
+        {
+            if (binaryAddressValue.Length > bitSize)
+            {
+                Debug.LogError($"Binary address '{binaryAddressValue}' exceeds bit size of {bitSize}. Truncating.");
+                binaryAddressValue = binaryAddressValue.Substring(0, bitSize);
+            }
+
+            addressValue = Mathf.Clamp(System.Convert.ToInt32(binaryAddressValue, 2), 0, (1 << bitSize) - 1);
+        }
+        else
+        {
+            addressValue = 0;
+        }
     }
 
     public void SetBlockType(Type newType)
@@ -40,15 +72,30 @@ public class BlockType : MonoBehaviour
 
     public int GetAddress()
     {
-        return addressValue; // Return the address as an int
+        return addressValue;
     }
 
     private void UpdateAddressDisplay()
     {
         if (textMesh != null)
-        {
-            textMesh.text = addressValue.ToString(); // Update the text to display the address value
-        }
+            textMesh.text = Convert.ToString(addressValue, 2).PadLeft(bitSize, '0'); 
+    }
+
+    public void ShowAddressText()
+    {
+        if (textMesh != null)
+            textMesh.enabled = true;
+    }
+
+    public void HideAddressText()
+    {
+        if (textMesh != null)
+            textMesh.enabled = false;
+    }
+
+    private void OnValidate()
+    {
+        ConvertBinaryToInt();
+        UpdateAddressDisplay(); 
     }
 }
-

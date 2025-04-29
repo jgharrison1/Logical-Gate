@@ -25,7 +25,7 @@ public class pageTable : MonoBehaviour
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
 
     [Header("Target Values")]
-    public List<string> targetValues = new List<string>(); // Now storing binary strings
+    public List<string> targetValues = new List<string>(); 
 
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
@@ -129,63 +129,59 @@ public class pageTable : MonoBehaviour
         return slotToBlockMap.ContainsKey(slot) ? slotToBlockMap[slot] : null;
     }
 
-private void ValidatePageFramePairs()
-{
-    for (int i = 0; i < pageSlots.Count && i < frameSlots.Count && i < targetValues.Count; i++)
+    private void ValidatePageFramePairs()
     {
-        GameObject pageBlock = GetBlockInSlot(pageSlots[i]);
-        GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
-
-        if (pageBlock == null || frameBlock == null)
+        for (int i = 0; i < pageSlots.Count && i < frameSlots.Count && i < targetValues.Count; i++)
         {
-            // If either block is missing, skip this pair
-            continue;
-        }
+            GameObject pageBlock = GetBlockInSlot(pageSlots[i]);
+            GameObject frameBlock = GetBlockInSlot(frameSlots[i]);
 
-        BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
-        BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
-
-        if (pageBlockType == null || frameBlockType == null)
-        {
-            // If either block type component is missing, skip
-            continue;
-        }
-
-        int pageValue = pageBlockType.addressValue;
-        int frameValue = frameBlockType.addressValue;
-        int sum = pageValue + frameValue;
-
-        int targetValueAsInt = 0;
-        if (!string.IsNullOrEmpty(targetValues[i]))
-        {
-            targetValueAsInt = Convert.ToInt32(targetValues[i], 2);
-        }
-
-        if (blockColorChangers.Count > i)
-        {
-            blockColorChangers[i].SetTargetValue(sum, targetValueAsInt);
-        }
-
-        if (pageBlock != null && pageBlocks.Contains(pageBlock))
-        {
-            int blockIndex = pageBlocks.IndexOf(pageBlock);
-            if (blockIndex < blockColorChangers.Count)
+            if (pageBlock == null || frameBlock == null)
             {
-                blockColorChangers[blockIndex].TurnOn();
+                continue;
+            }
+
+            BlockType pageBlockType = pageBlock.GetComponent<BlockType>();
+            BlockType frameBlockType = frameBlock.GetComponent<BlockType>();
+
+            if (pageBlockType == null || frameBlockType == null)
+            {
+                continue;
+            }
+
+            int pageValue = pageBlockType.addressValue;
+            int frameValue = frameBlockType.addressValue;
+            int sum = pageValue + frameValue;
+
+            int targetValueAsInt = 0;
+            if (!string.IsNullOrEmpty(targetValues[i]))
+            {
+                targetValueAsInt = Convert.ToInt32(targetValues[i], 2);
+            }
+
+            if (blockColorChangers.Count > i)
+            {
+                blockColorChangers[i].SetTargetValue(sum, targetValueAsInt);
+            }
+
+            if (pageBlock != null && pageBlocks.Contains(pageBlock))
+            {
+                int blockIndex = pageBlocks.IndexOf(pageBlock);
+                if (blockIndex < blockColorChangers.Count)
+                {
+                    blockColorChangers[blockIndex].TurnOn();
+                }
             }
         }
     }
-}
 
-private void UpdateBlockColorsOnStart()
-{
-    // Ensure all block lights are turned off initially
-    foreach (var changer in blockColorChangers)
+    private void UpdateBlockColorsOnStart()
     {
-        changer.TurnOff(); // Add this line to turn off all lights initially
-    }
+        foreach (var changer in blockColorChangers)
+        {
+            changer.TurnOff(); 
+        }
 
-    // Now call ValidatePageFramePairs to set them according to the values
-    ValidatePageFramePairs();
-}
+        ValidatePageFramePairs();
+    }
 }

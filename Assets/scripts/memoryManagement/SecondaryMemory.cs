@@ -11,7 +11,7 @@ public class secondaryMemory : MonoBehaviour
     public List<GameObject> offsetSlots = new List<GameObject>();
 
     [Header("Target Values (Binary String)")]
-    public List<string> targetValuesBinary = new List<string>(); // Now a list of binary strings
+    public List<string> targetValuesBinary = new List<string>(); 
 
     [Header("Block Color Changers")]
     public List<BlockColorChanger> blockColorChangers = new List<BlockColorChanger>();
@@ -24,8 +24,8 @@ public class secondaryMemory : MonoBehaviour
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
     private playerMovement playerMovementScript;
 
-    private GameObject textPrefab3D; // A prefab with a TextMesh or TextMeshPro component
-    private Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); // Adjust for spacing to the left
+    private GameObject textPrefab3D; 
+    private Vector3 labelOffset = new Vector3(-0.5f, 0f, 0f); 
     private List<GameObject> valueLabels = new List<GameObject>();
 
     private void Start()
@@ -86,7 +86,7 @@ public class secondaryMemory : MonoBehaviour
         {
             if (blockColorChangers.Count > 0)
             {
-                blockColorChangers[0].SetTargetValue(0, GetTargetValue(0)); // Use GetTargetValue to get integer
+                blockColorChangers[0].SetTargetValue(0, GetTargetValue(0)); 
             }
         }
 
@@ -100,16 +100,14 @@ public class secondaryMemory : MonoBehaviour
         BlockType blockType = block.GetComponent<BlockType>();
         if (blockType == null) return false;
 
-        // Check if block type matches slot type
         bool isCorrectSlot = (pageSlots.Contains(slot) && blockType.blockType == BlockType.Type.PageNumber) ||
                             (offsetSlots.Contains(slot) && blockType.blockType == BlockType.Type.Offset);
 
         if (!isCorrectSlot)
         {
-            // If the block is not of the correct type for the slot, reset its color to blue.
             if (blockColorChangers.Count > 0)
             {
-                int blockIndex = pageSlots.IndexOf(slot); // Or offsetSlots if it's an offset slot.
+                int blockIndex = pageSlots.IndexOf(slot);
                 if (blockIndex != -1)
                 {
                     blockColorChangers[blockIndex].TurnOff();
@@ -175,11 +173,11 @@ public class secondaryMemory : MonoBehaviour
                 bool isMatch = combinedBinary == targetBinaryValue;
                 if (!isMatch)
                 {
-                    blockColorChangers[index].TurnOff(); // Set color to blue if mismatch
+                    blockColorChangers[index].TurnOff(); 
                 }
                 else
                 {
-                    blockColorChangers[index].TurnOn(); // Turn yellow if match
+                    blockColorChangers[index].TurnOn(); 
                 }
             }
         }
@@ -187,24 +185,21 @@ public class secondaryMemory : MonoBehaviour
         {
             if (blockColorChangers.Count > index)
             {
-                blockColorChangers[index].TurnOff(); // Default to blue if no blocks
+                blockColorChangers[index].TurnOff();
             }
         }
     }
 
-    // Converts the binary string of target value at index to an integer.
     public int GetTargetValue(int index)
     {
         if (index >= 0 && index < targetValuesBinary.Count)
         {
             string binaryValue = targetValuesBinary[index];
-            // Ensure the binary string is valid and convert it.
             int targetValue = 0;
             if (!string.IsNullOrEmpty(binaryValue))
             {
                 try
                 {
-                    // Ensure the binary value is properly formatted
                     targetValue = System.Convert.ToInt32(binaryValue, 2);
                 }
                 catch (System.FormatException)
@@ -214,7 +209,7 @@ public class secondaryMemory : MonoBehaviour
             }
             return targetValue;
         }
-        return 0; // Return 0 if index is invalid
+        return 0; 
     }
 
     private void CreateTargetValueDisplays()
@@ -228,7 +223,7 @@ public class secondaryMemory : MonoBehaviour
             textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f);
 
             TextMeshPro tmp = textObj.AddComponent<TextMeshPro>();
-            tmp.text = targetValuesBinary[i]; // Display binary string
+            tmp.text = targetValuesBinary[i]; 
             tmp.fontSize = 5;
             tmp.alignment = TextAlignmentOptions.Center;
             tmp.color = Color.yellow;
@@ -283,7 +278,6 @@ public class secondaryMemory : MonoBehaviour
             ValidatePageOffsetPairs();
         }
 
-        // Call SetTargetValue to update the color immediately after placing the block
         if (blockColorChangers.Count > index)
         {
             GameObject pageBlock = GetBlockInSlot(pageSlots[index]);
@@ -327,11 +321,10 @@ public class secondaryMemory : MonoBehaviour
 
                     bool isMatch = combinedBinary == targetBinary;
                     blockColorChangers[i].SetTargetValue(isMatch ? 1 : 0, 1); 
-                    // Trick: if match, set (1,1) => yellow; if mismatch, set (0,1) => blue
                 }
                 else
                 {
-                    blockColorChangers[i].TurnOff(); // Default to blue if missing blocks
+                    blockColorChangers[i].TurnOff(); 
                 }
             }
         }

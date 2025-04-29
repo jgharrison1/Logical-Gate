@@ -1,4 +1,4 @@
-using System; // Ensure we are using the System namespace
+using System; 
 using UnityEngine;
 using TMPro;
 
@@ -7,17 +7,14 @@ public class BlockType : MonoBehaviour
     public enum Type { PageNumber, Offset, FrameNumber }
     public Type blockType;
 
-    // Store the address value as a binary string.
     [Header("Address Settings")]
-    public string binaryAddressValue = "0"; // Default to "0" (binary string).
+    public string binaryAddressValue = "0"; 
 
-    // Internal integer that stores the converted binary value.
     [HideInInspector]
     public int addressValue;
 
-    // Add bitSize to control the number of bits
     [Header("Bit Size Settings")]
-    public int bitSize = 4; // Default to 4 bits unless specified otherwise.
+    public int bitSize = 4; 
 
     [Header("Interaction Settings")]
     public bool isGrabbable = true;
@@ -27,7 +24,7 @@ public class BlockType : MonoBehaviour
 
     private void Start()
     {
-        ConvertBinaryToInt(); // Convert the binary string to an integer at the start.
+        ConvertBinaryToInt(); 
         CreateTextObject();
         UpdateAddressDisplay();
     }
@@ -50,19 +47,16 @@ public class BlockType : MonoBehaviour
         textTransform = textObj.transform;
     }
 
-    // Converts the binary string to an integer, considering bit size
     public void ConvertBinaryToInt()
     {
         if (!string.IsNullOrEmpty(binaryAddressValue))
         {
-            // Check if the binary string exceeds the bit size
             if (binaryAddressValue.Length > bitSize)
             {
                 Debug.LogError($"Binary address '{binaryAddressValue}' exceeds bit size of {bitSize}. Truncating.");
-                binaryAddressValue = binaryAddressValue.Substring(0, bitSize); // Truncate to fit bit size
+                binaryAddressValue = binaryAddressValue.Substring(0, bitSize);
             }
 
-            // Parse the binary string to an integer, but ensure it's within the bitSize limit.
             addressValue = Mathf.Clamp(System.Convert.ToInt32(binaryAddressValue, 2), 0, (1 << bitSize) - 1);
         }
         else
@@ -71,23 +65,20 @@ public class BlockType : MonoBehaviour
         }
     }
 
-    // Sets the block type (e.g., Page Number, Offset, etc.)
     public void SetBlockType(Type newType)
     {
         blockType = newType;
     }
 
-    // Returns the address value in its integer form.
     public int GetAddress()
     {
         return addressValue;
     }
 
-    // Updates the display to show the current address value in binary.
     private void UpdateAddressDisplay()
     {
         if (textMesh != null)
-            textMesh.text = Convert.ToString(addressValue, 2).PadLeft(bitSize, '0'); // Display as binary with leading zeros
+            textMesh.text = Convert.ToString(addressValue, 2).PadLeft(bitSize, '0'); 
     }
 
     public void ShowAddressText()
@@ -104,7 +95,7 @@ public class BlockType : MonoBehaviour
 
     private void OnValidate()
     {
-        ConvertBinaryToInt(); // Update address value on change in the inspector.
-        UpdateAddressDisplay(); // Update text display to reflect changes.
+        ConvertBinaryToInt();
+        UpdateAddressDisplay(); 
     }
 }

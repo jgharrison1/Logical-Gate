@@ -97,10 +97,6 @@ public class pageTable : MonoBehaviour
         {
             HandleFrameTeleport(block);
         }
-        else if (blockType.blockType == BlockType.Type.FrameNumber)
-        {
-            HandlePageTeleport(block);
-        }
 
         ValidatePageFramePairs();
         return true;
@@ -119,23 +115,6 @@ public class pageTable : MonoBehaviour
             {
                 frameBlock.transform.position = frameSlot.transform.position;
                 frameBlock.transform.SetParent(frameSlot.transform);
-            }
-        }
-    }
-
-    private void HandlePageTeleport(GameObject frameBlock)
-    {
-        int index = frameBlocks.IndexOf(frameBlock);
-
-        if (index != -1 && index < pageBlocks.Count && index < pageSlots.Count)
-        {
-            GameObject pageBlock = pageBlocks[index];
-            GameObject pageSlot = pageSlots[index];
-
-            if (pageBlock != null && pageSlot != null)
-            {
-                pageBlock.transform.position = pageSlot.transform.position;
-                pageBlock.transform.SetParent(pageSlot.transform);
             }
         }
     }

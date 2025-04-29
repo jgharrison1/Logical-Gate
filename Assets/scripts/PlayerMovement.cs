@@ -41,7 +41,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private secondaryMemory secondaryMemoryInstance;
     private mainMemory mainMemoryInstance;
     private pageTable pageTableInstance;
-
+    private BlockType BlcokType;
     private GameObject highlightedSlot; 
     private GameObject highlightedBorder; 
     [SerializeField] private GameObject highlightBorderPrefab;

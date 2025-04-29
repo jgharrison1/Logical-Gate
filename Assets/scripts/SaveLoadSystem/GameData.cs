@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 [System.Serializable]
 public class GameData
@@ -14,6 +15,7 @@ public class GameData
     //Add a way to keep track of the scene, which scene your in and all of the associated variables
     public SerializableDictionary<string, Vector3> scenesVisited;
     public string currentScene;
+    public int animIndex;
 
     // the values defined in this constructor will be the default values
     // the game starts with when there's no data to load

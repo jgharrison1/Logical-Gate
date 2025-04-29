@@ -2,6 +2,8 @@ using System.Collections;
 using System;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEditor.Animations;
+using Unity.VisualScripting;
 
 public class playerMovement : MonoBehaviour, IDataPersistence
 {
@@ -44,6 +46,8 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private GameObject highlightedBorder; 
     [SerializeField] private GameObject highlightBorderPrefab;
     private Vector3 heldBlockOriginalScale;
+    public AnimatorController[] animationControllers;
+    public int animIndex;
 
     void Start()
     {
@@ -57,6 +61,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         mainMemoryInstance = FindObjectOfType<mainMemory>();
         pageTableInstance = FindObjectOfType<pageTable>();
 
+        anim.runtimeAnimatorController = animationControllers[animIndex];
     }
 
     // Update is called once per frame
@@ -91,6 +96,19 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         HandleMovement();
         HandleBlockInteraction();
         HighlightSlot();
+    }
+
+    public void CharacterSelect(int index)
+    {
+        if (index >= 0 && index < animationControllers.Length)
+        {
+            anim.runtimeAnimatorController = animationControllers[index];
+            animIndex = index;
+        }
+        else
+        {
+            Debug.LogError("Invalid animation controller index.");
+        }
     }
 
     private void FixedUpdate()
@@ -391,6 +409,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         {
             this.transform.position = prevPosition;
             this.respawnPoint = data.respawnPoint;
+            this.animIndex = data.animIndex;
         }
         //if scene has not been visited, keep player's default position
     }
@@ -402,5 +421,6 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             data.scenesVisited.Remove(data.currentScene);
         }
         data.scenesVisited.Add(data.currentScene, this.transform.position);
+        data.animIndex = this.animIndex;
     }
 }

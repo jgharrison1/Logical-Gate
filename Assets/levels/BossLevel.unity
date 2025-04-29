@@ -1847,6 +1847,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 3632708303224564788, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
   m_PrefabInstance: {fileID: 383218049}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &383218053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4747603516862109534, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
+  m_PrefabInstance: {fileID: 383218049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fdafb4a2611d04fb50fd7e99d1dd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &389778224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4473,6 +4484,14 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 383218050}
+    - target: {fileID: 607874272538778058, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 383218053}
+    - target: {fileID: 607874272538778058, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CharacterSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 1306477510833183529, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4480,6 +4499,14 @@ PrefabInstance:
     - target: {fileID: 1306477510833183529, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SoundFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605986615873626354, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 383218053}
+    - target: {fileID: 4605986615873626354, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CharacterSelect
       objectReference: {fileID: 0}
     - target: {fileID: 7017416152224652708, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

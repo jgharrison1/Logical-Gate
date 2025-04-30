@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 public class mainMemory : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class mainMemory : MonoBehaviour
 
     [Header("Sequence Validation")]
     public List<int> expectedSequence = new List<int>(); 
-    private List<int> currentSequence = new List<int>();    
+    private List<int> currentSequence = new List<int>();
     public bool sequenceCompleted = false; 
 
     private Dictionary<GameObject, GameObject> slotToBlockMap = new Dictionary<GameObject, GameObject>();
@@ -31,6 +32,36 @@ public class mainMemory : MonoBehaviour
 
     [Header("Block Placement Tracking")]
     private List<bool> blockPlacementStatus = new List<bool>();
+
+    [Header("Sequence Display")]
+    public Canvas targetCanvas;
+    public Vector3 expectedTextPosition;
+    public Vector3 currentTextPosition;
+    public TMP_FontAsset fontAsset;
+
+    private TextMeshProUGUI expectedTextUI;
+    private TextMeshProUGUI currentTextUI;
+
+    // private void Start()
+    // {
+    //     blockPlacementStatus = new List<bool>(new bool[blocksToAssign.Count]);
+
+    //     if (blocksToAssign.Count > 0)
+    //     {
+    //         for (int i = 0; i < blocksToAssign.Count; i++)
+    //         {
+    //             if (blocksToAssign[i] != null) { AssignBlockToSlot(i); }
+    //         }
+    //         ValidateFrameOffsetPairs();
+    //     }
+    //     UpdateBlockColorsOnStart();
+
+    //     foreach (var changer in blockColorChangers)
+    //     {
+    //         changer.OnColorChange += HandleBlockColorChange;
+    //     }
+    //     UpdateSequenceDisplay();
+    // }
 
     private void Start()
     {
@@ -44,13 +75,16 @@ public class mainMemory : MonoBehaviour
             }
             ValidateFrameOffsetPairs();
         }
+
+        CreateSequenceTextObjects();
+        UpdateSequenceDisplay();
+
         UpdateBlockColorsOnStart();
 
         foreach (var changer in blockColorChangers)
         {
             changer.OnColorChange += HandleBlockColorChange;
         }
-
     }
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
@@ -307,6 +341,60 @@ public class mainMemory : MonoBehaviour
         return 0;
     }
 
+    // public void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
+    // {
+    //     int index = blockColorChangers.IndexOf(changer);
+    //     if (index == -1) return;
+
+    //     if (isYellow)
+    //     {
+    //         if (!blockPlacementStatus[index])
+    //         {
+    //             blockPlacementStatus[index] = true;
+    //         }
+    //         else
+    //         {
+    //             currentSequence.Add(index);
+    //             UpdateSequenceDisplay();
+    //             Debug.Log($"Added index {index} to current sequence. Sequence: [{string.Join(", ", currentSequence)}]");
+
+    //             if (currentSequence.Count == expectedSequence.Count)
+    //             {
+    //                 bool correct = true;
+    //                 for (int i = 0; i < expectedSequence.Count; i++)
+    //                 {
+    //                     if (currentSequence[i] != expectedSequence[i])
+    //                     {
+    //                         correct = false;
+    //                         break;
+    //                     }
+    //                 }
+
+    //                 sequenceCompleted = correct;
+
+    //                 if (correct)
+    //                 {
+    //                     Debug.Log("Correct sequence achieved!");
+    //                 }
+    //                 else
+    //                 {
+    //                     Debug.Log("Incorrect sequence. Resetting.");
+    //                     ResetSequence();
+    //                 }
+    //             }
+    //             else
+    //             {
+    //                 sequenceCompleted = false;
+    //             }
+    //         }
+    //     }
+    //     else
+    //     {
+    //         Debug.Log($"Block removed or deactivated at index {index}. Resetting sequence.");
+    //         ResetSequence();
+    //     }
+    // }
+
     public void HandleBlockColorChange(BlockColorChanger changer, bool isYellow)
     {
         int index = blockColorChangers.IndexOf(changer);
@@ -322,6 +410,8 @@ public class mainMemory : MonoBehaviour
             {
                 currentSequence.Add(index);
                 Debug.Log($"Added index {index} to current sequence. Sequence: [{string.Join(", ", currentSequence)}]");
+
+                UpdateSequenceDisplay();
 
                 if (currentSequence.Count == expectedSequence.Count)
                 {
@@ -360,12 +450,59 @@ public class mainMemory : MonoBehaviour
         }
     }
 
+    private void CreateSequenceTextObjects()
+    {
+        // Try to auto-assign canvas if not set
+        if (targetCanvas == null)
+        {
+            targetCanvas = FindObjectOfType<Canvas>();
+
+            if (targetCanvas == null)
+            {
+                Debug.LogError("No Canvas found in the scene. Please add one.");
+                return;
+            }
+        }
+
+        // Expected Sequence Text
+        GameObject expectedGO = new GameObject("ExpectedSequenceText");
+        expectedGO.transform.SetParent(targetCanvas.transform, false);
+        expectedTextUI = expectedGO.AddComponent<TextMeshProUGUI>();
+        expectedTextUI.fontSize = 24;
+        expectedTextUI.alignment = TextAlignmentOptions.Left;
+        expectedTextUI.color = Color.cyan;
+        if (fontAsset != null) expectedTextUI.font = fontAsset;
+        expectedGO.GetComponent<RectTransform>().anchoredPosition3D = expectedTextPosition;
+        expectedGO.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 50);
+
+        // Current Sequence Text
+        GameObject currentGO = new GameObject("CurrentSequenceText");
+        currentGO.transform.SetParent(targetCanvas.transform, false);
+        currentTextUI = currentGO.AddComponent<TextMeshProUGUI>();
+        currentTextUI.fontSize = 24;
+        currentTextUI.alignment = TextAlignmentOptions.Left;
+        currentTextUI.color = Color.green;
+        if (fontAsset != null) currentTextUI.font = fontAsset;
+        currentGO.GetComponent<RectTransform>().anchoredPosition3D = currentTextPosition;
+        currentGO.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 50);
+    }
+
+
+    private void UpdateSequenceDisplay()
+    {
+        if (expectedTextUI != null)
+            expectedTextUI.text = "Expected: [" + string.Join(", ", expectedSequence) + "]";
+
+        if (currentTextUI != null)
+            currentTextUI.text = "Current: [" + string.Join(", ", currentSequence) + "]";
+    }
 
 
     private void ResetSequence()
     {
         currentSequence.Clear();
         sequenceCompleted = false;
+        UpdateSequenceDisplay();
     }
 
 }

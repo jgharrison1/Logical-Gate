@@ -8271,6 +8271,7 @@ GameObject:
   - component: {fileID: 1244307143}
   - component: {fileID: 1244307142}
   - component: {fileID: 1244307144}
+  - component: {fileID: 1244307145}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -8339,7 +8340,7 @@ Transform:
   m_GameObject: {fileID: 1244307140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.77, y: 2.42, z: 0}
+  m_LocalPosition: {x: -33, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8390,6 +8391,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1244307145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244307140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168d1859ffd55f458ce0a6ae5ab579d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryManager: {fileID: 1320525204}
+  openPosition: {x: -33, y: 10}
+  closedPosition: {x: -33, y: 3}
+  speed: 2
+  text: {fileID: 0}
+  doorOpenSFX: {fileID: 0}
 --- !u!1 &1244632997
 GameObject:
   m_ObjectHideFlags: 0
@@ -9057,6 +9076,10 @@ MonoBehaviour:
   slotTypesToAssign: 01000000010000000100000001000000
   expectedSequence: 0100000000000000030000000200000002000000000000000100000003000000
   sequenceCompleted: 0
+  targetCanvas: {fileID: 0}
+  expectedTextPosition: {x: -100, y: 0, z: 0}
+  currentTextPosition: {x: 0, y: 0, z: 0}
+  fontAsset: {fileID: 0}
 --- !u!61 &1320525205
 BoxCollider2D:
   m_ObjectHideFlags: 0

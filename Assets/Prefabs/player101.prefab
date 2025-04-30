@@ -183,9 +183,23 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  stopMoving: 0
   knockbackForce: 5
   walkSFX: {fileID: 3632708303224564788}
   startSpawn: {fileID: 0}
+  holdPosition: {fileID: 0}
+  grabDistance: 2
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  slotLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  highlightBorderPrefab: {fileID: 0}
+  animationControllers:
+  - {fileID: 9100000, guid: 109a917f8a7de4c3eaa3fccaa4f68954, type: 2}
+  - {fileID: 9100000, guid: 44f2249d85a7e47f4a469eb8447c49e1, type: 2}
+  animIndex: 0
 --- !u!114 &5189307450062427422
 MonoBehaviour:
   m_ObjectHideFlags: 0

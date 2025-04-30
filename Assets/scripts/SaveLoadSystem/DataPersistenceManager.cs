@@ -133,8 +133,15 @@ public class DataPersistenceManager : MonoBehaviour
         return gameData != null;
     }
 
-    public string getSceneName(){
+    public string getSceneName()
+    {
         this.gameData = dataHandler.Load();
         return gameData.currentScene;
+    }
+
+    public void LevelComplete()
+    {
+        gameData.levelsCompleted.Add(gameData.currentScene, true);
+        SaveGame(); //may not need this SaveGame call because of the checkpoints at end of each level.
     }
 }

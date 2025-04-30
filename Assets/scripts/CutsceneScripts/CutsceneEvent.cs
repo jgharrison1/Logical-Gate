@@ -42,4 +42,5 @@ public class CutsceneEvent
     public Vector3 endPosition; //Used in move event and camera event
     public List<GameObject> objects; //list of objects for move, setactive, or button events
     public Dialogue dialogue;
+    public bool doOnExit = false; //true for events that need to be done even after premature exit of cutscene, such as opening doors.
 }

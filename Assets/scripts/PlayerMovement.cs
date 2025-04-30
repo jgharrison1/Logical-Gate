@@ -215,6 +215,9 @@ public class playerMovement : MonoBehaviour, IDataPersistence
             respawnPoint = transform.position;
             DataPersistenceManager.instance.SaveGame();
         }
+        else if(other.CompareTag("LevelComplete")) {
+            DataPersistenceManager.instance.LevelComplete();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -423,9 +426,11 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         {
             this.transform.position = prevPosition;
             this.respawnPoint = data.respawnPoint;
-            this.animIndex = data.animIndex;
         }
         //if scene has not been visited, keep player's default position
+
+        this.animIndex = data.animIndex; //load the last saved character index.
+        CharacterSelect(this.animIndex); //call characterSelect function to ensure player's chosen character sprite persists between levels.
     }
 
     public void SaveData(GameData data) 

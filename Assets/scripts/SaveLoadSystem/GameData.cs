@@ -14,6 +14,7 @@ public class GameData
     public SerializableDictionary<string, bool> buttonStatus; //initialize in  button script
     //Add a way to keep track of the scene, which scene your in and all of the associated variables
     public SerializableDictionary<string, Vector3> scenesVisited;
+    public SerializableDictionary<string, bool> levelsCompleted; //should only save Hub, LGPL-K, and BPL2
     public string currentScene;
     public int animIndex;
 
@@ -26,5 +27,6 @@ public class GameData
         enemiesDefeated = new SerializableDictionary<string, bool>();
         buttonStatus = new SerializableDictionary<string, bool>();
         scenesVisited = new SerializableDictionary<string, Vector3>();
+        levelsCompleted = new SerializableDictionary<string, bool>();
     }
 }

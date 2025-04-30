@@ -633,6 +633,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -648,6 +649,7 @@ MonoBehaviour:
       - These types of structures may be tricky to think through, but with time and
         practice, you'll do fine!
       - and, Oh dear, what's this?
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -657,6 +659,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -671,6 +674,7 @@ MonoBehaviour:
         from the system.
       - All you have to do is jump on top of them!
       - But make sure they don't hit you first and corrupt your code instead!
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -680,6 +684,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -693,6 +698,7 @@ MonoBehaviour:
         have to find a way up to it.
       - Don't forget that you can bounce off of walls to reach higher spots!
       - I'll be waiting for you in the next room, good luck!
+    doOnExit: 0
 --- !u!1001 &158932512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1736,6 +1742,7 @@ MonoBehaviour:
         farther into the system.
       - Eventually, you'll run into new challenges and I'll get to teach you new
         concepts! but we'll cross that bridge when we get there.
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -1745,6 +1752,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -1756,6 +1764,7 @@ MonoBehaviour:
       sentences:
       - The teleporter at the end of the room will bring you back to the hub where
         you can access the first level.
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -1765,6 +1774,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -1776,6 +1786,7 @@ MonoBehaviour:
       sentences:
       - One last thing, watch out for that corrupted code at the bottom of the stairs.
       - If you touch it, it will corrupt your code, so think of it like lava!
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -1785,6 +1796,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -1797,6 +1809,7 @@ MonoBehaviour:
       - If you want to refresh on anything you've learned so far, try the "Review
         Concepts" button in the pause menu.
       - That's all for now, good luck on your journey!
+    doOnExit: 0
 --- !u!1 &411384125
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,11 +3988,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1323878205095839293, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 81.654
+      value: 81.67
       objectReference: {fileID: 0}
     - target: {fileID: 1323878205095839293, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.727
+      value: 10.75
       objectReference: {fileID: 0}
     - target: {fileID: 1323878205095839293, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4019,15 +4032,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267862413786589300, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_Size.y
-      value: 1.2999907
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267862413786589300, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4267862413786589300, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_Offset.y
-      value: 0.012565136
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4267862413786589300, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 1.2999915
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5636335624604362487, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_FlipY
@@ -4035,7 +4052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636335624604362487, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_Size.y
-      value: 1.2999915
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5636335624604362487, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_Sprite
@@ -5051,7 +5068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1323878205095839293, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.68
+      value: 4.73
       objectReference: {fileID: 0}
     - target: {fileID: 1323878205095839293, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5204,6 +5221,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 0
     waitTime: 1.5
     smoothTime: 0
@@ -5213,6 +5231,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 3
     smoothTime: 0
@@ -5225,6 +5244,7 @@ MonoBehaviour:
       - Welcome to the world of <color="white"> Logical Gate! </color>
       - By now, I'm sure you're wondering, What is a logic gate anyways?
       - Allow me to explain.
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0.2
@@ -5234,6 +5254,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5252,6 +5273,7 @@ MonoBehaviour:
       - 'So, logic gates are kind of like electronic switches! '
       - The gate will output a True or False signal, depending upon the unique logic
         of each gate.
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -5262,6 +5284,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 1
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -5271,6 +5294,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 3
     waitTime: 0
     smoothTime: 15
@@ -5281,6 +5305,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 1
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5296,6 +5321,7 @@ MonoBehaviour:
         2 = output."
       - As you can see, the AND gate has only 1 output that is true, or on. True
         AND True equal True.
+    doOnExit: 0
   - EventType: 5
     waitTime: 0
     smoothTime: 0
@@ -5306,6 +5332,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5317,6 +5344,7 @@ MonoBehaviour:
       sentences:
       - An OR gate requires either input 1 OR input 2 to be True to output True.
         It can also be both!
+    doOnExit: 0
   - EventType: 5
     waitTime: 0
     smoothTime: 0
@@ -5327,6 +5355,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5340,6 +5369,7 @@ MonoBehaviour:
         as an output,
       - "But it excludes the case where both inputs are True. Hence, it\u2019s full
         name is Exclusive OR."
+    doOnExit: 0
   - EventType: 5
     waitTime: 0
     smoothTime: 0
@@ -5350,6 +5380,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5364,6 +5395,7 @@ MonoBehaviour:
         gate would output True, or True when an AND would output False. '
       - You can think of the 'N' at the beginning of each name as 'NOT'.
       - so NAND means 'NOT AND', NOR means 'NOT OR', XNOR means 'NOT XOR'
+    doOnExit: 0
   - EventType: 5
     waitTime: 0
     smoothTime: 0
@@ -5374,6 +5406,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5385,6 +5418,7 @@ MonoBehaviour:
       sentences:
       - So, since an Or gate will output true if one or both inputs are true, a NOR
         gate will only be true when both inputs are false!
+    doOnExit: 0
   - EventType: 5
     waitTime: 0
     smoothTime: 0
@@ -5395,6 +5429,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5406,6 +5441,7 @@ MonoBehaviour:
       sentences:
       - 'XOR is true when either input is true, but not for both. XNOR is true when
         both inputs are false, and when both inputs are true. '
+    doOnExit: 0
   - EventType: 5
     waitTime: 0
     smoothTime: 0
@@ -5416,6 +5452,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5429,6 +5466,7 @@ MonoBehaviour:
       - "The NOT gate takes the input and \u2018negates\u2019 it, or inverts it.
         So a true input gives a false output and vice versa. "
       - Makes sense now that you know about NAND, NOR, and XNOR, right?
+    doOnExit: 0
   - EventType: 5
     waitTime: 0
     smoothTime: 0
@@ -5439,6 +5477,7 @@ MonoBehaviour:
     dialogue:
       name: Professor
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5453,6 +5492,7 @@ MonoBehaviour:
         and false outputs false,
       - But in the world of electronics and circuitry, the Buffer gate is useful
         for controlling electric current and many other things!
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -5462,6 +5502,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 0
     waitTime: 1
     smoothTime: 0
@@ -5471,6 +5512,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5485,6 +5527,7 @@ MonoBehaviour:
         button beside the table.
       - When you're ready, enter the next room and I'll show you some of the obstacles
         you may encounter throughout the game.
+    doOnExit: 0
   - EventType: 3
     waitTime: 0
     smoothTime: 4
@@ -5495,6 +5538,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 1
 --- !u!4 &848305230
 Transform:
   m_ObjectHideFlags: 0
@@ -9281,6 +9325,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -9296,6 +9341,7 @@ MonoBehaviour:
       - For an AND Gate, we need both inputs to be true for the output signal to
         be true.
       - If we activate both buttons, like so...
+    doOnExit: 0
   - EventType: 6
     waitTime: 1.5
     smoothTime: 0
@@ -9306,6 +9352,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 6
     waitTime: 1.5
     smoothTime: 0
@@ -9316,6 +9363,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -9330,6 +9378,7 @@ MonoBehaviour:
       - Anytime you see a gate, try to interact with the buttons and get a true output
         signal to activate whatever they're connected to.
       - Try it out for yourself!
+    doOnExit: 0
   - EventType: 6
     waitTime: 0
     smoothTime: 0
@@ -9340,6 +9389,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 6
     waitTime: 0
     smoothTime: 0
@@ -9350,6 +9400,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
 --- !u!4 &1589685602
 Transform:
   m_ObjectHideFlags: 0
@@ -12075,7 +12126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1970949493816111467, guid: adbd966c816e145de9792f62ba3aaa39, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2824046897888198239, guid: adbd966c816e145de9792f62ba3aaa39, type: 3}
       propertyPath: m_Sprite

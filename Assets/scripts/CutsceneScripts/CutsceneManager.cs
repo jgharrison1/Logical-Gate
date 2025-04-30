@@ -232,6 +232,102 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
+    public void ExitAction(CutsceneEvent action)
+    {
+        int i = (int) action.EventType;
+        switch(i){
+            case 0:
+            {
+                Debug.Log("Wait Event");
+                holUp(action.waitTime);
+                break;
+            }
+            case 1:
+            {
+                Debug.Log("Dialogue Event");
+                FindObjectOfType<DialogueManager>().StartDialogue(action.dialogue); //same as dialogue trigger script
+                break;
+            }
+            case 2:
+            {
+                Debug.Log("Camera Event");
+                targetPosition = action.endPosition;
+                if(action.resizeCamera != 0f) {
+                    resizeValue = action.resizeCamera;
+                }
+                else resizeValue = MCamera.orthographicSize;
+                movingCamera = true;
+                break;
+            }
+            case 3:
+            {
+                Debug.Log("Move Event");
+                foreach(GameObject obj in action.objects) 
+                {
+                    StartCoroutine(moveEvent(obj, action.endPosition, action.smoothTime, action.waitTime));
+                }
+                NextAction();
+                break;
+            }
+            case 4:
+            {
+                Debug.Log("Set Active Event");
+                foreach(GameObject obj in action.objects) 
+                {
+                    if(obj.activeSelf) obj.SetActive(false);
+                    else obj.SetActive(true);
+                }
+                holUp(action.waitTime);
+                break;
+            }
+            case 5:
+            {
+                Debug.Log("Table Event");
+                tableEvent(action);
+                break;
+            }
+            case 6:
+            {
+                Debug.Log("Button Event");
+                //buttonEvent(action);
+                action.objects[0].GetComponent<ButtonInputController>().changeButton();
+                holUp(action.waitTime);
+                break;
+            }
+            case 7:
+            {
+                Debug.Log("Array Event");
+                foreach(GameObject obj in action.objects) 
+                {
+                    obj.GetComponent<ButtonIndex>().OnButtonPressed();
+                }
+                holUp(action.waitTime);
+                break;
+            }
+            case 8:
+            {
+                Debug.Log("Array Adder Event");
+                break;
+            }
+            case 9:
+            {
+                Debug.Log("Memory Management Event");
+                break;
+            }
+            case 10:
+            {
+                Debug.Log("Text Event");
+                action.objects[0].GetComponent<TextMeshPro>().text = action.dialogue.sentences[0];
+                holUp(action.waitTime);
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+    }
+
 
     IEnumerator moveEvent(GameObject obj, Vector3 endPosition, float smoothTime, float seconds) {
         //move event is working decently well for smooth time of .2 though it is still quick.
@@ -259,38 +355,6 @@ public class CutsceneManager : MonoBehaviour
     public void tableEvent(CutsceneEvent action) {
         //note that for a table event to work, truth table MUST be the first object in the objects list of the event.
         //1=and,2=or,3=xor,4=nand,5=nor,6=xnor,7=not,8=buffer
-        /*
-        switch(action.tableEventNumber) {
-            case 1:
-                Debug.Log("table event 1 successful.");
-                action.objects[0].GetComponent<TruthTable>().AndGate();
-                break;
-            case 2:
-                action.objects[0].GetComponent<TruthTable>().OrGate();
-                break;
-            case 3:
-                action.objects[0].GetComponent<TruthTable>().XorGate();
-                break;
-            case 4:
-                action.objects[0].GetComponent<TruthTable>().NandGate();
-                break;
-            case 5:
-                action.objects[0].GetComponent<TruthTable>().NorGate();
-                break;
-            case 6:
-                action.objects[0].GetComponent<TruthTable>().XnorGate();
-                break;
-            case 7:
-                action.objects[0].GetComponent<TruthTable>().NotGate();
-                break;
-            case 8:
-                action.objects[0].GetComponent<TruthTable>().BufferGate();
-                break;
-            default:
-                Debug.Log("Invalid input for table event.");
-                break;
-        }
-        */
         action.objects[0].GetComponent<TruthTable>().nextGate();
         holUp(action.waitTime);
     }
@@ -312,10 +376,18 @@ public class CutsceneManager : MonoBehaviour
 
     public void EndCutscene() {
         Debug.Log("End of Cutscene");
+        CutsceneEvent action;
+        while(actions.Count > 0)
+        {
+            action = actions.Dequeue();
+            if(action.doOnExit)
+            {
+                ExitAction(action);
+            }
+        }
         MCamera.orthographicSize = 7; //reset camera size in case it wasn't done in an event.
         CameraObject.GetComponent<cameraFollow>().enabled = true; //return camera to player
         Player.GetComponent<playerMovement>().stopMoving = false; //return control to player
-        actions = new Queue<CutsceneEvent>(); //create new queue in case of end cutscene being called while queue is still full
         sceneActive = false; //must be set before calling EndDialogue
         FindObjectOfType<DialogueManager>().EndDialogue();
         return;

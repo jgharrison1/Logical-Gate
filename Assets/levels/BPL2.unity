@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4457213}
   - component: {fileID: 4457216}
   - component: {fileID: 4457215}
-  - component: {fileID: 4457214}
+  - component: {fileID: 4457217}
   m_Layer: 0
   m_Name: backTeleport (1)
   m_TagString: LevelComplete
@@ -156,18 +156,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 515824797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4457214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4457212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47de1c604a2f5e34a992f6e79d099249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &4457215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -265,6 +253,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4457217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396fb07c6ee7d9646a336af532cdfd42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6174813
 GameObject:
   m_ObjectHideFlags: 0

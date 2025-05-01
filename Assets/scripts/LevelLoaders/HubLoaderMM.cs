@@ -18,6 +18,8 @@ public class HubLoaderMM : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D other)
     {
         //script can be attached to whichever teleports need to teleport back to hub. note isTrigger must be unselected.
-        SceneManager.LoadSceneAsync("Hub");
+        if(other.gameObject.CompareTag("Player")){
+            SceneManager.LoadSceneAsync("Hub");
+        }
     }
 }

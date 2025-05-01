@@ -2134,7 +2134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab571812a61e24ca210f25abaf9ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedGate: {fileID: 0}
+  ConnectedGate: {fileID: 1674146066}
   openPosition: {x: 18.85, y: 1.8}
   closedPosition: {x: 18.85, y: 10.77}
   speed: 2
@@ -3366,7 +3366,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1715107354}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: DisplayNextSentence
         m_Mode: 1
@@ -8176,6 +8176,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a2485a9fc3936478490e4905030314, type: 3}
+--- !u!114 &1674146066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5945491241156790549, guid: 09a2485a9fc3936478490e4905030314, type: 3}
+  m_PrefabInstance: {fileID: 1674146065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06d3d87e6f788842a849909d3cae031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1681489791
 GameObject:
   m_ObjectHideFlags: 0

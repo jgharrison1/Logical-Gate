@@ -36,9 +36,16 @@ public class PauseMenu : MonoBehaviour
             GameObject.Find("DialogueBox").SetActive(false);
         }
 
+<<<<<<< Updated upstream
         // if(){
         //     GameObject.Find("ExitWarning").SetActive(false);
         // }
+=======
+        if(GameObject.Find("ExitWarning").activeSelf)
+        {
+            GameObject.Find("ExitWarning").SetActive(false);
+        }
+>>>>>>> Stashed changes
     }
 
     public void Resume()

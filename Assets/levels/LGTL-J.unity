@@ -2645,6 +2645,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2021948517111990205, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 472891717}
+    - target: {fileID: 2021948517111990205, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundMusicVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 2091823202947032470, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2676,6 +2684,26 @@ PrefabInstance:
     - target: {fileID: 2472129837686644683, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 472891717}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundMixerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4119654511390127133, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_Name
@@ -2721,13 +2749,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6079032798592016297, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6079032798592016297, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+    - target: {fileID: 6006361935988554003, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 472891717}
+    - target: {fileID: 6006361935988554003, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundFXVolume
       objectReference: {fileID: 0}
     - target: {fileID: 6347360166375417222, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2894,10 +2922,10 @@ PrefabInstance:
     - {fileID: 5583430783328094102, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8355021512588542200, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 406691255}
     - targetCorrespondingSourceObject: {fileID: 8355021512588542200, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 1089450582}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}

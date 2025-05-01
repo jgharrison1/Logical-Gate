@@ -2393,6 +2393,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8213381781570418601}
+    - target: {fileID: 2021948517111990205, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8213381781570418601}
+    - target: {fileID: 2021948517111990205, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundMusicVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 2050390239893832649, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.88509
@@ -2432,6 +2440,26 @@ PrefabInstance:
     - target: {fileID: 2917789003998926074, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8213381781570418601}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundMixerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921319687147757751, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3211968628598525015, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_LocalScale.x
@@ -2484,6 +2512,14 @@ PrefabInstance:
     - target: {fileID: 5104297756116301343, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMin.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006361935988554003, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8213381781570418601}
+    - target: {fileID: 6006361935988554003, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundFXVolume
       objectReference: {fileID: 0}
     - target: {fileID: 6347360166375417222, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x

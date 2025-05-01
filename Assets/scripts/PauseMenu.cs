@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenuUI;
     public GameObject characterSelectUI;
     private bool activeDialogue;
+    public GameObject dialogueBox;
+    public GameObject exitWarning;
+    private Button tmpButton;
 
     // Update is called once per frame
     void Update()
@@ -26,19 +30,28 @@ public class PauseMenu : MonoBehaviour
         if(!isPaused) Time.timeScale = 1f;
     }
 
-    void Pause() 
+    public void Pause() 
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; //freeze gameplay
         isPaused = true;
         activeDialogue = GameObject.Find("DialogueBox").activeSelf;
-        if(GameObject.Find("DialogueBox").activeSelf){
-            GameObject.Find("DialogueBox").SetActive(false);
+        if(GameObject.Find("ExitWarning")!=null)
+        {
+            GameObject.Find("ExitWarning").SetActive(false);
         }
+        if(activeDialogue){
+            FindObjectOfType<DialogueManager>().continueButton.interactable = false;
+            tmpButton = GameObject.Find("ExitDialogueButton").GetComponent<Button>();
+            tmpButton.interactable = false;
 
-        // if(){
-        //     GameObject.Find("ExitWarning").SetActive(false);
-        // }
+        }
+/*
+        if(GameObject.Find("ExitWarning")!=null)
+        {
+            GameObject.Find("ExitWarning").SetActive(false);
+        }
+        */
     }
 
     public void Resume()
@@ -46,8 +59,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; //resumes gameplay
         isPaused = false;
-        if(GameObject.Find("DialogueBox").activeSelf){
-            GameObject.Find("DialogueBox").SetActive(true);
+        
+        if(activeDialogue){
+            FindObjectOfType<DialogueManager>().continueButton.interactable = true;
+            tmpButton.interactable = true;
+            activeDialogue = false;
         }
     }
 }

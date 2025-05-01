@@ -14,4 +14,10 @@ public class HubLoaderMM : MonoBehaviour
     public void ContinueGame() {
         SceneManager.LoadSceneAsync(FindObjectOfType<DataPersistenceManager>().getSceneName());
     }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        //script can be attached to whichever teleports need to teleport back to hub. note isTrigger must be unselected.
+        SceneManager.LoadSceneAsync("Hub");
+    }
 }

@@ -113,7 +113,14 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void FixedUpdate()
     {
-        if(stopMoving) rb.velocity = new Vector2(0,0);
+        if(stopMoving)
+        {
+            if(!isGrounded())
+                rb.velocity = new Vector2(0,rb.velocity.y);
+            else
+                rb.velocity = new Vector2(0,0);
+
+        }
         else if(!isWallJumping)
         {   // while walljumping, player cannot move horizontally until wallJumpDuration becomes 0
             rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y); //move horizontally

@@ -164,7 +164,15 @@ public class BinaryButtonArray : MonoBehaviour
         if (decimalDisplayText != null)
         {
             int decimalValue = ConvertBinaryArrayToDecimal();
-            decimalDisplayText.text = "Decimal Value: " + decimalValue;
+            if(allowedRepresentations[currentRepresentationIndex] == BinaryRepresentation.SignedMagnitude && binaryArray[0]==1 && decimalValue==0)
+            {
+                // this is the "-0" special case in signed magnitude
+                decimalDisplayText.text = "Decimal Value: -0";
+            }
+            else 
+            {
+                decimalDisplayText.text = "Decimal Value: " + decimalValue;
+            }
         }
     }
 

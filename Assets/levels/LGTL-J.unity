@@ -2486,9 +2486,9 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SoundFXVolume
       objectReference: {fileID: 0}
-    - target: {fileID: 1628346944583940603, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 6705
+    - target: {fileID: 1470256283735122558, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1701027929959020581, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2558,10 +2558,6 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 4119654511390127133, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      propertyPath: m_Name
-      value: _SaveQuit
-      objectReference: {fileID: 0}
     - target: {fileID: 4256740134493253195, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2585,10 +2581,6 @@ PrefabInstance:
     - target: {fileID: 4633076032491292278, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843431734875509414, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -893
       objectReference: {fileID: 0}
     - target: {fileID: 5104297756116301343, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2614,10 +2606,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7008034304211846511, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 7017416152224652708, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2641,6 +2629,10 @@ PrefabInstance:
     - target: {fileID: 7645529898471066613, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_Name
       value: Pause Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645529898471066613, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7963545549809204581, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: m_AnchorMax.x

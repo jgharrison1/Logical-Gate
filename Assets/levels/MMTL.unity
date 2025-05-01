@@ -4700,7 +4700,157 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56087b737e5e4478ac1681850d91220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventList: []
+  eventList:
+  - EventType: 2
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 8
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: 
+      sentences: []
+    doOnExit: 0
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - Hello Again!
+      - "You\u2019ve successfully cleared the system of viruses and fixed the system\u2019s
+        binary arithmetic problems. All that\u2019s left now is to fight The Worm
+        and free the digital world of it\u2019s chaos!"
+      - "However, in order to locate the Worm, I\u2019ll need to run a program I
+        have saved in the system\u2019s memory, but there\u2019s a bit of a problem\u2026"
+      - "The worm is preventing the operating system from loading the program into
+        main memory, which means I\u2019ll need you to do it!"
+      - "The worm is preventing the operating system from loading the program into
+        main memory, which means I\u2019ll need you to do it!"
+      - "And thus, it\u2019s time to learn about memory management!"
+    doOnExit: 0
+  - EventType: 2
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 10
+    endPosition: {x: -15.35, y: 5.69, z: -10}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences: []
+    doOnExit: 0
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - "There are several memory management techniques to be aware of, but the one
+        I\u2019ll need you to learn is known as \u201Cpaging\u201D. "
+      - "If you\u2019d like to learn about other memory management techniques, you
+        can read about them by clicking \u201CReview Concepts\u201D in the pause
+        menu and navigating to the \u201CMemory Management\u201D section."
+      - "Let\u2019s get started!"
+      - 'You learned previously that all of the data in a computer is saved in binary,
+        and every byte of data (8 bits) has an address associated with it. '
+      - "In order to access data saved in a computer\u2019s secondary memory (AKA
+        hard drive or hard disk), such as a program you\u2019d like to run, the operating
+        system must first load that data into main memory (RAM - Random Access Memory)."
+      - RAM tends to be smaller than the secondary memory, but it is also much faster,
+        which is why the CPU uses it for running programs (i.e. processes).
+      - "One of the common problems in memory management is that not all data is
+        the same size, and some memory spaces may go unused if we are unable to fit
+        data into the available spaces. This is known as \u201Cexternal fragmentation\u201D."
+      - "Paging avoids this issue by allowing programs to be split up and stored
+        in \u201Cnon-contiguous\u201D or scattered areas of memory."
+      - "Imagine a bookshelf being filled with books at different places on the shelf.
+        As the shelf gets filled, we may not be able to fit a book, but there\u2019s
+        still available space on the shelf. "
+      - "Imagine a bookshelf being filled with books at different places on the shelf.
+        As the shelf gets filled, we may not be able to fit a book, but there\u2019s
+        still available space on the shelf. "
+      - "So what if we divided the book by it\u2019s pages and store the pages wherever
+        there is space?"
+      - Each page of the book is like a page in memory, it is a fixed size block
+        of data.
+      - "Each compartment on the bookshelf is a \u201Cframe\u201D in our main memory,
+        or \u201Cphysical memory\u201D, and pages and frames are the same size as
+        one another. "
+      - "We\u2019ll then need a catalog to keep track of where the pages are stored,
+        which is what a page table does! "
+    doOnExit: 0
+  - EventType: 2
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 7
+    endPosition: {x: -15.35, y: 8.19, z: -10}
+    objects: []
+    dialogue:
+      name: 
+      sentences: []
+    doOnExit: 0
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - 'A page table is a data structure used to keep track of pages and where they
+        are stored in main memory. '
+    doOnExit: 0
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - 
+    doOnExit: 0
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - 
+    doOnExit: 0
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - 
+    doOnExit: 0
+  - EventType: 1
+    waitTime: 0
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: Professor
+      sentences:
+      - 
+    doOnExit: 0
 --- !u!61 &672644498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4755,7 +4905,7 @@ Transform:
   m_GameObject: {fileID: 672644496}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.55, y: 4.68, z: 0}
+  m_LocalPosition: {x: 2.28, y: 4.68, z: 0}
   m_LocalScale: {x: 1, y: 7.072597, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5683,7 +5833,7 @@ Transform:
   m_GameObject: {fileID: 940733083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.73, y: 5.69, z: -10}
+  m_LocalPosition: {x: -15.35, y: 8.19, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8913,7 +9063,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.85
+      value: 5.19
       objectReference: {fileID: 0}
     - target: {fileID: 1671613904209921691, guid: c0ad83d43088940c4a2d23d7d1ad02a6, type: 3}
       propertyPath: m_LocalPosition.y

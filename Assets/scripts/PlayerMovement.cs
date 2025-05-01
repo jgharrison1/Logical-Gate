@@ -210,14 +210,17 @@ public class playerMovement : MonoBehaviour, IDataPersistence
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Checkpoint")) {
+        if (other.gameObject.CompareTag("Checkpoint")) {
             Debug.Log("Checkpoint activated");
             respawnPoint = transform.position;
-            DataPersistenceManager.instance.SaveGame();
+            FindObjectOfType<DataPersistenceManager>().SaveGame();
         }
-        else if(other.CompareTag("LevelComplete")) {
-            DataPersistenceManager.instance.LevelComplete();
+
+        else if(other.gameObject.CompareTag("LevelComplete")) 
+        {
+            FindObjectOfType<DataPersistenceManager>().LevelComplete();
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -230,6 +233,10 @@ public class playerMovement : MonoBehaviour, IDataPersistence
         if (other.gameObject.CompareTag("WormBoss"))
         {
             HandleBossCollision(other.gameObject);
+        }
+        else if(other.gameObject.CompareTag("LevelComplete")) 
+        {
+            FindObjectOfType<DataPersistenceManager>().LevelComplete();
         }
 
         // Handle representation change if applicable

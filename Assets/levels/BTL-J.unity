@@ -577,6 +577,7 @@ MonoBehaviour:
       - "But before we get into that, we\u2019ll need to cover how numbers are represented
         in <color=\"white\"> binary </color> ."
       - Let's get started!
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -586,6 +587,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -597,6 +599,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -612,6 +615,7 @@ MonoBehaviour:
       - "After the number \u201C9\u201D, you represent ten <color=\"white\"> \u201C10\u201D
         </color>\na combination of two digits, <color=\"white\"> \u201C1\u201D </color>
         and <color=\"white\"> \u201C0\u201D </color>"
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -623,6 +627,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -641,6 +646,7 @@ MonoBehaviour:
         of the number is increased by a <color="white"> power of 10 </color> .
       - "Now, let\u2019s think about the value of the digits themselves and how they
         can be combined to represent any number."
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -650,6 +656,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -660,6 +667,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -684,6 +692,7 @@ MonoBehaviour:
         </color> ", increases the value of the whole number. '
       - Now that we understand that pattern, let's look at the <color="white"> base-2
         </color> number system, also known as <color="white"> binary </color> numbers!
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -693,6 +702,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -708,6 +718,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -731,6 +742,7 @@ MonoBehaviour:
         . Similar to how we added another digit for every <color="white"> power of
         10 </color> in the <color="white"> base-10 </color> system, which is why
         I had to yap about it for so long!
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -742,6 +754,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -752,6 +765,7 @@ MonoBehaviour:
       name: Professor
       sentences:
       - The powers of 2 are 1, 2, 4, 8, 16, 32, 64, 128, 256, and so on.
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -764,6 +778,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -790,6 +805,7 @@ MonoBehaviour:
       - "In order for the computer to retrieve that memory, it has to keep track
         of <color=\"white\"> memory addresses </color>, but we\u2019ll talk more
         about that later."
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -799,6 +815,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -814,6 +831,7 @@ MonoBehaviour:
         hit </color> the boxes to change the 1\u2019s and 0\u2019s."
       - See if you can accurately represent the <color="white"> target values </color>
         displayed above the array to activate the path to the next section.
+    doOnExit: 0
 --- !u!61 &78111493
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2525,7 +2543,7 @@ MonoBehaviour:
   eventList:
   - EventType: 3
     waitTime: 0
-    smoothTime: 10
+    smoothTime: 2
     resizeCamera: 0
     endPosition: {x: 16.33, y: 3.5, z: 0}
     objects:
@@ -2533,6 +2551,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 1
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -2545,6 +2564,7 @@ MonoBehaviour:
       - You did it!
       - The path has been completed and you can now reach the next section.
       - Whenever you're ready, head up there and we'll start our next lesson!
+    doOnExit: 0
   - EventType: 10
     waitTime: 0
     smoothTime: 0
@@ -2556,6 +2576,7 @@ MonoBehaviour:
       name: 
       sentences:
       - ' '
+    doOnExit: 1
   array: {fileID: 318146200}
   targetValue: 116
 --- !u!1 &276733626
@@ -5006,6 +5027,7 @@ MonoBehaviour:
       name: 
       sentences:
       - Target Value = 42
+    doOnExit: 1
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5017,6 +5039,7 @@ MonoBehaviour:
       sentences:
       - You're really getting the hang of it, good job!
       - Next value is 116
+    doOnExit: 0
   - EventType: 10
     waitTime: 0
     smoothTime: 0
@@ -5028,6 +5051,7 @@ MonoBehaviour:
       name: 
       sentences:
       - 'Target Value: 116'
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -5038,6 +5062,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   array: {fileID: 318146200}
   targetValue: 42
 --- !u!1 &460858734
@@ -6400,6 +6425,7 @@ MonoBehaviour:
       name: 
       sentences:
       - Target Value = 42
+    doOnExit: 1
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -6411,6 +6437,7 @@ MonoBehaviour:
       sentences:
       - You got it! Great job!
       - Let's see if you can get the next value of 42
+    doOnExit: 0
   - EventType: 10
     waitTime: 0
     smoothTime: 0
@@ -6422,6 +6449,7 @@ MonoBehaviour:
       name: 
       sentences:
       - 'Target Value: 42'
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -6432,6 +6460,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   array: {fileID: 318146200}
   targetValue: 31
 --- !u!1 &685856436
@@ -12241,6 +12270,7 @@ MonoBehaviour:
       - You've made it, nice work as always!
       - I'd say you're ready to get back out there and beat those viruses!
       - Before you go though, i've one last thing to tell you about.
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -12250,6 +12280,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 0
     waitTime: 0
     smoothTime: 0
@@ -12259,6 +12290,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -12273,6 +12305,7 @@ MonoBehaviour:
         value is still counted in the number. "
       - 'Some arrays may not have all of the representation types available as well,
         so you''ll have to make due with what you have. '
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -12282,6 +12315,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -12293,6 +12327,7 @@ MonoBehaviour:
       sentences:
       - That's all for now. Once you solve these last 2 binary problems, a teleporter
         will be available to carry you out of here, Then the real challenge begins!
+    doOnExit: 0
 --- !u!1 &1265000262
 GameObject:
   m_ObjectHideFlags: 0
@@ -13787,7 +13822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit dialogue?
+  m_text: "Exit Communication \n   Interface?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -13850,7 +13885,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 129.13275, w: 32.39401}
+  m_margin: {x: -6.788948, y: -3.0785465, z: 117.09779, w: 32.39401}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -14329,6 +14364,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14355,6 +14391,7 @@ MonoBehaviour:
         \u201Cmost significant bit\u201D </color> (or \u201CMSB\u201D), to represent
         positive or negative. The remaining bits to the right of the MSB are calculated
         the same as <color=\"white\"> unsigned magnitude. </color>"
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -14365,6 +14402,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14379,6 +14417,7 @@ MonoBehaviour:
       - This representation does have a bit of a problem though.
       - In the computer world, we have to consider every possibility, and given this
         representation, what would you say the 4-bit number "1000" is?
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -14389,6 +14428,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14404,6 +14444,7 @@ MonoBehaviour:
         make since mathematically."
       - "Luckily, a lot of smart computer scientists came up with another representation
         type: two\u2019s complement. "
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -14416,6 +14457,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14453,6 +14495,7 @@ MonoBehaviour:
       - For the number 1001, the msb is 1 and it has a magnitude of 8, so take -8
         and add the magnitudes of the other bits that are 1, which in this case is
         just 1. -8 + 1 = -7
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -14464,6 +14507,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14476,6 +14520,7 @@ MonoBehaviour:
       - For the number 1001, the msb is 1 and it has a magnitude of 8, so take -8
         and add the magnitudes of the other bits that are 1, which in this case is
         just 1. -8 + 1 = -7
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -14485,6 +14530,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 4
     waitTime: 0
     smoothTime: 0
@@ -14496,6 +14542,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14507,6 +14554,7 @@ MonoBehaviour:
       sentences:
       - "Now that you know the basics of how numbers are represented in binary, let\u2019s
         try doing some addition and subtraction problems!"
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -14516,6 +14564,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14529,6 +14578,7 @@ MonoBehaviour:
         to it's inputs.
       - 'To open the door, you''ll need to configure the binary array pairs such
         that their sums equal the target value. '
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -14538,6 +14588,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14551,6 +14602,7 @@ MonoBehaviour:
         \n'S' is for Signed Magnitude, \n'TC' is 2\u2019s complement, and \n'US'
         is unsigned magnitude."
       - You can change the representation type by hitting this box.
+    doOnExit: 0
   - EventType: 2
     waitTime: 0
     smoothTime: 0
@@ -14560,6 +14612,7 @@ MonoBehaviour:
     dialogue:
       name: 
       sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -14573,6 +14626,7 @@ MonoBehaviour:
       - If you need help remembering anything we've covered so far, you can review
         all this information in the 'Review Concepts' section in the pause menu (press
         'p' for pause)
+    doOnExit: 0
 --- !u!61 &1409441931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14701,9 +14755,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661359307}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 661359308}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15421,18 +15475,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1303084673}
-        m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
-        m_MethodName: EndCutscene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1703260639}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -15456,6 +15498,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 419240146}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1303084673}
+        m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+        m_MethodName: EndCutscene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1497034898
 MonoBehaviour:
@@ -21954,6 +22020,7 @@ MonoBehaviour:
       - 'Good luck out there friend, and don''t forget, if you need to revisit anything
         you learned, you can find all this information in the ''Review Concepts''
         section of the pause menu. '
+    doOnExit: 0
 --- !u!61 &2115746898
 BoxCollider2D:
   m_ObjectHideFlags: 0

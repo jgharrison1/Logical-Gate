@@ -1,4 +1,4 @@
-using System; 
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -8,43 +8,53 @@ public class BlockType : MonoBehaviour
     public Type blockType;
 
     [Header("Address Settings")]
-    public string binaryAddressValue = "0"; 
+    public string binaryAddressValue = "0";
 
     [HideInInspector]
     public int addressValue;
 
     [Header("Bit Size Settings")]
-    public int bitSize = 4; 
+    public int bitSize = 4;
 
     [Header("Interaction Settings")]
     public bool isGrabbable = true;
 
-    private TMP_Text textMesh;
+    private TMP_Text addressTextMesh;
+    private TMP_Text typeTextMesh;
     private Transform textTransform;
 
     private void Start()
     {
-        ConvertBinaryToInt(); 
+        ConvertBinaryToInt();
         CreateTextObject();
         UpdateAddressDisplay();
     }
 
     private void CreateTextObject()
     {
-        GameObject textObj = new GameObject("AddressText");
-        textObj.transform.SetParent(transform);
-        textObj.transform.localPosition = new Vector3(1.2f, 0, 0);
+        // Create address text (lower)
+        GameObject addressTextObj = new GameObject("AddressText");
+        addressTextObj.transform.SetParent(transform);
+        addressTextObj.transform.localPosition = new Vector3(0, 0, 0);
+        addressTextMesh = addressTextObj.AddComponent<TextMeshPro>();
+        addressTextMesh.fontSize = 5;
+        addressTextMesh.alignment = TextAlignmentOptions.Center;
+        addressTextMesh.color = Color.green;
+        Renderer r1 = addressTextMesh.GetComponent<Renderer>();
+        if (r1 != null) r1.sortingOrder = 10;
 
-        textMesh = textObj.AddComponent<TextMeshPro>();
-        textMesh.fontSize = 5;
-        textMesh.alignment = TextAlignmentOptions.Center;
-        textMesh.color = Color.green;
+        // Create type text (upper)
+        GameObject typeTextObj = new GameObject("TypeText");
+        typeTextObj.transform.SetParent(transform);
+        typeTextObj.transform.localPosition = new Vector3(0, .65f, 0);
+        typeTextMesh = typeTextObj.AddComponent<TextMeshPro>();
+        typeTextMesh.fontSize = 4;
+        typeTextMesh.alignment = TextAlignmentOptions.Center;
+        typeTextMesh.color = Color.green;
+        Renderer r2 = typeTextMesh.GetComponent<Renderer>();
+        if (r2 != null) r2.sortingOrder = 10;
 
-        Renderer renderer = textMesh.GetComponent<Renderer>();
-        if (renderer != null)
-            renderer.sortingOrder = 10;
-
-        textTransform = textObj.transform;
+        textTransform = addressTextObj.transform;
     }
 
     public void ConvertBinaryToInt()
@@ -57,7 +67,7 @@ public class BlockType : MonoBehaviour
                 binaryAddressValue = binaryAddressValue.Substring(0, bitSize);
             }
 
-            addressValue = Mathf.Clamp(System.Convert.ToInt32(binaryAddressValue, 2), 0, (1 << bitSize) - 1);
+            addressValue = Mathf.Clamp(Convert.ToInt32(binaryAddressValue, 2), 0, (1 << bitSize) - 1);
         }
         else
         {
@@ -68,6 +78,7 @@ public class BlockType : MonoBehaviour
     public void SetBlockType(Type newType)
     {
         blockType = newType;
+        UpdateAddressDisplay();
     }
 
     public int GetAddress()
@@ -77,25 +88,38 @@ public class BlockType : MonoBehaviour
 
     private void UpdateAddressDisplay()
     {
-        if (textMesh != null)
-            textMesh.text = Convert.ToString(addressValue, 2).PadLeft(bitSize, '0'); 
+        if (addressTextMesh != null)
+        {
+            addressTextMesh.text = Convert.ToString(addressValue, 2).PadLeft(bitSize, '0');
+        }
+
+        if (typeTextMesh != null)
+        {
+            typeTextMesh.text = blockType switch
+            {
+                Type.PageNumber => "P",
+                Type.Offset => "D",
+                Type.FrameNumber => "F",
+                _ => ""
+            };
+        }
     }
 
     public void ShowAddressText()
     {
-        if (textMesh != null)
-            textMesh.enabled = true;
+        if (addressTextMesh != null) addressTextMesh.enabled = true;
+        if (typeTextMesh != null) typeTextMesh.enabled = true;
     }
 
     public void HideAddressText()
     {
-        if (textMesh != null)
-            textMesh.enabled = false;
+        if (addressTextMesh != null) addressTextMesh.enabled = false;
+        if (typeTextMesh != null) typeTextMesh.enabled = false;
     }
 
     private void OnValidate()
     {
         ConvertBinaryToInt();
-        UpdateAddressDisplay(); 
+        UpdateAddressDisplay();
     }
 }

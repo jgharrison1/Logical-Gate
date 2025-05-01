@@ -336,6 +336,7 @@ public class CutsceneManager : MonoBehaviour
             //obj.transform.position = Vector3.SmoothDamp(obj.transform.position, endPosition, ref velocity, smoothTime);
             yield return new WaitForSeconds(0.001f);
         }
+        obj.transform.position = endPosition; //once object is in range of end position, set equal to end position.
         Debug.Log("Done Moving.");
         //holUp(seconds);
         yield return null;

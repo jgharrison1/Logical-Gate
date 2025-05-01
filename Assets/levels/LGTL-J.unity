@@ -347,6 +347,18 @@ PrefabInstance:
       propertyPath: ConnectedGate
       value: 
       objectReference: {fileID: 1910672575}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1187955780}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1115354385}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2042,6 +2054,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8160065192752900983, guid: 71761f15e8b6fc94cbd06a58b2a835c2, type: 3}
+      propertyPath: connectedLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160065192752900983, guid: 71761f15e8b6fc94cbd06a58b2a835c2, type: 3}
+      propertyPath: connectedLines.Array.data[0]
+      value: 
+      objectReference: {fileID: 483290288}
+    - target: {fileID: 8160065192752900983, guid: 71761f15e8b6fc94cbd06a58b2a835c2, type: 3}
+      propertyPath: connectedLines.Array.data[1]
+      value: 
+      objectReference: {fileID: 1933857167}
+    - target: {fileID: 8160065192752900983, guid: 71761f15e8b6fc94cbd06a58b2a835c2, type: 3}
+      propertyPath: connectedLines.Array.data[2]
+      value: 
+      objectReference: {fileID: 1669313208}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2552,6 +2580,18 @@ PrefabInstance:
       propertyPath: previousGate2
       value: 
       objectReference: {fileID: 1395746093}
+    - target: {fileID: 6319553741743124977, guid: a0774476a9f6050408e4ce4f60f8dfad, type: 3}
+      propertyPath: connectedLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319553741743124977, guid: a0774476a9f6050408e4ce4f60f8dfad, type: 3}
+      propertyPath: connectedLines.Array.data[0]
+      value: 
+      objectReference: {fileID: 1821653954}
+    - target: {fileID: 6319553741743124977, guid: a0774476a9f6050408e4ce4f60f8dfad, type: 3}
+      propertyPath: connectedLines.Array.data[1]
+      value: 
+      objectReference: {fileID: 2020806407}
     - target: {fileID: 7166015680688809922, guid: a0774476a9f6050408e4ce4f60f8dfad, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.7071068
@@ -7434,7 +7474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1323878205095839293, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.85
+      value: 10.87
       objectReference: {fileID: 0}
     - target: {fileID: 1323878205095839293, guid: e7c34ae2eda7c46ad967446db53f178d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8683,6 +8723,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: or_gate
       objectReference: {fileID: 0}
+    - target: {fileID: 2984891217246056385, guid: 7de8c5cd2bc6dc14caff64cfcc0d7231, type: 3}
+      propertyPath: connectedLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984891217246056385, guid: 7de8c5cd2bc6dc14caff64cfcc0d7231, type: 3}
+      propertyPath: connectedLines.Array.data[0]
+      value: 
+      objectReference: {fileID: 1712406175}
+    - target: {fileID: 2984891217246056385, guid: 7de8c5cd2bc6dc14caff64cfcc0d7231, type: 3}
+      propertyPath: connectedLines.Array.data[1]
+      value: 
+      objectReference: {fileID: 1103897405}
+    - target: {fileID: 2984891217246056385, guid: 7de8c5cd2bc6dc14caff64cfcc0d7231, type: 3}
+      propertyPath: connectedLines.Array.data[2]
+      value: 
+      objectReference: {fileID: 638804951}
     - target: {fileID: 3816095551479563159, guid: 7de8c5cd2bc6dc14caff64cfcc0d7231, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
@@ -9531,6 +9587,18 @@ PrefabInstance:
       propertyPath: ConnectedGate
       value: 
       objectReference: {fileID: 1910672575}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 512686479}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 792302247}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9998,8 +10066,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedGate: {fileID: 1860012572}
-  openPosition: {x: 43.54, y: 12.56}
-  closedPosition: {x: 43.54, y: 10.74}
+  openPosition: {x: 43.54, y: 12.41}
+  closedPosition: {x: 43.54, y: 10.9}
   speed: 2
   text: {fileID: 0}
   doorOpenSFX: {fileID: 0}
@@ -11204,6 +11272,18 @@ PrefabInstance:
       propertyPath: ConnectedGate
       value: 
       objectReference: {fileID: 1395746093}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 714733102}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1865705421}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12091,6 +12171,18 @@ PrefabInstance:
       propertyPath: ConnectedGate
       value: 
       objectReference: {fileID: 1395746093}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 809262308}
+    - target: {fileID: 4209655798395277149, guid: dca9310155643124e93c1815566e235d, type: 3}
+      propertyPath: lineRenderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 806266090}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

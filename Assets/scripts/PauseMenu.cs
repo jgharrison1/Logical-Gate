@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
     public GameObject characterSelectUI;
-    private bool activeDialogue;
+    private bool activeDialogue = false;
     public GameObject dialogueBox;
     public GameObject exitWarning;
     private Button tmpButton;
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; //freeze gameplay
         isPaused = true;
-        activeDialogue = GameObject.Find("DialogueBox").activeSelf;
+        if(dialogueBox!=null) activeDialogue = GameObject.Find("DialogueBox").activeSelf;
         if(GameObject.Find("ExitWarning")!=null)
         {
             GameObject.Find("ExitWarning").SetActive(false);

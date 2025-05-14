@@ -15,6 +15,12 @@ public class DialogueManager : MonoBehaviour
     public float textWaitTime = 0.25f;
     private int spamClick = 0;
     string sentence = "";
+    public Image characterImage; //the image component for the dialogue box where character will go
+    public Sprite profClosed; //closed mouth sprite
+    public Sprite profOpen; //open mouth sprite
+    public int letterCount = 4;
+    public Sprite bossClosed;
+    public Sprite bossOpen; //sprites for boss
     private Queue<string> sentences;
 
     // Start is called before the first frame update
@@ -76,6 +82,8 @@ public class DialogueManager : MonoBehaviour
         //which is more asthetically pleasing to read.
         dialogueText.text = "";
         string[] tokens = sentence.Split(" "); // split sentence into tokens using space character as delimiter.
+        int counter = 0; //timer will be used to swap character speaking sprites
+        Talking();
 
         foreach(string word in tokens) {
             if(word == "<color=\"red\">" | word == "<color=\"yellow\">" | word == "<color=\"white\">"  | word == "</color>") {
@@ -84,6 +92,12 @@ public class DialogueManager : MonoBehaviour
             else {
                 //ToCharArray() converts string to char array, then appends letters to dialogueText
                 foreach (char letter in word.ToCharArray()) {
+                    counter += 1;
+                    if(counter == letterCount) //for every letter count, change talking sprite
+                    {
+                        Talking(); //swap sprite every time we go over timer
+                        counter = 0;
+                    }
                     dialogueText.text += letter;
                     //token += letter;
                     if(letter == '.')
@@ -97,7 +111,29 @@ public class DialogueManager : MonoBehaviour
                 dialogueText.text += " "; // reappend the space character to each word.
             }
         }
+        NotTalking(); //call function to change character sprite to closed mouth sprites
         spamClick = 0; //if coroutine finishes printing the whole line, resets spamclick to 0.
+    }
+
+    private void Talking() {
+        //this function will be used to swap character sprites while talking, talking time is a preset value.
+        if(nameText.text == "The Worm") {
+            if(characterImage.sprite == bossClosed)
+                characterImage.sprite = bossOpen;
+            else
+                characterImage.sprite = bossClosed;
+        }
+        else {
+            if(characterImage.sprite == profClosed)
+                characterImage.sprite = profOpen;
+            else
+                characterImage.sprite = profClosed;
+        }
+    }
+
+    private void NotTalking() {
+        if(nameText.text == "The Worm") characterImage.sprite = bossClosed;
+        else characterImage.sprite = profClosed;
     }
 
 

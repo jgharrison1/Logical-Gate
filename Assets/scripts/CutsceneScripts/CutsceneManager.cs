@@ -66,8 +66,6 @@ public class CutsceneManager : MonoBehaviour
         Player.GetComponent<playerMovement>().stopMoving = true; //disable player movement
 
         NextAction();
-
-        //return;
     }
 
 
@@ -78,66 +76,9 @@ public class CutsceneManager : MonoBehaviour
             EndCutscene();
             return;
         }
+
         CutsceneEvent action = actions.Dequeue();
 
-        /*
-
-        if(action.isMoveEvent) {
-            Debug.Log("Move Event");
-            foreach(GameObject obj in action.objects) {
-                StartCoroutine(moveEvent(obj, action.endPosition, action.smoothTime, action.waitTime));
-            }
-            //holUp(action.waitTime);
-            //having holdup here can mess up and call nextAction because of the coroutine. delete later if needed.
-        }
-        
-        else if(action.isCameraEvent) {
-            Debug.Log("Camera Event");
-            targetPosition = action.endPosition;
-            resizeValue = action.resize;
-            movingCamera = true;
-            //holUp(action.waitTime);
-        }
-
-        else if(action.isDialogueEvent) {
-            Debug.Log("Dialogue Event");
-            FindObjectOfType<DialogueManager>().StartDialogue(action.dialogue); //same as dialogue trigger script
-            //holUp(action.waitTime);
-        }
-
-        else if(action.isSetActiveEvent) {
-            Debug.Log("Set Active Event");
-            foreach(GameObject obj in action.objects) {
-                if(obj.activeSelf) obj.SetActive(false);
-                else obj.SetActive(true);
-            }
-            holUp(action.waitTime);
-        }
-
-        else if(action.isTableEvent) {
-            Debug.Log("Table Event");
-            tableEvent(action);
-            //holUp(action.waitTime);
-        }
-
-        else if(action.isButtonEvent) {
-            Debug.Log("Button Event");
-            //buttonEvent(action);
-            action.objects[0].GetComponent<ButtonInputController>().changeButton();
-            holUp(action.waitTime);
-        }
-
-        else if(action.isWaitEvent) {
-            Debug.Log("Wait Event");
-            holUp(action.waitTime);
-        }
-
-        else {
-            Debug.Log("No event type selected.");
-            NextAction();
-        }
-
-        */
         int i = (int) action.EventType;
         switch(i){
             case 0:
@@ -328,7 +269,6 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
-
     IEnumerator moveEvent(GameObject obj, Vector3 endPosition, float smoothTime, float seconds) {
         //move event is working decently well for smooth time of .2 though it is still quick.
         while(Vector3.Distance(obj.transform.position, endPosition) > 0.02f) {
@@ -342,24 +282,12 @@ public class CutsceneManager : MonoBehaviour
         yield return null;
     }
 
-
-    public void dialogueEvent(CutsceneEvent action) {
-        
-    }
-
-
-    public void setActiveEvent(CutsceneEvent action) {
-        
-    }
-
-
     public void tableEvent(CutsceneEvent action) {
         //note that for a table event to work, truth table MUST be the first object in the objects list of the event.
         //1=and,2=or,3=xor,4=nand,5=nor,6=xnor,7=not,8=buffer
         action.objects[0].GetComponent<TruthTable>().nextGate();
         holUp(action.waitTime);
     }
-
 
     public void buttonEvent(CutsceneEvent action) {
         //for button events, Button must be first object in list. 
@@ -368,12 +296,10 @@ public class CutsceneManager : MonoBehaviour
         action.objects[0].GetComponent<ButtonInputController>().changeButton();
     }
 
-
     public void holUp(float seconds) {
         Debug.Log("Holding for " + seconds + " seconds.");
         Invoke("NextAction", seconds); //Next action will be called after specified number of seconds.
     }
-
 
     public void EndCutscene() {
         Debug.Log("End of Cutscene");

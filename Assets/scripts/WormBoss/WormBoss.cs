@@ -178,6 +178,7 @@ public class WormBoss : MonoBehaviour
 
         if (currentHealth == 0)
         {
+            gameObject.GetComponent<CutsceneTrigger>().triggerCutscene();
             StartCoroutine(DestroyWithDelay());
         }
         SoundFXManager.instance.playSoundFXClip(bossDamageSFX, transform, 1f);
@@ -227,4 +228,3 @@ public class WormBoss : MonoBehaviour
     }
 
 }
-

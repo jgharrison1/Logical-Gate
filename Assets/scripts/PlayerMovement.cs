@@ -1,8 +1,7 @@
 using System.Collections;
 using System;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 using Unity.VisualScripting;
 
 public class playerMovement : MonoBehaviour, IDataPersistence
@@ -46,7 +45,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     private GameObject highlightedBorder; 
     [SerializeField] private GameObject highlightBorderPrefab;
     private Vector3 heldBlockOriginalScale;
-    public AnimatorController[] animationControllers;
+    public RuntimeAnimatorController[] animationControllers;
     public int animIndex;
 
     void Start()

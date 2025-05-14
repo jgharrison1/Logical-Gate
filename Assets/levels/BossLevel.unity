@@ -382,16 +382,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40148582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9001792, y: 0.9001792, z: 0.9001792}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 425172481}
+  m_Father: {fileID: 1232389383}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -56.130127, y: 640.6914}
+  m_AnchoredPosition: {x: 682, y: 491}
   m_SizeDelta: {x: 736.6633, y: 94.6172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40148584
@@ -3045,8 +3045,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 40148583}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5336,6 +5335,16 @@ MonoBehaviour:
       name: 
       sentences: []
     doOnExit: 0
+  - EventType: 0
+    waitTime: 1
+    smoothTime: 0
+    resizeCamera: 0
+    endPosition: {x: 0, y: 0, z: 0}
+    objects: []
+    dialogue:
+      name: 
+      sentences: []
+    doOnExit: 0
   - EventType: 1
     waitTime: 0
     smoothTime: 0
@@ -5465,6 +5474,7 @@ MonoBehaviour:
       - "Try to get the binary value on the Worm\u2019s body to match those decimal
         values as it reaches the platform. That should trigger the system to delete
         the Worm!"
+      - It's body is a 5 bit array with the head as the most significant bit.
       - You'll have to be quick when changing it's bits. Remember your training and
         you've got this!
     doOnExit: 0
@@ -6718,6 +6728,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8355021512588542200, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       insertIndex: 2
       addedObject: {fileID: 179044818}
+    - targetCorrespondingSourceObject: {fileID: 8355021512588542200, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 40148583}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
 --- !u!224 &1232389383 stripped

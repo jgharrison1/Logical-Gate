@@ -64,6 +64,7 @@ public class mainMemory : MonoBehaviour
         {
             changer.OnColorChange += HandleBlockColorChange;
         }
+        CreateTargetValueDisplays();
     }
 
     public void RegisterSlot(GameObject slot, BlockType.Type slotType)
@@ -427,6 +428,29 @@ public class mainMemory : MonoBehaviour
             currentTextUI.text = "Current: [" + string.Join(", ", currentSequence) + "]";
     }
 
+    private void CreateTargetValueDisplays()
+    {
+        for (int i = 0; i < frameSlots.Count && i < targetValuesBinary.Count; i++)
+        {
+            GameObject slot = frameSlots[i];
+
+            GameObject textObj = new GameObject($"TargetValueText_{i}");
+            textObj.transform.SetParent(slot.transform);
+            textObj.transform.localPosition = new Vector3(-1.8f, 0f, 0f);
+
+            TextMeshPro tmp = textObj.AddComponent<TextMeshPro>();
+            tmp.text = targetValuesBinary[i]; 
+            tmp.fontSize = 5;
+            tmp.alignment = TextAlignmentOptions.Center;
+            tmp.color = Color.yellow;
+
+            Renderer renderer = tmp.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.sortingOrder = 10;
+            }
+        }
+    }
 
     private void ResetSequence()
     {

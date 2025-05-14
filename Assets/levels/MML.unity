@@ -792,10 +792,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 2
-  binaryAddressValue: 11
-  addressValue: 3
+  binaryAddressValue: 00
+  addressValue: 0
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &25070274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1213,10 +1214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 2
-  binaryAddressValue: 01
-  addressValue: 1
+  binaryAddressValue: 00
+  addressValue: 0
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &74608859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1693,10 +1695,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 00
-  addressValue: 0
+  binaryAddressValue: 01
+  addressValue: 1
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &138216916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2475,10 +2478,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 110
-  addressValue: 6
+  binaryAddressValue: 010
+  addressValue: 2
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &256875665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4429,14 +4433,14 @@ MonoBehaviour:
   - {fileID: 1842018230}
   - {fileID: 1842018230}
   frameSlots:
-  - {fileID: 1762324518}
-  - {fileID: 761996566}
-  - {fileID: 1573668401}
-  - {fileID: 75633844}
-  - {fileID: 1314283974}
   - {fileID: 568997793}
+  - {fileID: 1573668401}
   - {fileID: 389666240}
+  - {fileID: 75633844}
+  - {fileID: 1762324518}
   - {fileID: 797745738}
+  - {fileID: 761996566}
+  - {fileID: 1314283974}
   pageBlocks:
   - {fileID: 1867662204}
   - {fileID: 529755359}
@@ -4447,23 +4451,23 @@ MonoBehaviour:
   - {fileID: 256875662}
   - {fileID: 1091655294}
   frameBlocks:
-  - {fileID: 1244632997}
-  - {fileID: 1865741467}
-  - {fileID: 2038667302}
-  - {fileID: 25070271}
-  - {fileID: 2101406282}
   - {fileID: 74608856}
+  - {fileID: 2038667302}
   - {fileID: 1507540896}
+  - {fileID: 25070271}
+  - {fileID: 1244632997}
   - {fileID: 1964781856}
+  - {fileID: 1865741467}
+  - {fileID: 2101406282}
   blocksToAssign:
-  - {fileID: 1244632997}
-  - {fileID: 1865741467}
-  - {fileID: 2038667302}
-  - {fileID: 25070271}
-  - {fileID: 2101406282}
   - {fileID: 74608856}
+  - {fileID: 2038667302}
   - {fileID: 1507540896}
+  - {fileID: 25070271}
+  - {fileID: 1244632997}
   - {fileID: 1964781856}
+  - {fileID: 1865741467}
+  - {fileID: 2101406282}
   slotIndicesToAssign: 0000000001000000020000000300000004000000050000000600000007000000
   slotTypesToAssign: 0200000002000000020000000200000002000000020000000200000002000000
   blockColorChangers:
@@ -4476,14 +4480,14 @@ MonoBehaviour:
   - {fileID: 1366161637}
   - {fileID: 1755762145}
   targetValues:
-  - 00000
-  - 00101
-  - 10101
-  - 01111
-  - 10000
-  - 10101
+  - 01100
+  - 00010
   - 11010
-  - 11111
+  - 00100
+  - 11110
+  - 10010
+  - 01001
+  - 10111
 --- !u!61 &494085874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4764,10 +4768,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 01
-  addressValue: 1
+  binaryAddressValue: 00
+  addressValue: 0
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &528714335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4912,10 +4917,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 001
-  addressValue: 1
+  binaryAddressValue: 000
+  addressValue: 0
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &529755362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6679,10 +6685,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 11
-  addressValue: 3
+  binaryAddressValue: 10
+  addressValue: 2
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &745043290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7716,14 +7723,14 @@ MonoBehaviour:
   - {fileID: 671346939}
   - {fileID: 1562975950}
   targetValuesBinary:
+  - 01110
   - 00000
+  - 11011
   - 00101
-  - 01010
-  - 01111
-  - 10000
-  - 10101
-  - 11010
-  - 11111
+  - 11101
+  - 10011
+  - 01000
+  - 10110
   blockColorChangers:
   - {fileID: 1920494044}
   - {fileID: 2122462240}
@@ -7896,10 +7903,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 101
-  addressValue: 5
+  binaryAddressValue: 100
+  addressValue: 4
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &848648148
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8270,6 +8278,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &902477596
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8718,10 +8727,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 011
-  addressValue: 3
+  binaryAddressValue: 001
+  addressValue: 1
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &941484219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9654,10 +9664,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 111
-  addressValue: 7
+  binaryAddressValue: 101
+  addressValue: 5
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1091655297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10206,10 +10217,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 10
-  addressValue: 2
+  binaryAddressValue: 00
+  addressValue: 0
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1231609459
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10448,10 +10460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 2
-  binaryAddressValue: 00
-  addressValue: 0
+  binaryAddressValue: 11
+  addressValue: 3
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1244633000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10596,10 +10609,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 010
-  addressValue: 2
+  binaryAddressValue: 110
+  addressValue: 6
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1271245020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11803,10 +11817,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 01
-  addressValue: 1
+  binaryAddressValue: 11
+  addressValue: 3
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1428123479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11960,6 +11975,7 @@ MonoBehaviour:
   addressValue: 3
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1483992940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12143,6 +12159,7 @@ MonoBehaviour:
   addressValue: 1
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1496591275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12420,10 +12437,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 2
-  binaryAddressValue: 10
-  addressValue: 2
+  binaryAddressValue: 01
+  addressValue: 1
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1507540899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14359,10 +14377,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 00
-  addressValue: 0
+  binaryAddressValue: 10
+  addressValue: 2
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!1 &1690259735
 GameObject:
   m_ObjectHideFlags: 0
@@ -14546,10 +14565,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 11
-  addressValue: 3
+  binaryAddressValue: 01
+  addressValue: 1
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1737493327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14788,10 +14808,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 1
-  binaryAddressValue: 10
-  addressValue: 2
+  binaryAddressValue: 11
+  addressValue: 3
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1753531027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15336,6 +15357,7 @@ MonoBehaviour:
   addressValue: 2
   bitSize: 2
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1784972016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15842,6 +15864,7 @@ MonoBehaviour:
   addressValue: 1
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1865741470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16083,10 +16106,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 000
-  addressValue: 0
+  binaryAddressValue: 011
+  addressValue: 3
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!1 &1895964382
 GameObject:
   m_ObjectHideFlags: 0
@@ -16488,10 +16512,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
-  binaryAddressValue: 100
-  addressValue: 4
+  binaryAddressValue: 111
+  addressValue: 7
   bitSize: 3
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1945428513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16734,6 +16759,7 @@ MonoBehaviour:
   addressValue: 3
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1964781859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17329,6 +17355,7 @@ MonoBehaviour:
   addressValue: 2
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &2038667305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17763,10 +17790,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 2
-  binaryAddressValue: 00
-  addressValue: 0
+  binaryAddressValue: 10
+  addressValue: 2
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &2101406285
 BoxCollider2D:
   m_ObjectHideFlags: 0

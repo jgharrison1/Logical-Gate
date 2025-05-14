@@ -726,6 +726,7 @@ MonoBehaviour:
   addressValue: 3
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &32377767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -874,6 +875,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &34361038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2674,6 +2676,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &276709571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2822,6 +2825,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &284375310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3271,6 +3275,7 @@ MonoBehaviour:
   addressValue: 1
   bitSize: 1
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &317900564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5263,6 +5268,7 @@ MonoBehaviour:
   addressValue: 1
   bitSize: 1
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &697170128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7409,6 +7415,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1040845435
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7557,6 +7564,7 @@ MonoBehaviour:
   addressValue: 2
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1051509361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8293,6 +8301,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1116453017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9772,6 +9781,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1309867584
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10854,6 +10864,7 @@ MonoBehaviour:
   addressValue: 1
   bitSize: 2
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1408255933
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12060,6 +12071,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 1
+  isVisible: 1
 --- !u!61 &1520966666
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14857,6 +14869,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1885951947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15198,6 +15211,7 @@ MonoBehaviour:
   addressValue: 0
   bitSize: 1
   isGrabbable: 0
+  isVisible: 1
 --- !u!61 &1892938039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16005,8 +16019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   memoryManager: {fileID: 2096677680}
-  openPosition: {x: -33.5, y: 4.86}
-  closedPosition: {x: -33.5, y: 2.46}
+  openPosition: {x: -31.55, y: 4.86}
+  closedPosition: {x: -31.55, y: 2.46}
   speed: 2
   text: {fileID: 0}
   doorOpenSFX: {fileID: 0}

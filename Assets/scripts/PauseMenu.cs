@@ -66,4 +66,14 @@ public class PauseMenu : MonoBehaviour
             activeDialogue = false;
         }
     }
+
+    public void QuitGame() {
+        #if !UNITY_EDITOR
+			Application.Quit();
+		#endif
+		
+		#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+		#endif
+    }
 }

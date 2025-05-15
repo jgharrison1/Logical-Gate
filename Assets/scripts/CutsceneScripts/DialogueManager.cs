@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
         //check if there are more sentences left in the queue
         spamClick++;
         StopAllCoroutines(); //stopallcoroutines will stop current dialogue if next one is triggered before it finishes.
+        NotTalking();
         if(sentences.Count == 0 & spamClick > 1) {
             continueButton.interactable = false;
             dialogueText.text = sentence;

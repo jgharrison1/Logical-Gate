@@ -9587,6 +9587,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 710669050}
     m_Modifications:
+    - target: {fileID: 233094494126975353, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 240525233}
+    - target: {fileID: 233094494126975353, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+      propertyPath: exitWarning
+      value: 
+      objectReference: {fileID: 61965407}
     - target: {fileID: 442268014342362952, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
       propertyPath: playerHealth
       value: 

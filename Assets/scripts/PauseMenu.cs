@@ -10,6 +10,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
     public GameObject characterSelectUI;
+    public GameObject reviewConcepts1;//1 is first layer RC menu, 2 is second...
+    public GameObject reviewConcepts2;
+    public GameObject reviewConcepts3;
     private bool activeDialogue = false;
     public GameObject dialogueBox;
     public GameObject exitWarning;
@@ -23,6 +26,9 @@ public class PauseMenu : MonoBehaviour
             {
                 settingsMenuUI.SetActive(false);
                 characterSelectUI.SetActive(false);
+                reviewConcepts1.SetActive(false);
+                reviewConcepts2.SetActive(false);
+                reviewConcepts3.SetActive(false);
                 Resume(); //pressing P while paused will unpause
             }
             else Pause();
@@ -35,23 +41,16 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; //freeze gameplay
         isPaused = true;
-        if(dialogueBox!=null) activeDialogue = GameObject.Find("DialogueBox").activeSelf;
-        if(GameObject.Find("ExitWarning")!=null)
-        {
-            GameObject.Find("ExitWarning").SetActive(false);
-        }
-        if(activeDialogue){
+        if(dialogueBox!=null) {
+            activeDialogue = dialogueBox.activeSelf;
             FindObjectOfType<DialogueManager>().continueButton.interactable = false;
             tmpButton = GameObject.Find("ExitDialogueButton").GetComponent<Button>();
             tmpButton.interactable = false;
-
         }
-/*
-        if(GameObject.Find("ExitWarning")!=null)
+        if(exitWarning!=null)
         {
-            GameObject.Find("ExitWarning").SetActive(false);
+            exitWarning.SetActive(false);
         }
-        */
     }
 
     public void Resume()

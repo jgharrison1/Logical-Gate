@@ -3285,11 +3285,11 @@ Transform:
   m_GameObject: {fileID: 458284962}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.5248, y: 1.0385437, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.90026754, z: 1}
+  m_LocalPosition: {x: 4.3202705, y: 1.4253464, z: 0}
+  m_LocalScale: {x: 1, y: 1.8005351, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2078747959}
+  m_Father: {fileID: 1571114530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &458284964
 SpriteRenderer:
@@ -7739,11 +7739,11 @@ Transform:
   m_GameObject: {fileID: 1105584144}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.7064, y: 0.197, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.7833182, z: 1}
+  m_LocalPosition: {x: 5.9570713, y: -0.25774002, z: 0}
+  m_LocalScale: {x: 1, y: 1.5666366, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2078747959}
+  m_Father: {fileID: 1571114530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1105584146
 SpriteRenderer:
@@ -9951,11 +9951,11 @@ Transform:
   m_GameObject: {fileID: 1335322471}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0891819, y: 0.6218, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8615865, z: 1}
+  m_LocalPosition: {x: 5.1915073, y: 0.5918579, z: 0}
+  m_LocalScale: {x: 1, y: 1.723173, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2078747959}
+  m_Father: {fileID: 1571114530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1335322473
 SpriteRenderer:
@@ -11859,13 +11859,38 @@ PrefabInstance:
       propertyPath: parentGate
       value: 
       objectReference: {fileID: 2078747960}
+    - target: {fileID: 5993475661878964276, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
+      propertyPath: connectedLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993475661878964276, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
+      propertyPath: connectedLines.Array.data[0]
+      value: 
+      objectReference: {fileID: 458284964}
+    - target: {fileID: 5993475661878964276, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
+      propertyPath: connectedLines.Array.data[1]
+      value: 
+      objectReference: {fileID: 1335322473}
+    - target: {fileID: 5993475661878964276, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
+      propertyPath: connectedLines.Array.data[2]
+      value: 
+      objectReference: {fileID: 1105584146}
     - target: {fileID: 6484520017858051890, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
       propertyPath: m_Name
       value: BinaryAdder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2662878778068516089, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 458284963}
+    - targetCorrespondingSourceObject: {fileID: 2662878778068516089, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1335322472}
+    - targetCorrespondingSourceObject: {fileID: 2662878778068516089, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1105584145}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e76857697c7e74bbd3059a43e81fc3, type: 3}
 --- !u!4 &1571114530 stripped
@@ -16499,15 +16524,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 149288054974541682, guid: 09a2485a9fc3936478490e4905030314, type: 3}
       insertIndex: 4
       addedObject: {fileID: 1253624321}
-    - targetCorrespondingSourceObject: {fileID: 149288054974541682, guid: 09a2485a9fc3936478490e4905030314, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 458284963}
-    - targetCorrespondingSourceObject: {fileID: 149288054974541682, guid: 09a2485a9fc3936478490e4905030314, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1335322472}
-    - targetCorrespondingSourceObject: {fileID: 149288054974541682, guid: 09a2485a9fc3936478490e4905030314, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1105584145}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6712317238535748454, guid: 09a2485a9fc3936478490e4905030314, type: 3}
       insertIndex: -1

@@ -403,7 +403,7 @@ public class mainMemory : MonoBehaviour
         GameObject expectedGO = new GameObject("ExpectedSequenceText");
         expectedGO.transform.SetParent(targetCanvas.transform, false);
         expectedTextUI = expectedGO.AddComponent<TextMeshProUGUI>();
-        expectedTextUI.fontSize = 48;
+        expectedTextUI.fontSize = 36;
         expectedTextUI.alignment = TextAlignmentOptions.Left;
         expectedTextUI.color = Color.cyan;
         if (fontAsset != null) expectedTextUI.font = fontAsset;
@@ -414,7 +414,7 @@ public class mainMemory : MonoBehaviour
         GameObject currentGO = new GameObject("CurrentSequenceText");
         currentGO.transform.SetParent(targetCanvas.transform, false);
         currentTextUI = currentGO.AddComponent<TextMeshProUGUI>();
-        currentTextUI.fontSize = 48;
+        currentTextUI.fontSize = 36;
         currentTextUI.alignment = TextAlignmentOptions.Left;
         currentTextUI.color = Color.green;
         if (fontAsset != null) currentTextUI.font = fontAsset;

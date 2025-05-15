@@ -11094,10 +11094,11 @@ MonoBehaviour:
   slotTypesToAssign: 01000000010000000100000001000000
   expectedSequence: 0100000000000000030000000200000002000000000000000100000003000000
   sequenceCompleted: 0
-  targetCanvas: {fileID: 0}
-  expectedTextPosition: {x: 450, y: 500, z: 0}
-  currentTextPosition: {x: -200, y: 500, z: 0}
-  fontAsset: {fileID: 0}
+  targetCanvas: {fileID: 1645469087}
+  expectedTextPosition: {x: 450, y: 400, z: 0}
+  currentTextPosition: {x: -300, y: 400, z: 0}
+  fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  ctTrigger: {fileID: 0}
 --- !u!61 &1320525205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14181,6 +14182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &1645469087 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4015134204277259835, guid: 479ba38dc52fd40fc950ea1b17628982, type: 3}
+  m_PrefabInstance: {fileID: 1645469082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1646584406
 GameObject:
   m_ObjectHideFlags: 0

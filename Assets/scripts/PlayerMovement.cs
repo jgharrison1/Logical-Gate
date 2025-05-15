@@ -46,7 +46,7 @@ public class playerMovement : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject highlightBorderPrefab;
     private Vector3 heldBlockOriginalScale;
     public RuntimeAnimatorController[] animationControllers;
-    public int animIndex;
+    public int animIndex = 0;
 
     void Start()
     {

@@ -13,7 +13,11 @@ public class PreviousLevelLoader : MonoBehaviour
             // Check if previous scene exists to avoid errors
             if (previousSceneIndex >= 0)
             {
-                SceneManager.LoadSceneAsync(previousSceneIndex);
+                if(previousSceneIndex == 2 || previousSceneIndex == 6 || previousSceneIndex == 9){
+                    SceneManager.LoadSceneAsync("Hub");
+                }
+                
+                else SceneManager.LoadSceneAsync(previousSceneIndex);
             }
         }
     }

@@ -141,6 +141,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LevelComplete()
     {
+        Debug.Log("Level Completed");
         gameData.levelsCompleted.Add(gameData.currentScene, true);
         SaveGame(); //may not need this SaveGame call because of the checkpoints at end of each level.
     }

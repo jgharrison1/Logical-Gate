@@ -10,6 +10,7 @@ public class TutorialTeleport : MonoBehaviour, IDataPersistence
     public Button b1,b2,b3;
     private Vector3 tmp1, tmp2, tmp3;
     public GameObject SelectionMenu;
+
     // Start is called before the first frame update
     public void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Player")){

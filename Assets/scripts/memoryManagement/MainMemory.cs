@@ -38,6 +38,7 @@ public class mainMemory : MonoBehaviour
     public Vector3 expectedTextPosition;
     public Vector3 currentTextPosition;
     public TMP_FontAsset fontAsset;
+    public GameObject ctTrigger;
 
     private TextMeshProUGUI expectedTextUI;
     private TextMeshProUGUI currentTextUI;
@@ -356,6 +357,9 @@ public class mainMemory : MonoBehaviour
                     if (correct)
                     {
                         Debug.Log("Correct sequence achieved!");
+                        if(ctTrigger!=null) {
+                            ctTrigger.GetComponent<CutsceneTrigger>().triggerCutscene();
+                        }
                     }
                     else
                     {

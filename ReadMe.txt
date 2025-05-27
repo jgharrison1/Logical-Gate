@@ -1,4 +1,4 @@
-Logical Gate is an educational game in a 2D platformer style covering logic gates, binary arithmetic, and memory mangament.
+Logical Gate is an educational game in a 2D platformer style covering logic gates, binary arithmetic, and memory management.
 
 The user can access the game on the Unity Play website with the following link:
 https://play.unity.com/en/games/a5b0fca3-47d5-4fdc-80fa-e37b429c7480/logical-gate
